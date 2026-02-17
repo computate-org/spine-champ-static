@@ -1,0 +1,65 @@
+
+{%- macro htmButton_patchTeam() %}<wa-button variant="brand" id="htmButton_patchTeam"  data-dialog="open patchTeamDialog" data-teamId={{ result.teamId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-edit "></i>Modify</wa-button>{%- endmacro %}
+
+{%- macro htmButton_postTeam() %}<wa-button variant="brand" id="htmButton_postTeam"  data-dialog="open postTeamDialog" data-teamId={{ result.teamId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-file-plus "></i>Create</wa-button>{%- endmacro %}
+
+{%- macro htmButton_deleteTeam() %}<wa-button variant="brand" id="htmButton_deleteTeam" data-teamId={{ result.teamId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-trash "></i>Delete</wa-button>{%- endmacro %}
+
+{%- macro htmButton_putimportTeam() %}<wa-button variant="brand" id="htmButton_putimportTeam"  data-dialog="open putimportTeamDialog" data-teamId={{ result.teamId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-file-import "></i>Import</wa-button>{%- endmacro %}
+
+{%- macro htmButton_deletefilterTeam() %}<wa-button variant="brand" id="htmButton_deletefilterTeam" data-teamId={{ result.teamId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-trash "></i>Delete</wa-button>{%- endmacro %}
+          <div id="htmSearchForm">
+            <wa-scroller>
+              <wa-button-group>
+{% if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {% if "PATCH" in scopes %}
+    {% if resultCount >= 1 %}
+                <wa-button variant="brand" id="refreshThisTeamGenPage"
+                     onclick="patch{{classSimpleName}}Vals( [ {name: 'fq', value: 'teamId:{{ result.teamId }}' } ], {}, this, function() { addGlow(document.querySelector('#refreshThisTeamGenPage')); }, function() { addError(document.querySelector('#refreshThisTeamGenPage')); }); return false; ">
+                  <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-sync-alt "></i>
+                  refresh
+                </wa-button>
+    {% endif %}
+    {% if resultCount > 0 %}
+                <wa-button variant="brand" id="refreshAllTeamGenPage{{ result.teamId | e }}"
+                     onclick="patch{{classSimpleName}}Vals([], {}, this, function() { addGlow(document.querySelector('#refreshAllTeamGenPage{{ result.teamId | e }}')); }, function() { addError(document.querySelector('#refreshAllTeamGenPage{{ result.teamId | e }}')); }); "
+                    >
+                  <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrows-rotate"></i>
+                  refresh all 
+                </wa-button>
+    {% endif %}
+  {% endif %}
+{% endif %}
+{%- if 'PATCH' in scopes %}
+  {%- if resultCount > 0 %}
+    {%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+    {{ htmButton_patchTeam() }}
+    {%- endif %}
+  {%- endif %}
+{%- endif %}
+{%- if 'POST' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmButton_postTeam() }}
+  {%- else %}
+    {{ htmButton_postTeam() }}
+  {%- endif %}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if result is defined %}
+    {{ htmButton_deleteTeam() }}
+  {%- endif %}
+{%- endif %}
+{%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {{ htmButton_putimportTeam() }}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if result is not defined %}
+    {%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+    {{ htmButton_deletefilterTeam() }}
+    {%- endif %}
+  {%- endif %}
+{%- endif %}
+
+              </wa-button-group>
+            </wa-scroller>
+          </div>

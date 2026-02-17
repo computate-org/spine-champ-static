@@ -1,0 +1,665 @@
+{% extends "en-us/PageLayout.htm" %}
+
+{%- block htmTitlePageLayout %}
+{%- block htmTitleSweetSixteenPage %}
+    <title>{% if resultCount == 0 %}no sweet sixteen bracket found{% else %}sweet sixteen brackets{% endif %}</title>
+{%- endblock htmTitleSweetSixteenPage %}
+{%- endblock htmTitlePageLayout %}
+
+{%- block htmStylesPageLayout %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ staticBaseUrl }}/css/en-us/search/sweet-sixteen/SweetSixteen.css"/>
+{%- block htmStylesSweetSixteenPage %}
+{%- endblock htmStylesSweetSixteenPage %}
+{%- endblock htmStylesPageLayout %}
+
+{%- block htmStylePageLayout %}
+      :root {
+        --site-results-number-of-columns: 2;
+      }
+{{ super() }}
+{%- block htmStyleSweetSixteenPage %}
+{%- endblock htmStyleSweetSixteenPage %}
+{%- endblock htmStylePageLayout %}
+
+{%- block htmScriptsPageLayout %}
+{{ super() }}
+{%- block htmScriptsSweetSixteenPage %}
+    <script src="{{staticBaseUrl}}/js/en-us/search/sweet-sixteen/SweetSixteen.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/sweet-sixteen/SweetSixteenSearchPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/team/Team.js"></script>
+{%- endblock htmScriptsSweetSixteenPage %}
+{%- endblock htmScriptsPageLayout %}
+
+{%- block htmScriptPageLayout %}
+{%- block htmScriptSweetSixteenPage %}
+    <script>
+
+      function jsWebsocketSweetSixteen(bracketId, vars, $response) {
+{%- block jsWebsocketSweetSixteenPage %}{%- endblock %}
+      }
+
+      function jsTooltipSweetSixteen(e, feature) {
+{%- block jsTooltipSweetSixteenPage %}{%- endblock %}
+      }
+
+      function htmTooltipSweetSixteen(feature, layer) {
+        return `{%- block htmTooltipSweetSixteenPage %}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.editPage)}">${feature.properties.objectTitle}</a></h3>
+{%- endblock htmTooltipSweetSixteenPage %}`;
+      }
+
+      function facetChangeSweetSixteenSuccess(e) {
+        var l = e.querySelector('.pageForm .listSweetSixteen')?.value;
+        if(l)
+          window.listSweetSixteen = JSON.parse(l);
+{% block facetChangeSweetSixteenSuccess %}{%- endblock facetSweetSixteenSuccess %}
+      }
+      function facetChangeSweetSixteenError(e) {
+{% block facetChangeSweetSixteenError %}{%- endblock facetSweetSixteenError %}
+      }
+
+      function facetSimpleRangeSweetSixteenSuccess(e) {
+{% block facetSimpleRangeSweetSixteenSuccess %}      facetChangeSweetSixteenSuccess(e);{% endblock facetSimpleRangeSweetSixteenSuccess %}
+      }
+      function facetSimpleRangeSweetSixteenError(e) {
+{% block facetSimpleRangeSweetSixteenError %}      facetChangeSweetSixteenError(e);{% endblock facetSimpleRangeSweetSixteenError %}
+      }
+      function facetSimpleRangeSweetSixteen(e) {
+        facetSimpleRange(e, facetSimpleRangeSweetSixteenSuccess, facetSimpleRangeSweetSixteenError);
+      }
+
+      function facetRangeTimeZoneSweetSixteenSuccess(e) {
+{% block facetRangeTimeZoneSweetSixteenSuccess %}      facetChangeSweetSixteenSuccess(e);{% endblock facetRangeTimeZoneSweetSixteenSuccess %}
+      }
+      function facetRangeTimeZoneSweetSixteenError(e) {
+{% block facetRangeTimeZoneSweetSixteenError %}      facetChangeSweetSixteenError(e);{%- endblock facetRangeTimeZoneSweetSixteenError %}
+      }
+      function facetRangeTimeZoneSweetSixteen(e) {
+        facetRangeTimeZone(e, facetRangeTimeZoneSweetSixteenSuccess, facetRangeTimeZoneSweetSixteenError);
+      }
+
+      function facetRangeGapChangeSweetSixteenSuccess(e) {
+{% block facetRangeGapChangeSweetSixteenSuccess %}      facetChangeSweetSixteenSuccess(e);{% endblock facetRangeGapChangeSweetSixteenSuccess %}
+      }
+      function facetRangeGapChangeSweetSixteenError(e) {
+{% block facetRangeGapChangeSweetSixteenError %}      facetChangeSweetSixteenError(e);{%- endblock facetRangeGapChangeSweetSixteenError %}
+      }
+      function facetRangeGapChangeSweetSixteen(classSimpleName, event) {
+        facetRangeGapChange(classSimpleName, event, facetRangeGapChangeSweetSixteenSuccess, facetRangeGapChangeSweetSixteenError);
+      }
+
+      function facetRangeStartChangeSweetSixteenSuccess(e) {
+{% block facetRangeStartChangeSweetSixteenSuccess %}      facetChangeSweetSixteenSuccess(e);{% endblock facetRangeStartChangeSweetSixteenSuccess %}
+      }
+      function facetRangeStartChangeSweetSixteenError(e) {
+{% block facetRangeStartChangeSweetSixteenError %}      facetChangeSweetSixteenError(e);{%- endblock facetRangeStartChangeSweetSixteenError %}
+      }
+      function facetRangeStartChangeSweetSixteen(classSimpleName, event) {
+        facetRangeStartChange(classSimpleName, event, facetRangeStartChangeSweetSixteenSuccess, facetRangeStartChangeSweetSixteenError);
+      }
+
+      function facetRangeEndChangeSweetSixteenSuccess(e) {
+{% block facetRangeEndChangeSweetSixteenSuccess %}      facetChangeSweetSixteenSuccess(e);{% endblock facetRangeEndChangeSweetSixteenSuccess %}
+      }
+      function facetRangeEndChangeSweetSixteenError(e) {
+{% block facetRangeEndChangeSweetSixteenError %}      facetChangeSweetSixteenError(e);{%- endblock facetRangeEndChangeSweetSixteenError %}
+      }
+      function facetRangeEndChangeSweetSixteen(classSimpleName, event) {
+        facetRangeEndChange(classSimpleName, event, facetRangeEndChangeSweetSixteenSuccess, facetRangeEndChangeSweetSixteenError);
+      }
+    </script>
+    <script type="module">
+{% if DEFAULT_MAP_LOCATION is defined %}
+      window.DEFAULT_MAP_LOCATION = { type: 'Point', coordinates: [ {{ DEFAULT_MAP_LOCATION.coordinates[0] }}, {{ DEFAULT_MAP_LOCATION.coordinates[1] }} ]};
+{% endif %}
+{% if DEFAULT_MAP_ZOOM is defined %}
+      window.DEFAULT_MAP_ZOOM = {{ DEFAULT_MAP_ZOOM }};
+{% endif %}
+      window.DEFAULT_ZONE_ID = '{{ defaultZoneId }}';
+      Promise.all([
+        customElements.whenDefined('wa-button')
+        , customElements.whenDefined('wa-input')
+        , customElements.whenDefined('wa-select')
+        , customElements.whenDefined('wa-radio')
+        , customElements.whenDefined('wa-checkbox')
+        , customElements.whenDefined('wa-dropdown')
+      ]).then(() => {
+
+        var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
+
+          function relate_guesserId(event) {
+            suggestSweetSixteenGuesserId(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.guesserId is defined %}{'name':'fq','value':'guesserId:{{ result.guesserId }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#POST_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#PATCH_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#PATCH_guesserId')?.addEventListener('focus', relate_guesserId);
+          function relate_southGame1Winner(event) {
+            suggestSweetSixteenSouthGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.southGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.southGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_southGame1Winner')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#POST_southGame1Winner')?.addEventListener('focus', relate_southGame1Winner);
+          document.querySelector('#PATCH_southGame1Winner')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#PATCH_southGame1Winner')?.addEventListener('focus', relate_southGame1Winner);
+          function relate_westGame1Winner(event) {
+            suggestSweetSixteenWestGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.westGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.westGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_westGame1Winner')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#POST_westGame1Winner')?.addEventListener('focus', relate_westGame1Winner);
+          document.querySelector('#PATCH_westGame1Winner')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#PATCH_westGame1Winner')?.addEventListener('focus', relate_westGame1Winner);
+          function relate_eastGame1Winner(event) {
+            suggestSweetSixteenEastGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.eastGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.eastGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_eastGame1Winner')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#POST_eastGame1Winner')?.addEventListener('focus', relate_eastGame1Winner);
+          document.querySelector('#PATCH_eastGame1Winner')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#PATCH_eastGame1Winner')?.addEventListener('focus', relate_eastGame1Winner);
+          function relate_midwestGame1Winner(event) {
+            suggestSweetSixteenMidwestGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.midwestGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.midwestGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_midwestGame1Winner')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#POST_midwestGame1Winner')?.addEventListener('focus', relate_midwestGame1Winner);
+          document.querySelector('#PATCH_midwestGame1Winner')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#PATCH_midwestGame1Winner')?.addEventListener('focus', relate_midwestGame1Winner);
+          function relate_southGame1Loser(event) {
+            suggestSweetSixteenSouthGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.southGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.southGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_southGame1Loser')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#POST_southGame1Loser')?.addEventListener('focus', relate_southGame1Loser);
+          document.querySelector('#PATCH_southGame1Loser')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#PATCH_southGame1Loser')?.addEventListener('focus', relate_southGame1Loser);
+          function relate_westGame1Loser(event) {
+            suggestSweetSixteenWestGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.westGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.westGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_westGame1Loser')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#POST_westGame1Loser')?.addEventListener('focus', relate_westGame1Loser);
+          document.querySelector('#PATCH_westGame1Loser')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#PATCH_westGame1Loser')?.addEventListener('focus', relate_westGame1Loser);
+          function relate_eastGame1Loser(event) {
+            suggestSweetSixteenEastGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.eastGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.eastGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#POST_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
+          document.querySelector('#PATCH_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#PATCH_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
+          function relate_midwestGame1Loser(event) {
+            suggestSweetSixteenMidwestGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.midwestGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.midwestGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_midwestGame1Loser')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#POST_midwestGame1Loser')?.addEventListener('focus', relate_midwestGame1Loser);
+          document.querySelector('#PATCH_midwestGame1Loser')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#PATCH_midwestGame1Loser')?.addEventListener('focus', relate_midwestGame1Loser);
+          function relate_southGame2Winner(event) {
+            suggestSweetSixteenSouthGame2Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.southGame2Winner is defined %}{'name':'fq','value':'teamId:{{ result.southGame2Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_southGame2Winner')?.addEventListener('input', relate_southGame2Winner);
+          document.querySelector('#POST_southGame2Winner')?.addEventListener('focus', relate_southGame2Winner);
+          document.querySelector('#PATCH_southGame2Winner')?.addEventListener('input', relate_southGame2Winner);
+          document.querySelector('#PATCH_southGame2Winner')?.addEventListener('focus', relate_southGame2Winner);
+          function relate_westGame2Winner(event) {
+            suggestSweetSixteenWestGame2Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.westGame2Winner is defined %}{'name':'fq','value':'teamId:{{ result.westGame2Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_westGame2Winner')?.addEventListener('input', relate_westGame2Winner);
+          document.querySelector('#POST_westGame2Winner')?.addEventListener('focus', relate_westGame2Winner);
+          document.querySelector('#PATCH_westGame2Winner')?.addEventListener('input', relate_westGame2Winner);
+          document.querySelector('#PATCH_westGame2Winner')?.addEventListener('focus', relate_westGame2Winner);
+          function relate_eastGame2Winner(event) {
+            suggestSweetSixteenEastGame2Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.eastGame2Winner is defined %}{'name':'fq','value':'teamId:{{ result.eastGame2Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_eastGame2Winner')?.addEventListener('input', relate_eastGame2Winner);
+          document.querySelector('#POST_eastGame2Winner')?.addEventListener('focus', relate_eastGame2Winner);
+          document.querySelector('#PATCH_eastGame2Winner')?.addEventListener('input', relate_eastGame2Winner);
+          document.querySelector('#PATCH_eastGame2Winner')?.addEventListener('focus', relate_eastGame2Winner);
+          function relate_midwestGame2Winner(event) {
+            suggestSweetSixteenMidwestGame2Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.midwestGame2Winner is defined %}{'name':'fq','value':'teamId:{{ result.midwestGame2Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_midwestGame2Winner')?.addEventListener('input', relate_midwestGame2Winner);
+          document.querySelector('#POST_midwestGame2Winner')?.addEventListener('focus', relate_midwestGame2Winner);
+          document.querySelector('#PATCH_midwestGame2Winner')?.addEventListener('input', relate_midwestGame2Winner);
+          document.querySelector('#PATCH_midwestGame2Winner')?.addEventListener('focus', relate_midwestGame2Winner);
+          function relate_southGame2Loser(event) {
+            suggestSweetSixteenSouthGame2Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.southGame2Loser is defined %}{'name':'fq','value':'teamId:{{ result.southGame2Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_southGame2Loser')?.addEventListener('input', relate_southGame2Loser);
+          document.querySelector('#POST_southGame2Loser')?.addEventListener('focus', relate_southGame2Loser);
+          document.querySelector('#PATCH_southGame2Loser')?.addEventListener('input', relate_southGame2Loser);
+          document.querySelector('#PATCH_southGame2Loser')?.addEventListener('focus', relate_southGame2Loser);
+          function relate_westGame2Loser(event) {
+            suggestSweetSixteenWestGame2Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.westGame2Loser is defined %}{'name':'fq','value':'teamId:{{ result.westGame2Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_westGame2Loser')?.addEventListener('input', relate_westGame2Loser);
+          document.querySelector('#POST_westGame2Loser')?.addEventListener('focus', relate_westGame2Loser);
+          document.querySelector('#PATCH_westGame2Loser')?.addEventListener('input', relate_westGame2Loser);
+          document.querySelector('#PATCH_westGame2Loser')?.addEventListener('focus', relate_westGame2Loser);
+          function relate_eastGame2Loser(event) {
+            suggestSweetSixteenEastGame2Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.eastGame2Loser is defined %}{'name':'fq','value':'teamId:{{ result.eastGame2Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_eastGame2Loser')?.addEventListener('input', relate_eastGame2Loser);
+          document.querySelector('#POST_eastGame2Loser')?.addEventListener('focus', relate_eastGame2Loser);
+          document.querySelector('#PATCH_eastGame2Loser')?.addEventListener('input', relate_eastGame2Loser);
+          document.querySelector('#PATCH_eastGame2Loser')?.addEventListener('focus', relate_eastGame2Loser);
+          function relate_midwestGame2Loser(event) {
+            suggestSweetSixteenMidwestGame2Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + event.target.value }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ] : [{%- if result.midwestGame2Loser is defined %}{'name':'fq','value':'teamId:{{ result.midwestGame2Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#POST_midwestGame2Loser')?.addEventListener('input', relate_midwestGame2Loser);
+          document.querySelector('#POST_midwestGame2Loser')?.addEventListener('focus', relate_midwestGame2Loser);
+          document.querySelector('#PATCH_midwestGame2Loser')?.addEventListener('input', relate_midwestGame2Loser);
+          document.querySelector('#PATCH_midwestGame2Loser')?.addEventListener('focus', relate_midwestGame2Loser);
+        if(bracketId == null) {
+          document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-details');
+          });
+          document.querySelector('#grid-toggle-list')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-list');
+          });
+          document.querySelector('#grid-toggle-card')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-list');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-card');
+          });
+        } else {
+          var o = document.querySelector('.pageForm .result')?.value;
+          if(o)
+            window.result = JSON.parse(o);
+        {% if result.bracketId is defined %}
+        {% endif %}
+        }
+        var l = document.querySelector('.pageForm .listSweetSixteen')?.value;
+        if(l)
+          window.listSweetSixteen = JSON.parse(l);
+        window.varsFq = JSON.parse('{{ toJsonObjectStringInApostrophes(varsFq) }}');
+        window.varsRange = JSON.parse('{{ toJsonObjectStringInApostrophes(varsRange) }}');
+        window.defaultRangeVar = '{{ defaultRangeVar }}';
+        document.querySelector('#siteSidebarToggleRange')?.addEventListener('wa-after-hide', function(e) { document.querySelector('#pageFacetRangeTimeZonePopup').active = false; });
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneSweetSixteen);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneSweetSixteen);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('focus', facetRangeTimeZoneSweetSixteen);
+        document.querySelector('#pageFacetSimpleRangeDropdown')?.addEventListener('wa-select', facetSimpleRangeSweetSixteen);
+        pageGraphSweetSixteen();
+        {% for key, value in varsQ.items() %}
+
+        document.querySelector('#qSweetSixteen_{{ key }}')?.addEventListener('wa-{% if var == 'objectSuggest' %}keyup{% else %}change{% endif %}', event => {
+          qChange('SweetSixteen', event.target, document.querySelector('#qSweetSixteenDiv_{{ key }}'));
+        });
+        {% endfor %}
+
+        document.querySelector('#qSweetSixteen_rows')?.addEventListener('change', event => {
+          paramChange('SweetSixteen', event.target, document.querySelector('#qSweetSixteenDiv_rows'));
+        });
+
+        document.querySelector('#qSweetSixteen_start')?.addEventListener('change', event => {
+          paramChange('SweetSixteen', event.target, document.querySelector('#qSweetSixteenDiv_start'));
+        });
+
+
+        var submitForm_patchSweetSixteen = document.querySelector('#htmForm_patchSweetSixteen')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_patchSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          patchSweetSixteen(null, document.querySelector('#htmForm_patchSweetSixteen'), document.querySelector('#htmFormButton_patchSweetSixteen'), event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_postSweetSixteen = document.querySelector('#htmForm_postSweetSixteen')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_postSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          postSweetSixteen(document.querySelector('#htmForm_postSweetSixteen')
+          , document.querySelector('#htmFormButton_postSweetSixteen')
+          , (json, target) => {
+            window.location.href = json.editPage;
+          });
+          return false;
+        });
+
+        var submitForm_deleteSweetSixteen = document.querySelector('#htmForm_deleteSweetSixteen')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deleteSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          deleteSweetSixteen(event.target, event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_putimportSweetSixteen = document.querySelector('#htmForm_putimportSweetSixteen')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_putimportSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          putimportSweetSixteen(document.querySelector('#htmForm_putimportSweetSixteen'), document.querySelector('#htmFormButton_putimportSweetSixteen'));
+          return false;
+        });
+
+        var submitForm_searchpageSweetSixteen = document.querySelector('#htmForm_searchpageSweetSixteen')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_searchpageSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          searchpageSweetSixteen();
+          return false;
+        });
+
+        var submitForm_deletefilterSweetSixteen = document.querySelector('#htmForm_deletefilterSweetSixteen')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deletefilterSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          deletefilterSweetSixteen(event.target);
+          return false;
+        });
+{%- block htmScriptInitSweetSixteenPage %}{%- endblock htmScriptInitSweetSixteenPage %}
+      });
+    </script>
+{%- endblock htmScriptSweetSixteenPage %}
+{%- endblock htmScriptPageLayout %}
+
+{%- block websocketPageLayout %}
+{%- block websocketSweetSixteenPage %}
+{% if resultCount > 0 %}
+        window.eventBus = new EventBus('/eventbus');
+        window.eventBus.enableReconnect(true);
+        websocketSweetSixteen(websocketSweetSixteenInner);
+{% endif %}
+{%- endblock websocketSweetSixteenPage %}
+{%- endblock websocketPageLayout %}
+
+{%- block htmUrlSweetSixteenPage %}{{pageUri}}?q={{query.q}}&amp;rows={% if rows is defined %}{{rows}}{% else %}{{pagination.rows}}{% endif %}&amp;rows={% if start is defined %}{{start}}{% else %}{{pagination.start}}{% endif %}{% for item query.fq %}{% if fq == item %}{% else %}&fq={{fq}}:{{val}}{% endif %}{% endfor %}{% for item in query.sort %}{% if sort == item %}{% else %}&sort={{var}} {{order}}{% endif %}{% endfor %}{%- endblock htmUrlSweetSixteenPage %}
+{%- if pageBreadcrumb is not defined %}
+{%- set pageBreadcrumb %}
+              <wa-tooltip for="return-to-SweetSixteen">back to all sweet sixteen brackets</wa-tooltip>
+              <wa-breadcrumb>
+                <wa-breadcrumb-item id="return-to-SweetSixteen" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+                  <i class="fa-regular fa-buildings"></i>
+                  all sweet sixteen brackets
+                </wa-breadcrumb-item>
+                <wa-breadcrumb-item>
+                  search sweet sixteen brackets
+                </wa-breadcrumb-item>
+              </wa-breadcrumb>
+{%- endset pageBreadcrumb %}
+{%- endif  %}
+
+{%- block htmBodyStartPageLayout %}
+{{ super() }}
+{%- block htmBodyStartSweetSixteenPage %}
+{% include en-us/search/sweet-sixteen/SweetSixteenSidebar.htm %}
+{% if resultCount == 0 %}
+        <div class="wa-stack ">
+          <wa-tooltip for="return-to-SweetSixteen">back to all sweet sixteen brackets</wa-tooltip></wa-tooltip>
+          <wa-breadcrumb>
+            <wa-breadcrumb-item id="return-to-SweetSixteen" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+              <i class="fa-regular fa-buildings"></i>
+              all sweet sixteen brackets
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item>
+              no sweet sixteen bracket found
+            </wa-breadcrumb-item>
+          </wa-breadcrumb>
+          <div class="wa-stack wa-align-items-center ">
+            <div class="wa-heading-3xl ">
+              <i class="fa-regular fa-buildings"></i>
+            </div>
+            <span class="wa-heading-m ">no sweet sixteen bracket found</span>
+            <p class="wa-caption-l ">A predicted tournament with 16 teams. </p>
+          </div>
+        </div>
+{% else %}
+{% include en-us/search/sweet-sixteen/SweetSixteenSuggestedSearch.htm %}
+          <div class="pageContent ">
+            <form action="/en-us/api/sweet-sixteen" id="SweetSixteenForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+              <input name="focusId" type="hidden"/>
+              <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
+              <input name="listSweetSixteen" id="listSweetSixteen" class="listSweetSixteen"  value='{{ toJsonArrayStringInApostrophes(listSweetSixteen) }}' type="hidden"/>
+            </form>
+            <div id="site-calendar-box">
+              <div id="site-calendar"><!-- // --></div>
+            </div>
+            <div class="wa-stack wa-gap-m ">
+{% endif %}
+{% include en-us/search/sweet-sixteen/SweetSixteenSearchForm.htm %}
+{%- endblock htmBodyStartSweetSixteenPage %}
+{%- endblock htmBodyStartPageLayout %}
+{%- if pageSearchButtons is not defined %}
+{%- set pageSearchButtons %}
+{% include en-us/search/sweet-sixteen/SweetSixteenSearchButtons.htm %}
+{%- endset pageSearchButtons %}
+{%- endif %}
+{%- if pageSearchFormButtons is not defined %}
+{%- set pageSearchFormButtons %}
+{% include en-us/search/sweet-sixteen/SweetSixteenSearchFormButtons.htm %}
+{%- endset pageSearchFormButtons %}
+{%- endif %}
+
+{%- block htmBodyMiddlePageLayout %}
+{%- block htmBodyMiddleSweetSixteenPage %}
+{% if resultCount > 0 %}
+              <div class="wa-stack wa-gap-0 ">
+{% include en-us/search/sweet-sixteen/SweetSixteenPaginationButtons.htm %}
+                <div class="card-like-thing background-color-surface-border" id="site-results-grid">
+                  <div>
+                    <wa-dropdown id="htmDropdown-guesserId">
+                      <wa-button variant="brand" slot="trigger" caret>guesser</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortSweetSixteen_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-SweetSixteen').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-guesserId-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by guesser ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortSweetSixteen_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-SweetSixteen').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-guesserId-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by guesser descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                    <wa-dropdown id="htmDropdown-year">
+                      <wa-button variant="brand" slot="trigger" caret>year</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortSweetSixteen_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-SweetSixteen').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-year-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by year ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortSweetSixteen_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-SweetSixteen').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-year-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by year descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                  </div>
+                  {% for item in listSweetSixteen%}
+                  <div>
+                    <a href="{{ item.displayPage }}">
+                      <i class="fa-regular fa-buildings"></i>
+                      <span>{{ item.guesserId | e }}</span>
+                    </a>
+                    <a href="{{ item.displayPage }}">
+                      <span>{{ item.year | e }}</span>
+                    </a>
+                  </div>
+                  {% endfor %}
+              {% if getColumnGuesserId is defined %}
+                <div>
+                </div>
+              {% endif %}
+              {% if getColumnYear is defined %}
+                <div>
+                </div>
+              {% endif %}
+                </div>
+{% include en-us/search/sweet-sixteen/SweetSixteenPaginationButtons.htm %}
+              </div>
+{% endif %}
+{%- endblock htmBodyMiddleSweetSixteenPage %}
+{%- endblock htmBodyMiddlePageLayout %}
+
+{%- block htmBodyEndPageLayout %}
+{%- block htmBodyEndSweetSixteenPage %}
+{%- include en-us/search/sweet-sixteen/SweetSixteenLocation.htm %}
+            </div>
+          </div>
+{%- endblock htmBodyEndSweetSixteenPage %}
+  {{ super() }}
+{%- endblock htmBodyEndPageLayout %}

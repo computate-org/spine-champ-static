@@ -1,0 +1,65 @@
+
+{%- macro htmButton_patchGuesser() %}<wa-button variant="brand" id="htmButton_patchGuesser"  data-dialog="open patchGuesserDialog" data-guesserId={{ result.guesserId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-edit "></i>Modify</wa-button>{%- endmacro %}
+
+{%- macro htmButton_postGuesser() %}<wa-button variant="brand" id="htmButton_postGuesser"  data-dialog="open postGuesserDialog" data-guesserId={{ result.guesserId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-file-plus "></i>Create</wa-button>{%- endmacro %}
+
+{%- macro htmButton_deleteGuesser() %}<wa-button variant="brand" id="htmButton_deleteGuesser" data-guesserId={{ result.guesserId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-trash "></i>Delete</wa-button>{%- endmacro %}
+
+{%- macro htmButton_putimportGuesser() %}<wa-button variant="brand" id="htmButton_putimportGuesser"  data-dialog="open putimportGuesserDialog" data-guesserId={{ result.guesserId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-file-import "></i>Import</wa-button>{%- endmacro %}
+
+{%- macro htmButton_deletefilterGuesser() %}<wa-button variant="brand" id="htmButton_deletefilterGuesser" data-guesserId={{ result.guesserId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-trash "></i>Delete</wa-button>{%- endmacro %}
+          <div id="htmSearchForm">
+            <wa-scroller>
+              <wa-button-group>
+{% if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {% if "PATCH" in scopes %}
+    {% if resultCount >= 1 %}
+                <wa-button variant="brand" id="refreshThisGuesserGenPage"
+                     onclick="patch{{classSimpleName}}Vals( [ {name: 'fq', value: 'guesserId:{{ result.guesserId }}' } ], {}, this, function() { addGlow(document.querySelector('#refreshThisGuesserGenPage')); }, function() { addError(document.querySelector('#refreshThisGuesserGenPage')); }); return false; ">
+                  <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-sync-alt "></i>
+                  refresh
+                </wa-button>
+    {% endif %}
+    {% if resultCount > 0 %}
+                <wa-button variant="brand" id="refreshAllGuesserGenPage{{ result.guesserId | e }}"
+                     onclick="patch{{classSimpleName}}Vals([], {}, this, function() { addGlow(document.querySelector('#refreshAllGuesserGenPage{{ result.guesserId | e }}')); }, function() { addError(document.querySelector('#refreshAllGuesserGenPage{{ result.guesserId | e }}')); }); "
+                    >
+                  <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrows-rotate"></i>
+                  refresh all 
+                </wa-button>
+    {% endif %}
+  {% endif %}
+{% endif %}
+{%- if 'PATCH' in scopes %}
+  {%- if resultCount > 0 %}
+    {%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+    {{ htmButton_patchGuesser() }}
+    {%- endif %}
+  {%- endif %}
+{%- endif %}
+{%- if 'POST' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmButton_postGuesser() }}
+  {%- else %}
+    {{ htmButton_postGuesser() }}
+  {%- endif %}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if result is defined %}
+    {{ htmButton_deleteGuesser() }}
+  {%- endif %}
+{%- endif %}
+{%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {{ htmButton_putimportGuesser() }}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if result is not defined %}
+    {%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+    {{ htmButton_deletefilterGuesser() }}
+    {%- endif %}
+  {%- endif %}
+{%- endif %}
+
+              </wa-button-group>
+            </wa-scroller>
+          </div>
