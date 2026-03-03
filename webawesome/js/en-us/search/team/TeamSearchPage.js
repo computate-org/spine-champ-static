@@ -299,6 +299,60 @@ Promise.all([
           document.querySelector('#pageFacetRangeEndTeam_archived')?.addEventListener('change', (event) => {
             facetRangeEndChange('Team', event.currentTarget);
           });
+          document.querySelector('#fqTeam_region')?.addEventListener('change', (event) => {
+            fqChange('Team', event.currentTarget, facetChangeTeamSuccess, facetChangeTeamError);
+          });
+          document.querySelector('#buttonFacetTeam_region')?.addEventListener('click', (event) => {
+            facetFieldChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetPivotTeam_region')?.addEventListener('change', (event) => {
+            facetPivotChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeGapTeam_region')?.addEventListener('change', (event) => {
+            facetRangeGapChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeStartTeam_region')?.addEventListener('change', (event) => {
+            facetRangeStartChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeEndTeam_region')?.addEventListener('change', (event) => {
+            facetRangeEndChange('Team', event.currentTarget);
+          });
+          document.querySelector('#fqTeam_name')?.addEventListener('change', (event) => {
+            fqChange('Team', event.currentTarget, facetChangeTeamSuccess, facetChangeTeamError);
+          });
+          document.querySelector('#buttonFacetTeam_name')?.addEventListener('click', (event) => {
+            facetFieldChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetPivotTeam_name')?.addEventListener('change', (event) => {
+            facetPivotChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeGapTeam_name')?.addEventListener('change', (event) => {
+            facetRangeGapChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeStartTeam_name')?.addEventListener('change', (event) => {
+            facetRangeStartChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeEndTeam_name')?.addEventListener('change', (event) => {
+            facetRangeEndChange('Team', event.currentTarget);
+          });
+          document.querySelector('#fqTeam_abbreviation')?.addEventListener('change', (event) => {
+            fqChange('Team', event.currentTarget, facetChangeTeamSuccess, facetChangeTeamError);
+          });
+          document.querySelector('#buttonFacetTeam_abbreviation')?.addEventListener('click', (event) => {
+            facetFieldChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetPivotTeam_abbreviation')?.addEventListener('change', (event) => {
+            facetPivotChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeGapTeam_abbreviation')?.addEventListener('change', (event) => {
+            facetRangeGapChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeStartTeam_abbreviation')?.addEventListener('change', (event) => {
+            facetRangeStartChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeEndTeam_abbreviation')?.addEventListener('change', (event) => {
+            facetRangeEndChange('Team', event.currentTarget);
+          });
           document.querySelector('#fqTeam_displayPage')?.addEventListener('change', (event) => {
             fqChange('Team', event.currentTarget, facetChangeTeamSuccess, facetChangeTeamError);
           });
@@ -369,6 +423,24 @@ Promise.all([
             facetRangeStartChange('Team', event.currentTarget);
           });
           document.querySelector('#pageFacetRangeEndTeam_download')?.addEventListener('change', (event) => {
+            facetRangeEndChange('Team', event.currentTarget);
+          });
+          document.querySelector('#fqTeam_teamId')?.addEventListener('change', (event) => {
+            fqChange('Team', event.currentTarget, facetChangeTeamSuccess, facetChangeTeamError);
+          });
+          document.querySelector('#buttonFacetTeam_teamId')?.addEventListener('click', (event) => {
+            facetFieldChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetPivotTeam_teamId')?.addEventListener('change', (event) => {
+            facetPivotChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeGapTeam_teamId')?.addEventListener('change', (event) => {
+            facetRangeGapChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeStartTeam_teamId')?.addEventListener('change', (event) => {
+            facetRangeStartChange('Team', event.currentTarget);
+          });
+          document.querySelector('#pageFacetRangeEndTeam_teamId')?.addEventListener('change', (event) => {
             facetRangeEndChange('Team', event.currentTarget);
           });
 });

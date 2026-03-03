@@ -1,0 +1,30 @@
+{% include en-us/search/final-four/FinalFourSearchFormMacros.htm %}
+{% include en-us/search/elite-eight/EliteEightSearchFormMacros.htm %}
+{% include en-us/search/guesser/GuesserSearchFormMacros.htm %}
+{% include en-us/search/team/TeamSearchFormMacros.htm %}
+{% include en-us/search/championship/ChampionshipSearchFormMacros.htm %}
+{%- if 'DELETE' in scopes %}
+    {{ htmForm_patchFinalFour() }}
+{%- endif %}
+{%- if 'POST' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmForm_postFinalFour() }}
+  {%- else %}
+    {{ htmForm_postFinalFour() }}
+  {%- endif %}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmForm_deleteFinalFour() }}
+  {%- else %}
+  {%- endif %}
+{%- endif %}
+{%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {{ htmForm_putimportFinalFour() }}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmForm_deletefilterFinalFour() }}
+  {%- else %}
+  {%- endif %}
+{%- endif %}

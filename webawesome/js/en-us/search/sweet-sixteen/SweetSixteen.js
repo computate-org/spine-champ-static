@@ -85,21 +85,22 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputGuesserId = null;
         var inputYear = null;
         var inputSouthGame1Winner = null;
-        var inputWestGame1Winner = null;
-        var inputEastGame1Winner = null;
-        var inputMidwestGame1Winner = null;
         var inputSouthGame1Loser = null;
-        var inputWestGame1Loser = null;
-        var inputEastGame1Loser = null;
-        var inputMidwestGame1Loser = null;
         var inputSouthGame2Winner = null;
-        var inputWestGame2Winner = null;
-        var inputEastGame2Winner = null;
-        var inputMidwestGame2Winner = null;
         var inputSouthGame2Loser = null;
+        var inputWestGame1Winner = null;
+        var inputWestGame1Loser = null;
+        var inputWestGame2Winner = null;
         var inputWestGame2Loser = null;
+        var inputEastGame1Winner = null;
+        var inputEastGame1Loser = null;
+        var inputEastGame2Winner = null;
         var inputEastGame2Loser = null;
+        var inputMidwestGame1Winner = null;
+        var inputMidwestGame1Loser = null;
+        var inputMidwestGame2Winner = null;
         var inputMidwestGame2Loser = null;
+        var inputEliteEight = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
         var inputClassCanonicalNames = null;
@@ -131,36 +132,38 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputYear = $response.querySelector('.Page_year');
         if(vars.includes('southGame1Winner'))
           inputSouthGame1Winner = $response.querySelector('.Page_southGame1Winner');
-        if(vars.includes('westGame1Winner'))
-          inputWestGame1Winner = $response.querySelector('.Page_westGame1Winner');
-        if(vars.includes('eastGame1Winner'))
-          inputEastGame1Winner = $response.querySelector('.Page_eastGame1Winner');
-        if(vars.includes('midwestGame1Winner'))
-          inputMidwestGame1Winner = $response.querySelector('.Page_midwestGame1Winner');
         if(vars.includes('southGame1Loser'))
           inputSouthGame1Loser = $response.querySelector('.Page_southGame1Loser');
-        if(vars.includes('westGame1Loser'))
-          inputWestGame1Loser = $response.querySelector('.Page_westGame1Loser');
-        if(vars.includes('eastGame1Loser'))
-          inputEastGame1Loser = $response.querySelector('.Page_eastGame1Loser');
-        if(vars.includes('midwestGame1Loser'))
-          inputMidwestGame1Loser = $response.querySelector('.Page_midwestGame1Loser');
         if(vars.includes('southGame2Winner'))
           inputSouthGame2Winner = $response.querySelector('.Page_southGame2Winner');
-        if(vars.includes('westGame2Winner'))
-          inputWestGame2Winner = $response.querySelector('.Page_westGame2Winner');
-        if(vars.includes('eastGame2Winner'))
-          inputEastGame2Winner = $response.querySelector('.Page_eastGame2Winner');
-        if(vars.includes('midwestGame2Winner'))
-          inputMidwestGame2Winner = $response.querySelector('.Page_midwestGame2Winner');
         if(vars.includes('southGame2Loser'))
           inputSouthGame2Loser = $response.querySelector('.Page_southGame2Loser');
+        if(vars.includes('westGame1Winner'))
+          inputWestGame1Winner = $response.querySelector('.Page_westGame1Winner');
+        if(vars.includes('westGame1Loser'))
+          inputWestGame1Loser = $response.querySelector('.Page_westGame1Loser');
+        if(vars.includes('westGame2Winner'))
+          inputWestGame2Winner = $response.querySelector('.Page_westGame2Winner');
         if(vars.includes('westGame2Loser'))
           inputWestGame2Loser = $response.querySelector('.Page_westGame2Loser');
+        if(vars.includes('eastGame1Winner'))
+          inputEastGame1Winner = $response.querySelector('.Page_eastGame1Winner');
+        if(vars.includes('eastGame1Loser'))
+          inputEastGame1Loser = $response.querySelector('.Page_eastGame1Loser');
+        if(vars.includes('eastGame2Winner'))
+          inputEastGame2Winner = $response.querySelector('.Page_eastGame2Winner');
         if(vars.includes('eastGame2Loser'))
           inputEastGame2Loser = $response.querySelector('.Page_eastGame2Loser');
+        if(vars.includes('midwestGame1Winner'))
+          inputMidwestGame1Winner = $response.querySelector('.Page_midwestGame1Winner');
+        if(vars.includes('midwestGame1Loser'))
+          inputMidwestGame1Loser = $response.querySelector('.Page_midwestGame1Loser');
+        if(vars.includes('midwestGame2Winner'))
+          inputMidwestGame2Winner = $response.querySelector('.Page_midwestGame2Winner');
         if(vars.includes('midwestGame2Loser'))
           inputMidwestGame2Loser = $response.querySelector('.Page_midwestGame2Loser');
+        if(vars.includes('eliteEight'))
+          inputEliteEight = $response.querySelector('.Page_eliteEight');
         if(vars.includes('classCanonicalName'))
           inputClassCanonicalName = $response.querySelector('.Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
@@ -269,36 +272,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.Page_southGame1Winner'));
         }
 
-        if(inputWestGame1Winner) {
-          document.querySelectorAll('.Page_westGame1Winner').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputWestGame1Winner.getAttribute('value');
-            else
-              item.textContent = inputWestGame1Winner.textContent;
-          });
-          addGlow(document.querySelector('.Page_westGame1Winner'));
-        }
-
-        if(inputEastGame1Winner) {
-          document.querySelectorAll('.Page_eastGame1Winner').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputEastGame1Winner.getAttribute('value');
-            else
-              item.textContent = inputEastGame1Winner.textContent;
-          });
-          addGlow(document.querySelector('.Page_eastGame1Winner'));
-        }
-
-        if(inputMidwestGame1Winner) {
-          document.querySelectorAll('.Page_midwestGame1Winner').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputMidwestGame1Winner.getAttribute('value');
-            else
-              item.textContent = inputMidwestGame1Winner.textContent;
-          });
-          addGlow(document.querySelector('.Page_midwestGame1Winner'));
-        }
-
         if(inputSouthGame1Loser) {
           document.querySelectorAll('.Page_southGame1Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -307,36 +280,6 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputSouthGame1Loser.textContent;
           });
           addGlow(document.querySelector('.Page_southGame1Loser'));
-        }
-
-        if(inputWestGame1Loser) {
-          document.querySelectorAll('.Page_westGame1Loser').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputWestGame1Loser.getAttribute('value');
-            else
-              item.textContent = inputWestGame1Loser.textContent;
-          });
-          addGlow(document.querySelector('.Page_westGame1Loser'));
-        }
-
-        if(inputEastGame1Loser) {
-          document.querySelectorAll('.Page_eastGame1Loser').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputEastGame1Loser.getAttribute('value');
-            else
-              item.textContent = inputEastGame1Loser.textContent;
-          });
-          addGlow(document.querySelector('.Page_eastGame1Loser'));
-        }
-
-        if(inputMidwestGame1Loser) {
-          document.querySelectorAll('.Page_midwestGame1Loser').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputMidwestGame1Loser.getAttribute('value');
-            else
-              item.textContent = inputMidwestGame1Loser.textContent;
-          });
-          addGlow(document.querySelector('.Page_midwestGame1Loser'));
         }
 
         if(inputSouthGame2Winner) {
@@ -349,36 +292,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.Page_southGame2Winner'));
         }
 
-        if(inputWestGame2Winner) {
-          document.querySelectorAll('.Page_westGame2Winner').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputWestGame2Winner.getAttribute('value');
-            else
-              item.textContent = inputWestGame2Winner.textContent;
-          });
-          addGlow(document.querySelector('.Page_westGame2Winner'));
-        }
-
-        if(inputEastGame2Winner) {
-          document.querySelectorAll('.Page_eastGame2Winner').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputEastGame2Winner.getAttribute('value');
-            else
-              item.textContent = inputEastGame2Winner.textContent;
-          });
-          addGlow(document.querySelector('.Page_eastGame2Winner'));
-        }
-
-        if(inputMidwestGame2Winner) {
-          document.querySelectorAll('.Page_midwestGame2Winner').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputMidwestGame2Winner.getAttribute('value');
-            else
-              item.textContent = inputMidwestGame2Winner.textContent;
-          });
-          addGlow(document.querySelector('.Page_midwestGame2Winner'));
-        }
-
         if(inputSouthGame2Loser) {
           document.querySelectorAll('.Page_southGame2Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -387,6 +300,36 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputSouthGame2Loser.textContent;
           });
           addGlow(document.querySelector('.Page_southGame2Loser'));
+        }
+
+        if(inputWestGame1Winner) {
+          document.querySelectorAll('.Page_westGame1Winner').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputWestGame1Winner.getAttribute('value');
+            else
+              item.textContent = inputWestGame1Winner.textContent;
+          });
+          addGlow(document.querySelector('.Page_westGame1Winner'));
+        }
+
+        if(inputWestGame1Loser) {
+          document.querySelectorAll('.Page_westGame1Loser').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputWestGame1Loser.getAttribute('value');
+            else
+              item.textContent = inputWestGame1Loser.textContent;
+          });
+          addGlow(document.querySelector('.Page_westGame1Loser'));
+        }
+
+        if(inputWestGame2Winner) {
+          document.querySelectorAll('.Page_westGame2Winner').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputWestGame2Winner.getAttribute('value');
+            else
+              item.textContent = inputWestGame2Winner.textContent;
+          });
+          addGlow(document.querySelector('.Page_westGame2Winner'));
         }
 
         if(inputWestGame2Loser) {
@@ -399,6 +342,36 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.Page_westGame2Loser'));
         }
 
+        if(inputEastGame1Winner) {
+          document.querySelectorAll('.Page_eastGame1Winner').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputEastGame1Winner.getAttribute('value');
+            else
+              item.textContent = inputEastGame1Winner.textContent;
+          });
+          addGlow(document.querySelector('.Page_eastGame1Winner'));
+        }
+
+        if(inputEastGame1Loser) {
+          document.querySelectorAll('.Page_eastGame1Loser').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputEastGame1Loser.getAttribute('value');
+            else
+              item.textContent = inputEastGame1Loser.textContent;
+          });
+          addGlow(document.querySelector('.Page_eastGame1Loser'));
+        }
+
+        if(inputEastGame2Winner) {
+          document.querySelectorAll('.Page_eastGame2Winner').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputEastGame2Winner.getAttribute('value');
+            else
+              item.textContent = inputEastGame2Winner.textContent;
+          });
+          addGlow(document.querySelector('.Page_eastGame2Winner'));
+        }
+
         if(inputEastGame2Loser) {
           document.querySelectorAll('.Page_eastGame2Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -409,6 +382,36 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.Page_eastGame2Loser'));
         }
 
+        if(inputMidwestGame1Winner) {
+          document.querySelectorAll('.Page_midwestGame1Winner').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputMidwestGame1Winner.getAttribute('value');
+            else
+              item.textContent = inputMidwestGame1Winner.textContent;
+          });
+          addGlow(document.querySelector('.Page_midwestGame1Winner'));
+        }
+
+        if(inputMidwestGame1Loser) {
+          document.querySelectorAll('.Page_midwestGame1Loser').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputMidwestGame1Loser.getAttribute('value');
+            else
+              item.textContent = inputMidwestGame1Loser.textContent;
+          });
+          addGlow(document.querySelector('.Page_midwestGame1Loser'));
+        }
+
+        if(inputMidwestGame2Winner) {
+          document.querySelectorAll('.Page_midwestGame2Winner').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputMidwestGame2Winner.getAttribute('value');
+            else
+              item.textContent = inputMidwestGame2Winner.textContent;
+          });
+          addGlow(document.querySelector('.Page_midwestGame2Winner'));
+        }
+
         if(inputMidwestGame2Loser) {
           document.querySelectorAll('.Page_midwestGame2Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -417,6 +420,16 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputMidwestGame2Loser.textContent;
           });
           addGlow(document.querySelector('.Page_midwestGame2Loser'));
+        }
+
+        if(inputEliteEight) {
+          document.querySelectorAll('.Page_eliteEight').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputEliteEight.getAttribute('value');
+            else
+              item.textContent = inputEliteEight.textContent;
+          });
+          addGlow(document.querySelector('.Page_eliteEight'));
         }
 
         if(inputClassCanonicalName) {
@@ -758,65 +771,69 @@ function searchSweetSixteenFilters($formFilters) {
     if(filterSouthGame1Winner != null && filterSouthGame1Winner !== '')
       filters.push({ name: 'fq', value: 'southGame1Winner:' + filterSouthGame1Winner });
 
-    var filterWestGame1Winner = $formFilters.querySelector('.valueWestGame1Winner')?.value;
-    if(filterWestGame1Winner != null && filterWestGame1Winner !== '')
-      filters.push({ name: 'fq', value: 'westGame1Winner:' + filterWestGame1Winner });
-
-    var filterEastGame1Winner = $formFilters.querySelector('.valueEastGame1Winner')?.value;
-    if(filterEastGame1Winner != null && filterEastGame1Winner !== '')
-      filters.push({ name: 'fq', value: 'eastGame1Winner:' + filterEastGame1Winner });
-
-    var filterMidwestGame1Winner = $formFilters.querySelector('.valueMidwestGame1Winner')?.value;
-    if(filterMidwestGame1Winner != null && filterMidwestGame1Winner !== '')
-      filters.push({ name: 'fq', value: 'midwestGame1Winner:' + filterMidwestGame1Winner });
-
     var filterSouthGame1Loser = $formFilters.querySelector('.valueSouthGame1Loser')?.value;
     if(filterSouthGame1Loser != null && filterSouthGame1Loser !== '')
       filters.push({ name: 'fq', value: 'southGame1Loser:' + filterSouthGame1Loser });
-
-    var filterWestGame1Loser = $formFilters.querySelector('.valueWestGame1Loser')?.value;
-    if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
-      filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
-
-    var filterEastGame1Loser = $formFilters.querySelector('.valueEastGame1Loser')?.value;
-    if(filterEastGame1Loser != null && filterEastGame1Loser !== '')
-      filters.push({ name: 'fq', value: 'eastGame1Loser:' + filterEastGame1Loser });
-
-    var filterMidwestGame1Loser = $formFilters.querySelector('.valueMidwestGame1Loser')?.value;
-    if(filterMidwestGame1Loser != null && filterMidwestGame1Loser !== '')
-      filters.push({ name: 'fq', value: 'midwestGame1Loser:' + filterMidwestGame1Loser });
 
     var filterSouthGame2Winner = $formFilters.querySelector('.valueSouthGame2Winner')?.value;
     if(filterSouthGame2Winner != null && filterSouthGame2Winner !== '')
       filters.push({ name: 'fq', value: 'southGame2Winner:' + filterSouthGame2Winner });
 
-    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
-    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
-
-    var filterEastGame2Winner = $formFilters.querySelector('.valueEastGame2Winner')?.value;
-    if(filterEastGame2Winner != null && filterEastGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'eastGame2Winner:' + filterEastGame2Winner });
-
-    var filterMidwestGame2Winner = $formFilters.querySelector('.valueMidwestGame2Winner')?.value;
-    if(filterMidwestGame2Winner != null && filterMidwestGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'midwestGame2Winner:' + filterMidwestGame2Winner });
-
     var filterSouthGame2Loser = $formFilters.querySelector('.valueSouthGame2Loser')?.value;
     if(filterSouthGame2Loser != null && filterSouthGame2Loser !== '')
       filters.push({ name: 'fq', value: 'southGame2Loser:' + filterSouthGame2Loser });
+
+    var filterWestGame1Winner = $formFilters.querySelector('.valueWestGame1Winner')?.value;
+    if(filterWestGame1Winner != null && filterWestGame1Winner !== '')
+      filters.push({ name: 'fq', value: 'westGame1Winner:' + filterWestGame1Winner });
+
+    var filterWestGame1Loser = $formFilters.querySelector('.valueWestGame1Loser')?.value;
+    if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
+      filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
+
+    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
+    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
 
     var filterWestGame2Loser = $formFilters.querySelector('.valueWestGame2Loser')?.value;
     if(filterWestGame2Loser != null && filterWestGame2Loser !== '')
       filters.push({ name: 'fq', value: 'westGame2Loser:' + filterWestGame2Loser });
 
+    var filterEastGame1Winner = $formFilters.querySelector('.valueEastGame1Winner')?.value;
+    if(filterEastGame1Winner != null && filterEastGame1Winner !== '')
+      filters.push({ name: 'fq', value: 'eastGame1Winner:' + filterEastGame1Winner });
+
+    var filterEastGame1Loser = $formFilters.querySelector('.valueEastGame1Loser')?.value;
+    if(filterEastGame1Loser != null && filterEastGame1Loser !== '')
+      filters.push({ name: 'fq', value: 'eastGame1Loser:' + filterEastGame1Loser });
+
+    var filterEastGame2Winner = $formFilters.querySelector('.valueEastGame2Winner')?.value;
+    if(filterEastGame2Winner != null && filterEastGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'eastGame2Winner:' + filterEastGame2Winner });
+
     var filterEastGame2Loser = $formFilters.querySelector('.valueEastGame2Loser')?.value;
     if(filterEastGame2Loser != null && filterEastGame2Loser !== '')
       filters.push({ name: 'fq', value: 'eastGame2Loser:' + filterEastGame2Loser });
 
+    var filterMidwestGame1Winner = $formFilters.querySelector('.valueMidwestGame1Winner')?.value;
+    if(filterMidwestGame1Winner != null && filterMidwestGame1Winner !== '')
+      filters.push({ name: 'fq', value: 'midwestGame1Winner:' + filterMidwestGame1Winner });
+
+    var filterMidwestGame1Loser = $formFilters.querySelector('.valueMidwestGame1Loser')?.value;
+    if(filterMidwestGame1Loser != null && filterMidwestGame1Loser !== '')
+      filters.push({ name: 'fq', value: 'midwestGame1Loser:' + filterMidwestGame1Loser });
+
+    var filterMidwestGame2Winner = $formFilters.querySelector('.valueMidwestGame2Winner')?.value;
+    if(filterMidwestGame2Winner != null && filterMidwestGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'midwestGame2Winner:' + filterMidwestGame2Winner });
+
     var filterMidwestGame2Loser = $formFilters.querySelector('.valueMidwestGame2Loser')?.value;
     if(filterMidwestGame2Loser != null && filterMidwestGame2Loser !== '')
       filters.push({ name: 'fq', value: 'midwestGame2Loser:' + filterMidwestGame2Loser });
+
+    var filterEliteEight = $formFilters.querySelector('.valueEliteEight')?.value;
+    if(filterEliteEight != null && filterEliteEight !== '')
+      filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
 
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
@@ -915,26 +932,38 @@ function suggestSweetSixteenGuesserId(filters, $list, bracketId = null, guesserI
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['guesserId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == guesserId);
+        var inputVar = 'guesserId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (guesserId != null && val === guesserId.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_guesserId_' + bracketId + '_guesserId_' + o['guesserId']);
-        $input.setAttribute('name', 'guesserId');
-        $input.setAttribute('value', o['guesserId']);
+        $input.setAttribute('id', 'GET_guesserId_' + bracketId + '_guesserId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueGuesserId ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'GuesserId']: o['guesserId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'GuesserId']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenGuesserId(filters, $list, bracketId, o['guesserId'], relate, target);
+                  suggestSweetSixteenGuesserId(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -948,7 +977,9 @@ function suggestSweetSixteenGuesserId(filters, $list, bracketId = null, guesserI
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchGuesserVals(filters, target, success, error);
+  if (typeof searchGuesserVals === 'function') {
+    searchGuesserVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenSouthGame1Winner(filters, $list, bracketId = null, southGame1Winner = null, relate=true, target) {
@@ -963,26 +994,38 @@ function suggestSweetSixteenSouthGame1Winner(filters, $list, bracketId = null, s
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == southGame1Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (southGame1Winner != null && val === southGame1Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_southGame1Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_southGame1Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueSouthGame1Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame1Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame1Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenSouthGame1Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenSouthGame1Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -996,7 +1039,9 @@ function suggestSweetSixteenSouthGame1Winner(filters, $list, bracketId = null, s
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenSouthGame1Loser(filters, $list, bracketId = null, southGame1Loser = null, relate=true, target) {
@@ -1011,26 +1056,38 @@ function suggestSweetSixteenSouthGame1Loser(filters, $list, bracketId = null, so
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == southGame1Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (southGame1Loser != null && val === southGame1Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_southGame1Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_southGame1Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueSouthGame1Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame1Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame1Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenSouthGame1Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenSouthGame1Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1044,7 +1101,9 @@ function suggestSweetSixteenSouthGame1Loser(filters, $list, bracketId = null, so
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenSouthGame2Winner(filters, $list, bracketId = null, southGame2Winner = null, relate=true, target) {
@@ -1059,26 +1118,38 @@ function suggestSweetSixteenSouthGame2Winner(filters, $list, bracketId = null, s
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == southGame2Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (southGame2Winner != null && val === southGame2Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_southGame2Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_southGame2Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueSouthGame2Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame2Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame2Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenSouthGame2Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenSouthGame2Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1092,7 +1163,9 @@ function suggestSweetSixteenSouthGame2Winner(filters, $list, bracketId = null, s
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenSouthGame2Loser(filters, $list, bracketId = null, southGame2Loser = null, relate=true, target) {
@@ -1107,26 +1180,38 @@ function suggestSweetSixteenSouthGame2Loser(filters, $list, bracketId = null, so
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == southGame2Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (southGame2Loser != null && val === southGame2Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_southGame2Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_southGame2Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueSouthGame2Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame2Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'SouthGame2Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenSouthGame2Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenSouthGame2Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1140,7 +1225,9 @@ function suggestSweetSixteenSouthGame2Loser(filters, $list, bracketId = null, so
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenWestGame1Winner(filters, $list, bracketId = null, westGame1Winner = null, relate=true, target) {
@@ -1155,26 +1242,38 @@ function suggestSweetSixteenWestGame1Winner(filters, $list, bracketId = null, we
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == westGame1Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (westGame1Winner != null && val === westGame1Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_westGame1Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_westGame1Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueWestGame1Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame1Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame1Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenWestGame1Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenWestGame1Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1188,7 +1287,9 @@ function suggestSweetSixteenWestGame1Winner(filters, $list, bracketId = null, we
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, westGame1Loser = null, relate=true, target) {
@@ -1203,26 +1304,38 @@ function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, wes
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == westGame1Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (westGame1Loser != null && val === westGame1Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_westGame1Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_westGame1Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueWestGame1Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame1Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame1Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenWestGame1Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenWestGame1Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1236,7 +1349,9 @@ function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, wes
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, westGame2Winner = null, relate=true, target) {
@@ -1251,26 +1366,38 @@ function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, we
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == westGame2Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (westGame2Winner != null && val === westGame2Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_westGame2Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_westGame2Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueWestGame2Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame2Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame2Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenWestGame2Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenWestGame2Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1284,7 +1411,9 @@ function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, we
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenWestGame2Loser(filters, $list, bracketId = null, westGame2Loser = null, relate=true, target) {
@@ -1299,26 +1428,38 @@ function suggestSweetSixteenWestGame2Loser(filters, $list, bracketId = null, wes
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == westGame2Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (westGame2Loser != null && val === westGame2Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_westGame2Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_westGame2Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueWestGame2Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame2Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'WestGame2Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenWestGame2Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenWestGame2Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1332,7 +1473,9 @@ function suggestSweetSixteenWestGame2Loser(filters, $list, bracketId = null, wes
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenEastGame1Winner(filters, $list, bracketId = null, eastGame1Winner = null, relate=true, target) {
@@ -1347,26 +1490,38 @@ function suggestSweetSixteenEastGame1Winner(filters, $list, bracketId = null, ea
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == eastGame1Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (eastGame1Winner != null && val === eastGame1Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_eastGame1Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_eastGame1Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueEastGame1Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame1Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame1Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenEastGame1Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenEastGame1Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1380,7 +1535,9 @@ function suggestSweetSixteenEastGame1Winner(filters, $list, bracketId = null, ea
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenEastGame1Loser(filters, $list, bracketId = null, eastGame1Loser = null, relate=true, target) {
@@ -1395,26 +1552,38 @@ function suggestSweetSixteenEastGame1Loser(filters, $list, bracketId = null, eas
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == eastGame1Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (eastGame1Loser != null && val === eastGame1Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_eastGame1Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_eastGame1Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueEastGame1Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame1Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame1Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenEastGame1Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenEastGame1Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1428,7 +1597,9 @@ function suggestSweetSixteenEastGame1Loser(filters, $list, bracketId = null, eas
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenEastGame2Winner(filters, $list, bracketId = null, eastGame2Winner = null, relate=true, target) {
@@ -1443,26 +1614,38 @@ function suggestSweetSixteenEastGame2Winner(filters, $list, bracketId = null, ea
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == eastGame2Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (eastGame2Winner != null && val === eastGame2Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_eastGame2Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_eastGame2Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueEastGame2Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame2Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame2Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenEastGame2Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenEastGame2Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1476,7 +1659,9 @@ function suggestSweetSixteenEastGame2Winner(filters, $list, bracketId = null, ea
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenEastGame2Loser(filters, $list, bracketId = null, eastGame2Loser = null, relate=true, target) {
@@ -1491,26 +1676,38 @@ function suggestSweetSixteenEastGame2Loser(filters, $list, bracketId = null, eas
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == eastGame2Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (eastGame2Loser != null && val === eastGame2Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_eastGame2Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_eastGame2Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueEastGame2Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame2Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EastGame2Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenEastGame2Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenEastGame2Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1524,7 +1721,9 @@ function suggestSweetSixteenEastGame2Loser(filters, $list, bracketId = null, eas
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenMidwestGame1Winner(filters, $list, bracketId = null, midwestGame1Winner = null, relate=true, target) {
@@ -1539,26 +1738,38 @@ function suggestSweetSixteenMidwestGame1Winner(filters, $list, bracketId = null,
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == midwestGame1Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (midwestGame1Winner != null && val === midwestGame1Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_midwestGame1Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_midwestGame1Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueMidwestGame1Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame1Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame1Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenMidwestGame1Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenMidwestGame1Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1572,7 +1783,9 @@ function suggestSweetSixteenMidwestGame1Winner(filters, $list, bracketId = null,
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenObjectSuggest($formFilters, $list, target) {
@@ -1609,26 +1822,38 @@ function suggestSweetSixteenMidwestGame1Loser(filters, $list, bracketId = null, 
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == midwestGame1Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (midwestGame1Loser != null && val === midwestGame1Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_midwestGame1Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_midwestGame1Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueMidwestGame1Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame1Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame1Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenMidwestGame1Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenMidwestGame1Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1642,7 +1867,9 @@ function suggestSweetSixteenMidwestGame1Loser(filters, $list, bracketId = null, 
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenMidwestGame2Winner(filters, $list, bracketId = null, midwestGame2Winner = null, relate=true, target) {
@@ -1657,26 +1884,38 @@ function suggestSweetSixteenMidwestGame2Winner(filters, $list, bracketId = null,
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == midwestGame2Winner);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (midwestGame2Winner != null && val === midwestGame2Winner.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_midwestGame2Winner_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_midwestGame2Winner_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueMidwestGame2Winner ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame2Winner']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame2Winner']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenMidwestGame2Winner(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenMidwestGame2Winner(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1690,7 +1929,9 @@ function suggestSweetSixteenMidwestGame2Winner(filters, $list, bracketId = null,
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
 }
 
 function suggestSweetSixteenMidwestGame2Loser(filters, $list, bracketId = null, midwestGame2Loser = null, relate=true, target) {
@@ -1705,26 +1946,38 @@ function suggestSweetSixteenMidwestGame2Loser(filters, $list, bracketId = null, 
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var val = o['teamId'];
-        var checked = val == null ? false : (Array.isArray(val) ? val.includes(bracketId.toString()) : val == midwestGame2Loser);
+        var inputVar = 'teamId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (midwestGame2Loser != null && val === midwestGame2Loser.toString());
         var $input = document.createElement('wa-checkbox');
-        $input.setAttribute('id', 'GET_midwestGame2Loser_' + bracketId + '_teamId_' + o['teamId']);
-        $input.setAttribute('name', 'teamId');
-        $input.setAttribute('value', o['teamId']);
+        $input.setAttribute('id', 'GET_midwestGame2Loser_' + bracketId + '_teamId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
         $input.setAttribute('class', 'valueMidwestGame2Loser ');
         if(bracketId != null) {
           $input.addEventListener('change', function(event) {
-            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame2Loser']: o['teamId'] }
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'MidwestGame2Loser']: o[inputVar] }
                 , target
                 , function(response, target) {
                   addGlow(target);
-                  suggestSweetSixteenMidwestGame2Loser(filters, $list, bracketId, o['teamId'], relate, target);
+                  suggestSweetSixteenMidwestGame2Loser(filters, $list, bracketId, o[inputVar], relate, target);
                 }
                 , function(response, target) { addError(target); }
             );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
           });
         }
         if(checked)
@@ -1738,7 +1991,71 @@ function suggestSweetSixteenMidwestGame2Loser(filters, $list, bracketId = null, 
     }
   };
   error = function( jqXhr, target2 ) {};
-  searchTeamVals(filters, target, success, error);
+  if (typeof searchTeamVals === 'function') {
+    searchTeamVals(filters, target, success, error);
+  }
+}
+
+function suggestSweetSixteenEliteEight(filters, $list, bracketId = null, eliteEight = null, relate=true, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var iTemplate = document.createElement('template');
+        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        var $i = iTemplate.content;
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
+        $a.setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        var inputVar = 'bracketId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (eliteEight != null && val === eliteEight.toString());
+        var $input = document.createElement('wa-checkbox');
+        $input.setAttribute('id', 'GET_eliteEight_' + bracketId + '_sweetSixteen_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
+        $input.setAttribute('class', 'valueEliteEight ');
+        if(bracketId != null) {
+          $input.addEventListener('change', function(event) {
+            document.getElementById(event.target.getAttribute('data-target')).value = o[inputVar];
+            patchSweetSixteenVals([{ name: 'fq', value: 'bracketId:' + bracketId }], { [(event.target.checked ? 'set' : 'remove') + 'EliteEight']: o[inputVar] }
+                , target
+                , function(response, target) {
+                  addGlow(target);
+                  suggestSweetSixteenEliteEight(filters, $list, bracketId, o[inputVar], relate, target);
+                }
+                , function(response, target) { addError(target); }
+            );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
+          });
+        }
+        if(checked)
+          $input.setAttribute('checked', 'checked');
+        var $li = document.createElement('li');
+        if(relate)
+          $li.append($input);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  if (typeof searchEliteEightVals === 'function') {
+    searchEliteEightVals(filters, target, success, error);
+  }
 }
 
 // GET //
@@ -1842,65 +2159,69 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   if(valueSouthGame1Winner != null && valueSouthGame1Winner !== '')
     vals['setSouthGame1Winner'] = valueSouthGame1Winner;
 
-  var valueWestGame1Winner = (Array.from($formValues.querySelectorAll('.valueWestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame1Winner != null && valueWestGame1Winner !== '')
-    vals['setWestGame1Winner'] = valueWestGame1Winner;
-
-  var valueEastGame1Winner = (Array.from($formValues.querySelectorAll('.valueEastGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEastGame1Winner != null && valueEastGame1Winner !== '')
-    vals['setEastGame1Winner'] = valueEastGame1Winner;
-
-  var valueMidwestGame1Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueMidwestGame1Winner != null && valueMidwestGame1Winner !== '')
-    vals['setMidwestGame1Winner'] = valueMidwestGame1Winner;
-
   var valueSouthGame1Loser = (Array.from($formValues.querySelectorAll('.valueSouthGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame1Loser != null && valueSouthGame1Loser !== '')
     vals['setSouthGame1Loser'] = valueSouthGame1Loser;
-
-  var valueWestGame1Loser = (Array.from($formValues.querySelectorAll('.valueWestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
-    vals['setWestGame1Loser'] = valueWestGame1Loser;
-
-  var valueEastGame1Loser = (Array.from($formValues.querySelectorAll('.valueEastGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEastGame1Loser != null && valueEastGame1Loser !== '')
-    vals['setEastGame1Loser'] = valueEastGame1Loser;
-
-  var valueMidwestGame1Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueMidwestGame1Loser != null && valueMidwestGame1Loser !== '')
-    vals['setMidwestGame1Loser'] = valueMidwestGame1Loser;
 
   var valueSouthGame2Winner = (Array.from($formValues.querySelectorAll('.valueSouthGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame2Winner != null && valueSouthGame2Winner !== '')
     vals['setSouthGame2Winner'] = valueSouthGame2Winner;
 
-  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
-    vals['setWestGame2Winner'] = valueWestGame2Winner;
-
-  var valueEastGame2Winner = (Array.from($formValues.querySelectorAll('.valueEastGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEastGame2Winner != null && valueEastGame2Winner !== '')
-    vals['setEastGame2Winner'] = valueEastGame2Winner;
-
-  var valueMidwestGame2Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueMidwestGame2Winner != null && valueMidwestGame2Winner !== '')
-    vals['setMidwestGame2Winner'] = valueMidwestGame2Winner;
-
   var valueSouthGame2Loser = (Array.from($formValues.querySelectorAll('.valueSouthGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame2Loser != null && valueSouthGame2Loser !== '')
     vals['setSouthGame2Loser'] = valueSouthGame2Loser;
+
+  var valueWestGame1Winner = (Array.from($formValues.querySelectorAll('.valueWestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame1Winner != null && valueWestGame1Winner !== '')
+    vals['setWestGame1Winner'] = valueWestGame1Winner;
+
+  var valueWestGame1Loser = (Array.from($formValues.querySelectorAll('.valueWestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
+    vals['setWestGame1Loser'] = valueWestGame1Loser;
+
+  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
+    vals['setWestGame2Winner'] = valueWestGame2Winner;
 
   var valueWestGame2Loser = (Array.from($formValues.querySelectorAll('.valueWestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueWestGame2Loser != null && valueWestGame2Loser !== '')
     vals['setWestGame2Loser'] = valueWestGame2Loser;
 
+  var valueEastGame1Winner = (Array.from($formValues.querySelectorAll('.valueEastGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEastGame1Winner != null && valueEastGame1Winner !== '')
+    vals['setEastGame1Winner'] = valueEastGame1Winner;
+
+  var valueEastGame1Loser = (Array.from($formValues.querySelectorAll('.valueEastGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEastGame1Loser != null && valueEastGame1Loser !== '')
+    vals['setEastGame1Loser'] = valueEastGame1Loser;
+
+  var valueEastGame2Winner = (Array.from($formValues.querySelectorAll('.valueEastGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEastGame2Winner != null && valueEastGame2Winner !== '')
+    vals['setEastGame2Winner'] = valueEastGame2Winner;
+
   var valueEastGame2Loser = (Array.from($formValues.querySelectorAll('.valueEastGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame2Loser != null && valueEastGame2Loser !== '')
     vals['setEastGame2Loser'] = valueEastGame2Loser;
 
+  var valueMidwestGame1Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueMidwestGame1Winner != null && valueMidwestGame1Winner !== '')
+    vals['setMidwestGame1Winner'] = valueMidwestGame1Winner;
+
+  var valueMidwestGame1Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueMidwestGame1Loser != null && valueMidwestGame1Loser !== '')
+    vals['setMidwestGame1Loser'] = valueMidwestGame1Loser;
+
+  var valueMidwestGame2Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueMidwestGame2Winner != null && valueMidwestGame2Winner !== '')
+    vals['setMidwestGame2Winner'] = valueMidwestGame2Winner;
+
   var valueMidwestGame2Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueMidwestGame2Loser != null && valueMidwestGame2Loser !== '')
     vals['setMidwestGame2Loser'] = valueMidwestGame2Loser;
+
+  var valueEliteEight = (Array.from($formValues.querySelectorAll('.valueEliteEight')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEliteEight != null && valueEliteEight !== '')
+    vals['setEliteEight'] = valueEliteEight;
 
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   var removeSessionId = $formValues.querySelector('.removeSessionId')?.value === 'true';
@@ -2052,65 +2373,69 @@ function patchSweetSixteenFilters($formFilters) {
     if(filterSouthGame1Winner != null && filterSouthGame1Winner !== '')
       filters.push({ name: 'fq', value: 'southGame1Winner:' + filterSouthGame1Winner });
 
-    var filterWestGame1Winner = $formFilters.querySelector('.valueWestGame1Winner')?.value;
-    if(filterWestGame1Winner != null && filterWestGame1Winner !== '')
-      filters.push({ name: 'fq', value: 'westGame1Winner:' + filterWestGame1Winner });
-
-    var filterEastGame1Winner = $formFilters.querySelector('.valueEastGame1Winner')?.value;
-    if(filterEastGame1Winner != null && filterEastGame1Winner !== '')
-      filters.push({ name: 'fq', value: 'eastGame1Winner:' + filterEastGame1Winner });
-
-    var filterMidwestGame1Winner = $formFilters.querySelector('.valueMidwestGame1Winner')?.value;
-    if(filterMidwestGame1Winner != null && filterMidwestGame1Winner !== '')
-      filters.push({ name: 'fq', value: 'midwestGame1Winner:' + filterMidwestGame1Winner });
-
     var filterSouthGame1Loser = $formFilters.querySelector('.valueSouthGame1Loser')?.value;
     if(filterSouthGame1Loser != null && filterSouthGame1Loser !== '')
       filters.push({ name: 'fq', value: 'southGame1Loser:' + filterSouthGame1Loser });
-
-    var filterWestGame1Loser = $formFilters.querySelector('.valueWestGame1Loser')?.value;
-    if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
-      filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
-
-    var filterEastGame1Loser = $formFilters.querySelector('.valueEastGame1Loser')?.value;
-    if(filterEastGame1Loser != null && filterEastGame1Loser !== '')
-      filters.push({ name: 'fq', value: 'eastGame1Loser:' + filterEastGame1Loser });
-
-    var filterMidwestGame1Loser = $formFilters.querySelector('.valueMidwestGame1Loser')?.value;
-    if(filterMidwestGame1Loser != null && filterMidwestGame1Loser !== '')
-      filters.push({ name: 'fq', value: 'midwestGame1Loser:' + filterMidwestGame1Loser });
 
     var filterSouthGame2Winner = $formFilters.querySelector('.valueSouthGame2Winner')?.value;
     if(filterSouthGame2Winner != null && filterSouthGame2Winner !== '')
       filters.push({ name: 'fq', value: 'southGame2Winner:' + filterSouthGame2Winner });
 
-    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
-    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
-
-    var filterEastGame2Winner = $formFilters.querySelector('.valueEastGame2Winner')?.value;
-    if(filterEastGame2Winner != null && filterEastGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'eastGame2Winner:' + filterEastGame2Winner });
-
-    var filterMidwestGame2Winner = $formFilters.querySelector('.valueMidwestGame2Winner')?.value;
-    if(filterMidwestGame2Winner != null && filterMidwestGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'midwestGame2Winner:' + filterMidwestGame2Winner });
-
     var filterSouthGame2Loser = $formFilters.querySelector('.valueSouthGame2Loser')?.value;
     if(filterSouthGame2Loser != null && filterSouthGame2Loser !== '')
       filters.push({ name: 'fq', value: 'southGame2Loser:' + filterSouthGame2Loser });
+
+    var filterWestGame1Winner = $formFilters.querySelector('.valueWestGame1Winner')?.value;
+    if(filterWestGame1Winner != null && filterWestGame1Winner !== '')
+      filters.push({ name: 'fq', value: 'westGame1Winner:' + filterWestGame1Winner });
+
+    var filterWestGame1Loser = $formFilters.querySelector('.valueWestGame1Loser')?.value;
+    if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
+      filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
+
+    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
+    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
 
     var filterWestGame2Loser = $formFilters.querySelector('.valueWestGame2Loser')?.value;
     if(filterWestGame2Loser != null && filterWestGame2Loser !== '')
       filters.push({ name: 'fq', value: 'westGame2Loser:' + filterWestGame2Loser });
 
+    var filterEastGame1Winner = $formFilters.querySelector('.valueEastGame1Winner')?.value;
+    if(filterEastGame1Winner != null && filterEastGame1Winner !== '')
+      filters.push({ name: 'fq', value: 'eastGame1Winner:' + filterEastGame1Winner });
+
+    var filterEastGame1Loser = $formFilters.querySelector('.valueEastGame1Loser')?.value;
+    if(filterEastGame1Loser != null && filterEastGame1Loser !== '')
+      filters.push({ name: 'fq', value: 'eastGame1Loser:' + filterEastGame1Loser });
+
+    var filterEastGame2Winner = $formFilters.querySelector('.valueEastGame2Winner')?.value;
+    if(filterEastGame2Winner != null && filterEastGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'eastGame2Winner:' + filterEastGame2Winner });
+
     var filterEastGame2Loser = $formFilters.querySelector('.valueEastGame2Loser')?.value;
     if(filterEastGame2Loser != null && filterEastGame2Loser !== '')
       filters.push({ name: 'fq', value: 'eastGame2Loser:' + filterEastGame2Loser });
 
+    var filterMidwestGame1Winner = $formFilters.querySelector('.valueMidwestGame1Winner')?.value;
+    if(filterMidwestGame1Winner != null && filterMidwestGame1Winner !== '')
+      filters.push({ name: 'fq', value: 'midwestGame1Winner:' + filterMidwestGame1Winner });
+
+    var filterMidwestGame1Loser = $formFilters.querySelector('.valueMidwestGame1Loser')?.value;
+    if(filterMidwestGame1Loser != null && filterMidwestGame1Loser !== '')
+      filters.push({ name: 'fq', value: 'midwestGame1Loser:' + filterMidwestGame1Loser });
+
+    var filterMidwestGame2Winner = $formFilters.querySelector('.valueMidwestGame2Winner')?.value;
+    if(filterMidwestGame2Winner != null && filterMidwestGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'midwestGame2Winner:' + filterMidwestGame2Winner });
+
     var filterMidwestGame2Loser = $formFilters.querySelector('.valueMidwestGame2Loser')?.value;
     if(filterMidwestGame2Loser != null && filterMidwestGame2Loser !== '')
       filters.push({ name: 'fq', value: 'midwestGame2Loser:' + filterMidwestGame2Loser });
+
+    var filterEliteEight = $formFilters.querySelector('.valueEliteEight')?.value;
+    if(filterEliteEight != null && filterEliteEight !== '')
+      filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
 
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
@@ -2266,65 +2591,69 @@ async function postSweetSixteen($formValues, target, success, error) {
   if(valueSouthGame1Winner != null && valueSouthGame1Winner !== '')
     vals['southGame1Winner'] = valueSouthGame1Winner;
 
-  var valueWestGame1Winner = (Array.from($formValues.querySelectorAll('.valueWestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame1Winner != null && valueWestGame1Winner !== '')
-    vals['westGame1Winner'] = valueWestGame1Winner;
-
-  var valueEastGame1Winner = (Array.from($formValues.querySelectorAll('.valueEastGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEastGame1Winner != null && valueEastGame1Winner !== '')
-    vals['eastGame1Winner'] = valueEastGame1Winner;
-
-  var valueMidwestGame1Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueMidwestGame1Winner != null && valueMidwestGame1Winner !== '')
-    vals['midwestGame1Winner'] = valueMidwestGame1Winner;
-
   var valueSouthGame1Loser = (Array.from($formValues.querySelectorAll('.valueSouthGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame1Loser != null && valueSouthGame1Loser !== '')
     vals['southGame1Loser'] = valueSouthGame1Loser;
-
-  var valueWestGame1Loser = (Array.from($formValues.querySelectorAll('.valueWestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
-    vals['westGame1Loser'] = valueWestGame1Loser;
-
-  var valueEastGame1Loser = (Array.from($formValues.querySelectorAll('.valueEastGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEastGame1Loser != null && valueEastGame1Loser !== '')
-    vals['eastGame1Loser'] = valueEastGame1Loser;
-
-  var valueMidwestGame1Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueMidwestGame1Loser != null && valueMidwestGame1Loser !== '')
-    vals['midwestGame1Loser'] = valueMidwestGame1Loser;
 
   var valueSouthGame2Winner = (Array.from($formValues.querySelectorAll('.valueSouthGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame2Winner != null && valueSouthGame2Winner !== '')
     vals['southGame2Winner'] = valueSouthGame2Winner;
 
-  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
-    vals['westGame2Winner'] = valueWestGame2Winner;
-
-  var valueEastGame2Winner = (Array.from($formValues.querySelectorAll('.valueEastGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEastGame2Winner != null && valueEastGame2Winner !== '')
-    vals['eastGame2Winner'] = valueEastGame2Winner;
-
-  var valueMidwestGame2Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueMidwestGame2Winner != null && valueMidwestGame2Winner !== '')
-    vals['midwestGame2Winner'] = valueMidwestGame2Winner;
-
   var valueSouthGame2Loser = (Array.from($formValues.querySelectorAll('.valueSouthGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame2Loser != null && valueSouthGame2Loser !== '')
     vals['southGame2Loser'] = valueSouthGame2Loser;
+
+  var valueWestGame1Winner = (Array.from($formValues.querySelectorAll('.valueWestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame1Winner != null && valueWestGame1Winner !== '')
+    vals['westGame1Winner'] = valueWestGame1Winner;
+
+  var valueWestGame1Loser = (Array.from($formValues.querySelectorAll('.valueWestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
+    vals['westGame1Loser'] = valueWestGame1Loser;
+
+  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
+    vals['westGame2Winner'] = valueWestGame2Winner;
 
   var valueWestGame2Loser = (Array.from($formValues.querySelectorAll('.valueWestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueWestGame2Loser != null && valueWestGame2Loser !== '')
     vals['westGame2Loser'] = valueWestGame2Loser;
 
+  var valueEastGame1Winner = (Array.from($formValues.querySelectorAll('.valueEastGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEastGame1Winner != null && valueEastGame1Winner !== '')
+    vals['eastGame1Winner'] = valueEastGame1Winner;
+
+  var valueEastGame1Loser = (Array.from($formValues.querySelectorAll('.valueEastGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEastGame1Loser != null && valueEastGame1Loser !== '')
+    vals['eastGame1Loser'] = valueEastGame1Loser;
+
+  var valueEastGame2Winner = (Array.from($formValues.querySelectorAll('.valueEastGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEastGame2Winner != null && valueEastGame2Winner !== '')
+    vals['eastGame2Winner'] = valueEastGame2Winner;
+
   var valueEastGame2Loser = (Array.from($formValues.querySelectorAll('.valueEastGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame2Loser != null && valueEastGame2Loser !== '')
     vals['eastGame2Loser'] = valueEastGame2Loser;
 
+  var valueMidwestGame1Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueMidwestGame1Winner != null && valueMidwestGame1Winner !== '')
+    vals['midwestGame1Winner'] = valueMidwestGame1Winner;
+
+  var valueMidwestGame1Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueMidwestGame1Loser != null && valueMidwestGame1Loser !== '')
+    vals['midwestGame1Loser'] = valueMidwestGame1Loser;
+
+  var valueMidwestGame2Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueMidwestGame2Winner != null && valueMidwestGame2Winner !== '')
+    vals['midwestGame2Winner'] = valueMidwestGame2Winner;
+
   var valueMidwestGame2Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueMidwestGame2Loser != null && valueMidwestGame2Loser !== '')
     vals['midwestGame2Loser'] = valueMidwestGame2Loser;
+
+  var valueEliteEight = (Array.from($formValues.querySelectorAll('.valueEliteEight')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEliteEight != null && valueEliteEight !== '')
+    vals['eliteEight'] = valueEliteEight;
 
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   if(valueSessionId != null && valueSessionId !== '')

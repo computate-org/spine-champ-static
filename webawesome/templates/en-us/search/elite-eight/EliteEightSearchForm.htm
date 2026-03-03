@@ -1,0 +1,30 @@
+{% include en-us/search/elite-eight/EliteEightSearchFormMacros.htm %}
+{% include en-us/search/sweet-sixteen/SweetSixteenSearchFormMacros.htm %}
+{% include en-us/search/guesser/GuesserSearchFormMacros.htm %}
+{% include en-us/search/team/TeamSearchFormMacros.htm %}
+{% include en-us/search/final-four/FinalFourSearchFormMacros.htm %}
+{%- if 'DELETE' in scopes %}
+    {{ htmForm_patchEliteEight() }}
+{%- endif %}
+{%- if 'POST' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmForm_postEliteEight() }}
+  {%- else %}
+    {{ htmForm_postEliteEight() }}
+  {%- endif %}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmForm_deleteEliteEight() }}
+  {%- else %}
+  {%- endif %}
+{%- endif %}
+{%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {{ htmForm_putimportEliteEight() }}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmForm_deletefilterEliteEight() }}
+  {%- else %}
+  {%- endif %}
+{%- endif %}

@@ -1,0 +1,866 @@
+{% extends "en-us/PageLayout.htm" %}
+{%- block htmTitlePageLayout %}
+{%- block htmTitleFinalFourPage %}
+    <title>{{ result.objectTitle }}</title>
+{%- endblock htmTitleFinalFourPage %}
+{%- endblock htmTitlePageLayout %}
+
+{%- block htmStylesPageLayout %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ staticBaseUrl }}/css/en-us/search/final-four/FinalFour.css"/>
+{%- block htmStylesFinalFourPage %}
+{%- endblock htmStylesFinalFourPage %}
+{%- endblock htmStylesPageLayout %}
+
+{%- block htmStylePageLayout %}
+      :root {
+        --site-results-number-of-columns: 2;
+      }
+{{ super() }}
+{%- block htmStyleFinalFourPage %}
+{%- endblock htmStyleFinalFourPage %}
+{%- endblock htmStylePageLayout %}
+
+{%- block htmScriptsPageLayout %}
+{{ super() }}
+{%- block htmScriptsFinalFourPage %}
+    <script src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFour.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFourSearchPage.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFourEditPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEight.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/team/Team.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/championship/Championship.js"></script>
+{%- endblock htmScriptsFinalFourPage %}
+{%- endblock htmScriptsPageLayout %}
+
+{%- block htmScriptPageLayout %}
+{%- block htmScriptFinalFourPage %}
+    <script>
+
+      function jsWebsocketFinalFour(bracketId, vars, $response) {
+{%- block jsWebsocketFinalFourPage %}{%- endblock %}
+      }
+
+      function jsTooltipFinalFour(e, feature) {
+{%- block jsTooltipFinalFourPage %}{%- endblock %}
+      }
+
+      function htmTooltipFinalFour(feature, layer) {
+        return `{%- block htmTooltipFinalFourPage %}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.editPage)}">${feature.properties.objectTitle}</a></h3>
+{%- endblock htmTooltipFinalFourPage %}`;
+      }
+
+      function facetChangeFinalFourSuccess(e) {
+        var l = e.querySelector('.pageForm .listFinalFour')?.value;
+        if(l)
+          window.listFinalFour = JSON.parse(l);
+{% block facetChangeFinalFourSuccess %}{%- endblock facetFinalFourSuccess %}
+      }
+      function facetChangeFinalFourError(e) {
+{% block facetChangeFinalFourError %}{%- endblock facetFinalFourError %}
+      }
+
+      function facetSimpleRangeFinalFourSuccess(e) {
+{% block facetSimpleRangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetSimpleRangeFinalFourSuccess %}
+      }
+      function facetSimpleRangeFinalFourError(e) {
+{% block facetSimpleRangeFinalFourError %}      facetChangeFinalFourError(e);{% endblock facetSimpleRangeFinalFourError %}
+      }
+      function facetSimpleRangeFinalFour(e) {
+        facetSimpleRange(e, facetSimpleRangeFinalFourSuccess, facetSimpleRangeFinalFourError);
+      }
+
+      function facetRangeTimeZoneFinalFourSuccess(e) {
+{% block facetRangeTimeZoneFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeTimeZoneFinalFourSuccess %}
+      }
+      function facetRangeTimeZoneFinalFourError(e) {
+{% block facetRangeTimeZoneFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeTimeZoneFinalFourError %}
+      }
+      function facetRangeTimeZoneFinalFour(e) {
+        facetRangeTimeZone(e, facetRangeTimeZoneFinalFourSuccess, facetRangeTimeZoneFinalFourError);
+      }
+
+      function facetRangeGapChangeFinalFourSuccess(e) {
+{% block facetRangeGapChangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeGapChangeFinalFourSuccess %}
+      }
+      function facetRangeGapChangeFinalFourError(e) {
+{% block facetRangeGapChangeFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeGapChangeFinalFourError %}
+      }
+      function facetRangeGapChangeFinalFour(classSimpleName, event) {
+        facetRangeGapChange(classSimpleName, event, facetRangeGapChangeFinalFourSuccess, facetRangeGapChangeFinalFourError);
+      }
+
+      function facetRangeStartChangeFinalFourSuccess(e) {
+{% block facetRangeStartChangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeStartChangeFinalFourSuccess %}
+      }
+      function facetRangeStartChangeFinalFourError(e) {
+{% block facetRangeStartChangeFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeStartChangeFinalFourError %}
+      }
+      function facetRangeStartChangeFinalFour(classSimpleName, event) {
+        facetRangeStartChange(classSimpleName, event, facetRangeStartChangeFinalFourSuccess, facetRangeStartChangeFinalFourError);
+      }
+
+      function facetRangeEndChangeFinalFourSuccess(e) {
+{% block facetRangeEndChangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeEndChangeFinalFourSuccess %}
+      }
+      function facetRangeEndChangeFinalFourError(e) {
+{% block facetRangeEndChangeFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeEndChangeFinalFourError %}
+      }
+      function facetRangeEndChangeFinalFour(classSimpleName, event) {
+        facetRangeEndChange(classSimpleName, event, facetRangeEndChangeFinalFourSuccess, facetRangeEndChangeFinalFourError);
+      }
+    </script>
+    <script type="module">
+{% if DEFAULT_MAP_LOCATION is defined %}
+      window.DEFAULT_MAP_LOCATION = { type: 'Point', coordinates: [ {{ DEFAULT_MAP_LOCATION.coordinates[0] }}, {{ DEFAULT_MAP_LOCATION.coordinates[1] }} ]};
+{% endif %}
+{% if DEFAULT_MAP_ZOOM is defined %}
+      window.DEFAULT_MAP_ZOOM = {{ DEFAULT_MAP_ZOOM }};
+{% endif %}
+      window.DEFAULT_ZONE_ID = '{{ defaultZoneId }}';
+      Promise.all([
+        customElements.whenDefined('wa-button')
+        , customElements.whenDefined('wa-input')
+        , customElements.whenDefined('wa-select')
+        , customElements.whenDefined('wa-radio')
+        , customElements.whenDefined('wa-checkbox')
+        , customElements.whenDefined('wa-dropdown')
+      ]).then(() => {
+
+        var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
+
+        if(bracketId == null) {
+          document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-details');
+          });
+          document.querySelector('#grid-toggle-list')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-list');
+          });
+          document.querySelector('#grid-toggle-card')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-list');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-card');
+          });
+        } else {
+          var o = document.querySelector('.pageForm .result')?.value;
+          if(o)
+            window.result = JSON.parse(o);
+        {% if result.bracketId is defined %}
+          function relate_guesserId(event) {
+            suggestFinalFourGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#FinalFour_POST_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#FinalFour_POST_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#FinalFour_PATCH_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#FinalFour_PATCH_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#FinalFour_Page_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#FinalFour_Page_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#Guesser_POST_bracketId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#Guesser_POST_bracketId')?.addEventListener('focus', relate_guesserId);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGuesserId([{'name':'fq','value':'guesserId:' + window.result.guesserId}], document.querySelector('#listFinalFourGuesserId_Page'), window.result.bracketId, window.result.guesserId, true, document.getElementById('FinalFour_Page_guesserId'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestFinalFourGuesserId([{'name':'fq','value':'guesserId:' + window.result.guesserId}], document.querySelector('#listFinalFourGuesserId_Page'), window.result.bracketId, window.result.guesserId, true, document.getElementById('FinalFour_Page_guesserId'));
+          {% else %}
+          suggestFinalFourGuesserId([{'name':'fq','value':'guesserId:' + window.result.guesserId}], document.querySelector('#listFinalFourGuesserId_Page'), window.result.bracketId, window.result.guesserId, false, document.getElementById('FinalFour_Page_guesserId'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_game1Winner(event) {
+            suggestFinalFourGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Winner : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Winner')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#FinalFour_POST_game1Winner')?.addEventListener('focus', relate_game1Winner);
+          document.querySelector('#FinalFour_PATCH_game1Winner')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#FinalFour_PATCH_game1Winner')?.addEventListener('focus', relate_game1Winner);
+          document.querySelector('#FinalFour_Page_game1Winner')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#FinalFour_Page_game1Winner')?.addEventListener('focus', relate_game1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_game1Winner);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame1Winner([{'name':'fq','value':'teamId:' + window.result.game1Winner}], document.querySelector('#listFinalFourGame1Winner_Page'), window.result.bracketId, window.result.game1Winner, true, document.getElementById('FinalFour_Page_game1Winner'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestFinalFourGame1Winner([{'name':'fq','value':'teamId:' + window.result.game1Winner}], document.querySelector('#listFinalFourGame1Winner_Page'), window.result.bracketId, window.result.game1Winner, true, document.getElementById('FinalFour_Page_game1Winner'));
+          {% else %}
+          suggestFinalFourGame1Winner([{'name':'fq','value':'teamId:' + window.result.game1Winner}], document.querySelector('#listFinalFourGame1Winner_Page'), window.result.bracketId, window.result.game1Winner, false, document.getElementById('FinalFour_Page_game1Winner'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_game1Loser(event) {
+            suggestFinalFourGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Loser : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Loser')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#FinalFour_POST_game1Loser')?.addEventListener('focus', relate_game1Loser);
+          document.querySelector('#FinalFour_PATCH_game1Loser')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#FinalFour_PATCH_game1Loser')?.addEventListener('focus', relate_game1Loser);
+          document.querySelector('#FinalFour_Page_game1Loser')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#FinalFour_Page_game1Loser')?.addEventListener('focus', relate_game1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_game1Loser);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame1Loser([{'name':'fq','value':'teamId:' + window.result.game1Loser}], document.querySelector('#listFinalFourGame1Loser_Page'), window.result.bracketId, window.result.game1Loser, true, document.getElementById('FinalFour_Page_game1Loser'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestFinalFourGame1Loser([{'name':'fq','value':'teamId:' + window.result.game1Loser}], document.querySelector('#listFinalFourGame1Loser_Page'), window.result.bracketId, window.result.game1Loser, true, document.getElementById('FinalFour_Page_game1Loser'));
+          {% else %}
+          suggestFinalFourGame1Loser([{'name':'fq','value':'teamId:' + window.result.game1Loser}], document.querySelector('#listFinalFourGame1Loser_Page'), window.result.bracketId, window.result.game1Loser, false, document.getElementById('FinalFour_Page_game1Loser'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_game2Winner(event) {
+            suggestFinalFourGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Winner : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Winner')?.addEventListener('input', relate_game2Winner);
+          document.querySelector('#FinalFour_POST_game2Winner')?.addEventListener('focus', relate_game2Winner);
+          document.querySelector('#FinalFour_PATCH_game2Winner')?.addEventListener('input', relate_game2Winner);
+          document.querySelector('#FinalFour_PATCH_game2Winner')?.addEventListener('focus', relate_game2Winner);
+          document.querySelector('#FinalFour_Page_game2Winner')?.addEventListener('input', relate_game2Winner);
+          document.querySelector('#FinalFour_Page_game2Winner')?.addEventListener('focus', relate_game2Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_game2Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_game2Winner);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame2Winner([{'name':'fq','value':'teamId:' + window.result.game2Winner}], document.querySelector('#listFinalFourGame2Winner_Page'), window.result.bracketId, window.result.game2Winner, true, document.getElementById('FinalFour_Page_game2Winner'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestFinalFourGame2Winner([{'name':'fq','value':'teamId:' + window.result.game2Winner}], document.querySelector('#listFinalFourGame2Winner_Page'), window.result.bracketId, window.result.game2Winner, true, document.getElementById('FinalFour_Page_game2Winner'));
+          {% else %}
+          suggestFinalFourGame2Winner([{'name':'fq','value':'teamId:' + window.result.game2Winner}], document.querySelector('#listFinalFourGame2Winner_Page'), window.result.bracketId, window.result.game2Winner, false, document.getElementById('FinalFour_Page_game2Winner'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_game2Loser(event) {
+            suggestFinalFourGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Loser : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Loser')?.addEventListener('input', relate_game2Loser);
+          document.querySelector('#FinalFour_POST_game2Loser')?.addEventListener('focus', relate_game2Loser);
+          document.querySelector('#FinalFour_PATCH_game2Loser')?.addEventListener('input', relate_game2Loser);
+          document.querySelector('#FinalFour_PATCH_game2Loser')?.addEventListener('focus', relate_game2Loser);
+          document.querySelector('#FinalFour_Page_game2Loser')?.addEventListener('input', relate_game2Loser);
+          document.querySelector('#FinalFour_Page_game2Loser')?.addEventListener('focus', relate_game2Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_game2Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_game2Loser);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame2Loser([{'name':'fq','value':'teamId:' + window.result.game2Loser}], document.querySelector('#listFinalFourGame2Loser_Page'), window.result.bracketId, window.result.game2Loser, true, document.getElementById('FinalFour_Page_game2Loser'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestFinalFourGame2Loser([{'name':'fq','value':'teamId:' + window.result.game2Loser}], document.querySelector('#listFinalFourGame2Loser_Page'), window.result.bracketId, window.result.game2Loser, true, document.getElementById('FinalFour_Page_game2Loser'));
+          {% else %}
+          suggestFinalFourGame2Loser([{'name':'fq','value':'teamId:' + window.result.game2Loser}], document.querySelector('#listFinalFourGame2Loser_Page'), window.result.bracketId, window.result.game2Loser, false, document.getElementById('FinalFour_Page_game2Loser'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_eliteEight(event) {
+            suggestFinalFourEliteEight(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,finalFour,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#FinalFour_POST_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#FinalFour_POST_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#FinalFour_PATCH_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#FinalFour_PATCH_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#FinalFour_Page_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#FinalFour_Page_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#EliteEight_POST_bracketId')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#EliteEight_POST_bracketId')?.addEventListener('focus', relate_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourEliteEight([{'name':'fq','value':'finalFour:' + window.result.eliteEight}], document.querySelector('#listFinalFourEliteEight_Page'), window.result.bracketId, window.result.eliteEight, true, document.getElementById('FinalFour_Page_eliteEight'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestFinalFourEliteEight([{'name':'fq','value':'finalFour:' + window.result.eliteEight}], document.querySelector('#listFinalFourEliteEight_Page'), window.result.bracketId, window.result.eliteEight, true, document.getElementById('FinalFour_Page_eliteEight'));
+          {% else %}
+          suggestFinalFourEliteEight([{'name':'fq','value':'finalFour:' + window.result.eliteEight}], document.querySelector('#listFinalFourEliteEight_Page'), window.result.bracketId, window.result.eliteEight, false, document.getElementById('FinalFour_Page_eliteEight'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          // rechercheSolrAttribuer k: 0
+          function EliteEight_POST_sweetSixteen_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightSweetSixteen(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,sweetSixteen,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.sweetSixteen : null
+                , true
+                , document.querySelector('#EliteEight_POST_sweetSixteen_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_sweetSixteen_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_sweetSixteen_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_sweetSixteen_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_sweetSixteen_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightSweetSixteen([], document.querySelector('#listFinalFourSweetSixteen_Page'), null, window.result.sweetSixteen, true, document.querySelector('#EliteEight_POST_sweetSixteen_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 1
+          function EliteEight_POST_guesserId_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#EliteEight_POST_guesserId_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_guesserId_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_guesserId_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_guesserId_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_guesserId_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightGuesserId([], document.querySelector('#listFinalFourGuesserId_Page'), null, window.result.guesserId, true, document.querySelector('#EliteEight_POST_guesserId_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 2
+          function EliteEight_POST_southGame1Winner_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightSouthGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_southGame1Winner_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_southGame1Winner_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_southGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_southGame1Winner_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightSouthGame1Winner([], document.querySelector('#listFinalFourSouthGame1Winner_Page'), null, window.result.southGame1Winner, true, document.querySelector('#EliteEight_POST_southGame1Winner_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 3
+          function EliteEight_POST_southGame1Loser_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightSouthGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_southGame1Loser_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_southGame1Loser_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_southGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_southGame1Loser_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightSouthGame1Loser([], document.querySelector('#listFinalFourSouthGame1Loser_Page'), null, window.result.southGame1Loser, true, document.querySelector('#EliteEight_POST_southGame1Loser_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 4
+          function EliteEight_POST_westGame1Winner_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightWestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_westGame1Winner_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_westGame1Winner_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_westGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_westGame1Winner_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightWestGame1Winner([], document.querySelector('#listFinalFourWestGame1Winner_Page'), null, window.result.westGame1Winner, true, document.querySelector('#EliteEight_POST_westGame1Winner_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 5
+          function EliteEight_POST_westGame1Loser_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightWestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_westGame1Loser_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_westGame1Loser_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_westGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_westGame1Loser_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightWestGame1Loser([], document.querySelector('#listFinalFourWestGame1Loser_Page'), null, window.result.westGame1Loser, true, document.querySelector('#EliteEight_POST_westGame1Loser_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 6
+          function EliteEight_POST_eastGame1Winner_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightEastGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_eastGame1Winner_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_eastGame1Winner_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_eastGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_eastGame1Winner_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightEastGame1Winner([], document.querySelector('#listFinalFourEastGame1Winner_Page'), null, window.result.eastGame1Winner, true, document.querySelector('#EliteEight_POST_eastGame1Winner_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 7
+          function EliteEight_POST_eastGame1Loser_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightEastGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_eastGame1Loser_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_eastGame1Loser_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_eastGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_eastGame1Loser_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightEastGame1Loser([], document.querySelector('#listFinalFourEastGame1Loser_Page'), null, window.result.eastGame1Loser, true, document.querySelector('#EliteEight_POST_eastGame1Loser_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 8
+          function EliteEight_POST_midwestGame1Winner_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightMidwestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_midwestGame1Winner_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_midwestGame1Winner_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_midwestGame1Winner_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_midwestGame1Winner_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightMidwestGame1Winner([], document.querySelector('#listFinalFourMidwestGame1Winner_Page'), null, window.result.midwestGame1Winner, true, document.querySelector('#EliteEight_POST_midwestGame1Winner_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 9
+          function EliteEight_POST_midwestGame1Loser_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightMidwestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_midwestGame1Loser_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_midwestGame1Loser_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_midwestGame1Loser_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_midwestGame1Loser_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightMidwestGame1Loser([], document.querySelector('#listFinalFourMidwestGame1Loser_Page'), null, window.result.midwestGame1Loser, true, document.querySelector('#EliteEight_POST_midwestGame1Loser_FinalFour_POST_eliteEight'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 10
+          function EliteEight_POST_finalFour_FinalFour_POST_eliteEight(event) {
+            suggestEliteEightFinalFour(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,finalFour,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFour : null
+                , true
+                , document.querySelector('#EliteEight_POST_finalFour_FinalFour_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_finalFour_FinalFour_POST_eliteEight')?.addEventListener('input', EliteEight_POST_finalFour_FinalFour_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_finalFour_FinalFour_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_finalFour_FinalFour_POST_eliteEight);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightFinalFour([], document.querySelector('#listFinalFourFinalFour_Page'), null, window.result.finalFour, true, document.querySelector('#EliteEight_POST_finalFour_FinalFour_POST_eliteEight'));
+          {% endif %}
+          function relate_championship(event) {
+            suggestFinalFourChampionship(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,finalFour,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.championship : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#FinalFour_POST_championship')?.addEventListener('input', relate_championship);
+          document.querySelector('#FinalFour_POST_championship')?.addEventListener('focus', relate_championship);
+          document.querySelector('#FinalFour_PATCH_championship')?.addEventListener('input', relate_championship);
+          document.querySelector('#FinalFour_PATCH_championship')?.addEventListener('focus', relate_championship);
+          document.querySelector('#FinalFour_Page_championship')?.addEventListener('input', relate_championship);
+          document.querySelector('#FinalFour_Page_championship')?.addEventListener('focus', relate_championship);
+          document.querySelector('#Championship_POST_bracketId')?.addEventListener('input', relate_championship);
+          document.querySelector('#Championship_POST_bracketId')?.addEventListener('focus', relate_championship);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourChampionship([{'name':'fq','value':'finalFour:' + window.result.championship}], document.querySelector('#listFinalFourChampionship_Page'), window.result.bracketId, window.result.championship, true, document.getElementById('FinalFour_Page_championship'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestFinalFourChampionship([{'name':'fq','value':'finalFour:' + window.result.championship}], document.querySelector('#listFinalFourChampionship_Page'), window.result.bracketId, window.result.championship, true, document.getElementById('FinalFour_Page_championship'));
+          {% else %}
+          suggestFinalFourChampionship([{'name':'fq','value':'finalFour:' + window.result.championship}], document.querySelector('#listFinalFourChampionship_Page'), window.result.bracketId, window.result.championship, false, document.getElementById('FinalFour_Page_championship'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          // rechercheSolrAttribuer k: 0
+          function Championship_POST_finalFour_FinalFour_POST_championship(event) {
+            suggestChampionshipFinalFour(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,finalFour,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFour : null
+                , true
+                , document.querySelector('#Championship_POST_finalFour_FinalFour_POST_championship')
+                );
+          }
+          document.querySelector('#Championship_POST_finalFour_FinalFour_POST_championship')?.addEventListener('input', Championship_POST_finalFour_FinalFour_POST_championship);
+          document.querySelector('#Championship_POST_finalFour_FinalFour_POST_championship')?.addEventListener('focus', Championship_POST_finalFour_FinalFour_POST_championship);
+          {% if "PATCH" in scopes %}
+          suggestChampionshipFinalFour([], document.querySelector('#listFinalFourFinalFour_Page'), null, window.result.finalFour, true, document.querySelector('#Championship_POST_finalFour_FinalFour_POST_championship'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 1
+          function Championship_POST_guesserId_FinalFour_POST_championship(event) {
+            suggestChampionshipGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#Championship_POST_guesserId_FinalFour_POST_championship')
+                );
+          }
+          document.querySelector('#Championship_POST_guesserId_FinalFour_POST_championship')?.addEventListener('input', Championship_POST_guesserId_FinalFour_POST_championship);
+          document.querySelector('#Championship_POST_guesserId_FinalFour_POST_championship')?.addEventListener('focus', Championship_POST_guesserId_FinalFour_POST_championship);
+          {% if "PATCH" in scopes %}
+          suggestChampionshipGuesserId([], document.querySelector('#listFinalFourGuesserId_Page'), null, window.result.guesserId, true, document.querySelector('#Championship_POST_guesserId_FinalFour_POST_championship'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 2
+          function Championship_POST_game1Winner_FinalFour_POST_championship(event) {
+            suggestChampionshipGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Winner : null
+                , true
+                , document.querySelector('#Championship_POST_game1Winner_FinalFour_POST_championship')
+                );
+          }
+          document.querySelector('#Championship_POST_game1Winner_FinalFour_POST_championship')?.addEventListener('input', Championship_POST_game1Winner_FinalFour_POST_championship);
+          document.querySelector('#Championship_POST_game1Winner_FinalFour_POST_championship')?.addEventListener('focus', Championship_POST_game1Winner_FinalFour_POST_championship);
+          {% if "PATCH" in scopes %}
+          suggestChampionshipGame1Winner([], document.querySelector('#listFinalFourGame1Winner_Page'), null, window.result.game1Winner, true, document.querySelector('#Championship_POST_game1Winner_FinalFour_POST_championship'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 3
+          function Championship_POST_game1Loser_FinalFour_POST_championship(event) {
+            suggestChampionshipGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Loser : null
+                , true
+                , document.querySelector('#Championship_POST_game1Loser_FinalFour_POST_championship')
+                );
+          }
+          document.querySelector('#Championship_POST_game1Loser_FinalFour_POST_championship')?.addEventListener('input', Championship_POST_game1Loser_FinalFour_POST_championship);
+          document.querySelector('#Championship_POST_game1Loser_FinalFour_POST_championship')?.addEventListener('focus', Championship_POST_game1Loser_FinalFour_POST_championship);
+          {% if "PATCH" in scopes %}
+          suggestChampionshipGame1Loser([], document.querySelector('#listFinalFourGame1Loser_Page'), null, window.result.game1Loser, true, document.querySelector('#Championship_POST_game1Loser_FinalFour_POST_championship'));
+          {% endif %}
+        {% endif %}
+        }
+        var l = document.querySelector('.pageForm .listFinalFour')?.value;
+        if(l)
+          window.listFinalFour = JSON.parse(l);
+        window.varsFq = JSON.parse('{{ toJsonObjectStringInApostrophes(varsFq) }}');
+        window.varsRange = JSON.parse('{{ toJsonObjectStringInApostrophes(varsRange) }}');
+        window.defaultRangeVar = '{{ defaultRangeVar }}';
+        document.querySelector('#siteSidebarToggleRange')?.addEventListener('wa-after-hide', function(e) { document.querySelector('#pageFacetRangeTimeZonePopup').active = false; });
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneFinalFour);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneFinalFour);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('focus', facetRangeTimeZoneFinalFour);
+        document.querySelector('#pageFacetSimpleRangeDropdown')?.addEventListener('wa-select', facetSimpleRangeFinalFour);
+        pageGraphFinalFour();
+        {% for key, value in varsQ.items() %}
+
+        document.querySelector('#qFinalFour_{{ key }}')?.addEventListener('wa-{% if var == 'objectSuggest' %}keyup{% else %}change{% endif %}', event => {
+          qChange('FinalFour', event.target, document.querySelector('#qFinalFourDiv_{{ key }}'));
+        });
+        {% endfor %}
+
+        document.querySelector('#qFinalFour_rows')?.addEventListener('change', event => {
+          paramChange('FinalFour', event.target, document.querySelector('#qFinalFourDiv_rows'));
+        });
+
+        document.querySelector('#qFinalFour_start')?.addEventListener('change', event => {
+          paramChange('FinalFour', event.target, document.querySelector('#qFinalFourDiv_start'));
+        });
+
+
+        var submitForm_patchFinalFour = document.querySelector('#htmForm_patchFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_patchFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          patchFinalFour(null, document.querySelector('#htmForm_patchFinalFour'), document.querySelector('#htmFormButton_patchFinalFour'), event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_postFinalFour = document.querySelector('#htmForm_postFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_postFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          postFinalFour(document.querySelector('#htmForm_postFinalFour')
+          , document.querySelector('#htmFormButton_postFinalFour')
+          , (json, target) => {
+            window.location.href = json.editPage;
+          });
+          return false;
+        });
+
+        var submitForm_deleteFinalFour = document.querySelector('#htmForm_deleteFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deleteFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          deleteFinalFour(event.target, event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_putimportFinalFour = document.querySelector('#htmForm_putimportFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_putimportFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          putimportFinalFour(document.querySelector('#htmForm_putimportFinalFour'), document.querySelector('#htmFormButton_putimportFinalFour'));
+          return false;
+        });
+
+        var submitForm_searchpageFinalFour = document.querySelector('#htmForm_searchpageFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_searchpageFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          searchpageFinalFour();
+          return false;
+        });
+
+        var submitForm_deletefilterFinalFour = document.querySelector('#htmForm_deletefilterFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deletefilterFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          deletefilterFinalFour(event.target);
+          return false;
+        });
+
+        document.querySelector('#htmFormButton_postEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          postEliteEight(document.querySelector('#htmForm_postEliteEight')
+              , document.querySelector('#htmFormButton_postEliteEight')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postGuesser')?.addEventListener('click', event => {
+          event.preventDefault();
+          postGuesser(document.querySelector('#htmForm_postGuesser')
+              , document.querySelector('#htmFormButton_postGuesser')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postTeam')?.addEventListener('click', event => {
+          event.preventDefault();
+          postTeam(document.querySelector('#htmForm_postTeam')
+              , document.querySelector('#htmFormButton_postTeam')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          postChampionship(document.querySelector('#htmForm_postChampionship')
+              , document.querySelector('#htmFormButton_postChampionship')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+{%- block htmScriptInitFinalFourPage %}{%- endblock htmScriptInitFinalFourPage %}
+      });
+    </script>
+{%- endblock htmScriptFinalFourPage %}
+{%- endblock htmScriptPageLayout %}
+
+{%- block websocketPageLayout %}
+{%- block websocketFinalFourPage %}
+{% if resultCount > 0 %}
+        window.eventBus = new EventBus('/eventbus');
+        window.eventBus.enableReconnect(true);
+        websocketFinalFour(websocketFinalFourInner);
+{% endif %}
+{%- endblock websocketFinalFourPage %}
+{%- endblock websocketPageLayout %}
+
+{%- block htmUrlFinalFourPage %}{{pageUri}}?q={{query.q}}&amp;rows={% if rows is defined %}{{rows}}{% else %}{{pagination.rows}}{% endif %}&amp;rows={% if start is defined %}{{start}}{% else %}{{pagination.start}}{% endif %}{% for item query.fq %}{% if fq == item %}{% else %}&fq={{fq}}:{{val}}{% endif %}{% endfor %}{% for item in query.sort %}{% if sort == item %}{% else %}&sort={{var}} {{order}}{% endif %}{% endfor %}{%- endblock htmUrlFinalFourPage %}
+
+{%- if pageSearchButtons is not defined %}
+{%- set pageSearchButtons %}
+{% include en-us/search/final-four/FinalFourSearchButtons.htm %}
+{%- endset pageSearchButtons %}
+{%- endif %}
+{%- if pageSearchFormButtons is not defined %}
+{%- set pageSearchFormButtons %}
+{% include en-us/search/final-four/FinalFourSearchFormButtons.htm %}
+{%- endset pageSearchFormButtons %}
+{%- endif %}
+{%- if pageBreadcrumb is not defined %}
+{%- set pageBreadcrumb %}
+              <wa-tooltip for="return-to-FinalFour">back to all final four brackets</wa-tooltip>
+              <wa-breadcrumb>
+                <wa-breadcrumb-item id="return-to-FinalFour" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+                  <i class="fa-regular fa-buildings"></i>
+                  all final four brackets
+                </wa-breadcrumb-item>
+                <wa-breadcrumb-item>
+                  a final four bracket
+                </wa-breadcrumb-item>
+              </wa-breadcrumb>
+{%- endset pageBreadcrumb %}
+{%- endif  %}
+
+{%- block htmBodyStartPageLayout %}
+    {{ super() }}
+{%- block htmBodyStartFinalFourPage %}
+{% if resultCount > 0 %}
+          <div class="wa-flank ">
+            <h1 class="Page_objectTitle"><i class="fa-regular fa-buildings"></i> {{ result.objectTitle | e }}</h1>
+          </div>
+{% endif %}
+{% include en-us/search/final-four/FinalFourSearchForm.htm %}
+{%- endblock htmBodyStartFinalFourPage %}
+{%- endblock htmBodyStartPageLayout %}
+
+{%- block htmBodyMiddlePageLayout %}
+{%- block htmBodyMiddleFinalFourPage %}
+{%- include en-us/search/final-four/FinalFourSidebar.htm %}
+        <div class="pageContent ">
+{% if resultCount == 0 %}
+        <div class="wa-stack ">
+          <wa-tooltip for="return-to-FinalFour">back to all final four brackets</wa-tooltip></wa-tooltip>
+          <wa-breadcrumb>
+            <wa-breadcrumb-item id="return-to-FinalFour" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+              <i class="fa-regular fa-buildings"></i>
+              all final four brackets
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item>
+              no final four bracket found
+            </wa-breadcrumb-item>
+          </wa-breadcrumb>
+          <div class="wa-stack wa-align-items-center ">
+            <div class="wa-heading-3xl ">
+              <i class="fa-regular fa-buildings"></i>
+            </div>
+            <span class="wa-heading-m ">no final four bracket found</span>
+            <p class="wa-caption-l ">A predicted tournament with 4 teams. </p>
+          </div>
+        </div>
+{% else %}
+{%- include en-us/search/final-four/FinalFourSuggestedSearch.htm %}
+{% endif %}
+{%- block htmFormFinalFourPage %}
+          <form action="/en-us/api/final-four" id="FinalFourForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+{% if result.bracketId is defined %}
+            <input name="bracketId" class="valueBracketId" type="hidden" value="{{ result.bracketId }}"/>
+            {% endif %}
+            <input name="focusId" type="hidden"/>
+            <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
+            <input name="result" id="result" class="result"  value='{{ toJsonObjectStringInApostrophes(result) }}' type="hidden"/>
+            <input name="listFinalFour" id="listFinalFour" class="listFinalFour"  value='{{ toJsonArrayStringInApostrophes(listFinalFour) }}' type="hidden"/>
+          </form>
+{%- if resultCount >= 1 %}
+          {{ htmForm_searchpageFinalFour() }}
+{% endif -%}
+{%- endblock htmFormFinalFourPage %}
+        </div>
+{%- endblock htmBodyMiddleFinalFourPage %}
+{%- endblock htmBodyMiddlePageLayout %}
+
+{%- block htmBodyEndPageLayout %}
+{%- block htmBodyEndFinalFourPage %}
+{%- include en-us/search/final-four/FinalFourLocation.htm %}
+{%- endblock htmBodyEndFinalFourPage %}
+      {{ super() }}
+{%- endblock htmBodyEndPageLayout %}

@@ -1,0 +1,485 @@
+{% extends "en-us/PageLayout.htm" %}
+
+{%- block htmTitlePageLayout %}
+{%- block htmTitleChampionshipPage %}
+    <title>{% if resultCount == 0 %}no championship bracket found{% else %}championship brackets{% endif %}</title>
+{%- endblock htmTitleChampionshipPage %}
+{%- endblock htmTitlePageLayout %}
+
+{%- block htmStylesPageLayout %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ staticBaseUrl }}/css/en-us/search/championship/Championship.css"/>
+{%- block htmStylesChampionshipPage %}
+{%- endblock htmStylesChampionshipPage %}
+{%- endblock htmStylesPageLayout %}
+
+{%- block htmStylePageLayout %}
+      :root {
+        --site-results-number-of-columns: 2;
+      }
+{{ super() }}
+{%- block htmStyleChampionshipPage %}
+{%- endblock htmStyleChampionshipPage %}
+{%- endblock htmStylePageLayout %}
+
+{%- block htmScriptsPageLayout %}
+{{ super() }}
+{%- block htmScriptsChampionshipPage %}
+    <script src="{{staticBaseUrl}}/js/en-us/search/championship/Championship.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/championship/ChampionshipSearchPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFour.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/team/Team.js"></script>
+{%- endblock htmScriptsChampionshipPage %}
+{%- endblock htmScriptsPageLayout %}
+
+{%- block htmScriptPageLayout %}
+{%- block htmScriptChampionshipPage %}
+    <script>
+
+      function jsWebsocketChampionship(bracketId, vars, $response) {
+{%- block jsWebsocketChampionshipPage %}{%- endblock %}
+      }
+
+      function jsTooltipChampionship(e, feature) {
+{%- block jsTooltipChampionshipPage %}{%- endblock %}
+      }
+
+      function htmTooltipChampionship(feature, layer) {
+        return `{%- block htmTooltipChampionshipPage %}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.editPage)}">${feature.properties.objectTitle}</a></h3>
+{%- endblock htmTooltipChampionshipPage %}`;
+      }
+
+      function facetChangeChampionshipSuccess(e) {
+        var l = e.querySelector('.pageForm .listChampionship')?.value;
+        if(l)
+          window.listChampionship = JSON.parse(l);
+{% block facetChangeChampionshipSuccess %}{%- endblock facetChampionshipSuccess %}
+      }
+      function facetChangeChampionshipError(e) {
+{% block facetChangeChampionshipError %}{%- endblock facetChampionshipError %}
+      }
+
+      function facetSimpleRangeChampionshipSuccess(e) {
+{% block facetSimpleRangeChampionshipSuccess %}      facetChangeChampionshipSuccess(e);{% endblock facetSimpleRangeChampionshipSuccess %}
+      }
+      function facetSimpleRangeChampionshipError(e) {
+{% block facetSimpleRangeChampionshipError %}      facetChangeChampionshipError(e);{% endblock facetSimpleRangeChampionshipError %}
+      }
+      function facetSimpleRangeChampionship(e) {
+        facetSimpleRange(e, facetSimpleRangeChampionshipSuccess, facetSimpleRangeChampionshipError);
+      }
+
+      function facetRangeTimeZoneChampionshipSuccess(e) {
+{% block facetRangeTimeZoneChampionshipSuccess %}      facetChangeChampionshipSuccess(e);{% endblock facetRangeTimeZoneChampionshipSuccess %}
+      }
+      function facetRangeTimeZoneChampionshipError(e) {
+{% block facetRangeTimeZoneChampionshipError %}      facetChangeChampionshipError(e);{%- endblock facetRangeTimeZoneChampionshipError %}
+      }
+      function facetRangeTimeZoneChampionship(e) {
+        facetRangeTimeZone(e, facetRangeTimeZoneChampionshipSuccess, facetRangeTimeZoneChampionshipError);
+      }
+
+      function facetRangeGapChangeChampionshipSuccess(e) {
+{% block facetRangeGapChangeChampionshipSuccess %}      facetChangeChampionshipSuccess(e);{% endblock facetRangeGapChangeChampionshipSuccess %}
+      }
+      function facetRangeGapChangeChampionshipError(e) {
+{% block facetRangeGapChangeChampionshipError %}      facetChangeChampionshipError(e);{%- endblock facetRangeGapChangeChampionshipError %}
+      }
+      function facetRangeGapChangeChampionship(classSimpleName, event) {
+        facetRangeGapChange(classSimpleName, event, facetRangeGapChangeChampionshipSuccess, facetRangeGapChangeChampionshipError);
+      }
+
+      function facetRangeStartChangeChampionshipSuccess(e) {
+{% block facetRangeStartChangeChampionshipSuccess %}      facetChangeChampionshipSuccess(e);{% endblock facetRangeStartChangeChampionshipSuccess %}
+      }
+      function facetRangeStartChangeChampionshipError(e) {
+{% block facetRangeStartChangeChampionshipError %}      facetChangeChampionshipError(e);{%- endblock facetRangeStartChangeChampionshipError %}
+      }
+      function facetRangeStartChangeChampionship(classSimpleName, event) {
+        facetRangeStartChange(classSimpleName, event, facetRangeStartChangeChampionshipSuccess, facetRangeStartChangeChampionshipError);
+      }
+
+      function facetRangeEndChangeChampionshipSuccess(e) {
+{% block facetRangeEndChangeChampionshipSuccess %}      facetChangeChampionshipSuccess(e);{% endblock facetRangeEndChangeChampionshipSuccess %}
+      }
+      function facetRangeEndChangeChampionshipError(e) {
+{% block facetRangeEndChangeChampionshipError %}      facetChangeChampionshipError(e);{%- endblock facetRangeEndChangeChampionshipError %}
+      }
+      function facetRangeEndChangeChampionship(classSimpleName, event) {
+        facetRangeEndChange(classSimpleName, event, facetRangeEndChangeChampionshipSuccess, facetRangeEndChangeChampionshipError);
+      }
+    </script>
+    <script type="module">
+{% if DEFAULT_MAP_LOCATION is defined %}
+      window.DEFAULT_MAP_LOCATION = { type: 'Point', coordinates: [ {{ DEFAULT_MAP_LOCATION.coordinates[0] }}, {{ DEFAULT_MAP_LOCATION.coordinates[1] }} ]};
+{% endif %}
+{% if DEFAULT_MAP_ZOOM is defined %}
+      window.DEFAULT_MAP_ZOOM = {{ DEFAULT_MAP_ZOOM }};
+{% endif %}
+      window.DEFAULT_ZONE_ID = '{{ defaultZoneId }}';
+      Promise.all([
+        customElements.whenDefined('wa-button')
+        , customElements.whenDefined('wa-input')
+        , customElements.whenDefined('wa-select')
+        , customElements.whenDefined('wa-radio')
+        , customElements.whenDefined('wa-checkbox')
+        , customElements.whenDefined('wa-dropdown')
+      ]).then(() => {
+
+        var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
+
+          function relate_finalFour(event) {
+            suggestChampionshipFinalFour(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,championship,pk,editPage,objectTitle' } ] : [{%- if result.finalFour is defined %}{'name':'fq','value':'championship:{{ result.finalFour }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Championship_POST_finalFour')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#Championship_POST_finalFour')?.addEventListener('focus', relate_finalFour);
+          document.querySelector('#Championship_PATCH_finalFour')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#Championship_PATCH_finalFour')?.addEventListener('focus', relate_finalFour);
+          function relate_guesserId(event) {
+            suggestChampionshipGuesserId(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.guesserId is defined %}{'name':'fq','value':'guesserId:{{ result.guesserId }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Championship_POST_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#Championship_POST_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#Championship_PATCH_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#Championship_PATCH_guesserId')?.addEventListener('focus', relate_guesserId);
+          function relate_game1Winner(event) {
+            suggestChampionshipGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.game1Winner is defined %}{'name':'fq','value':'teamId:{{ result.game1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Championship_POST_game1Winner')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#Championship_POST_game1Winner')?.addEventListener('focus', relate_game1Winner);
+          document.querySelector('#Championship_PATCH_game1Winner')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#Championship_PATCH_game1Winner')?.addEventListener('focus', relate_game1Winner);
+          function relate_game1Loser(event) {
+            suggestChampionshipGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.game1Loser is defined %}{'name':'fq','value':'teamId:{{ result.game1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Championship_POST_game1Loser')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#Championship_POST_game1Loser')?.addEventListener('focus', relate_game1Loser);
+          document.querySelector('#Championship_PATCH_game1Loser')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#Championship_PATCH_game1Loser')?.addEventListener('focus', relate_game1Loser);
+        if(bracketId == null) {
+          document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-details');
+          });
+          document.querySelector('#grid-toggle-list')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-list');
+          });
+          document.querySelector('#grid-toggle-card')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-list');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-card');
+          });
+        } else {
+          var o = document.querySelector('.pageForm .result')?.value;
+          if(o)
+            window.result = JSON.parse(o);
+        {% if result.bracketId is defined %}
+        {% endif %}
+        }
+        var l = document.querySelector('.pageForm .listChampionship')?.value;
+        if(l)
+          window.listChampionship = JSON.parse(l);
+        window.varsFq = JSON.parse('{{ toJsonObjectStringInApostrophes(varsFq) }}');
+        window.varsRange = JSON.parse('{{ toJsonObjectStringInApostrophes(varsRange) }}');
+        window.defaultRangeVar = '{{ defaultRangeVar }}';
+        document.querySelector('#siteSidebarToggleRange')?.addEventListener('wa-after-hide', function(e) { document.querySelector('#pageFacetRangeTimeZonePopup').active = false; });
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneChampionship);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneChampionship);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('focus', facetRangeTimeZoneChampionship);
+        document.querySelector('#pageFacetSimpleRangeDropdown')?.addEventListener('wa-select', facetSimpleRangeChampionship);
+        pageGraphChampionship();
+        {% for key, value in varsQ.items() %}
+
+        document.querySelector('#qChampionship_{{ key }}')?.addEventListener('wa-{% if var == 'objectSuggest' %}keyup{% else %}change{% endif %}', event => {
+          qChange('Championship', event.target, document.querySelector('#qChampionshipDiv_{{ key }}'));
+        });
+        {% endfor %}
+
+        document.querySelector('#qChampionship_rows')?.addEventListener('change', event => {
+          paramChange('Championship', event.target, document.querySelector('#qChampionshipDiv_rows'));
+        });
+
+        document.querySelector('#qChampionship_start')?.addEventListener('change', event => {
+          paramChange('Championship', event.target, document.querySelector('#qChampionshipDiv_start'));
+        });
+
+
+        var submitForm_patchChampionship = document.querySelector('#htmForm_patchChampionship')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_patchChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          patchChampionship(null, document.querySelector('#htmForm_patchChampionship'), document.querySelector('#htmFormButton_patchChampionship'), event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_postChampionship = document.querySelector('#htmForm_postChampionship')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_postChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          postChampionship(document.querySelector('#htmForm_postChampionship')
+          , document.querySelector('#htmFormButton_postChampionship')
+          , (json, target) => {
+            window.location.href = json.editPage;
+          });
+          return false;
+        });
+
+        var submitForm_deleteChampionship = document.querySelector('#htmForm_deleteChampionship')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deleteChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          deleteChampionship(event.target, event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_putimportChampionship = document.querySelector('#htmForm_putimportChampionship')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_putimportChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          putimportChampionship(document.querySelector('#htmForm_putimportChampionship'), document.querySelector('#htmFormButton_putimportChampionship'));
+          return false;
+        });
+
+        var submitForm_searchpageChampionship = document.querySelector('#htmForm_searchpageChampionship')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_searchpageChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          searchpageChampionship();
+          return false;
+        });
+
+        var submitForm_deletefilterChampionship = document.querySelector('#htmForm_deletefilterChampionship')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deletefilterChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          deletefilterChampionship(event.target);
+          return false;
+        });
+
+        document.querySelector('#htmFormButton_postFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          postFinalFour(document.querySelector('#htmForm_postFinalFour')
+              , document.querySelector('#htmFormButton_postFinalFour')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postGuesser')?.addEventListener('click', event => {
+          event.preventDefault();
+          postGuesser(document.querySelector('#htmForm_postGuesser')
+              , document.querySelector('#htmFormButton_postGuesser')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postTeam')?.addEventListener('click', event => {
+          event.preventDefault();
+          postTeam(document.querySelector('#htmForm_postTeam')
+              , document.querySelector('#htmFormButton_postTeam')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+{%- block htmScriptInitChampionshipPage %}{%- endblock htmScriptInitChampionshipPage %}
+      });
+    </script>
+{%- endblock htmScriptChampionshipPage %}
+{%- endblock htmScriptPageLayout %}
+
+{%- block websocketPageLayout %}
+{%- block websocketChampionshipPage %}
+{% if resultCount > 0 %}
+        window.eventBus = new EventBus('/eventbus');
+        window.eventBus.enableReconnect(true);
+        websocketChampionship(websocketChampionshipInner);
+{% endif %}
+{%- endblock websocketChampionshipPage %}
+{%- endblock websocketPageLayout %}
+
+{%- block htmUrlChampionshipPage %}{{pageUri}}?q={{query.q}}&amp;rows={% if rows is defined %}{{rows}}{% else %}{{pagination.rows}}{% endif %}&amp;rows={% if start is defined %}{{start}}{% else %}{{pagination.start}}{% endif %}{% for item query.fq %}{% if fq == item %}{% else %}&fq={{fq}}:{{val}}{% endif %}{% endfor %}{% for item in query.sort %}{% if sort == item %}{% else %}&sort={{var}} {{order}}{% endif %}{% endfor %}{%- endblock htmUrlChampionshipPage %}
+{%- if pageBreadcrumb is not defined %}
+{%- set pageBreadcrumb %}
+              <wa-tooltip for="return-to-Championship">back to all championship brackets</wa-tooltip>
+              <wa-breadcrumb>
+                <wa-breadcrumb-item id="return-to-Championship" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+                  <i class="fa-regular fa-buildings"></i>
+                  all championship brackets
+                </wa-breadcrumb-item>
+                <wa-breadcrumb-item>
+                  search championship brackets
+                </wa-breadcrumb-item>
+              </wa-breadcrumb>
+{%- endset pageBreadcrumb %}
+{%- endif  %}
+
+{%- block htmBodyStartPageLayout %}
+{{ super() }}
+{%- block htmBodyStartChampionshipPage %}
+{% include en-us/search/championship/ChampionshipSidebar.htm %}
+{% if resultCount == 0 %}
+        <div class="wa-stack ">
+          <wa-tooltip for="return-to-Championship">back to all championship brackets</wa-tooltip></wa-tooltip>
+          <wa-breadcrumb>
+            <wa-breadcrumb-item id="return-to-Championship" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+              <i class="fa-regular fa-buildings"></i>
+              all championship brackets
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item>
+              no championship bracket found
+            </wa-breadcrumb-item>
+          </wa-breadcrumb>
+          <div class="wa-stack wa-align-items-center ">
+            <div class="wa-heading-3xl ">
+              <i class="fa-regular fa-buildings"></i>
+            </div>
+            <span class="wa-heading-m ">no championship bracket found</span>
+            <p class="wa-caption-l ">A predicted tournament with 2 teams. </p>
+          </div>
+        </div>
+{% else %}
+{% include en-us/search/championship/ChampionshipSuggestedSearch.htm %}
+          <div class="pageContent ">
+            <form action="/en-us/api/championship" id="ChampionshipForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+              <input name="focusId" type="hidden"/>
+              <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
+              <input name="listChampionship" id="listChampionship" class="listChampionship"  value='{{ toJsonArrayStringInApostrophes(listChampionship) }}' type="hidden"/>
+            </form>
+            <div id="site-calendar-box">
+              <div id="site-calendar"><!-- // --></div>
+            </div>
+            <div class="wa-stack wa-gap-m ">
+{% endif %}
+{% include en-us/search/championship/ChampionshipSearchForm.htm %}
+{%- endblock htmBodyStartChampionshipPage %}
+{%- endblock htmBodyStartPageLayout %}
+{%- if pageSearchButtons is not defined %}
+{%- set pageSearchButtons %}
+{% include en-us/search/championship/ChampionshipSearchButtons.htm %}
+{%- endset pageSearchButtons %}
+{%- endif %}
+{%- if pageSearchFormButtons is not defined %}
+{%- set pageSearchFormButtons %}
+{% include en-us/search/championship/ChampionshipSearchFormButtons.htm %}
+{%- endset pageSearchFormButtons %}
+{%- endif %}
+
+{%- block htmBodyMiddlePageLayout %}
+{%- block htmBodyMiddleChampionshipPage %}
+{% if resultCount > 0 %}
+              <div class="wa-stack wa-gap-0 ">
+{% include en-us/search/championship/ChampionshipPaginationButtons.htm %}
+                <div class="card-like-thing background-color-surface-border" id="site-results-grid">
+                  <div>
+                    <wa-dropdown id="htmDropdown-guesserId">
+                      <wa-button variant="brand" slot="trigger" caret>guesser</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortChampionship_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-Championship').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-guesserId-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by guesser ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortChampionship_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-Championship').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-guesserId-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by guesser descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                    <wa-dropdown id="htmDropdown-year">
+                      <wa-button variant="brand" slot="trigger" caret>year</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortChampionship_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-Championship').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-year-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by year ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortChampionship_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-Championship').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-year-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by year descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                  </div>
+                  {% for item in listChampionship%}
+                  <div>
+                    <a href="{{ item.displayPage }}">
+                      <i class="fa-regular fa-buildings"></i>
+                      <span>{{ item.guesserId | e }}</span>
+                    </a>
+                    <a href="{{ item.displayPage }}">
+                      <span>{{ item.year | e }}</span>
+                    </a>
+                  </div>
+                  {% endfor %}
+              {% if getColumnGuesserId is defined %}
+                <div>
+                </div>
+              {% endif %}
+              {% if getColumnYear is defined %}
+                <div>
+                </div>
+              {% endif %}
+                </div>
+{% include en-us/search/championship/ChampionshipPaginationButtons.htm %}
+              </div>
+{% endif %}
+{%- endblock htmBodyMiddleChampionshipPage %}
+{%- endblock htmBodyMiddlePageLayout %}
+
+{%- block htmBodyEndPageLayout %}
+{%- block htmBodyEndChampionshipPage %}
+{%- include en-us/search/championship/ChampionshipLocation.htm %}
+            </div>
+          </div>
+{%- endblock htmBodyEndChampionshipPage %}
+  {{ super() }}
+{%- endblock htmBodyEndPageLayout %}

@@ -1,0 +1,543 @@
+{% extends "en-us/PageLayout.htm" %}
+
+{%- block htmTitlePageLayout %}
+{%- block htmTitleFinalFourPage %}
+    <title>{% if resultCount == 0 %}no final four bracket found{% else %}final four brackets{% endif %}</title>
+{%- endblock htmTitleFinalFourPage %}
+{%- endblock htmTitlePageLayout %}
+
+{%- block htmStylesPageLayout %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ staticBaseUrl }}/css/en-us/search/final-four/FinalFour.css"/>
+{%- block htmStylesFinalFourPage %}
+{%- endblock htmStylesFinalFourPage %}
+{%- endblock htmStylesPageLayout %}
+
+{%- block htmStylePageLayout %}
+      :root {
+        --site-results-number-of-columns: 2;
+      }
+{{ super() }}
+{%- block htmStyleFinalFourPage %}
+{%- endblock htmStyleFinalFourPage %}
+{%- endblock htmStylePageLayout %}
+
+{%- block htmScriptsPageLayout %}
+{{ super() }}
+{%- block htmScriptsFinalFourPage %}
+    <script src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFour.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFourSearchPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEight.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/team/Team.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/championship/Championship.js"></script>
+{%- endblock htmScriptsFinalFourPage %}
+{%- endblock htmScriptsPageLayout %}
+
+{%- block htmScriptPageLayout %}
+{%- block htmScriptFinalFourPage %}
+    <script>
+
+      function jsWebsocketFinalFour(bracketId, vars, $response) {
+{%- block jsWebsocketFinalFourPage %}{%- endblock %}
+      }
+
+      function jsTooltipFinalFour(e, feature) {
+{%- block jsTooltipFinalFourPage %}{%- endblock %}
+      }
+
+      function htmTooltipFinalFour(feature, layer) {
+        return `{%- block htmTooltipFinalFourPage %}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.editPage)}">${feature.properties.objectTitle}</a></h3>
+{%- endblock htmTooltipFinalFourPage %}`;
+      }
+
+      function facetChangeFinalFourSuccess(e) {
+        var l = e.querySelector('.pageForm .listFinalFour')?.value;
+        if(l)
+          window.listFinalFour = JSON.parse(l);
+{% block facetChangeFinalFourSuccess %}{%- endblock facetFinalFourSuccess %}
+      }
+      function facetChangeFinalFourError(e) {
+{% block facetChangeFinalFourError %}{%- endblock facetFinalFourError %}
+      }
+
+      function facetSimpleRangeFinalFourSuccess(e) {
+{% block facetSimpleRangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetSimpleRangeFinalFourSuccess %}
+      }
+      function facetSimpleRangeFinalFourError(e) {
+{% block facetSimpleRangeFinalFourError %}      facetChangeFinalFourError(e);{% endblock facetSimpleRangeFinalFourError %}
+      }
+      function facetSimpleRangeFinalFour(e) {
+        facetSimpleRange(e, facetSimpleRangeFinalFourSuccess, facetSimpleRangeFinalFourError);
+      }
+
+      function facetRangeTimeZoneFinalFourSuccess(e) {
+{% block facetRangeTimeZoneFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeTimeZoneFinalFourSuccess %}
+      }
+      function facetRangeTimeZoneFinalFourError(e) {
+{% block facetRangeTimeZoneFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeTimeZoneFinalFourError %}
+      }
+      function facetRangeTimeZoneFinalFour(e) {
+        facetRangeTimeZone(e, facetRangeTimeZoneFinalFourSuccess, facetRangeTimeZoneFinalFourError);
+      }
+
+      function facetRangeGapChangeFinalFourSuccess(e) {
+{% block facetRangeGapChangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeGapChangeFinalFourSuccess %}
+      }
+      function facetRangeGapChangeFinalFourError(e) {
+{% block facetRangeGapChangeFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeGapChangeFinalFourError %}
+      }
+      function facetRangeGapChangeFinalFour(classSimpleName, event) {
+        facetRangeGapChange(classSimpleName, event, facetRangeGapChangeFinalFourSuccess, facetRangeGapChangeFinalFourError);
+      }
+
+      function facetRangeStartChangeFinalFourSuccess(e) {
+{% block facetRangeStartChangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeStartChangeFinalFourSuccess %}
+      }
+      function facetRangeStartChangeFinalFourError(e) {
+{% block facetRangeStartChangeFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeStartChangeFinalFourError %}
+      }
+      function facetRangeStartChangeFinalFour(classSimpleName, event) {
+        facetRangeStartChange(classSimpleName, event, facetRangeStartChangeFinalFourSuccess, facetRangeStartChangeFinalFourError);
+      }
+
+      function facetRangeEndChangeFinalFourSuccess(e) {
+{% block facetRangeEndChangeFinalFourSuccess %}      facetChangeFinalFourSuccess(e);{% endblock facetRangeEndChangeFinalFourSuccess %}
+      }
+      function facetRangeEndChangeFinalFourError(e) {
+{% block facetRangeEndChangeFinalFourError %}      facetChangeFinalFourError(e);{%- endblock facetRangeEndChangeFinalFourError %}
+      }
+      function facetRangeEndChangeFinalFour(classSimpleName, event) {
+        facetRangeEndChange(classSimpleName, event, facetRangeEndChangeFinalFourSuccess, facetRangeEndChangeFinalFourError);
+      }
+    </script>
+    <script type="module">
+{% if DEFAULT_MAP_LOCATION is defined %}
+      window.DEFAULT_MAP_LOCATION = { type: 'Point', coordinates: [ {{ DEFAULT_MAP_LOCATION.coordinates[0] }}, {{ DEFAULT_MAP_LOCATION.coordinates[1] }} ]};
+{% endif %}
+{% if DEFAULT_MAP_ZOOM is defined %}
+      window.DEFAULT_MAP_ZOOM = {{ DEFAULT_MAP_ZOOM }};
+{% endif %}
+      window.DEFAULT_ZONE_ID = '{{ defaultZoneId }}';
+      Promise.all([
+        customElements.whenDefined('wa-button')
+        , customElements.whenDefined('wa-input')
+        , customElements.whenDefined('wa-select')
+        , customElements.whenDefined('wa-radio')
+        , customElements.whenDefined('wa-checkbox')
+        , customElements.whenDefined('wa-dropdown')
+      ]).then(() => {
+
+        var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
+
+          function relate_guesserId(event) {
+            suggestFinalFourGuesserId(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.guesserId is defined %}{'name':'fq','value':'guesserId:{{ result.guesserId }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#FinalFour_POST_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#FinalFour_POST_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#FinalFour_PATCH_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#FinalFour_PATCH_guesserId')?.addEventListener('focus', relate_guesserId);
+          function relate_game1Winner(event) {
+            suggestFinalFourGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.game1Winner is defined %}{'name':'fq','value':'teamId:{{ result.game1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Winner')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#FinalFour_POST_game1Winner')?.addEventListener('focus', relate_game1Winner);
+          document.querySelector('#FinalFour_PATCH_game1Winner')?.addEventListener('input', relate_game1Winner);
+          document.querySelector('#FinalFour_PATCH_game1Winner')?.addEventListener('focus', relate_game1Winner);
+          function relate_game1Loser(event) {
+            suggestFinalFourGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.game1Loser is defined %}{'name':'fq','value':'teamId:{{ result.game1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Loser')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#FinalFour_POST_game1Loser')?.addEventListener('focus', relate_game1Loser);
+          document.querySelector('#FinalFour_PATCH_game1Loser')?.addEventListener('input', relate_game1Loser);
+          document.querySelector('#FinalFour_PATCH_game1Loser')?.addEventListener('focus', relate_game1Loser);
+          function relate_game2Winner(event) {
+            suggestFinalFourGame2Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.game2Winner is defined %}{'name':'fq','value':'teamId:{{ result.game2Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Winner')?.addEventListener('input', relate_game2Winner);
+          document.querySelector('#FinalFour_POST_game2Winner')?.addEventListener('focus', relate_game2Winner);
+          document.querySelector('#FinalFour_PATCH_game2Winner')?.addEventListener('input', relate_game2Winner);
+          document.querySelector('#FinalFour_PATCH_game2Winner')?.addEventListener('focus', relate_game2Winner);
+          function relate_game2Loser(event) {
+            suggestFinalFourGame2Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.game2Loser is defined %}{'name':'fq','value':'teamId:{{ result.game2Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Loser')?.addEventListener('input', relate_game2Loser);
+          document.querySelector('#FinalFour_POST_game2Loser')?.addEventListener('focus', relate_game2Loser);
+          document.querySelector('#FinalFour_PATCH_game2Loser')?.addEventListener('input', relate_game2Loser);
+          document.querySelector('#FinalFour_PATCH_game2Loser')?.addEventListener('focus', relate_game2Loser);
+          function relate_eliteEight(event) {
+            suggestFinalFourEliteEight(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,finalFour,pk,editPage,objectTitle' } ] : [{%- if result.eliteEight is defined %}{'name':'fq','value':'finalFour:{{ result.eliteEight }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#FinalFour_POST_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#FinalFour_POST_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#FinalFour_PATCH_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#FinalFour_PATCH_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          function relate_championship(event) {
+            suggestFinalFourChampionship(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,finalFour,pk,editPage,objectTitle' } ] : [{%- if result.championship is defined %}{'name':'fq','value':'finalFour:{{ result.championship }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#FinalFour_POST_championship')?.addEventListener('input', relate_championship);
+          document.querySelector('#FinalFour_POST_championship')?.addEventListener('focus', relate_championship);
+          document.querySelector('#FinalFour_PATCH_championship')?.addEventListener('input', relate_championship);
+          document.querySelector('#FinalFour_PATCH_championship')?.addEventListener('focus', relate_championship);
+        if(bracketId == null) {
+          document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-details');
+          });
+          document.querySelector('#grid-toggle-list')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-list');
+          });
+          document.querySelector('#grid-toggle-card')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-list');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-card');
+          });
+        } else {
+          var o = document.querySelector('.pageForm .result')?.value;
+          if(o)
+            window.result = JSON.parse(o);
+        {% if result.bracketId is defined %}
+        {% endif %}
+        }
+        var l = document.querySelector('.pageForm .listFinalFour')?.value;
+        if(l)
+          window.listFinalFour = JSON.parse(l);
+        window.varsFq = JSON.parse('{{ toJsonObjectStringInApostrophes(varsFq) }}');
+        window.varsRange = JSON.parse('{{ toJsonObjectStringInApostrophes(varsRange) }}');
+        window.defaultRangeVar = '{{ defaultRangeVar }}';
+        document.querySelector('#siteSidebarToggleRange')?.addEventListener('wa-after-hide', function(e) { document.querySelector('#pageFacetRangeTimeZonePopup').active = false; });
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneFinalFour);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneFinalFour);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('focus', facetRangeTimeZoneFinalFour);
+        document.querySelector('#pageFacetSimpleRangeDropdown')?.addEventListener('wa-select', facetSimpleRangeFinalFour);
+        pageGraphFinalFour();
+        {% for key, value in varsQ.items() %}
+
+        document.querySelector('#qFinalFour_{{ key }}')?.addEventListener('wa-{% if var == 'objectSuggest' %}keyup{% else %}change{% endif %}', event => {
+          qChange('FinalFour', event.target, document.querySelector('#qFinalFourDiv_{{ key }}'));
+        });
+        {% endfor %}
+
+        document.querySelector('#qFinalFour_rows')?.addEventListener('change', event => {
+          paramChange('FinalFour', event.target, document.querySelector('#qFinalFourDiv_rows'));
+        });
+
+        document.querySelector('#qFinalFour_start')?.addEventListener('change', event => {
+          paramChange('FinalFour', event.target, document.querySelector('#qFinalFourDiv_start'));
+        });
+
+
+        var submitForm_patchFinalFour = document.querySelector('#htmForm_patchFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_patchFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          patchFinalFour(null, document.querySelector('#htmForm_patchFinalFour'), document.querySelector('#htmFormButton_patchFinalFour'), event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_postFinalFour = document.querySelector('#htmForm_postFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_postFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          postFinalFour(document.querySelector('#htmForm_postFinalFour')
+          , document.querySelector('#htmFormButton_postFinalFour')
+          , (json, target) => {
+            window.location.href = json.editPage;
+          });
+          return false;
+        });
+
+        var submitForm_deleteFinalFour = document.querySelector('#htmForm_deleteFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deleteFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          deleteFinalFour(event.target, event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_putimportFinalFour = document.querySelector('#htmForm_putimportFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_putimportFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          putimportFinalFour(document.querySelector('#htmForm_putimportFinalFour'), document.querySelector('#htmFormButton_putimportFinalFour'));
+          return false;
+        });
+
+        var submitForm_searchpageFinalFour = document.querySelector('#htmForm_searchpageFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_searchpageFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          searchpageFinalFour();
+          return false;
+        });
+
+        var submitForm_deletefilterFinalFour = document.querySelector('#htmForm_deletefilterFinalFour')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deletefilterFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          deletefilterFinalFour(event.target);
+          return false;
+        });
+
+        document.querySelector('#htmFormButton_postEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          postEliteEight(document.querySelector('#htmForm_postEliteEight')
+              , document.querySelector('#htmFormButton_postEliteEight')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postGuesser')?.addEventListener('click', event => {
+          event.preventDefault();
+          postGuesser(document.querySelector('#htmForm_postGuesser')
+              , document.querySelector('#htmFormButton_postGuesser')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postTeam')?.addEventListener('click', event => {
+          event.preventDefault();
+          postTeam(document.querySelector('#htmForm_postTeam')
+              , document.querySelector('#htmFormButton_postTeam')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          postChampionship(document.querySelector('#htmForm_postChampionship')
+              , document.querySelector('#htmFormButton_postChampionship')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+{%- block htmScriptInitFinalFourPage %}{%- endblock htmScriptInitFinalFourPage %}
+      });
+    </script>
+{%- endblock htmScriptFinalFourPage %}
+{%- endblock htmScriptPageLayout %}
+
+{%- block websocketPageLayout %}
+{%- block websocketFinalFourPage %}
+{% if resultCount > 0 %}
+        window.eventBus = new EventBus('/eventbus');
+        window.eventBus.enableReconnect(true);
+        websocketFinalFour(websocketFinalFourInner);
+{% endif %}
+{%- endblock websocketFinalFourPage %}
+{%- endblock websocketPageLayout %}
+
+{%- block htmUrlFinalFourPage %}{{pageUri}}?q={{query.q}}&amp;rows={% if rows is defined %}{{rows}}{% else %}{{pagination.rows}}{% endif %}&amp;rows={% if start is defined %}{{start}}{% else %}{{pagination.start}}{% endif %}{% for item query.fq %}{% if fq == item %}{% else %}&fq={{fq}}:{{val}}{% endif %}{% endfor %}{% for item in query.sort %}{% if sort == item %}{% else %}&sort={{var}} {{order}}{% endif %}{% endfor %}{%- endblock htmUrlFinalFourPage %}
+{%- if pageBreadcrumb is not defined %}
+{%- set pageBreadcrumb %}
+              <wa-tooltip for="return-to-FinalFour">back to all final four brackets</wa-tooltip>
+              <wa-breadcrumb>
+                <wa-breadcrumb-item id="return-to-FinalFour" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+                  <i class="fa-regular fa-buildings"></i>
+                  all final four brackets
+                </wa-breadcrumb-item>
+                <wa-breadcrumb-item>
+                  search final four brackets
+                </wa-breadcrumb-item>
+              </wa-breadcrumb>
+{%- endset pageBreadcrumb %}
+{%- endif  %}
+
+{%- block htmBodyStartPageLayout %}
+{{ super() }}
+{%- block htmBodyStartFinalFourPage %}
+{% include en-us/search/final-four/FinalFourSidebar.htm %}
+{% if resultCount == 0 %}
+        <div class="wa-stack ">
+          <wa-tooltip for="return-to-FinalFour">back to all final four brackets</wa-tooltip></wa-tooltip>
+          <wa-breadcrumb>
+            <wa-breadcrumb-item id="return-to-FinalFour" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+              <i class="fa-regular fa-buildings"></i>
+              all final four brackets
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item>
+              no final four bracket found
+            </wa-breadcrumb-item>
+          </wa-breadcrumb>
+          <div class="wa-stack wa-align-items-center ">
+            <div class="wa-heading-3xl ">
+              <i class="fa-regular fa-buildings"></i>
+            </div>
+            <span class="wa-heading-m ">no final four bracket found</span>
+            <p class="wa-caption-l ">A predicted tournament with 4 teams. </p>
+          </div>
+        </div>
+{% else %}
+{% include en-us/search/final-four/FinalFourSuggestedSearch.htm %}
+          <div class="pageContent ">
+            <form action="/en-us/api/final-four" id="FinalFourForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+              <input name="focusId" type="hidden"/>
+              <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
+              <input name="listFinalFour" id="listFinalFour" class="listFinalFour"  value='{{ toJsonArrayStringInApostrophes(listFinalFour) }}' type="hidden"/>
+            </form>
+            <div id="site-calendar-box">
+              <div id="site-calendar"><!-- // --></div>
+            </div>
+            <div class="wa-stack wa-gap-m ">
+{% endif %}
+{% include en-us/search/final-four/FinalFourSearchForm.htm %}
+{%- endblock htmBodyStartFinalFourPage %}
+{%- endblock htmBodyStartPageLayout %}
+{%- if pageSearchButtons is not defined %}
+{%- set pageSearchButtons %}
+{% include en-us/search/final-four/FinalFourSearchButtons.htm %}
+{%- endset pageSearchButtons %}
+{%- endif %}
+{%- if pageSearchFormButtons is not defined %}
+{%- set pageSearchFormButtons %}
+{% include en-us/search/final-four/FinalFourSearchFormButtons.htm %}
+{%- endset pageSearchFormButtons %}
+{%- endif %}
+
+{%- block htmBodyMiddlePageLayout %}
+{%- block htmBodyMiddleFinalFourPage %}
+{% if resultCount > 0 %}
+              <div class="wa-stack wa-gap-0 ">
+{% include en-us/search/final-four/FinalFourPaginationButtons.htm %}
+                <div class="card-like-thing background-color-surface-border" id="site-results-grid">
+                  <div>
+                    <wa-dropdown id="htmDropdown-guesserId">
+                      <wa-button variant="brand" slot="trigger" caret>guesser</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortFinalFour_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-FinalFour').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-guesserId-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by guesser ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortFinalFour_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-FinalFour').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-guesserId-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by guesser descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                    <wa-dropdown id="htmDropdown-year">
+                      <wa-button variant="brand" slot="trigger" caret>year</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortFinalFour_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-FinalFour').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-year-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by year ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortFinalFour_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-FinalFour').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-year-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by year descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                  </div>
+                  {% for item in listFinalFour%}
+                  <div>
+                    <a href="{{ item.displayPage }}">
+                      <i class="fa-regular fa-buildings"></i>
+                      <span>{{ item.guesserId | e }}</span>
+                    </a>
+                    <a href="{{ item.displayPage }}">
+                      <span>{{ item.year | e }}</span>
+                    </a>
+                  </div>
+                  {% endfor %}
+              {% if getColumnGuesserId is defined %}
+                <div>
+                </div>
+              {% endif %}
+              {% if getColumnYear is defined %}
+                <div>
+                </div>
+              {% endif %}
+                </div>
+{% include en-us/search/final-four/FinalFourPaginationButtons.htm %}
+              </div>
+{% endif %}
+{%- endblock htmBodyMiddleFinalFourPage %}
+{%- endblock htmBodyMiddlePageLayout %}
+
+{%- block htmBodyEndPageLayout %}
+{%- block htmBodyEndFinalFourPage %}
+{%- include en-us/search/final-four/FinalFourLocation.htm %}
+            </div>
+          </div>
+{%- endblock htmBodyEndFinalFourPage %}
+  {{ super() }}
+{%- endblock htmBodyEndPageLayout %}

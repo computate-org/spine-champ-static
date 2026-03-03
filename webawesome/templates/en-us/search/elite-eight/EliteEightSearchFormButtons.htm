@@ -1,0 +1,65 @@
+
+{%- macro htmButton_patchEliteEight() %}<wa-button variant="brand" id="htmButton_patchEliteEight"  data-dialog="open patchEliteEightDialog" data-bracketId={{ result.bracketId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-edit "></i>Modify</wa-button>{%- endmacro %}
+
+{%- macro htmButton_postEliteEight() %}<wa-button variant="brand" id="htmButton_postEliteEight"  data-dialog="open postEliteEightDialog" data-bracketId={{ result.bracketId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-file-plus "></i>Create</wa-button>{%- endmacro %}
+
+{%- macro htmButton_deleteEliteEight() %}<wa-button variant="brand" id="htmButton_deleteEliteEight" data-bracketId={{ result.bracketId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-trash "></i>Delete</wa-button>{%- endmacro %}
+
+{%- macro htmButton_putimportEliteEight() %}<wa-button variant="brand" id="htmButton_putimportEliteEight"  data-dialog="open putimportEliteEightDialog" data-bracketId={{ result.bracketId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-file-import "></i>Import</wa-button>{%- endmacro %}
+
+{%- macro htmButton_deletefilterEliteEight() %}<wa-button variant="brand" id="htmButton_deletefilterEliteEight" data-bracketId={{ result.bracketId | tojson }}><i slot="start" class="{{ FONTAWESOME_STYLE }} fa-trash "></i>Delete</wa-button>{%- endmacro %}
+          <div id="htmSearchForm">
+            <wa-scroller>
+              <wa-button-group>
+{% if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {% if "PATCH" in scopes %}
+    {% if resultCount >= 1 %}
+                <wa-button variant="brand" id="refreshThisEliteEightGenPage"
+                     onclick="patch{{classSimpleName}}Vals( [ {name: 'fq', value: 'bracketId:{{ result.bracketId }}' } ], {}, this, function() { addGlow(document.querySelector('#refreshThisEliteEightGenPage')); }, function() { addError(document.querySelector('#refreshThisEliteEightGenPage')); }); return false; ">
+                  <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-sync-alt "></i>
+                  refresh
+                </wa-button>
+    {% endif %}
+    {% if resultCount > 0 %}
+                <wa-button variant="brand" id="refreshAllEliteEightGenPage{{ result.bracketId | e }}"
+                     onclick="patch{{classSimpleName}}Vals([], {}, this, function() { addGlow(document.querySelector('#refreshAllEliteEightGenPage{{ result.bracketId | e }}')); }, function() { addError(document.querySelector('#refreshAllEliteEightGenPage{{ result.bracketId | e }}')); }); "
+                    >
+                  <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrows-rotate"></i>
+                  refresh all 
+                </wa-button>
+    {% endif %}
+  {% endif %}
+{% endif %}
+{%- if 'PATCH' in scopes %}
+  {%- if resultCount > 0 %}
+    {%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+    {{ htmButton_patchEliteEight() }}
+    {%- endif %}
+  {%- endif %}
+{%- endif %}
+{%- if 'POST' in scopes %}
+  {%- if resultCount >= 1 %}
+    {{ htmButton_postEliteEight() }}
+  {%- else %}
+    {{ htmButton_postEliteEight() }}
+  {%- endif %}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if result is defined %}
+    {{ htmButton_deleteEliteEight() }}
+  {%- endif %}
+{%- endif %}
+{%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+  {{ htmButton_putimportEliteEight() }}
+{%- endif %}
+{%- if 'DELETE' in scopes %}
+  {%- if result is not defined %}
+    {%- if AUTH_SCOPE_SUPER_ADMIN in scopes %}
+    {{ htmButton_deletefilterEliteEight() }}
+    {%- endif %}
+  {%- endif %}
+{%- endif %}
+
+              </wa-button-group>
+            </wa-scroller>
+          </div>

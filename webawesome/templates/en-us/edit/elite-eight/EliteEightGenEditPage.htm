@@ -1,0 +1,1166 @@
+{% extends "en-us/PageLayout.htm" %}
+{%- block htmTitlePageLayout %}
+{%- block htmTitleEliteEightPage %}
+    <title>{{ result.objectTitle }}</title>
+{%- endblock htmTitleEliteEightPage %}
+{%- endblock htmTitlePageLayout %}
+
+{%- block htmStylesPageLayout %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ staticBaseUrl }}/css/en-us/search/elite-eight/EliteEight.css"/>
+{%- block htmStylesEliteEightPage %}
+{%- endblock htmStylesEliteEightPage %}
+{%- endblock htmStylesPageLayout %}
+
+{%- block htmStylePageLayout %}
+      :root {
+        --site-results-number-of-columns: 2;
+      }
+{{ super() }}
+{%- block htmStyleEliteEightPage %}
+{%- endblock htmStyleEliteEightPage %}
+{%- endblock htmStylePageLayout %}
+
+{%- block htmScriptsPageLayout %}
+{{ super() }}
+{%- block htmScriptsEliteEightPage %}
+    <script src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEight.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEightSearchPage.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEightEditPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/sweet-sixteen/SweetSixteen.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/team/Team.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFour.js"></script>
+{%- endblock htmScriptsEliteEightPage %}
+{%- endblock htmScriptsPageLayout %}
+
+{%- block htmScriptPageLayout %}
+{%- block htmScriptEliteEightPage %}
+    <script>
+
+      function jsWebsocketEliteEight(bracketId, vars, $response) {
+{%- block jsWebsocketEliteEightPage %}{%- endblock %}
+      }
+
+      function jsTooltipEliteEight(e, feature) {
+{%- block jsTooltipEliteEightPage %}{%- endblock %}
+      }
+
+      function htmTooltipEliteEight(feature, layer) {
+        return `{%- block htmTooltipEliteEightPage %}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.editPage)}">${feature.properties.objectTitle}</a></h3>
+{%- endblock htmTooltipEliteEightPage %}`;
+      }
+
+      function facetChangeEliteEightSuccess(e) {
+        var l = e.querySelector('.pageForm .listEliteEight')?.value;
+        if(l)
+          window.listEliteEight = JSON.parse(l);
+{% block facetChangeEliteEightSuccess %}{%- endblock facetEliteEightSuccess %}
+      }
+      function facetChangeEliteEightError(e) {
+{% block facetChangeEliteEightError %}{%- endblock facetEliteEightError %}
+      }
+
+      function facetSimpleRangeEliteEightSuccess(e) {
+{% block facetSimpleRangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetSimpleRangeEliteEightSuccess %}
+      }
+      function facetSimpleRangeEliteEightError(e) {
+{% block facetSimpleRangeEliteEightError %}      facetChangeEliteEightError(e);{% endblock facetSimpleRangeEliteEightError %}
+      }
+      function facetSimpleRangeEliteEight(e) {
+        facetSimpleRange(e, facetSimpleRangeEliteEightSuccess, facetSimpleRangeEliteEightError);
+      }
+
+      function facetRangeTimeZoneEliteEightSuccess(e) {
+{% block facetRangeTimeZoneEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeTimeZoneEliteEightSuccess %}
+      }
+      function facetRangeTimeZoneEliteEightError(e) {
+{% block facetRangeTimeZoneEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeTimeZoneEliteEightError %}
+      }
+      function facetRangeTimeZoneEliteEight(e) {
+        facetRangeTimeZone(e, facetRangeTimeZoneEliteEightSuccess, facetRangeTimeZoneEliteEightError);
+      }
+
+      function facetRangeGapChangeEliteEightSuccess(e) {
+{% block facetRangeGapChangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeGapChangeEliteEightSuccess %}
+      }
+      function facetRangeGapChangeEliteEightError(e) {
+{% block facetRangeGapChangeEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeGapChangeEliteEightError %}
+      }
+      function facetRangeGapChangeEliteEight(classSimpleName, event) {
+        facetRangeGapChange(classSimpleName, event, facetRangeGapChangeEliteEightSuccess, facetRangeGapChangeEliteEightError);
+      }
+
+      function facetRangeStartChangeEliteEightSuccess(e) {
+{% block facetRangeStartChangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeStartChangeEliteEightSuccess %}
+      }
+      function facetRangeStartChangeEliteEightError(e) {
+{% block facetRangeStartChangeEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeStartChangeEliteEightError %}
+      }
+      function facetRangeStartChangeEliteEight(classSimpleName, event) {
+        facetRangeStartChange(classSimpleName, event, facetRangeStartChangeEliteEightSuccess, facetRangeStartChangeEliteEightError);
+      }
+
+      function facetRangeEndChangeEliteEightSuccess(e) {
+{% block facetRangeEndChangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeEndChangeEliteEightSuccess %}
+      }
+      function facetRangeEndChangeEliteEightError(e) {
+{% block facetRangeEndChangeEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeEndChangeEliteEightError %}
+      }
+      function facetRangeEndChangeEliteEight(classSimpleName, event) {
+        facetRangeEndChange(classSimpleName, event, facetRangeEndChangeEliteEightSuccess, facetRangeEndChangeEliteEightError);
+      }
+    </script>
+    <script type="module">
+{% if DEFAULT_MAP_LOCATION is defined %}
+      window.DEFAULT_MAP_LOCATION = { type: 'Point', coordinates: [ {{ DEFAULT_MAP_LOCATION.coordinates[0] }}, {{ DEFAULT_MAP_LOCATION.coordinates[1] }} ]};
+{% endif %}
+{% if DEFAULT_MAP_ZOOM is defined %}
+      window.DEFAULT_MAP_ZOOM = {{ DEFAULT_MAP_ZOOM }};
+{% endif %}
+      window.DEFAULT_ZONE_ID = '{{ defaultZoneId }}';
+      Promise.all([
+        customElements.whenDefined('wa-button')
+        , customElements.whenDefined('wa-input')
+        , customElements.whenDefined('wa-select')
+        , customElements.whenDefined('wa-radio')
+        , customElements.whenDefined('wa-checkbox')
+        , customElements.whenDefined('wa-dropdown')
+      ]).then(() => {
+
+        var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
+
+        if(bracketId == null) {
+          document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-details');
+          });
+          document.querySelector('#grid-toggle-list')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-list');
+          });
+          document.querySelector('#grid-toggle-card')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-list');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-card');
+          });
+        } else {
+          var o = document.querySelector('.pageForm .result')?.value;
+          if(o)
+            window.result = JSON.parse(o);
+        {% if result.bracketId is defined %}
+          function relate_sweetSixteen(event) {
+            suggestEliteEightSweetSixteen(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.sweetSixteen : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_sweetSixteen')?.addEventListener('input', relate_sweetSixteen);
+          document.querySelector('#EliteEight_POST_sweetSixteen')?.addEventListener('focus', relate_sweetSixteen);
+          document.querySelector('#EliteEight_PATCH_sweetSixteen')?.addEventListener('input', relate_sweetSixteen);
+          document.querySelector('#EliteEight_PATCH_sweetSixteen')?.addEventListener('focus', relate_sweetSixteen);
+          document.querySelector('#EliteEight_Page_sweetSixteen')?.addEventListener('input', relate_sweetSixteen);
+          document.querySelector('#EliteEight_Page_sweetSixteen')?.addEventListener('focus', relate_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_bracketId')?.addEventListener('input', relate_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_bracketId')?.addEventListener('focus', relate_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightSweetSixteen([{'name':'fq','value':'eliteEight:' + window.result.sweetSixteen}], document.querySelector('#listEliteEightSweetSixteen_Page'), window.result.bracketId, window.result.sweetSixteen, true, document.getElementById('EliteEight_Page_sweetSixteen'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightSweetSixteen([{'name':'fq','value':'eliteEight:' + window.result.sweetSixteen}], document.querySelector('#listEliteEightSweetSixteen_Page'), window.result.bracketId, window.result.sweetSixteen, true, document.getElementById('EliteEight_Page_sweetSixteen'));
+          {% else %}
+          suggestEliteEightSweetSixteen([{'name':'fq','value':'eliteEight:' + window.result.sweetSixteen}], document.querySelector('#listEliteEightSweetSixteen_Page'), window.result.bracketId, window.result.sweetSixteen, false, document.getElementById('EliteEight_Page_sweetSixteen'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          // rechercheSolrAttribuer k: 0
+          function SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenGuesserId([], document.querySelector('#listEliteEightGuesserId_Page'), null, window.result.guesserId, true, document.querySelector('#SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 1
+          function SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenSouthGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenSouthGame1Winner([], document.querySelector('#listEliteEightSouthGame1Winner_Page'), null, window.result.southGame1Winner, true, document.querySelector('#SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 2
+          function SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenSouthGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenSouthGame1Loser([], document.querySelector('#listEliteEightSouthGame1Loser_Page'), null, window.result.southGame1Loser, true, document.querySelector('#SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 3
+          function SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenSouthGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame2Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenSouthGame2Winner([], document.querySelector('#listEliteEightSouthGame2Winner_Page'), null, window.result.southGame2Winner, true, document.querySelector('#SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 4
+          function SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenSouthGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame2Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenSouthGame2Loser([], document.querySelector('#listEliteEightSouthGame2Loser_Page'), null, window.result.southGame2Loser, true, document.querySelector('#SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 5
+          function SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenWestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenWestGame1Winner([], document.querySelector('#listEliteEightWestGame1Winner_Page'), null, window.result.westGame1Winner, true, document.querySelector('#SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 6
+          function SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenWestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenWestGame1Loser([], document.querySelector('#listEliteEightWestGame1Loser_Page'), null, window.result.westGame1Loser, true, document.querySelector('#SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 7
+          function SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenWestGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame2Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenWestGame2Winner([], document.querySelector('#listEliteEightWestGame2Winner_Page'), null, window.result.westGame2Winner, true, document.querySelector('#SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 8
+          function SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenWestGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame2Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenWestGame2Loser([], document.querySelector('#listEliteEightWestGame2Loser_Page'), null, window.result.westGame2Loser, true, document.querySelector('#SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 9
+          function SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenEastGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenEastGame1Winner([], document.querySelector('#listEliteEightEastGame1Winner_Page'), null, window.result.eastGame1Winner, true, document.querySelector('#SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 10
+          function SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenEastGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenEastGame1Loser([], document.querySelector('#listEliteEightEastGame1Loser_Page'), null, window.result.eastGame1Loser, true, document.querySelector('#SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 11
+          function SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenEastGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame2Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenEastGame2Winner([], document.querySelector('#listEliteEightEastGame2Winner_Page'), null, window.result.eastGame2Winner, true, document.querySelector('#SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 12
+          function SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenEastGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame2Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenEastGame2Loser([], document.querySelector('#listEliteEightEastGame2Loser_Page'), null, window.result.eastGame2Loser, true, document.querySelector('#SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 13
+          function SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenMidwestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenMidwestGame1Winner([], document.querySelector('#listEliteEightMidwestGame1Winner_Page'), null, window.result.midwestGame1Winner, true, document.querySelector('#SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 14
+          function SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenMidwestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenMidwestGame1Loser([], document.querySelector('#listEliteEightMidwestGame1Loser_Page'), null, window.result.midwestGame1Loser, true, document.querySelector('#SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 15
+          function SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenMidwestGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame2Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenMidwestGame2Winner([], document.querySelector('#listEliteEightMidwestGame2Winner_Page'), null, window.result.midwestGame2Winner, true, document.querySelector('#SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 16
+          function SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenMidwestGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame2Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenMidwestGame2Loser([], document.querySelector('#listEliteEightMidwestGame2Loser_Page'), null, window.result.midwestGame2Loser, true, document.querySelector('#SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 17
+          function SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen(event) {
+            suggestSweetSixteenEliteEight(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen')?.addEventListener('input', SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen);
+          document.querySelector('#SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen')?.addEventListener('focus', SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen);
+          {% if "PATCH" in scopes %}
+          suggestSweetSixteenEliteEight([], document.querySelector('#listEliteEightEliteEight_Page'), null, window.result.eliteEight, true, document.querySelector('#SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen'));
+          {% endif %}
+          function relate_guesserId(event) {
+            suggestEliteEightGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#EliteEight_POST_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#EliteEight_PATCH_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#EliteEight_PATCH_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#EliteEight_Page_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#EliteEight_Page_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#Guesser_POST_bracketId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#Guesser_POST_bracketId')?.addEventListener('focus', relate_guesserId);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightGuesserId([{'name':'fq','value':'guesserId:' + window.result.guesserId}], document.querySelector('#listEliteEightGuesserId_Page'), window.result.bracketId, window.result.guesserId, true, document.getElementById('EliteEight_Page_guesserId'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightGuesserId([{'name':'fq','value':'guesserId:' + window.result.guesserId}], document.querySelector('#listEliteEightGuesserId_Page'), window.result.bracketId, window.result.guesserId, true, document.getElementById('EliteEight_Page_guesserId'));
+          {% else %}
+          suggestEliteEightGuesserId([{'name':'fq','value':'guesserId:' + window.result.guesserId}], document.querySelector('#listEliteEightGuesserId_Page'), window.result.bracketId, window.result.guesserId, false, document.getElementById('EliteEight_Page_guesserId'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_southGame1Winner(event) {
+            suggestEliteEightSouthGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Winner')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#EliteEight_POST_southGame1Winner')?.addEventListener('focus', relate_southGame1Winner);
+          document.querySelector('#EliteEight_PATCH_southGame1Winner')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#EliteEight_PATCH_southGame1Winner')?.addEventListener('focus', relate_southGame1Winner);
+          document.querySelector('#EliteEight_Page_southGame1Winner')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#EliteEight_Page_southGame1Winner')?.addEventListener('focus', relate_southGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_southGame1Winner);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightSouthGame1Winner([{'name':'fq','value':'teamId:' + window.result.southGame1Winner}], document.querySelector('#listEliteEightSouthGame1Winner_Page'), window.result.bracketId, window.result.southGame1Winner, true, document.getElementById('EliteEight_Page_southGame1Winner'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightSouthGame1Winner([{'name':'fq','value':'teamId:' + window.result.southGame1Winner}], document.querySelector('#listEliteEightSouthGame1Winner_Page'), window.result.bracketId, window.result.southGame1Winner, true, document.getElementById('EliteEight_Page_southGame1Winner'));
+          {% else %}
+          suggestEliteEightSouthGame1Winner([{'name':'fq','value':'teamId:' + window.result.southGame1Winner}], document.querySelector('#listEliteEightSouthGame1Winner_Page'), window.result.bracketId, window.result.southGame1Winner, false, document.getElementById('EliteEight_Page_southGame1Winner'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_southGame1Loser(event) {
+            suggestEliteEightSouthGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Loser')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#EliteEight_POST_southGame1Loser')?.addEventListener('focus', relate_southGame1Loser);
+          document.querySelector('#EliteEight_PATCH_southGame1Loser')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#EliteEight_PATCH_southGame1Loser')?.addEventListener('focus', relate_southGame1Loser);
+          document.querySelector('#EliteEight_Page_southGame1Loser')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#EliteEight_Page_southGame1Loser')?.addEventListener('focus', relate_southGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_southGame1Loser);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightSouthGame1Loser([{'name':'fq','value':'teamId:' + window.result.southGame1Loser}], document.querySelector('#listEliteEightSouthGame1Loser_Page'), window.result.bracketId, window.result.southGame1Loser, true, document.getElementById('EliteEight_Page_southGame1Loser'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightSouthGame1Loser([{'name':'fq','value':'teamId:' + window.result.southGame1Loser}], document.querySelector('#listEliteEightSouthGame1Loser_Page'), window.result.bracketId, window.result.southGame1Loser, true, document.getElementById('EliteEight_Page_southGame1Loser'));
+          {% else %}
+          suggestEliteEightSouthGame1Loser([{'name':'fq','value':'teamId:' + window.result.southGame1Loser}], document.querySelector('#listEliteEightSouthGame1Loser_Page'), window.result.bracketId, window.result.southGame1Loser, false, document.getElementById('EliteEight_Page_southGame1Loser'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_westGame1Winner(event) {
+            suggestEliteEightWestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Winner')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#EliteEight_POST_westGame1Winner')?.addEventListener('focus', relate_westGame1Winner);
+          document.querySelector('#EliteEight_PATCH_westGame1Winner')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#EliteEight_PATCH_westGame1Winner')?.addEventListener('focus', relate_westGame1Winner);
+          document.querySelector('#EliteEight_Page_westGame1Winner')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#EliteEight_Page_westGame1Winner')?.addEventListener('focus', relate_westGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_westGame1Winner);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightWestGame1Winner([{'name':'fq','value':'teamId:' + window.result.westGame1Winner}], document.querySelector('#listEliteEightWestGame1Winner_Page'), window.result.bracketId, window.result.westGame1Winner, true, document.getElementById('EliteEight_Page_westGame1Winner'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightWestGame1Winner([{'name':'fq','value':'teamId:' + window.result.westGame1Winner}], document.querySelector('#listEliteEightWestGame1Winner_Page'), window.result.bracketId, window.result.westGame1Winner, true, document.getElementById('EliteEight_Page_westGame1Winner'));
+          {% else %}
+          suggestEliteEightWestGame1Winner([{'name':'fq','value':'teamId:' + window.result.westGame1Winner}], document.querySelector('#listEliteEightWestGame1Winner_Page'), window.result.bracketId, window.result.westGame1Winner, false, document.getElementById('EliteEight_Page_westGame1Winner'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_westGame1Loser(event) {
+            suggestEliteEightWestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Loser')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#EliteEight_POST_westGame1Loser')?.addEventListener('focus', relate_westGame1Loser);
+          document.querySelector('#EliteEight_PATCH_westGame1Loser')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#EliteEight_PATCH_westGame1Loser')?.addEventListener('focus', relate_westGame1Loser);
+          document.querySelector('#EliteEight_Page_westGame1Loser')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#EliteEight_Page_westGame1Loser')?.addEventListener('focus', relate_westGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_westGame1Loser);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightWestGame1Loser([{'name':'fq','value':'teamId:' + window.result.westGame1Loser}], document.querySelector('#listEliteEightWestGame1Loser_Page'), window.result.bracketId, window.result.westGame1Loser, true, document.getElementById('EliteEight_Page_westGame1Loser'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightWestGame1Loser([{'name':'fq','value':'teamId:' + window.result.westGame1Loser}], document.querySelector('#listEliteEightWestGame1Loser_Page'), window.result.bracketId, window.result.westGame1Loser, true, document.getElementById('EliteEight_Page_westGame1Loser'));
+          {% else %}
+          suggestEliteEightWestGame1Loser([{'name':'fq','value':'teamId:' + window.result.westGame1Loser}], document.querySelector('#listEliteEightWestGame1Loser_Page'), window.result.bracketId, window.result.westGame1Loser, false, document.getElementById('EliteEight_Page_westGame1Loser'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_eastGame1Winner(event) {
+            suggestEliteEightEastGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Winner')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_POST_eastGame1Winner')?.addEventListener('focus', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_PATCH_eastGame1Winner')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_PATCH_eastGame1Winner')?.addEventListener('focus', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_Page_eastGame1Winner')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_Page_eastGame1Winner')?.addEventListener('focus', relate_eastGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_eastGame1Winner);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightEastGame1Winner([{'name':'fq','value':'teamId:' + window.result.eastGame1Winner}], document.querySelector('#listEliteEightEastGame1Winner_Page'), window.result.bracketId, window.result.eastGame1Winner, true, document.getElementById('EliteEight_Page_eastGame1Winner'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightEastGame1Winner([{'name':'fq','value':'teamId:' + window.result.eastGame1Winner}], document.querySelector('#listEliteEightEastGame1Winner_Page'), window.result.bracketId, window.result.eastGame1Winner, true, document.getElementById('EliteEight_Page_eastGame1Winner'));
+          {% else %}
+          suggestEliteEightEastGame1Winner([{'name':'fq','value':'teamId:' + window.result.eastGame1Winner}], document.querySelector('#listEliteEightEastGame1Winner_Page'), window.result.bracketId, window.result.eastGame1Winner, false, document.getElementById('EliteEight_Page_eastGame1Winner'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_eastGame1Loser(event) {
+            suggestEliteEightEastGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_POST_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_PATCH_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_PATCH_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_Page_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_Page_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_eastGame1Loser);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightEastGame1Loser([{'name':'fq','value':'teamId:' + window.result.eastGame1Loser}], document.querySelector('#listEliteEightEastGame1Loser_Page'), window.result.bracketId, window.result.eastGame1Loser, true, document.getElementById('EliteEight_Page_eastGame1Loser'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightEastGame1Loser([{'name':'fq','value':'teamId:' + window.result.eastGame1Loser}], document.querySelector('#listEliteEightEastGame1Loser_Page'), window.result.bracketId, window.result.eastGame1Loser, true, document.getElementById('EliteEight_Page_eastGame1Loser'));
+          {% else %}
+          suggestEliteEightEastGame1Loser([{'name':'fq','value':'teamId:' + window.result.eastGame1Loser}], document.querySelector('#listEliteEightEastGame1Loser_Page'), window.result.bracketId, window.result.eastGame1Loser, false, document.getElementById('EliteEight_Page_eastGame1Loser'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_midwestGame1Winner(event) {
+            suggestEliteEightMidwestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Winner')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_POST_midwestGame1Winner')?.addEventListener('focus', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Winner')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Winner')?.addEventListener('focus', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_Page_midwestGame1Winner')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_Page_midwestGame1Winner')?.addEventListener('focus', relate_midwestGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_midwestGame1Winner);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightMidwestGame1Winner([{'name':'fq','value':'teamId:' + window.result.midwestGame1Winner}], document.querySelector('#listEliteEightMidwestGame1Winner_Page'), window.result.bracketId, window.result.midwestGame1Winner, true, document.getElementById('EliteEight_Page_midwestGame1Winner'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightMidwestGame1Winner([{'name':'fq','value':'teamId:' + window.result.midwestGame1Winner}], document.querySelector('#listEliteEightMidwestGame1Winner_Page'), window.result.bracketId, window.result.midwestGame1Winner, true, document.getElementById('EliteEight_Page_midwestGame1Winner'));
+          {% else %}
+          suggestEliteEightMidwestGame1Winner([{'name':'fq','value':'teamId:' + window.result.midwestGame1Winner}], document.querySelector('#listEliteEightMidwestGame1Winner_Page'), window.result.bracketId, window.result.midwestGame1Winner, false, document.getElementById('EliteEight_Page_midwestGame1Winner'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_midwestGame1Loser(event) {
+            suggestEliteEightMidwestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Loser')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_POST_midwestGame1Loser')?.addEventListener('focus', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Loser')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Loser')?.addEventListener('focus', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_Page_midwestGame1Loser')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_Page_midwestGame1Loser')?.addEventListener('focus', relate_midwestGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#Team_POST_bracketId')?.addEventListener('focus', relate_midwestGame1Loser);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightMidwestGame1Loser([{'name':'fq','value':'teamId:' + window.result.midwestGame1Loser}], document.querySelector('#listEliteEightMidwestGame1Loser_Page'), window.result.bracketId, window.result.midwestGame1Loser, true, document.getElementById('EliteEight_Page_midwestGame1Loser'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightMidwestGame1Loser([{'name':'fq','value':'teamId:' + window.result.midwestGame1Loser}], document.querySelector('#listEliteEightMidwestGame1Loser_Page'), window.result.bracketId, window.result.midwestGame1Loser, true, document.getElementById('EliteEight_Page_midwestGame1Loser'));
+          {% else %}
+          suggestEliteEightMidwestGame1Loser([{'name':'fq','value':'teamId:' + window.result.midwestGame1Loser}], document.querySelector('#listEliteEightMidwestGame1Loser_Page'), window.result.bracketId, window.result.midwestGame1Loser, false, document.getElementById('EliteEight_Page_midwestGame1Loser'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          function relate_finalFour(event) {
+            suggestEliteEightFinalFour(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFour : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#EliteEight_POST_finalFour')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#EliteEight_POST_finalFour')?.addEventListener('focus', relate_finalFour);
+          document.querySelector('#EliteEight_PATCH_finalFour')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#EliteEight_PATCH_finalFour')?.addEventListener('focus', relate_finalFour);
+          document.querySelector('#EliteEight_Page_finalFour')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#EliteEight_Page_finalFour')?.addEventListener('focus', relate_finalFour);
+          document.querySelector('#FinalFour_POST_bracketId')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#FinalFour_POST_bracketId')?.addEventListener('focus', relate_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestEliteEightFinalFour([{'name':'fq','value':'eliteEight:' + window.result.finalFour}], document.querySelector('#listEliteEightFinalFour_Page'), window.result.bracketId, window.result.finalFour, true, document.getElementById('EliteEight_Page_finalFour'));
+          {% else %}
+          {% if "GET" in scopes %}
+          suggestEliteEightFinalFour([{'name':'fq','value':'eliteEight:' + window.result.finalFour}], document.querySelector('#listEliteEightFinalFour_Page'), window.result.bracketId, window.result.finalFour, true, document.getElementById('EliteEight_Page_finalFour'));
+          {% else %}
+          suggestEliteEightFinalFour([{'name':'fq','value':'eliteEight:' + window.result.finalFour}], document.querySelector('#listEliteEightFinalFour_Page'), window.result.bracketId, window.result.finalFour, false, document.getElementById('EliteEight_Page_finalFour'));
+          {% endif %}
+          {% endif %}
+          // rechercheSolrAttribuer.size(): 6
+          // rechercheSolrAttribuer k: 0
+          function FinalFour_POST_guesserId_EliteEight_POST_finalFour(event) {
+            suggestFinalFourGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#FinalFour_POST_guesserId_EliteEight_POST_finalFour')
+                );
+          }
+          document.querySelector('#FinalFour_POST_guesserId_EliteEight_POST_finalFour')?.addEventListener('input', FinalFour_POST_guesserId_EliteEight_POST_finalFour);
+          document.querySelector('#FinalFour_POST_guesserId_EliteEight_POST_finalFour')?.addEventListener('focus', FinalFour_POST_guesserId_EliteEight_POST_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGuesserId([], document.querySelector('#listEliteEightGuesserId_Page'), null, window.result.guesserId, true, document.querySelector('#FinalFour_POST_guesserId_EliteEight_POST_finalFour'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 1
+          function FinalFour_POST_game1Winner_EliteEight_POST_finalFour(event) {
+            suggestFinalFourGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game1Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Winner : null
+                , true
+                , document.querySelector('#FinalFour_POST_game1Winner_EliteEight_POST_finalFour')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Winner_EliteEight_POST_finalFour')?.addEventListener('input', FinalFour_POST_game1Winner_EliteEight_POST_finalFour);
+          document.querySelector('#FinalFour_POST_game1Winner_EliteEight_POST_finalFour')?.addEventListener('focus', FinalFour_POST_game1Winner_EliteEight_POST_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame1Winner([], document.querySelector('#listEliteEightGame1Winner_Page'), null, window.result.game1Winner, true, document.querySelector('#FinalFour_POST_game1Winner_EliteEight_POST_finalFour'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 2
+          function FinalFour_POST_game1Loser_EliteEight_POST_finalFour(event) {
+            suggestFinalFourGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game1Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Loser : null
+                , true
+                , document.querySelector('#FinalFour_POST_game1Loser_EliteEight_POST_finalFour')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Loser_EliteEight_POST_finalFour')?.addEventListener('input', FinalFour_POST_game1Loser_EliteEight_POST_finalFour);
+          document.querySelector('#FinalFour_POST_game1Loser_EliteEight_POST_finalFour')?.addEventListener('focus', FinalFour_POST_game1Loser_EliteEight_POST_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame1Loser([], document.querySelector('#listEliteEightGame1Loser_Page'), null, window.result.game1Loser, true, document.querySelector('#FinalFour_POST_game1Loser_EliteEight_POST_finalFour'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 3
+          function FinalFour_POST_game2Winner_EliteEight_POST_finalFour(event) {
+            suggestFinalFourGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game2Winner,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Winner : null
+                , true
+                , document.querySelector('#FinalFour_POST_game2Winner_EliteEight_POST_finalFour')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Winner_EliteEight_POST_finalFour')?.addEventListener('input', FinalFour_POST_game2Winner_EliteEight_POST_finalFour);
+          document.querySelector('#FinalFour_POST_game2Winner_EliteEight_POST_finalFour')?.addEventListener('focus', FinalFour_POST_game2Winner_EliteEight_POST_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame2Winner([], document.querySelector('#listEliteEightGame2Winner_Page'), null, window.result.game2Winner, true, document.querySelector('#FinalFour_POST_game2Winner_EliteEight_POST_finalFour'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 4
+          function FinalFour_POST_game2Loser_EliteEight_POST_finalFour(event) {
+            suggestFinalFourGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game2Loser,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Loser : null
+                , true
+                , document.querySelector('#FinalFour_POST_game2Loser_EliteEight_POST_finalFour')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Loser_EliteEight_POST_finalFour')?.addEventListener('input', FinalFour_POST_game2Loser_EliteEight_POST_finalFour);
+          document.querySelector('#FinalFour_POST_game2Loser_EliteEight_POST_finalFour')?.addEventListener('focus', FinalFour_POST_game2Loser_EliteEight_POST_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourGame2Loser([], document.querySelector('#listEliteEightGame2Loser_Page'), null, window.result.game2Loser, true, document.querySelector('#FinalFour_POST_game2Loser_EliteEight_POST_finalFour'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 5
+          function FinalFour_POST_eliteEight_EliteEight_POST_finalFour(event) {
+            suggestFinalFourEliteEight(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
+                , true
+                , document.querySelector('#FinalFour_POST_eliteEight_EliteEight_POST_finalFour')
+                );
+          }
+          document.querySelector('#FinalFour_POST_eliteEight_EliteEight_POST_finalFour')?.addEventListener('input', FinalFour_POST_eliteEight_EliteEight_POST_finalFour);
+          document.querySelector('#FinalFour_POST_eliteEight_EliteEight_POST_finalFour')?.addEventListener('focus', FinalFour_POST_eliteEight_EliteEight_POST_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourEliteEight([], document.querySelector('#listEliteEightEliteEight_Page'), null, window.result.eliteEight, true, document.querySelector('#FinalFour_POST_eliteEight_EliteEight_POST_finalFour'));
+          {% endif %}
+          // rechercheSolrAttribuer k: 6
+          function FinalFour_POST_championship_EliteEight_POST_finalFour(event) {
+            suggestFinalFourChampionship(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,championship,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.championship : null
+                , true
+                , document.querySelector('#FinalFour_POST_championship_EliteEight_POST_finalFour')
+                );
+          }
+          document.querySelector('#FinalFour_POST_championship_EliteEight_POST_finalFour')?.addEventListener('input', FinalFour_POST_championship_EliteEight_POST_finalFour);
+          document.querySelector('#FinalFour_POST_championship_EliteEight_POST_finalFour')?.addEventListener('focus', FinalFour_POST_championship_EliteEight_POST_finalFour);
+          {% if "PATCH" in scopes %}
+          suggestFinalFourChampionship([], document.querySelector('#listEliteEightChampionship_Page'), null, window.result.championship, true, document.querySelector('#FinalFour_POST_championship_EliteEight_POST_finalFour'));
+          {% endif %}
+        {% endif %}
+        }
+        var l = document.querySelector('.pageForm .listEliteEight')?.value;
+        if(l)
+          window.listEliteEight = JSON.parse(l);
+        window.varsFq = JSON.parse('{{ toJsonObjectStringInApostrophes(varsFq) }}');
+        window.varsRange = JSON.parse('{{ toJsonObjectStringInApostrophes(varsRange) }}');
+        window.defaultRangeVar = '{{ defaultRangeVar }}';
+        document.querySelector('#siteSidebarToggleRange')?.addEventListener('wa-after-hide', function(e) { document.querySelector('#pageFacetRangeTimeZonePopup').active = false; });
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneEliteEight);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneEliteEight);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('focus', facetRangeTimeZoneEliteEight);
+        document.querySelector('#pageFacetSimpleRangeDropdown')?.addEventListener('wa-select', facetSimpleRangeEliteEight);
+        pageGraphEliteEight();
+        {% for key, value in varsQ.items() %}
+
+        document.querySelector('#qEliteEight_{{ key }}')?.addEventListener('wa-{% if var == 'objectSuggest' %}keyup{% else %}change{% endif %}', event => {
+          qChange('EliteEight', event.target, document.querySelector('#qEliteEightDiv_{{ key }}'));
+        });
+        {% endfor %}
+
+        document.querySelector('#qEliteEight_rows')?.addEventListener('change', event => {
+          paramChange('EliteEight', event.target, document.querySelector('#qEliteEightDiv_rows'));
+        });
+
+        document.querySelector('#qEliteEight_start')?.addEventListener('change', event => {
+          paramChange('EliteEight', event.target, document.querySelector('#qEliteEightDiv_start'));
+        });
+
+
+        var submitForm_patchEliteEight = document.querySelector('#htmForm_patchEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_patchEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          patchEliteEight(null, document.querySelector('#htmForm_patchEliteEight'), document.querySelector('#htmFormButton_patchEliteEight'), event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_postEliteEight = document.querySelector('#htmForm_postEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_postEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          postEliteEight(document.querySelector('#htmForm_postEliteEight')
+          , document.querySelector('#htmFormButton_postEliteEight')
+          , (json, target) => {
+            window.location.href = json.editPage;
+          });
+          return false;
+        });
+
+        var submitForm_deleteEliteEight = document.querySelector('#htmForm_deleteEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deleteEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          deleteEliteEight(event.target, event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_putimportEliteEight = document.querySelector('#htmForm_putimportEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_putimportEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          putimportEliteEight(document.querySelector('#htmForm_putimportEliteEight'), document.querySelector('#htmFormButton_putimportEliteEight'));
+          return false;
+        });
+
+        var submitForm_searchpageEliteEight = document.querySelector('#htmForm_searchpageEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_searchpageEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          searchpageEliteEight();
+          return false;
+        });
+
+        var submitForm_deletefilterEliteEight = document.querySelector('#htmForm_deletefilterEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deletefilterEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          deletefilterEliteEight(event.target);
+          return false;
+        });
+
+        document.querySelector('#htmFormButton_postSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          postSweetSixteen(document.querySelector('#htmForm_postSweetSixteen')
+              , document.querySelector('#htmFormButton_postSweetSixteen')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postGuesser')?.addEventListener('click', event => {
+          event.preventDefault();
+          postGuesser(document.querySelector('#htmForm_postGuesser')
+              , document.querySelector('#htmFormButton_postGuesser')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postTeam')?.addEventListener('click', event => {
+          event.preventDefault();
+          postTeam(document.querySelector('#htmForm_postTeam')
+              , document.querySelector('#htmFormButton_postTeam')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          postFinalFour(document.querySelector('#htmForm_postFinalFour')
+              , document.querySelector('#htmFormButton_postFinalFour')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+{%- block htmScriptInitEliteEightPage %}{%- endblock htmScriptInitEliteEightPage %}
+      });
+    </script>
+{%- endblock htmScriptEliteEightPage %}
+{%- endblock htmScriptPageLayout %}
+
+{%- block websocketPageLayout %}
+{%- block websocketEliteEightPage %}
+{% if resultCount > 0 %}
+        window.eventBus = new EventBus('/eventbus');
+        window.eventBus.enableReconnect(true);
+        websocketEliteEight(websocketEliteEightInner);
+{% endif %}
+{%- endblock websocketEliteEightPage %}
+{%- endblock websocketPageLayout %}
+
+{%- block htmUrlEliteEightPage %}{{pageUri}}?q={{query.q}}&amp;rows={% if rows is defined %}{{rows}}{% else %}{{pagination.rows}}{% endif %}&amp;rows={% if start is defined %}{{start}}{% else %}{{pagination.start}}{% endif %}{% for item query.fq %}{% if fq == item %}{% else %}&fq={{fq}}:{{val}}{% endif %}{% endfor %}{% for item in query.sort %}{% if sort == item %}{% else %}&sort={{var}} {{order}}{% endif %}{% endfor %}{%- endblock htmUrlEliteEightPage %}
+
+{%- if pageSearchButtons is not defined %}
+{%- set pageSearchButtons %}
+{% include en-us/search/elite-eight/EliteEightSearchButtons.htm %}
+{%- endset pageSearchButtons %}
+{%- endif %}
+{%- if pageSearchFormButtons is not defined %}
+{%- set pageSearchFormButtons %}
+{% include en-us/search/elite-eight/EliteEightSearchFormButtons.htm %}
+{%- endset pageSearchFormButtons %}
+{%- endif %}
+{%- if pageBreadcrumb is not defined %}
+{%- set pageBreadcrumb %}
+              <wa-tooltip for="return-to-EliteEight">back to all elite eight brackets</wa-tooltip>
+              <wa-breadcrumb>
+                <wa-breadcrumb-item id="return-to-EliteEight" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+                  <i class="fa-regular fa-buildings"></i>
+                  all elite eight brackets
+                </wa-breadcrumb-item>
+                <wa-breadcrumb-item>
+                  an elite eight bracket
+                </wa-breadcrumb-item>
+              </wa-breadcrumb>
+{%- endset pageBreadcrumb %}
+{%- endif  %}
+
+{%- block htmBodyStartPageLayout %}
+    {{ super() }}
+{%- block htmBodyStartEliteEightPage %}
+{% if resultCount > 0 %}
+          <div class="wa-flank ">
+            <h1 class="Page_objectTitle"><i class="fa-regular fa-buildings"></i> {{ result.objectTitle | e }}</h1>
+          </div>
+{% endif %}
+{% include en-us/search/elite-eight/EliteEightSearchForm.htm %}
+{%- endblock htmBodyStartEliteEightPage %}
+{%- endblock htmBodyStartPageLayout %}
+
+{%- block htmBodyMiddlePageLayout %}
+{%- block htmBodyMiddleEliteEightPage %}
+{%- include en-us/search/elite-eight/EliteEightSidebar.htm %}
+        <div class="pageContent ">
+{% if resultCount == 0 %}
+        <div class="wa-stack ">
+          <wa-tooltip for="return-to-EliteEight">back to all elite eight brackets</wa-tooltip></wa-tooltip>
+          <wa-breadcrumb>
+            <wa-breadcrumb-item id="return-to-EliteEight" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+              <i class="fa-regular fa-buildings"></i>
+              all elite eight brackets
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item>
+              no elite eight bracket found
+            </wa-breadcrumb-item>
+          </wa-breadcrumb>
+          <div class="wa-stack wa-align-items-center ">
+            <div class="wa-heading-3xl ">
+              <i class="fa-regular fa-buildings"></i>
+            </div>
+            <span class="wa-heading-m ">no elite eight bracket found</span>
+            <p class="wa-caption-l ">A predicted tournament with 8 teams. </p>
+          </div>
+        </div>
+{% else %}
+{%- include en-us/search/elite-eight/EliteEightSuggestedSearch.htm %}
+{% endif %}
+{%- block htmFormEliteEightPage %}
+          <form action="/en-us/api/elite-eight" id="EliteEightForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+{% if result.bracketId is defined %}
+            <input name="bracketId" class="valueBracketId" type="hidden" value="{{ result.bracketId }}"/>
+            {% endif %}
+            <input name="focusId" type="hidden"/>
+            <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
+            <input name="result" id="result" class="result"  value='{{ toJsonObjectStringInApostrophes(result) }}' type="hidden"/>
+            <input name="listEliteEight" id="listEliteEight" class="listEliteEight"  value='{{ toJsonArrayStringInApostrophes(listEliteEight) }}' type="hidden"/>
+          </form>
+{%- if resultCount >= 1 %}
+          {{ htmForm_searchpageEliteEight() }}
+{% endif -%}
+{%- endblock htmFormEliteEightPage %}
+        </div>
+{%- endblock htmBodyMiddleEliteEightPage %}
+{%- endblock htmBodyMiddlePageLayout %}
+
+{%- block htmBodyEndPageLayout %}
+{%- block htmBodyEndEliteEightPage %}
+{%- include en-us/search/elite-eight/EliteEightLocation.htm %}
+{%- endblock htmBodyEndEliteEightPage %}
+      {{ super() }}
+{%- endblock htmBodyEndPageLayout %}

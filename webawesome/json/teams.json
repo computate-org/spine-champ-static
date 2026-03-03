@@ -183,7 +183,7 @@
             {"tid": 180, "cid": 10, "did": 21, "region": "Hofstra", "name": "Pride", "abbrev": "HOF", "pop": 140, "city": "Hempstead", "state": "NY", "latitude": 40.714 , "longitude": -73.600},
             {"tid": 181, "cid": 19, "did": 38, "region": "Fresno State", "name": "Bulldogs", "abbrev": "FRES", "pop": 139, "city": "Fresno", "state": "CA", "latitude": 36.750, "longitude": -119.766},
             {"tid": 182, "cid": 11, "did": 23, "region": "Saint Joseph's", "name": "Hawks", "abbrev": "STJOE", "pop": 138, "city": "Philadelphia", "state": "PA", "latitude": 39.950 , "longitude": -75.166},
-            {"tid": 183, "cid": 4, "did": 9, "region": "Texas Tech", "name": "Red Raiders", "abbrev": "TT", "pop": 137, "city": "Lubbock", "state": "TX", "latitude": 33.566, "longitude": -101.883},
+            {"tid": 183, "cid": 4, "did": 9, "region": "Texas Tech", "name": "Red Raiders", "abbrev": "TTU", "pop": 137, "city": "Lubbock", "state": "TX", "latitude": 33.566, "longitude": -101.883},
             {"tid": 184, "cid": 8, "did": 16, "region": "San Francisco", "name": "Dons", "abbrev": "SANFRAN", "pop": 136, "city": "San Francisco", "state": "CA", "latitude": 37.783, "longitude": -122.416},
             {"tid": 185, "cid": 18, "did": 37, "region": "Mount Saint Mary's", "name": "Mountaineers", "abbrev": "STMARY", "pop": 135, "city": "Emmittsburg", "state": "MD", "latitude": 39.682 , "longitude": -77.353},
             {"tid": 186, "cid": 15, "did": 31, "region": "Northern Illinois", "name": "Huskies", "abbrev": "NOILL", "pop": 134, "city": "Dekalb", "state": "IL", "latitude": 41.931 , "longitude":  -88.750},

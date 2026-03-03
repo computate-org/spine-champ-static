@@ -1,0 +1,607 @@
+{% extends "en-us/PageLayout.htm" %}
+
+{%- block htmTitlePageLayout %}
+{%- block htmTitleEliteEightPage %}
+    <title>{% if resultCount == 0 %}no elite eight bracket found{% else %}elite eight brackets{% endif %}</title>
+{%- endblock htmTitleEliteEightPage %}
+{%- endblock htmTitlePageLayout %}
+
+{%- block htmStylesPageLayout %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ staticBaseUrl }}/css/en-us/search/elite-eight/EliteEight.css"/>
+{%- block htmStylesEliteEightPage %}
+{%- endblock htmStylesEliteEightPage %}
+{%- endblock htmStylesPageLayout %}
+
+{%- block htmStylePageLayout %}
+      :root {
+        --site-results-number-of-columns: 2;
+      }
+{{ super() }}
+{%- block htmStyleEliteEightPage %}
+{%- endblock htmStyleEliteEightPage %}
+{%- endblock htmStylePageLayout %}
+
+{%- block htmScriptsPageLayout %}
+{{ super() }}
+{%- block htmScriptsEliteEightPage %}
+    <script src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEight.js"></script>
+    <script type="module" src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEightSearchPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/sweet-sixteen/SweetSixteen.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/team/Team.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFour.js"></script>
+{%- endblock htmScriptsEliteEightPage %}
+{%- endblock htmScriptsPageLayout %}
+
+{%- block htmScriptPageLayout %}
+{%- block htmScriptEliteEightPage %}
+    <script>
+
+      function jsWebsocketEliteEight(bracketId, vars, $response) {
+{%- block jsWebsocketEliteEightPage %}{%- endblock %}
+      }
+
+      function jsTooltipEliteEight(e, feature) {
+{%- block jsTooltipEliteEightPage %}{%- endblock %}
+      }
+
+      function htmTooltipEliteEight(feature, layer) {
+        return `{%- block htmTooltipEliteEightPage %}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.editPage)}">${feature.properties.objectTitle}</a></h3>
+{%- endblock htmTooltipEliteEightPage %}`;
+      }
+
+      function facetChangeEliteEightSuccess(e) {
+        var l = e.querySelector('.pageForm .listEliteEight')?.value;
+        if(l)
+          window.listEliteEight = JSON.parse(l);
+{% block facetChangeEliteEightSuccess %}{%- endblock facetEliteEightSuccess %}
+      }
+      function facetChangeEliteEightError(e) {
+{% block facetChangeEliteEightError %}{%- endblock facetEliteEightError %}
+      }
+
+      function facetSimpleRangeEliteEightSuccess(e) {
+{% block facetSimpleRangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetSimpleRangeEliteEightSuccess %}
+      }
+      function facetSimpleRangeEliteEightError(e) {
+{% block facetSimpleRangeEliteEightError %}      facetChangeEliteEightError(e);{% endblock facetSimpleRangeEliteEightError %}
+      }
+      function facetSimpleRangeEliteEight(e) {
+        facetSimpleRange(e, facetSimpleRangeEliteEightSuccess, facetSimpleRangeEliteEightError);
+      }
+
+      function facetRangeTimeZoneEliteEightSuccess(e) {
+{% block facetRangeTimeZoneEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeTimeZoneEliteEightSuccess %}
+      }
+      function facetRangeTimeZoneEliteEightError(e) {
+{% block facetRangeTimeZoneEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeTimeZoneEliteEightError %}
+      }
+      function facetRangeTimeZoneEliteEight(e) {
+        facetRangeTimeZone(e, facetRangeTimeZoneEliteEightSuccess, facetRangeTimeZoneEliteEightError);
+      }
+
+      function facetRangeGapChangeEliteEightSuccess(e) {
+{% block facetRangeGapChangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeGapChangeEliteEightSuccess %}
+      }
+      function facetRangeGapChangeEliteEightError(e) {
+{% block facetRangeGapChangeEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeGapChangeEliteEightError %}
+      }
+      function facetRangeGapChangeEliteEight(classSimpleName, event) {
+        facetRangeGapChange(classSimpleName, event, facetRangeGapChangeEliteEightSuccess, facetRangeGapChangeEliteEightError);
+      }
+
+      function facetRangeStartChangeEliteEightSuccess(e) {
+{% block facetRangeStartChangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeStartChangeEliteEightSuccess %}
+      }
+      function facetRangeStartChangeEliteEightError(e) {
+{% block facetRangeStartChangeEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeStartChangeEliteEightError %}
+      }
+      function facetRangeStartChangeEliteEight(classSimpleName, event) {
+        facetRangeStartChange(classSimpleName, event, facetRangeStartChangeEliteEightSuccess, facetRangeStartChangeEliteEightError);
+      }
+
+      function facetRangeEndChangeEliteEightSuccess(e) {
+{% block facetRangeEndChangeEliteEightSuccess %}      facetChangeEliteEightSuccess(e);{% endblock facetRangeEndChangeEliteEightSuccess %}
+      }
+      function facetRangeEndChangeEliteEightError(e) {
+{% block facetRangeEndChangeEliteEightError %}      facetChangeEliteEightError(e);{%- endblock facetRangeEndChangeEliteEightError %}
+      }
+      function facetRangeEndChangeEliteEight(classSimpleName, event) {
+        facetRangeEndChange(classSimpleName, event, facetRangeEndChangeEliteEightSuccess, facetRangeEndChangeEliteEightError);
+      }
+    </script>
+    <script type="module">
+{% if DEFAULT_MAP_LOCATION is defined %}
+      window.DEFAULT_MAP_LOCATION = { type: 'Point', coordinates: [ {{ DEFAULT_MAP_LOCATION.coordinates[0] }}, {{ DEFAULT_MAP_LOCATION.coordinates[1] }} ]};
+{% endif %}
+{% if DEFAULT_MAP_ZOOM is defined %}
+      window.DEFAULT_MAP_ZOOM = {{ DEFAULT_MAP_ZOOM }};
+{% endif %}
+      window.DEFAULT_ZONE_ID = '{{ defaultZoneId }}';
+      Promise.all([
+        customElements.whenDefined('wa-button')
+        , customElements.whenDefined('wa-input')
+        , customElements.whenDefined('wa-select')
+        , customElements.whenDefined('wa-radio')
+        , customElements.whenDefined('wa-checkbox')
+        , customElements.whenDefined('wa-dropdown')
+      ]).then(() => {
+
+        var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
+
+          function relate_sweetSixteen(event) {
+            suggestEliteEightSweetSixteen(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ] : [{%- if result.sweetSixteen is defined %}{'name':'fq','value':'eliteEight:{{ result.sweetSixteen }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_sweetSixteen')?.addEventListener('input', relate_sweetSixteen);
+          document.querySelector('#EliteEight_POST_sweetSixteen')?.addEventListener('focus', relate_sweetSixteen);
+          document.querySelector('#EliteEight_PATCH_sweetSixteen')?.addEventListener('input', relate_sweetSixteen);
+          document.querySelector('#EliteEight_PATCH_sweetSixteen')?.addEventListener('focus', relate_sweetSixteen);
+          function relate_guesserId(event) {
+            suggestEliteEightGuesserId(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.guesserId is defined %}{'name':'fq','value':'guesserId:{{ result.guesserId }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#EliteEight_POST_guesserId')?.addEventListener('focus', relate_guesserId);
+          document.querySelector('#EliteEight_PATCH_guesserId')?.addEventListener('input', relate_guesserId);
+          document.querySelector('#EliteEight_PATCH_guesserId')?.addEventListener('focus', relate_guesserId);
+          function relate_southGame1Winner(event) {
+            suggestEliteEightSouthGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.southGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.southGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Winner')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#EliteEight_POST_southGame1Winner')?.addEventListener('focus', relate_southGame1Winner);
+          document.querySelector('#EliteEight_PATCH_southGame1Winner')?.addEventListener('input', relate_southGame1Winner);
+          document.querySelector('#EliteEight_PATCH_southGame1Winner')?.addEventListener('focus', relate_southGame1Winner);
+          function relate_southGame1Loser(event) {
+            suggestEliteEightSouthGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.southGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.southGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Loser')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#EliteEight_POST_southGame1Loser')?.addEventListener('focus', relate_southGame1Loser);
+          document.querySelector('#EliteEight_PATCH_southGame1Loser')?.addEventListener('input', relate_southGame1Loser);
+          document.querySelector('#EliteEight_PATCH_southGame1Loser')?.addEventListener('focus', relate_southGame1Loser);
+          function relate_westGame1Winner(event) {
+            suggestEliteEightWestGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.westGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.westGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Winner')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#EliteEight_POST_westGame1Winner')?.addEventListener('focus', relate_westGame1Winner);
+          document.querySelector('#EliteEight_PATCH_westGame1Winner')?.addEventListener('input', relate_westGame1Winner);
+          document.querySelector('#EliteEight_PATCH_westGame1Winner')?.addEventListener('focus', relate_westGame1Winner);
+          function relate_westGame1Loser(event) {
+            suggestEliteEightWestGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.westGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.westGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Loser')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#EliteEight_POST_westGame1Loser')?.addEventListener('focus', relate_westGame1Loser);
+          document.querySelector('#EliteEight_PATCH_westGame1Loser')?.addEventListener('input', relate_westGame1Loser);
+          document.querySelector('#EliteEight_PATCH_westGame1Loser')?.addEventListener('focus', relate_westGame1Loser);
+          function relate_eastGame1Winner(event) {
+            suggestEliteEightEastGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.eastGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.eastGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Winner')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_POST_eastGame1Winner')?.addEventListener('focus', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_PATCH_eastGame1Winner')?.addEventListener('input', relate_eastGame1Winner);
+          document.querySelector('#EliteEight_PATCH_eastGame1Winner')?.addEventListener('focus', relate_eastGame1Winner);
+          function relate_eastGame1Loser(event) {
+            suggestEliteEightEastGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.eastGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.eastGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_POST_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_PATCH_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
+          document.querySelector('#EliteEight_PATCH_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
+          function relate_midwestGame1Winner(event) {
+            suggestEliteEightMidwestGame1Winner(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.midwestGame1Winner is defined %}{'name':'fq','value':'teamId:{{ result.midwestGame1Winner }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Winner')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_POST_midwestGame1Winner')?.addEventListener('focus', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Winner')?.addEventListener('input', relate_midwestGame1Winner);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Winner')?.addEventListener('focus', relate_midwestGame1Winner);
+          function relate_midwestGame1Loser(event) {
+            suggestEliteEightMidwestGame1Loser(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,teamId,pk,editPage,objectTitle' } ] : [{%- if result.midwestGame1Loser is defined %}{'name':'fq','value':'teamId:{{ result.midwestGame1Loser }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Loser')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_POST_midwestGame1Loser')?.addEventListener('focus', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Loser')?.addEventListener('input', relate_midwestGame1Loser);
+          document.querySelector('#EliteEight_PATCH_midwestGame1Loser')?.addEventListener('focus', relate_midwestGame1Loser);
+          function relate_finalFour(event) {
+            suggestEliteEightFinalFour(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ] : [{%- if result.finalFour is defined %}{'name':'fq','value':'eliteEight:{{ result.finalFour }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#EliteEight_POST_finalFour')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#EliteEight_POST_finalFour')?.addEventListener('focus', relate_finalFour);
+          document.querySelector('#EliteEight_PATCH_finalFour')?.addEventListener('input', relate_finalFour);
+          document.querySelector('#EliteEight_PATCH_finalFour')?.addEventListener('focus', relate_finalFour);
+        if(bracketId == null) {
+          document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-details');
+          });
+          document.querySelector('#grid-toggle-list')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-card');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-list');
+          });
+          document.querySelector('#grid-toggle-card')?.addEventListener('click', () => {
+            document.querySelector('#site-results-grid').classList.remove('grid-mode-details', 'grid-mode-list');
+            document.querySelector('#site-results-grid').classList.add('grid-mode-card');
+          });
+        } else {
+          var o = document.querySelector('.pageForm .result')?.value;
+          if(o)
+            window.result = JSON.parse(o);
+        {% if result.bracketId is defined %}
+        {% endif %}
+        }
+        var l = document.querySelector('.pageForm .listEliteEight')?.value;
+        if(l)
+          window.listEliteEight = JSON.parse(l);
+        window.varsFq = JSON.parse('{{ toJsonObjectStringInApostrophes(varsFq) }}');
+        window.varsRange = JSON.parse('{{ toJsonObjectStringInApostrophes(varsRange) }}');
+        window.defaultRangeVar = '{{ defaultRangeVar }}';
+        document.querySelector('#siteSidebarToggleRange')?.addEventListener('wa-after-hide', function(e) { document.querySelector('#pageFacetRangeTimeZonePopup').active = false; });
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneEliteEight);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('input', facetRangeTimeZoneEliteEight);
+        document.querySelector('#pageFacetRangeTimeZoneInput')?.addEventListener('focus', facetRangeTimeZoneEliteEight);
+        document.querySelector('#pageFacetSimpleRangeDropdown')?.addEventListener('wa-select', facetSimpleRangeEliteEight);
+        pageGraphEliteEight();
+        {% for key, value in varsQ.items() %}
+
+        document.querySelector('#qEliteEight_{{ key }}')?.addEventListener('wa-{% if var == 'objectSuggest' %}keyup{% else %}change{% endif %}', event => {
+          qChange('EliteEight', event.target, document.querySelector('#qEliteEightDiv_{{ key }}'));
+        });
+        {% endfor %}
+
+        document.querySelector('#qEliteEight_rows')?.addEventListener('change', event => {
+          paramChange('EliteEight', event.target, document.querySelector('#qEliteEightDiv_rows'));
+        });
+
+        document.querySelector('#qEliteEight_start')?.addEventListener('change', event => {
+          paramChange('EliteEight', event.target, document.querySelector('#qEliteEightDiv_start'));
+        });
+
+
+        var submitForm_patchEliteEight = document.querySelector('#htmForm_patchEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_patchEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          patchEliteEight(null, document.querySelector('#htmForm_patchEliteEight'), document.querySelector('#htmFormButton_patchEliteEight'), event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_postEliteEight = document.querySelector('#htmForm_postEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_postEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          postEliteEight(document.querySelector('#htmForm_postEliteEight')
+          , document.querySelector('#htmFormButton_postEliteEight')
+          , (json, target) => {
+            window.location.href = json.editPage;
+          });
+          return false;
+        });
+
+        var submitForm_deleteEliteEight = document.querySelector('#htmForm_deleteEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deleteEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          deleteEliteEight(event.target, event.target.getAttribute('data-bracketId'));
+          return false;
+        });
+
+        var submitForm_putimportEliteEight = document.querySelector('#htmForm_putimportEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_putimportEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          putimportEliteEight(document.querySelector('#htmForm_putimportEliteEight'), document.querySelector('#htmFormButton_putimportEliteEight'));
+          return false;
+        });
+
+        var submitForm_searchpageEliteEight = document.querySelector('#htmForm_searchpageEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_searchpageEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          searchpageEliteEight();
+          return false;
+        });
+
+        var submitForm_deletefilterEliteEight = document.querySelector('#htmForm_deletefilterEliteEight')?.addEventListener('submit', event => {
+          event.preventDefault();
+          return false;
+        });
+        document.querySelector('#htmFormButton_deletefilterEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          deletefilterEliteEight(event.target);
+          return false;
+        });
+
+        document.querySelector('#htmFormButton_postSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          postSweetSixteen(document.querySelector('#htmForm_postSweetSixteen')
+              , document.querySelector('#htmFormButton_postSweetSixteen')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postGuesser')?.addEventListener('click', event => {
+          event.preventDefault();
+          postGuesser(document.querySelector('#htmForm_postGuesser')
+              , document.querySelector('#htmFormButton_postGuesser')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postTeam')?.addEventListener('click', event => {
+          event.preventDefault();
+          postTeam(document.querySelector('#htmForm_postTeam')
+              , document.querySelector('#htmFormButton_postTeam')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          postFinalFour(document.querySelector('#htmForm_postFinalFour')
+              , document.querySelector('#htmFormButton_postFinalFour')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+{%- block htmScriptInitEliteEightPage %}{%- endblock htmScriptInitEliteEightPage %}
+      });
+    </script>
+{%- endblock htmScriptEliteEightPage %}
+{%- endblock htmScriptPageLayout %}
+
+{%- block websocketPageLayout %}
+{%- block websocketEliteEightPage %}
+{% if resultCount > 0 %}
+        window.eventBus = new EventBus('/eventbus');
+        window.eventBus.enableReconnect(true);
+        websocketEliteEight(websocketEliteEightInner);
+{% endif %}
+{%- endblock websocketEliteEightPage %}
+{%- endblock websocketPageLayout %}
+
+{%- block htmUrlEliteEightPage %}{{pageUri}}?q={{query.q}}&amp;rows={% if rows is defined %}{{rows}}{% else %}{{pagination.rows}}{% endif %}&amp;rows={% if start is defined %}{{start}}{% else %}{{pagination.start}}{% endif %}{% for item query.fq %}{% if fq == item %}{% else %}&fq={{fq}}:{{val}}{% endif %}{% endfor %}{% for item in query.sort %}{% if sort == item %}{% else %}&sort={{var}} {{order}}{% endif %}{% endfor %}{%- endblock htmUrlEliteEightPage %}
+{%- if pageBreadcrumb is not defined %}
+{%- set pageBreadcrumb %}
+              <wa-tooltip for="return-to-EliteEight">back to all elite eight brackets</wa-tooltip>
+              <wa-breadcrumb>
+                <wa-breadcrumb-item id="return-to-EliteEight" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+                  <i class="fa-regular fa-buildings"></i>
+                  all elite eight brackets
+                </wa-breadcrumb-item>
+                <wa-breadcrumb-item>
+                  search elite eight brackets
+                </wa-breadcrumb-item>
+              </wa-breadcrumb>
+{%- endset pageBreadcrumb %}
+{%- endif  %}
+
+{%- block htmBodyStartPageLayout %}
+{{ super() }}
+{%- block htmBodyStartEliteEightPage %}
+{% include en-us/search/elite-eight/EliteEightSidebar.htm %}
+{% if resultCount == 0 %}
+        <div class="wa-stack ">
+          <wa-tooltip for="return-to-EliteEight">back to all elite eight brackets</wa-tooltip></wa-tooltip>
+          <wa-breadcrumb>
+            <wa-breadcrumb-item id="return-to-EliteEight" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
+              <i class="fa-regular fa-buildings"></i>
+              all elite eight brackets
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item>
+              no elite eight bracket found
+            </wa-breadcrumb-item>
+          </wa-breadcrumb>
+          <div class="wa-stack wa-align-items-center ">
+            <div class="wa-heading-3xl ">
+              <i class="fa-regular fa-buildings"></i>
+            </div>
+            <span class="wa-heading-m ">no elite eight bracket found</span>
+            <p class="wa-caption-l ">A predicted tournament with 8 teams. </p>
+          </div>
+        </div>
+{% else %}
+{% include en-us/search/elite-eight/EliteEightSuggestedSearch.htm %}
+          <div class="pageContent ">
+            <form action="/en-us/api/elite-eight" id="EliteEightForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+              <input name="focusId" type="hidden"/>
+              <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
+              <input name="listEliteEight" id="listEliteEight" class="listEliteEight"  value='{{ toJsonArrayStringInApostrophes(listEliteEight) }}' type="hidden"/>
+            </form>
+            <div id="site-calendar-box">
+              <div id="site-calendar"><!-- // --></div>
+            </div>
+            <div class="wa-stack wa-gap-m ">
+{% endif %}
+{% include en-us/search/elite-eight/EliteEightSearchForm.htm %}
+{%- endblock htmBodyStartEliteEightPage %}
+{%- endblock htmBodyStartPageLayout %}
+{%- if pageSearchButtons is not defined %}
+{%- set pageSearchButtons %}
+{% include en-us/search/elite-eight/EliteEightSearchButtons.htm %}
+{%- endset pageSearchButtons %}
+{%- endif %}
+{%- if pageSearchFormButtons is not defined %}
+{%- set pageSearchFormButtons %}
+{% include en-us/search/elite-eight/EliteEightSearchFormButtons.htm %}
+{%- endset pageSearchFormButtons %}
+{%- endif %}
+
+{%- block htmBodyMiddlePageLayout %}
+{%- block htmBodyMiddleEliteEightPage %}
+{% if resultCount > 0 %}
+              <div class="wa-stack wa-gap-0 ">
+{% include en-us/search/elite-eight/EliteEightPaginationButtons.htm %}
+                <div class="card-like-thing background-color-surface-border" id="site-results-grid">
+                  <div>
+                    <wa-dropdown id="htmDropdown-guesserId">
+                      <wa-button variant="brand" slot="trigger" caret>guesser</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortEliteEight_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-EliteEight').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-guesserId-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by guesser ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortEliteEight_guesserId'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-EliteEight').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-guesserId-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by guesser descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                    <wa-dropdown id="htmDropdown-year">
+                      <wa-button variant="brand" slot="trigger" caret>year</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortEliteEight_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-EliteEight').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-year-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by year ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortEliteEight_year'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-EliteEight').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-year-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by year descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
+                  </div>
+                  {% for item in listEliteEight%}
+                  <div>
+                    <a href="{{ item.displayPage }}">
+                      <i class="fa-regular fa-buildings"></i>
+                      <span>{{ item.guesserId | e }}</span>
+                    </a>
+                    <a href="{{ item.displayPage }}">
+                      <span>{{ item.year | e }}</span>
+                    </a>
+                  </div>
+                  {% endfor %}
+              {% if getColumnGuesserId is defined %}
+                <div>
+                </div>
+              {% endif %}
+              {% if getColumnYear is defined %}
+                <div>
+                </div>
+              {% endif %}
+                </div>
+{% include en-us/search/elite-eight/EliteEightPaginationButtons.htm %}
+              </div>
+{% endif %}
+{%- endblock htmBodyMiddleEliteEightPage %}
+{%- endblock htmBodyMiddlePageLayout %}
+
+{%- block htmBodyEndPageLayout %}
+{%- block htmBodyEndEliteEightPage %}
+{%- include en-us/search/elite-eight/EliteEightLocation.htm %}
+            </div>
+          </div>
+{%- endblock htmBodyEndEliteEightPage %}
+  {{ super() }}
+{%- endblock htmBodyEndPageLayout %}
