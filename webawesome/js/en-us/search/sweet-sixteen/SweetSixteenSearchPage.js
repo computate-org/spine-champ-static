@@ -77,6 +77,17 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_southGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'southGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_southGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'southGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_southGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'southGame1WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_southGame1Winner')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'southGame1Winner', event.currentTarget.value);
   });
@@ -97,6 +108,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_southGame1Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'southGame1Loser', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_southGame2WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'southGame2WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_southGame2WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'southGame2WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_southGame2WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'southGame2WinnerGuess', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_southGame2Winner')?.addEventListener('change', (event) => {
@@ -121,6 +143,17 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'southGame2Loser', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_westGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'westGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_westGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'westGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_westGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'westGame1WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_westGame1Winner')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'westGame1Winner', event.currentTarget.value);
   });
@@ -141,6 +174,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_westGame1Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'westGame1Loser', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_westGame2WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'westGame2WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_westGame2WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'westGame2WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_westGame2WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'westGame2WinnerGuess', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_westGame2Winner')?.addEventListener('change', (event) => {
@@ -165,6 +209,17 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'westGame2Loser', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_eastGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'eastGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_eastGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'eastGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_eastGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'eastGame1WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_eastGame1Winner')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'eastGame1Winner', event.currentTarget.value);
   });
@@ -185,6 +240,28 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_eastGame1Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'eastGame1Loser', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_eastGame2WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'eastGame2WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_eastGame2WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'eastGame2WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_eastGame2WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'eastGame2WinnerGuess', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_eliteEight')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'eliteEight', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'eliteEight', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'eliteEight', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_eastGame2Winner')?.addEventListener('change', (event) => {
@@ -209,6 +286,17 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'eastGame2Loser', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_midwestGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'midwestGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_midwestGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'midwestGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_midwestGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'midwestGame1WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_midwestGame1Winner')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'midwestGame1Winner', event.currentTarget.value);
   });
@@ -231,6 +319,17 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'midwestGame1Loser', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_midwestGame2WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'midwestGame2WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_midwestGame2WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'midwestGame2WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_midwestGame2WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'midwestGame2WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_midwestGame2Winner')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'midwestGame2Winner', event.currentTarget.value);
   });
@@ -251,17 +350,6 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_midwestGame2Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'midwestGame2Loser', false);
-  });
-
-  document.querySelector('#pageSelectSortSweetSixteen_eliteEight')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'eliteEight', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'eliteEight', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'eliteEight', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_classCanonicalName')?.addEventListener('change', (event) => {
@@ -416,6 +504,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_solrId')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'solrId', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_actualSweetSixteen')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'actualSweetSixteen', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_actualSweetSixteen')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'actualSweetSixteen', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_actualSweetSixteen')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'actualSweetSixteen', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_bracketId')?.addEventListener('change', (event) => {

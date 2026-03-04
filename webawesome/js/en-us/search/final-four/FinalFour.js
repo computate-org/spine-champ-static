@@ -749,7 +749,7 @@ function suggestFinalFourEliteEight(filters, $list, bracketId = null, eliteEight
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var inputVar = 'finalFour';
+        var inputVar = 'bracketId';
         var val = o[inputVar];
         var checked = val == null ? false : (eliteEight != null && val === eliteEight.toString());
         var $input = document.createElement('wa-checkbox');

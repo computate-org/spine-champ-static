@@ -178,13 +178,11 @@
           suggestEliteEightSweetSixteen([{'name':'fq','value':'eliteEight:' + window.result.sweetSixteen}], document.querySelector('#listEliteEightSweetSixteen_Page'), window.result.bracketId, window.result.sweetSixteen, false, document.getElementById('EliteEight_Page_sweetSixteen'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
-          // rechercheSolrAttribuer k: 0
           function SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenGuesserId(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
@@ -197,12 +195,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenGuesserId([], document.querySelector('#listEliteEightGuesserId_Page'), null, window.result.guesserId, true, document.querySelector('#SweetSixteen_POST_guesserId_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 1
           function SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenSouthGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame1Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
@@ -215,12 +212,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenSouthGame1Winner([], document.querySelector('#listEliteEightSouthGame1Winner_Page'), null, window.result.southGame1Winner, true, document.querySelector('#SweetSixteen_POST_southGame1Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 2
           function SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenSouthGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame1Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
@@ -233,12 +229,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenSouthGame1Loser([], document.querySelector('#listEliteEightSouthGame1Loser_Page'), null, window.result.southGame1Loser, true, document.querySelector('#SweetSixteen_POST_southGame1Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 3
           function SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenSouthGame2Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame2Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame2Winner : null
@@ -251,12 +246,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenSouthGame2Winner([], document.querySelector('#listEliteEightSouthGame2Winner_Page'), null, window.result.southGame2Winner, true, document.querySelector('#SweetSixteen_POST_southGame2Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 4
           function SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenSouthGame2Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,southGame2Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame2Loser : null
@@ -269,12 +263,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenSouthGame2Loser([], document.querySelector('#listEliteEightSouthGame2Loser_Page'), null, window.result.southGame2Loser, true, document.querySelector('#SweetSixteen_POST_southGame2Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 5
           function SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenWestGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame1Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
@@ -287,12 +280,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenWestGame1Winner([], document.querySelector('#listEliteEightWestGame1Winner_Page'), null, window.result.westGame1Winner, true, document.querySelector('#SweetSixteen_POST_westGame1Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 6
           function SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenWestGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame1Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
@@ -305,12 +297,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenWestGame1Loser([], document.querySelector('#listEliteEightWestGame1Loser_Page'), null, window.result.westGame1Loser, true, document.querySelector('#SweetSixteen_POST_westGame1Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 7
           function SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenWestGame2Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame2Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame2Winner : null
@@ -323,12 +314,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenWestGame2Winner([], document.querySelector('#listEliteEightWestGame2Winner_Page'), null, window.result.westGame2Winner, true, document.querySelector('#SweetSixteen_POST_westGame2Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 8
           function SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenWestGame2Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,westGame2Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame2Loser : null
@@ -341,12 +331,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenWestGame2Loser([], document.querySelector('#listEliteEightWestGame2Loser_Page'), null, window.result.westGame2Loser, true, document.querySelector('#SweetSixteen_POST_westGame2Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 9
           function SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenEastGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame1Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
@@ -359,12 +348,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenEastGame1Winner([], document.querySelector('#listEliteEightEastGame1Winner_Page'), null, window.result.eastGame1Winner, true, document.querySelector('#SweetSixteen_POST_eastGame1Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 10
           function SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenEastGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame1Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
@@ -377,12 +365,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenEastGame1Loser([], document.querySelector('#listEliteEightEastGame1Loser_Page'), null, window.result.eastGame1Loser, true, document.querySelector('#SweetSixteen_POST_eastGame1Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 11
           function SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenEastGame2Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame2Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame2Winner : null
@@ -395,12 +382,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenEastGame2Winner([], document.querySelector('#listEliteEightEastGame2Winner_Page'), null, window.result.eastGame2Winner, true, document.querySelector('#SweetSixteen_POST_eastGame2Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 12
           function SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenEastGame2Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eastGame2Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame2Loser : null
@@ -413,12 +399,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenEastGame2Loser([], document.querySelector('#listEliteEightEastGame2Loser_Page'), null, window.result.eastGame2Loser, true, document.querySelector('#SweetSixteen_POST_eastGame2Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 13
           function SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenMidwestGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame1Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
@@ -431,12 +416,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenMidwestGame1Winner([], document.querySelector('#listEliteEightMidwestGame1Winner_Page'), null, window.result.midwestGame1Winner, true, document.querySelector('#SweetSixteen_POST_midwestGame1Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 14
           function SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenMidwestGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame1Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
@@ -449,12 +433,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenMidwestGame1Loser([], document.querySelector('#listEliteEightMidwestGame1Loser_Page'), null, window.result.midwestGame1Loser, true, document.querySelector('#SweetSixteen_POST_midwestGame1Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 15
           function SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenMidwestGame2Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame2Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame2Winner : null
@@ -467,12 +450,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenMidwestGame2Winner([], document.querySelector('#listEliteEightMidwestGame2Winner_Page'), null, window.result.midwestGame2Winner, true, document.querySelector('#SweetSixteen_POST_midwestGame2Winner_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 16
           function SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenMidwestGame2Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,midwestGame2Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame2Loser : null
@@ -485,12 +467,11 @@
           {% if "PATCH" in scopes %}
           suggestSweetSixteenMidwestGame2Loser([], document.querySelector('#listEliteEightMidwestGame2Loser_Page'), null, window.result.midwestGame2Loser, true, document.querySelector('#SweetSixteen_POST_midwestGame2Loser_EliteEight_POST_sweetSixteen'));
           {% endif %}
-          // rechercheSolrAttribuer k: 17
           function SweetSixteen_POST_eliteEight_EliteEight_POST_sweetSixteen(event) {
             suggestSweetSixteenEliteEight(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
@@ -532,7 +513,6 @@
           suggestEliteEightGuesserId([{'name':'fq','value':'guesserId:' + window.result.guesserId}], document.querySelector('#listEliteEightGuesserId_Page'), window.result.bracketId, window.result.guesserId, false, document.getElementById('EliteEight_Page_guesserId'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_southGame1Winner(event) {
             suggestEliteEightSouthGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -562,7 +542,6 @@
           suggestEliteEightSouthGame1Winner([{'name':'fq','value':'teamId:' + window.result.southGame1Winner}], document.querySelector('#listEliteEightSouthGame1Winner_Page'), window.result.bracketId, window.result.southGame1Winner, false, document.getElementById('EliteEight_Page_southGame1Winner'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_southGame1Loser(event) {
             suggestEliteEightSouthGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -592,7 +571,6 @@
           suggestEliteEightSouthGame1Loser([{'name':'fq','value':'teamId:' + window.result.southGame1Loser}], document.querySelector('#listEliteEightSouthGame1Loser_Page'), window.result.bracketId, window.result.southGame1Loser, false, document.getElementById('EliteEight_Page_southGame1Loser'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_westGame1Winner(event) {
             suggestEliteEightWestGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -622,7 +600,6 @@
           suggestEliteEightWestGame1Winner([{'name':'fq','value':'teamId:' + window.result.westGame1Winner}], document.querySelector('#listEliteEightWestGame1Winner_Page'), window.result.bracketId, window.result.westGame1Winner, false, document.getElementById('EliteEight_Page_westGame1Winner'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_westGame1Loser(event) {
             suggestEliteEightWestGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -652,7 +629,6 @@
           suggestEliteEightWestGame1Loser([{'name':'fq','value':'teamId:' + window.result.westGame1Loser}], document.querySelector('#listEliteEightWestGame1Loser_Page'), window.result.bracketId, window.result.westGame1Loser, false, document.getElementById('EliteEight_Page_westGame1Loser'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_eastGame1Winner(event) {
             suggestEliteEightEastGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -682,7 +658,6 @@
           suggestEliteEightEastGame1Winner([{'name':'fq','value':'teamId:' + window.result.eastGame1Winner}], document.querySelector('#listEliteEightEastGame1Winner_Page'), window.result.bracketId, window.result.eastGame1Winner, false, document.getElementById('EliteEight_Page_eastGame1Winner'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_eastGame1Loser(event) {
             suggestEliteEightEastGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -712,7 +687,6 @@
           suggestEliteEightEastGame1Loser([{'name':'fq','value':'teamId:' + window.result.eastGame1Loser}], document.querySelector('#listEliteEightEastGame1Loser_Page'), window.result.bracketId, window.result.eastGame1Loser, false, document.getElementById('EliteEight_Page_eastGame1Loser'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_midwestGame1Winner(event) {
             suggestEliteEightMidwestGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -742,7 +716,6 @@
           suggestEliteEightMidwestGame1Winner([{'name':'fq','value':'teamId:' + window.result.midwestGame1Winner}], document.querySelector('#listEliteEightMidwestGame1Winner_Page'), window.result.bracketId, window.result.midwestGame1Winner, false, document.getElementById('EliteEight_Page_midwestGame1Winner'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_midwestGame1Loser(event) {
             suggestEliteEightMidwestGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -772,7 +745,6 @@
           suggestEliteEightMidwestGame1Loser([{'name':'fq','value':'teamId:' + window.result.midwestGame1Loser}], document.querySelector('#listEliteEightMidwestGame1Loser_Page'), window.result.bracketId, window.result.midwestGame1Loser, false, document.getElementById('EliteEight_Page_midwestGame1Loser'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
           function relate_finalFour(event) {
             suggestEliteEightFinalFour(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -802,13 +774,11 @@
           suggestEliteEightFinalFour([{'name':'fq','value':'eliteEight:' + window.result.finalFour}], document.querySelector('#listEliteEightFinalFour_Page'), window.result.bracketId, window.result.finalFour, false, document.getElementById('EliteEight_Page_finalFour'));
           {% endif %}
           {% endif %}
-          // rechercheSolrAttribuer.size(): 6
-          // rechercheSolrAttribuer k: 0
           function FinalFour_POST_guesserId_EliteEight_POST_finalFour(event) {
             suggestFinalFourGuesserId(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
@@ -821,12 +791,11 @@
           {% if "PATCH" in scopes %}
           suggestFinalFourGuesserId([], document.querySelector('#listEliteEightGuesserId_Page'), null, window.result.guesserId, true, document.querySelector('#FinalFour_POST_guesserId_EliteEight_POST_finalFour'));
           {% endif %}
-          // rechercheSolrAttribuer k: 1
           function FinalFour_POST_game1Winner_EliteEight_POST_finalFour(event) {
             suggestFinalFourGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game1Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Winner : null
@@ -839,12 +808,11 @@
           {% if "PATCH" in scopes %}
           suggestFinalFourGame1Winner([], document.querySelector('#listEliteEightGame1Winner_Page'), null, window.result.game1Winner, true, document.querySelector('#FinalFour_POST_game1Winner_EliteEight_POST_finalFour'));
           {% endif %}
-          // rechercheSolrAttribuer k: 2
           function FinalFour_POST_game1Loser_EliteEight_POST_finalFour(event) {
             suggestFinalFourGame1Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game1Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Loser : null
@@ -857,12 +825,11 @@
           {% if "PATCH" in scopes %}
           suggestFinalFourGame1Loser([], document.querySelector('#listEliteEightGame1Loser_Page'), null, window.result.game1Loser, true, document.querySelector('#FinalFour_POST_game1Loser_EliteEight_POST_finalFour'));
           {% endif %}
-          // rechercheSolrAttribuer k: 3
           function FinalFour_POST_game2Winner_EliteEight_POST_finalFour(event) {
             suggestFinalFourGame2Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game2Winner,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Winner : null
@@ -875,12 +842,11 @@
           {% if "PATCH" in scopes %}
           suggestFinalFourGame2Winner([], document.querySelector('#listEliteEightGame2Winner_Page'), null, window.result.game2Winner, true, document.querySelector('#FinalFour_POST_game2Winner_EliteEight_POST_finalFour'));
           {% endif %}
-          // rechercheSolrAttribuer k: 4
           function FinalFour_POST_game2Loser_EliteEight_POST_finalFour(event) {
             suggestFinalFourGame2Loser(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,game2Loser,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Loser : null
@@ -893,12 +859,11 @@
           {% if "PATCH" in scopes %}
           suggestFinalFourGame2Loser([], document.querySelector('#listEliteEightGame2Loser_Page'), null, window.result.game2Loser, true, document.querySelector('#FinalFour_POST_game2Loser_EliteEight_POST_finalFour'));
           {% endif %}
-          // rechercheSolrAttribuer k: 5
           function FinalFour_POST_eliteEight_EliteEight_POST_finalFour(event) {
             suggestFinalFourEliteEight(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,eliteEight,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
@@ -911,12 +876,11 @@
           {% if "PATCH" in scopes %}
           suggestFinalFourEliteEight([], document.querySelector('#listEliteEightEliteEight_Page'), null, window.result.eliteEight, true, document.querySelector('#FinalFour_POST_eliteEight_EliteEight_POST_finalFour'));
           {% endif %}
-          // rechercheSolrAttribuer k: 6
           function FinalFour_POST_championship_EliteEight_POST_finalFour(event) {
             suggestFinalFourChampionship(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
                 , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,championship,pk,editPage,objectTitle' } ]
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
                 , document.querySelector('#' + event.target.getAttribute('data-list'))
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
                 , event.target.getAttribute('data-method') === 'Page' ? window.result.championship : null
