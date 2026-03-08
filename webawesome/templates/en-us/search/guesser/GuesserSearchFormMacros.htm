@@ -11,14 +11,14 @@
                       id="Guesser_{{classApiMethodMethod}}_pk"
   {%- if "Page" == classApiMethodMethod %}
                       data-guesserId={{ result.guesserId | tojson }}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_pk setPk classGuesser inputGuesser{{ result.guesserId }}Pk "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_pk setPk classGuesser inputGuesser{{ result.guesserId }}Pk "
                       name="setPk"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_pk setPk classGuesser inputGuesser{{ result.guesserId }}Pk "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_pk setPk classGuesser inputGuesser{{ result.guesserId }}Pk "
                       name="setPk"
     {%- else %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_pk valuePk classGuesser inputGuesser{{ result.guesserId }}Pk "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_pk valuePk classGuesser inputGuesser{{ result.guesserId }}Pk "
                       name="pk"
     {%- endif %}
   {%- endif %}
@@ -44,7 +44,7 @@
                       readonly
                       hint="A created timestamp for this record in the database"
                       label="created {{ formatZonedDateTime(result.created, "'['VV']'", defaultLocaleId, defaultZoneId) | e }}"
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_created datetimepicker setCreated classGuesser inputGuesser{{ result.guesserId }}Created "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_created datetimepicker setCreated classGuesser inputGuesser{{ result.guesserId }}Created "
                       placeholder="MM/dd/yyyy h:mm a '['VV']'"
                       data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
                       id="Guesser_{{classApiMethodMethod}}_created"
@@ -72,7 +72,7 @@
                       readonly
                       hint="A modified timestamp for this record in the database"
                       label="modified {{ formatZonedDateTime(result.modified, "'['VV']'", defaultLocaleId, defaultZoneId) | e }}"
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_modified datetimepicker setModified classGuesser inputGuesser{{ result.guesserId }}Modified "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_modified datetimepicker setModified classGuesser inputGuesser{{ result.guesserId }}Modified "
                       placeholder="MM/dd/yyyy h:mm a '['VV']'"
                       data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
                       id="Guesser_{{classApiMethodMethod}}_modified"
@@ -101,7 +101,7 @@
                       placeholder="archive"
                       label="archive"
                       hint="For archiving this record"
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_archived classGuesser inputGuesser{{ result.guesserId }}Archived "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_archived classGuesser inputGuesser{{ result.guesserId }}Archived "
                       name="setArchived"
                       data-guesserId={{ result.guesserId | tojson }}
                       data-val="{{ result.archived | e }}"
@@ -120,14 +120,14 @@
                       label="archive"
                       hint="For archiving this record"
   {%- if 'Page' == classApiMethodMethod %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_archived classGuesser inputGuesser{{ result.guesserId }}Archived "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_archived classGuesser inputGuesser{{ result.guesserId }}Archived "
                       name="setArchived"
   {%- else %}
     {%- if 'Page' == classApiMethodMethod %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_archived classGuesser inputGuesser{{ result.guesserId }}Archived "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_archived classGuesser inputGuesser{{ result.guesserId }}Archived "
                       name="setArchived"
     {%- else %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_archived setArchived valueArchived classGuesser inputGuesser{{ result.guesserId }}Archived "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_archived setArchived valueArchived classGuesser inputGuesser{{ result.guesserId }}Archived "
                       name="setArchived"
     {%- endif %}
   {%- endif %}
@@ -166,14 +166,14 @@
                       id="Guesser_{{classApiMethodMethod}}_name"
   {%- if "Page" == classApiMethodMethod %}
                       data-guesserId={{ result.guesserId | tojson }}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_name setName classGuesser inputGuesser{{ result.guesserId }}Name "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_name setName classGuesser inputGuesser{{ result.guesserId }}Name "
                       name="setName"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_name setName classGuesser inputGuesser{{ result.guesserId }}Name "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_name setName classGuesser inputGuesser{{ result.guesserId }}Name "
                       name="setName"
     {%- else %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_name valueName classGuesser inputGuesser{{ result.guesserId }}Name "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_name valueName classGuesser inputGuesser{{ result.guesserId }}Name "
                       name="name"
     {%- endif %}
   {%- endif %}
@@ -202,14 +202,14 @@
                       id="Guesser_{{classApiMethodMethod}}_description"
   {%- if "Page" == classApiMethodMethod %}
                       data-guesserId={{ result.guesserId | tojson }}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_description setDescription classGuesser inputGuesser{{ result.guesserId }}Description "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_description setDescription classGuesser inputGuesser{{ result.guesserId }}Description "
                       name="setDescription"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_description setDescription classGuesser inputGuesser{{ result.guesserId }}Description "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_description setDescription classGuesser inputGuesser{{ result.guesserId }}Description "
                       name="setDescription"
     {%- else %}
-                      class="label-on-left {{Guesser_classApiMethodMethod}}_description valueDescription classGuesser inputGuesser{{ result.guesserId }}Description "
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_description valueDescription classGuesser inputGuesser{{ result.guesserId }}Description "
                       name="description"
     {%- endif %}
   {%- endif %}
@@ -225,6 +225,234 @@
 
 {%- macro htmDescriptionGuesserPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
                             {{ inputDescriptionGuesserPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
+{%- macro inputSweetSixteenBracketsGuesserPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_sweetSixteenBrackets">
+  {%- endif %}
+  {%- if 'PUTCopy' == classApiMethodMethod %}
+                  <div>
+                    <wa-checkbox 
+                        id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_sweetSixteenBrackets{{ idSuffix }}_clear"
+                        class="label-on-left Guesser_classApiMethodMethod}}_sweetSixteenBrackets_clear sweetSixteenBrackets_clear "
+                        hint="clear"
+                        >
+                      clear
+                    </wa-checkbox>
+                  </div>
+  {%- endif %}
+                  <wa-input
+                      type="text"
+                      placeholder="Sweet Sixteen brackets"
+                      label="Sweet Sixteen brackets"
+                      hint="The Sweet Sixteen brackets of this guesser"
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_sweetSixteenBrackets valueObjectSuggest suggestSweetSixteenBrackets "
+                      name="setSweetSixteenBrackets"
+                      id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_sweetSixteenBrackets{{ idSuffix }}"
+                      data-list="listGuesserSweetSixteenBrackets_{{classApiMethodMethod}}"
+                      data-method="{{classApiMethodMethod}}"
+                      autocomplete="off"
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
+                      value="{{result.sweetSixteenBrackets | e }}"
+  {% endif -%}
+                  >
+              </wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmSweetSixteenBracketsGuesserPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                {{ inputSweetSixteenBracketsGuesserPage(authForWrite=authForWrite, authForRead=authForRead, idSuffix=idSuffix) }}
+                <div class="label-on-left-ul-label ">
+                  <i class="{{ FONTAWESOME_STYLE }} fa-search "></i>
+                  relate  to this guesser
+                </div>
+                <ul class="label-on-left-ul " id="listGuesserSweetSixteenBrackets_{{classApiMethodMethod}}">
+                </ul>
+                {%- if authForReadBool == true %}
+                {% if 'Page' == classApiMethodMethod %}
+                <div>
+                  {{ htmForm_postSweetSixteen(idSuffix='_Guesser_POST_sweetSixteenBrackets') }}
+                  <wa-button
+                       id="Guesser_{{classApiMethodMethod}}_sweetSixteenBrackets_add"
+                       data-dialog="open postSweetSixteenDialog"
+                      >add a sweet sixteen bracket</wa-button>
+                  </div>
+                {%- endif %}
+                {%- endif %}
+{%- endmacro %}
+{%- macro inputEliteEightBracketsGuesserPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_eliteEightBrackets">
+  {%- endif %}
+  {%- if 'PUTCopy' == classApiMethodMethod %}
+                  <div>
+                    <wa-checkbox 
+                        id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_eliteEightBrackets{{ idSuffix }}_clear"
+                        class="label-on-left Guesser_classApiMethodMethod}}_eliteEightBrackets_clear eliteEightBrackets_clear "
+                        hint="clear"
+                        >
+                      clear
+                    </wa-checkbox>
+                  </div>
+  {%- endif %}
+                  <wa-input
+                      type="text"
+                      placeholder="Elite Eight brackets"
+                      label="Elite Eight brackets"
+                      hint="The Elite Eight brackets of this guesser"
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_eliteEightBrackets valueObjectSuggest suggestEliteEightBrackets "
+                      name="setEliteEightBrackets"
+                      id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_eliteEightBrackets{{ idSuffix }}"
+                      data-list="listGuesserEliteEightBrackets_{{classApiMethodMethod}}"
+                      data-method="{{classApiMethodMethod}}"
+                      autocomplete="off"
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
+                      value="{{result.eliteEightBrackets | e }}"
+  {% endif -%}
+                  >
+              </wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmEliteEightBracketsGuesserPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                {{ inputEliteEightBracketsGuesserPage(authForWrite=authForWrite, authForRead=authForRead, idSuffix=idSuffix) }}
+                <div class="label-on-left-ul-label ">
+                  <i class="{{ FONTAWESOME_STYLE }} fa-search "></i>
+                  relate  to this guesser
+                </div>
+                <ul class="label-on-left-ul " id="listGuesserEliteEightBrackets_{{classApiMethodMethod}}">
+                </ul>
+                {%- if authForReadBool == true %}
+                {% if 'Page' == classApiMethodMethod %}
+                <div>
+                  {{ htmForm_postEliteEight(idSuffix='_Guesser_POST_eliteEightBrackets') }}
+                  <wa-button
+                       id="Guesser_{{classApiMethodMethod}}_eliteEightBrackets_add"
+                       data-dialog="open postEliteEightDialog"
+                      >add an elite eight bracket</wa-button>
+                  </div>
+                {%- endif %}
+                {%- endif %}
+{%- endmacro %}
+{%- macro inputFinalFourBracketsGuesserPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_finalFourBrackets">
+  {%- endif %}
+  {%- if 'PUTCopy' == classApiMethodMethod %}
+                  <div>
+                    <wa-checkbox 
+                        id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_finalFourBrackets{{ idSuffix }}_clear"
+                        class="label-on-left Guesser_classApiMethodMethod}}_finalFourBrackets_clear finalFourBrackets_clear "
+                        hint="clear"
+                        >
+                      clear
+                    </wa-checkbox>
+                  </div>
+  {%- endif %}
+                  <wa-input
+                      type="text"
+                      placeholder="Final Four brackets"
+                      label="Final Four brackets"
+                      hint="The Final Four brackets of this guesser"
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_finalFourBrackets valueObjectSuggest suggestFinalFourBrackets "
+                      name="setFinalFourBrackets"
+                      id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_finalFourBrackets{{ idSuffix }}"
+                      data-list="listGuesserFinalFourBrackets_{{classApiMethodMethod}}"
+                      data-method="{{classApiMethodMethod}}"
+                      autocomplete="off"
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
+                      value="{{result.finalFourBrackets | e }}"
+  {% endif -%}
+                  >
+              </wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmFinalFourBracketsGuesserPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                {{ inputFinalFourBracketsGuesserPage(authForWrite=authForWrite, authForRead=authForRead, idSuffix=idSuffix) }}
+                <div class="label-on-left-ul-label ">
+                  <i class="{{ FONTAWESOME_STYLE }} fa-search "></i>
+                  relate  to this guesser
+                </div>
+                <ul class="label-on-left-ul " id="listGuesserFinalFourBrackets_{{classApiMethodMethod}}">
+                </ul>
+                {%- if authForReadBool == true %}
+                {% if 'Page' == classApiMethodMethod %}
+                <div>
+                  {{ htmForm_postFinalFour(idSuffix='_Guesser_POST_finalFourBrackets') }}
+                  <wa-button
+                       id="Guesser_{{classApiMethodMethod}}_finalFourBrackets_add"
+                       data-dialog="open postFinalFourDialog"
+                      >add a final four bracket</wa-button>
+                  </div>
+                {%- endif %}
+                {%- endif %}
+{%- endmacro %}
+{%- macro inputChampionshipBracketsGuesserPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_championshipBrackets">
+  {%- endif %}
+  {%- if 'PUTCopy' == classApiMethodMethod %}
+                  <div>
+                    <wa-checkbox 
+                        id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_championshipBrackets{{ idSuffix }}_clear"
+                        class="label-on-left Guesser_classApiMethodMethod}}_championshipBrackets_clear championshipBrackets_clear "
+                        hint="clear"
+                        >
+                      clear
+                    </wa-checkbox>
+                  </div>
+  {%- endif %}
+                  <wa-input
+                      type="text"
+                      placeholder="Championship brackets"
+                      label="Championship brackets"
+                      hint="The Championship brackets of this guesser"
+                      class="label-on-left Guesser_{{classApiMethodMethod}}_championshipBrackets valueObjectSuggest suggestChampionshipBrackets "
+                      name="setChampionshipBrackets"
+                      id="{{ idPrefix }}Guesser_{{classApiMethodMethod}}_championshipBrackets{{ idSuffix }}"
+                      data-list="listGuesserChampionshipBrackets_{{classApiMethodMethod}}"
+                      data-method="{{classApiMethodMethod}}"
+                      autocomplete="off"
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
+                      value="{{result.championshipBrackets | e }}"
+  {% endif -%}
+                  >
+              </wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmChampionshipBracketsGuesserPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                {{ inputChampionshipBracketsGuesserPage(authForWrite=authForWrite, authForRead=authForRead, idSuffix=idSuffix) }}
+                <div class="label-on-left-ul-label ">
+                  <i class="{{ FONTAWESOME_STYLE }} fa-search "></i>
+                  relate  to this guesser
+                </div>
+                <ul class="label-on-left-ul " id="listGuesserChampionshipBrackets_{{classApiMethodMethod}}">
+                </ul>
+                {%- if authForReadBool == true %}
+                {% if 'Page' == classApiMethodMethod %}
+                <div>
+                  {{ htmForm_postChampionship(idSuffix='_Guesser_POST_championshipBrackets') }}
+                  <wa-button
+                       id="Guesser_{{classApiMethodMethod}}_championshipBrackets_add"
+                       data-dialog="open postChampionshipDialog"
+                      >add a championship bracket</wa-button>
+                  </div>
+                {%- endif %}
+                {%- endif %}
 {%- endmacro %}
 
 {%- macro htmFormButton_patchGuesser() %}
@@ -262,6 +490,53 @@
                 {{ htmDescriptionGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmDescriptionGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+              </div>
+            </wa-details>
+
+            <wa-details open class="HtmRow" id="brackets">
+              <div slot="summary">
+                <span>brackets</span>
+              </div>
+              <div class="grid-with-subgrid-2col ">
+                {% if "PATCH" in scopes -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -307,6 +582,53 @@
                 {{ htmDescriptionGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmDescriptionGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+              </div>
+            </wa-details>
+
+            <wa-details open class="HtmRow" id="brackets">
+              <div slot="summary">
+                <span>brackets</span>
+              </div>
+              <div class="grid-with-subgrid-2col ">
+                {% if "POST" in scopes -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -433,6 +755,53 @@
                 {{ htmDescriptionGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmDescriptionGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+              </div>
+            </wa-details>
+
+            <wa-details open class="HtmRow" id="brackets">
+              <div slot="summary">
+                <span>brackets</span>
+              </div>
+              <div class="grid-with-subgrid-2col ">
+                {% if "PATCH" in scopes -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmSweetSixteenBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmEliteEightBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFinalFourBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmChampionshipBracketsGuesserPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>

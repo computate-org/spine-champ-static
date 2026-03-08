@@ -55,6 +55,17 @@ Promise.all([
     facetStatsChange('FinalFour', 'archived', false);
   });
 
+  document.querySelector('#pageSelectSortFinalFour_eliteEight')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'eliteEight', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_eliteEight')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'eliteEight', true);
+  });
+  document.querySelector('#pageStatsFinalFour_eliteEight')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'eliteEight', false);
+  });
+
   document.querySelector('#pageSelectSortFinalFour_guesserId')?.addEventListener('change', (event) => {
     sort('FinalFour', 'guesserId', event.currentTarget.value);
   });
@@ -75,6 +86,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsFinalFour_year')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('FinalFour', 'year', false);
+  });
+
+  document.querySelector('#pageSelectSortFinalFour_game1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'game1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_game1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'game1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsFinalFour_game1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'game1WinnerGuess', false);
   });
 
   document.querySelector('#pageSelectSortFinalFour_game1Winner')?.addEventListener('change', (event) => {
@@ -99,6 +121,17 @@ Promise.all([
     facetStatsChange('FinalFour', 'game1Loser', false);
   });
 
+  document.querySelector('#pageSelectSortFinalFour_game2WinnerGuess')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'game2WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_game2WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'game2WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsFinalFour_game2WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'game2WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortFinalFour_game2Winner')?.addEventListener('change', (event) => {
     sort('FinalFour', 'game2Winner', event.currentTarget.value);
   });
@@ -119,17 +152,6 @@ Promise.all([
   });
   document.querySelector('#pageStatsFinalFour_game2Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('FinalFour', 'game2Loser', false);
-  });
-
-  document.querySelector('#pageSelectSortFinalFour_eliteEight')?.addEventListener('change', (event) => {
-    sort('FinalFour', 'eliteEight', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsFinalFour_eliteEight')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('FinalFour', 'eliteEight', true);
-  });
-  document.querySelector('#pageStatsFinalFour_eliteEight')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('FinalFour', 'eliteEight', false);
   });
 
   document.querySelector('#pageSelectSortFinalFour_championship')?.addEventListener('change', (event) => {

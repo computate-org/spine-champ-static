@@ -77,6 +77,17 @@ Promise.all([
     facetStatsChange('Championship', 'guesserId', false);
   });
 
+  document.querySelector('#pageSelectSortChampionship_correctGuesses')?.addEventListener('change', (event) => {
+    sort('Championship', 'correctGuesses', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_correctGuesses')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'correctGuesses', true);
+  });
+  document.querySelector('#pageStatsChampionship_correctGuesses')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'correctGuesses', false);
+  });
+
   document.querySelector('#pageSelectSortChampionship_year')?.addEventListener('change', (event) => {
     sort('Championship', 'year', event.currentTarget.value);
   });
@@ -86,6 +97,28 @@ Promise.all([
   });
   document.querySelector('#pageStatsChampionship_year')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('Championship', 'year', false);
+  });
+
+  document.querySelector('#pageSelectSortChampionship_incorrectGuesses')?.addEventListener('change', (event) => {
+    sort('Championship', 'incorrectGuesses', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_incorrectGuesses')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'incorrectGuesses', true);
+  });
+  document.querySelector('#pageStatsChampionship_incorrectGuesses')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'incorrectGuesses', false);
+  });
+
+  document.querySelector('#pageSelectSortChampionship_game1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('Championship', 'game1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_game1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'game1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsChampionship_game1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'game1WinnerGuess', false);
   });
 
   document.querySelector('#pageSelectSortChampionship_game1Winner')?.addEventListener('change', (event) => {

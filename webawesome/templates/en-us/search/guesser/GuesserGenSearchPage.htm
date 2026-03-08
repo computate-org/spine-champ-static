@@ -27,6 +27,10 @@
 {%- block htmScriptsGuesserPage %}
     <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
     <script type="module" src="{{staticBaseUrl}}/js/en-us/search/guesser/GuesserSearchPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/sweet-sixteen/SweetSixteen.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEight.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFour.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/championship/Championship.js"></script>
 {%- endblock htmScriptsGuesserPage %}
 {%- endblock htmScriptsPageLayout %}
 
@@ -127,6 +131,70 @@
 
         var guesserId = {% if result.guesserId is defined %}{{ result.guesserId | tojson }}{% else %}null{% endif %};
 
+          function relate_sweetSixteenBrackets(event) {
+            suggestGuesserSweetSixteenBrackets(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.sweetSixteenBrackets is defined %}{'name':'fq','value':'guesserId:{{ result.sweetSixteenBrackets }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_PATCH_sweetSixteenBrackets')?.addEventListener('input', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_PATCH_sweetSixteenBrackets')?.addEventListener('focus', relate_sweetSixteenBrackets);
+          function relate_eliteEightBrackets(event) {
+            suggestGuesserEliteEightBrackets(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.eliteEightBrackets is defined %}{'name':'fq','value':'guesserId:{{ result.eliteEightBrackets }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Guesser_POST_eliteEightBrackets')?.addEventListener('input', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_POST_eliteEightBrackets')?.addEventListener('focus', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_PATCH_eliteEightBrackets')?.addEventListener('input', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_PATCH_eliteEightBrackets')?.addEventListener('focus', relate_eliteEightBrackets);
+          function relate_finalFourBrackets(event) {
+            suggestGuesserFinalFourBrackets(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.finalFourBrackets is defined %}{'name':'fq','value':'guesserId:{{ result.finalFourBrackets }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Guesser_POST_finalFourBrackets')?.addEventListener('input', relate_finalFourBrackets);
+          document.querySelector('#Guesser_POST_finalFourBrackets')?.addEventListener('focus', relate_finalFourBrackets);
+          document.querySelector('#Guesser_PATCH_finalFourBrackets')?.addEventListener('input', relate_finalFourBrackets);
+          document.querySelector('#Guesser_PATCH_finalFourBrackets')?.addEventListener('focus', relate_finalFourBrackets);
+          function relate_championshipBrackets(event) {
+            suggestGuesserChampionshipBrackets(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ] : [{%- if result.championshipBrackets is defined %}{'name':'fq','value':'guesserId:{{ result.championshipBrackets }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#Guesser_POST_championshipBrackets')?.addEventListener('input', relate_championshipBrackets);
+          document.querySelector('#Guesser_POST_championshipBrackets')?.addEventListener('focus', relate_championshipBrackets);
+          document.querySelector('#Guesser_PATCH_championshipBrackets')?.addEventListener('input', relate_championshipBrackets);
+          document.querySelector('#Guesser_PATCH_championshipBrackets')?.addEventListener('focus', relate_championshipBrackets);
         if(guesserId == null) {
           document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
             document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
@@ -237,6 +305,42 @@
           event.preventDefault();
           deletefilterGuesser(event.target);
           return false;
+        });
+
+        document.querySelector('#htmFormButton_postSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          postSweetSixteen(document.querySelector('#htmForm_postSweetSixteen')
+              , document.querySelector('#htmFormButton_postSweetSixteen')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          postEliteEight(document.querySelector('#htmForm_postEliteEight')
+              , document.querySelector('#htmFormButton_postEliteEight')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          postFinalFour(document.querySelector('#htmForm_postFinalFour')
+              , document.querySelector('#htmFormButton_postFinalFour')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          postChampionship(document.querySelector('#htmForm_postChampionship')
+              , document.querySelector('#htmFormButton_postChampionship')
+              , (json, target) => {
+                addGlow(target);
+              });
         });
 {%- block htmScriptInitGuesserPage %}{%- endblock htmScriptInitGuesserPage %}
       });

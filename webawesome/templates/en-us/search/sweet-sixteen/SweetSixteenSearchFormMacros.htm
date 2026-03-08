@@ -179,7 +179,7 @@
                       data-list="listSweetSixteenGuesserId_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.guesserId | e }}"
   {% endif -%}
                   >
@@ -251,8 +251,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_southGame1WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] South game 1 guess"
                       label="South game 1 guess"
                       id="SweetSixteen_{{classApiMethodMethod}}_southGame1WinnerGuess"
@@ -272,11 +272,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.southGame1WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.southGame1Winner }} wins,  {{ result.actualSweetSixteen.southGame1Loser }} loses</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.southGame1Winner }} wins,  {{ result.actualSweetSixteen.southGame1Loser }} loses</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -311,7 +307,7 @@
                       data-list="listSweetSixteenSouthGame1Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.southGame1Winner | e }}"
   {% endif -%}
                   >
@@ -367,7 +363,7 @@
                       data-list="listSweetSixteenSouthGame1Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.southGame1Loser | e }}"
   {% endif -%}
                   >
@@ -402,8 +398,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_southGame2WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] Actual South game 2 winner"
                       label="Actual South game 2 winner"
                       id="SweetSixteen_{{classApiMethodMethod}}_southGame2WinnerGuess"
@@ -423,11 +419,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.southGame2WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.southGame2Winner }}</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.southGame2Winner }}</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -462,7 +454,7 @@
                       data-list="listSweetSixteenSouthGame2Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.southGame2Winner | e }}"
   {% endif -%}
                   >
@@ -518,7 +510,7 @@
                       data-list="listSweetSixteenSouthGame2Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.southGame2Loser | e }}"
   {% endif -%}
                   >
@@ -553,8 +545,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_westGame1WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] Actual West game 1 winner"
                       label="Actual West game 1 winner"
                       id="SweetSixteen_{{classApiMethodMethod}}_westGame1WinnerGuess"
@@ -574,11 +566,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.westGame1WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.westGame1Winner }}</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.westGame1Winner }}</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -613,7 +601,7 @@
                       data-list="listSweetSixteenWestGame1Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.westGame1Winner | e }}"
   {% endif -%}
                   >
@@ -669,7 +657,7 @@
                       data-list="listSweetSixteenWestGame1Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.westGame1Loser | e }}"
   {% endif -%}
                   >
@@ -704,8 +692,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_westGame2WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] Actual West game 2 winner"
                       label="Actual West game 2 winner"
                       id="SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess"
@@ -725,11 +713,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.westGame2WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.westGame2Winner }}</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.westGame2Winner }}</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -764,7 +748,7 @@
                       data-list="listSweetSixteenWestGame2Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.westGame2Winner | e }}"
   {% endif -%}
                   >
@@ -820,7 +804,7 @@
                       data-list="listSweetSixteenWestGame2Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.westGame2Loser | e }}"
   {% endif -%}
                   >
@@ -855,8 +839,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_eastGame1WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] Actual East game 1 winner"
                       label="Actual East game 1 winner"
                       id="SweetSixteen_{{classApiMethodMethod}}_eastGame1WinnerGuess"
@@ -876,11 +860,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.eastGame1WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.eastGame1Winner }}</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.eastGame1Winner }}</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -915,7 +895,7 @@
                       data-list="listSweetSixteenEastGame1Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.eastGame1Winner | e }}"
   {% endif -%}
                   >
@@ -971,7 +951,7 @@
                       data-list="listSweetSixteenEastGame1Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.eastGame1Loser | e }}"
   {% endif -%}
                   >
@@ -1006,8 +986,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_eastGame2WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] Actual East game 2 winner"
                       label="Actual East game 2 winner"
                       id="SweetSixteen_{{classApiMethodMethod}}_eastGame2WinnerGuess"
@@ -1027,11 +1007,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.eastGame2WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.eastGame2Winner }}</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.eastGame2Winner }}</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -1040,63 +1016,6 @@
 
 {%- macro htmEastGame2WinnerGuessSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
                             {{ inputEastGame2WinnerGuessSweetSixteenPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
-{%- endmacro %}
-{%- macro inputEliteEightSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
-  {%- if 'Page' == classApiMethodMethod %}
-                <form class="subgrid-2col " id="PageForm_eliteEight">
-  {%- endif %}
-  {%- if 'PUTCopy' == classApiMethodMethod %}
-                  <div>
-                    <wa-checkbox 
-                        id="{{ idPrefix }}SweetSixteen_{{classApiMethodMethod}}_eliteEight{{ idSuffix }}_clear"
-                        class="label-on-left SweetSixteen_classApiMethodMethod}}_eliteEight_clear eliteEight_clear "
-                        hint="clear"
-                        >
-                      clear
-                    </wa-checkbox>
-                  </div>
-  {%- endif %}
-                  <wa-input
-                      type="text"
-                      placeholder="Elite Eight bracket"
-                      label="Elite Eight bracket"
-                      hint="The Elite Eight bracket of this tournament"
-                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_eliteEight valueObjectSuggest suggestEliteEight "
-                      name="setEliteEight"
-                      id="{{ idPrefix }}SweetSixteen_{{classApiMethodMethod}}_eliteEight{{ idSuffix }}"
-                      data-list="listSweetSixteenEliteEight_{{classApiMethodMethod}}"
-                      data-method="{{classApiMethodMethod}}"
-                      autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
-                      value="{{result.eliteEight | e }}"
-  {% endif -%}
-                  >
-              </wa-input>
-
-  {%- if 'Page' == classApiMethodMethod %}
-                </form>
-  {%- endif %}
-{%- endmacro %}
-
-{%- macro htmEliteEightSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
-                {{ inputEliteEightSweetSixteenPage(authForWrite=authForWrite, authForRead=authForRead, idSuffix=idSuffix) }}
-                <div class="label-on-left-ul-label ">
-                  <i class="{{ FONTAWESOME_STYLE }} fa-search "></i>
-                  relate an elite eight bracket to this sweet sixteen bracket
-                </div>
-                <ul class="label-on-left-ul " id="listSweetSixteenEliteEight_{{classApiMethodMethod}}">
-                </ul>
-                {%- if authForReadBool == true %}
-                {% if 'Page' == classApiMethodMethod %}
-                <div>
-                  {{ htmForm_postEliteEight(idSuffix='_SweetSixteen_POST_eliteEight') }}
-                  <wa-button
-                       id="SweetSixteen_{{classApiMethodMethod}}_eliteEight_add"
-                       data-dialog="open postEliteEightDialog"
-                      >add an elite eight bracket</wa-button>
-                  </div>
-                {%- endif %}
-                {%- endif %}
 {%- endmacro %}
 {%- macro inputEastGame2WinnerSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
@@ -1123,7 +1042,7 @@
                       data-list="listSweetSixteenEastGame2Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.eastGame2Winner | e }}"
   {% endif -%}
                   >
@@ -1179,7 +1098,7 @@
                       data-list="listSweetSixteenEastGame2Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.eastGame2Loser | e }}"
   {% endif -%}
                   >
@@ -1214,8 +1133,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_midwestGame1WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] Actual Midwest game 1 winner"
                       label="Actual Midwest game 1 winner"
                       id="SweetSixteen_{{classApiMethodMethod}}_midwestGame1WinnerGuess"
@@ -1235,11 +1154,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.midwestGame1WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.midwestGame1Winner }}</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.midwestGame1Winner }}</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -1274,7 +1189,7 @@
                       data-list="listSweetSixteenMidwestGame1Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.midwestGame1Winner | e }}"
   {% endif -%}
                   >
@@ -1330,7 +1245,7 @@
                       data-list="listSweetSixteenMidwestGame1Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.midwestGame1Loser | e }}"
   {% endif -%}
                   >
@@ -1365,8 +1280,8 @@
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_midwestGame2WinnerGuess">
   {%- endif %}
-                  <wa-select
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                  <wa-input
+                      readonly
                       placeholder="[String] Actual Midwest game 2 winner"
                       label="Actual Midwest game 2 winner"
                       id="SweetSixteen_{{classApiMethodMethod}}_midwestGame2WinnerGuess"
@@ -1386,11 +1301,7 @@
   {% if "Page" == classApiMethodMethod -%}
                       value="{{result.midwestGame2WinnerGuess | e }}"
   {% endif -%}
-                      >
-                    <wa-option value="correct">Correct &mdash; {{ result.actualSweetSixteen.midwestGame2Winner }}</wa-option>
-                    <wa-option value="incorrect">Incorrect &mdash; {{ result.actualSweetSixteen.midwestGame2Winner }}</wa-option>
-                    <wa-option value="unknown">Unknown</wa-option>
-                  </wa-select>
+                      ></wa-input>
 
   {%- if 'Page' == classApiMethodMethod %}
                 </form>
@@ -1425,7 +1336,7 @@
                       data-list="listSweetSixteenMidwestGame2Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.midwestGame2Winner | e }}"
   {% endif -%}
                   >
@@ -1481,7 +1392,7 @@
                       data-list="listSweetSixteenMidwestGame2Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.midwestGame2Loser | e }}"
   {% endif -%}
                   >
@@ -1508,6 +1419,63 @@
                        id="SweetSixteen_{{classApiMethodMethod}}_midwestGame2Loser_add"
                        data-dialog="open postTeamDialog"
                       >add a team</wa-button>
+                  </div>
+                {%- endif %}
+                {%- endif %}
+{%- endmacro %}
+{%- macro inputEliteEightSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_eliteEight">
+  {%- endif %}
+  {%- if 'PUTCopy' == classApiMethodMethod %}
+                  <div>
+                    <wa-checkbox 
+                        id="{{ idPrefix }}SweetSixteen_{{classApiMethodMethod}}_eliteEight{{ idSuffix }}_clear"
+                        class="label-on-left SweetSixteen_classApiMethodMethod}}_eliteEight_clear eliteEight_clear "
+                        hint="clear"
+                        >
+                      clear
+                    </wa-checkbox>
+                  </div>
+  {%- endif %}
+                  <wa-input
+                      type="text"
+                      placeholder="Elite Eight bracket"
+                      label="Elite Eight bracket"
+                      hint="The Elite Eight bracket of this tournament"
+                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_eliteEight valueObjectSuggest suggestEliteEight "
+                      name="setEliteEight"
+                      id="{{ idPrefix }}SweetSixteen_{{classApiMethodMethod}}_eliteEight{{ idSuffix }}"
+                      data-list="listSweetSixteenEliteEight_{{classApiMethodMethod}}"
+                      data-method="{{classApiMethodMethod}}"
+                      autocomplete="off"
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
+                      value="{{result.eliteEight | e }}"
+  {% endif -%}
+                  >
+              </wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmEliteEightSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                {{ inputEliteEightSweetSixteenPage(authForWrite=authForWrite, authForRead=authForRead, idSuffix=idSuffix) }}
+                <div class="label-on-left-ul-label ">
+                  <i class="{{ FONTAWESOME_STYLE }} fa-search "></i>
+                  relate an elite eight bracket to this sweet sixteen bracket
+                </div>
+                <ul class="label-on-left-ul " id="listSweetSixteenEliteEight_{{classApiMethodMethod}}">
+                </ul>
+                {%- if authForReadBool == true %}
+                {% if 'Page' == classApiMethodMethod %}
+                <div>
+                  {{ htmForm_postEliteEight(idSuffix='_SweetSixteen_POST_eliteEight') }}
+                  <wa-button
+                       id="SweetSixteen_{{classApiMethodMethod}}_eliteEight_add"
+                       data-dialog="open postEliteEightDialog"
+                      >add an elite eight bracket</wa-button>
                   </div>
                 {%- endif %}
                 {%- endif %}
@@ -1754,16 +1722,6 @@
                 {%- endif %}
 
                 {% if "PATCH" in scopes -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {% if "GET" in scopes -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
-                {%- endif %}
-                {%- endif %}
-
-                {% if "PATCH" in scopes -%}
                 {{ htmEastGame2WinnerSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
@@ -1854,6 +1812,23 @@
                 {{ htmMidwestGame2LoserSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmMidwestGame2LoserSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+              </div>
+            </wa-details>
+
+            <wa-details open class="HtmRow" id="later-tournaments">
+              <div slot="summary">
+                <span>later tournaments</span>
+              </div>
+              <div class="grid-with-subgrid-2col ">
+                {% if "PATCH" in scopes -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -2105,16 +2080,6 @@
                 {%- endif %}
 
                 {% if "POST" in scopes -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {% if "GET" in scopes -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
-                {%- endif %}
-                {%- endif %}
-
-                {% if "POST" in scopes -%}
                 {{ htmEastGame2WinnerSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
@@ -2205,6 +2170,23 @@
                 {{ htmMidwestGame2LoserSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmMidwestGame2LoserSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+              </div>
+            </wa-details>
+
+            <wa-details open class="HtmRow" id="later-tournaments">
+              <div slot="summary">
+                <span>later tournaments</span>
+              </div>
+              <div class="grid-with-subgrid-2col ">
+                {% if "POST" in scopes -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -2537,16 +2519,6 @@
                 {%- endif %}
 
                 {% if "PATCH" in scopes -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {% if "GET" in scopes -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
-                {%- endif %}
-                {%- endif %}
-
-                {% if "PATCH" in scopes -%}
                 {{ htmEastGame2WinnerSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
@@ -2637,6 +2609,23 @@
                 {{ htmMidwestGame2LoserSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmMidwestGame2LoserSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+              </div>
+            </wa-details>
+
+            <wa-details open class="HtmRow" id="later-tournaments">
+              <div slot="summary">
+                <span>later tournaments</span>
+              </div>
+              <div class="grid-with-subgrid-2col ">
+                {% if "PATCH" in scopes -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmEliteEightSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>

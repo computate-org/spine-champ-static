@@ -77,6 +77,50 @@ Promise.all([
     facetStatsChange('Guesser', 'description', false);
   });
 
+  document.querySelector('#pageSelectSortGuesser_sweetSixteenBrackets')?.addEventListener('change', (event) => {
+    sort('Guesser', 'sweetSixteenBrackets', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsGuesser_sweetSixteenBrackets')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'sweetSixteenBrackets', true);
+  });
+  document.querySelector('#pageStatsGuesser_sweetSixteenBrackets')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'sweetSixteenBrackets', false);
+  });
+
+  document.querySelector('#pageSelectSortGuesser_eliteEightBrackets')?.addEventListener('change', (event) => {
+    sort('Guesser', 'eliteEightBrackets', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsGuesser_eliteEightBrackets')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'eliteEightBrackets', true);
+  });
+  document.querySelector('#pageStatsGuesser_eliteEightBrackets')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'eliteEightBrackets', false);
+  });
+
+  document.querySelector('#pageSelectSortGuesser_finalFourBrackets')?.addEventListener('change', (event) => {
+    sort('Guesser', 'finalFourBrackets', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsGuesser_finalFourBrackets')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'finalFourBrackets', true);
+  });
+  document.querySelector('#pageStatsGuesser_finalFourBrackets')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'finalFourBrackets', false);
+  });
+
+  document.querySelector('#pageSelectSortGuesser_championshipBrackets')?.addEventListener('change', (event) => {
+    sort('Guesser', 'championshipBrackets', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsGuesser_championshipBrackets')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'championshipBrackets', true);
+  });
+  document.querySelector('#pageStatsGuesser_championshipBrackets')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'championshipBrackets', false);
+  });
+
   document.querySelector('#pageSelectSortGuesser_classCanonicalName')?.addEventListener('change', (event) => {
     sort('Guesser', 'classCanonicalName', event.currentTarget.value);
   });

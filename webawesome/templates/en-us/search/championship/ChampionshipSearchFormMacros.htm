@@ -11,14 +11,14 @@
                       id="Championship_{{classApiMethodMethod}}_pk"
   {%- if "Page" == classApiMethodMethod %}
                       data-bracketId={{ result.bracketId | tojson }}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_pk setPk classChampionship inputChampionship{{ result.bracketId }}Pk "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_pk setPk classChampionship inputChampionship{{ result.bracketId }}Pk "
                       name="setPk"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_pk setPk classChampionship inputChampionship{{ result.bracketId }}Pk "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_pk setPk classChampionship inputChampionship{{ result.bracketId }}Pk "
                       name="setPk"
     {%- else %}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_pk valuePk classChampionship inputChampionship{{ result.bracketId }}Pk "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_pk valuePk classChampionship inputChampionship{{ result.bracketId }}Pk "
                       name="pk"
     {%- endif %}
   {%- endif %}
@@ -44,7 +44,7 @@
                       readonly
                       hint="A created timestamp for this record in the database"
                       label="created {{ formatZonedDateTime(result.created, "'['VV']'", defaultLocaleId, defaultZoneId) | e }}"
-                      class="label-on-left {{Championship_classApiMethodMethod}}_created datetimepicker setCreated classChampionship inputChampionship{{ result.bracketId }}Created "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_created datetimepicker setCreated classChampionship inputChampionship{{ result.bracketId }}Created "
                       placeholder="MM/dd/yyyy h:mm a '['VV']'"
                       data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
                       id="Championship_{{classApiMethodMethod}}_created"
@@ -72,7 +72,7 @@
                       readonly
                       hint="A modified timestamp for this record in the database"
                       label="modified {{ formatZonedDateTime(result.modified, "'['VV']'", defaultLocaleId, defaultZoneId) | e }}"
-                      class="label-on-left {{Championship_classApiMethodMethod}}_modified datetimepicker setModified classChampionship inputChampionship{{ result.bracketId }}Modified "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_modified datetimepicker setModified classChampionship inputChampionship{{ result.bracketId }}Modified "
                       placeholder="MM/dd/yyyy h:mm a '['VV']'"
                       data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
                       id="Championship_{{classApiMethodMethod}}_modified"
@@ -101,7 +101,7 @@
                       placeholder="archive"
                       label="archive"
                       hint="For archiving this record"
-                      class="label-on-left {{Championship_classApiMethodMethod}}_archived classChampionship inputChampionship{{ result.bracketId }}Archived "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_archived classChampionship inputChampionship{{ result.bracketId }}Archived "
                       name="setArchived"
                       data-bracketId={{ result.bracketId | tojson }}
                       data-val="{{ result.archived | e }}"
@@ -120,14 +120,14 @@
                       label="archive"
                       hint="For archiving this record"
   {%- if 'Page' == classApiMethodMethod %}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_archived classChampionship inputChampionship{{ result.bracketId }}Archived "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_archived classChampionship inputChampionship{{ result.bracketId }}Archived "
                       name="setArchived"
   {%- else %}
     {%- if 'Page' == classApiMethodMethod %}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_archived classChampionship inputChampionship{{ result.bracketId }}Archived "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_archived classChampionship inputChampionship{{ result.bracketId }}Archived "
                       name="setArchived"
     {%- else %}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_archived setArchived valueArchived classChampionship inputChampionship{{ result.bracketId }}Archived "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_archived setArchived valueArchived classChampionship inputChampionship{{ result.bracketId }}Archived "
                       name="setArchived"
     {%- endif %}
   {%- endif %}
@@ -173,13 +173,13 @@
                       placeholder="Final Four bracket"
                       label="Final Four bracket"
                       hint="The Final Four bracket of this tournament"
-                      class="label-on-left {{Championship_classApiMethodMethod}}_finalFour valueObjectSuggest suggestFinalFour "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_finalFour valueObjectSuggest suggestFinalFour "
                       name="setFinalFour"
                       id="{{ idPrefix }}Championship_{{classApiMethodMethod}}_finalFour{{ idSuffix }}"
                       data-list="listChampionshipFinalFour_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.finalFour | e }}"
   {% endif -%}
                   >
@@ -230,13 +230,13 @@
                       placeholder="guesser"
                       label="guesser"
                       hint="The ID of this guesser"
-                      class="label-on-left {{Championship_classApiMethodMethod}}_guesserId valueObjectSuggest suggestGuesserId "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_guesserId valueObjectSuggest suggestGuesserId "
                       name="setGuesserId"
                       id="{{ idPrefix }}Championship_{{classApiMethodMethod}}_guesserId{{ idSuffix }}"
                       data-list="listChampionshipGuesserId_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.guesserId | e }}"
   {% endif -%}
                   >
@@ -267,6 +267,43 @@
                 {%- endif %}
                 {%- endif %}
 {%- endmacro %}
+{%- macro inputCorrectGuessesChampionshipPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_correctGuesses">
+  {%- endif %}
+                  <wa-input
+                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      placeholder="[Integer] correct guesses"
+                      label="correct guesses"
+                      type="number"
+                      hint="The number of correct guesses in this Championship bracket"
+                      id="Championship_{{classApiMethodMethod}}_correctGuesses"
+  {%- if "Page" == classApiMethodMethod %}
+                      data-bracketId={{ result.bracketId | tojson }}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_correctGuesses setCorrectGuesses classChampionship inputChampionship{{ result.bracketId }}CorrectGuesses "
+                      name="setCorrectGuesses"
+  {%- else %}
+    {%- if "PATCH" == classApiMethodMethod %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_correctGuesses setCorrectGuesses classChampionship inputChampionship{{ result.bracketId }}CorrectGuesses "
+                      name="setCorrectGuesses"
+    {%- else %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_correctGuesses valueCorrectGuesses classChampionship inputChampionship{{ result.bracketId }}CorrectGuesses "
+                      name="correctGuesses"
+    {%- endif %}
+  {%- endif %}
+  {% if "Page" == classApiMethodMethod -%}
+                      value="{{result.correctGuesses | e }}"
+  {% endif -%}
+                      ></wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmCorrectGuessesChampionshipPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputCorrectGuessesChampionshipPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
 {%- macro inputYearChampionshipPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_year">
@@ -280,14 +317,14 @@
                       id="Championship_{{classApiMethodMethod}}_year"
   {%- if "Page" == classApiMethodMethod %}
                       data-bracketId={{ result.bracketId | tojson }}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_year setYear classChampionship inputChampionship{{ result.bracketId }}Year "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_year setYear classChampionship inputChampionship{{ result.bracketId }}Year "
                       name="setYear"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_year setYear classChampionship inputChampionship{{ result.bracketId }}Year "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_year setYear classChampionship inputChampionship{{ result.bracketId }}Year "
                       name="setYear"
     {%- else %}
-                      class="label-on-left {{Championship_classApiMethodMethod}}_year valueYear classChampionship inputChampionship{{ result.bracketId }}Year "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_year valueYear classChampionship inputChampionship{{ result.bracketId }}Year "
                       name="year"
     {%- endif %}
   {%- endif %}
@@ -303,6 +340,78 @@
 
 {%- macro htmYearChampionshipPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
                             {{ inputYearChampionshipPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
+{%- macro inputIncorrectGuessesChampionshipPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_incorrectGuesses">
+  {%- endif %}
+                  <wa-input
+                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      placeholder="[Integer] incorrect guesses"
+                      label="incorrect guesses"
+                      type="number"
+                      hint="The number of incorrect guesses in this Championship bracket"
+                      id="Championship_{{classApiMethodMethod}}_incorrectGuesses"
+  {%- if "Page" == classApiMethodMethod %}
+                      data-bracketId={{ result.bracketId | tojson }}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_incorrectGuesses setIncorrectGuesses classChampionship inputChampionship{{ result.bracketId }}IncorrectGuesses "
+                      name="setIncorrectGuesses"
+  {%- else %}
+    {%- if "PATCH" == classApiMethodMethod %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_incorrectGuesses setIncorrectGuesses classChampionship inputChampionship{{ result.bracketId }}IncorrectGuesses "
+                      name="setIncorrectGuesses"
+    {%- else %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_incorrectGuesses valueIncorrectGuesses classChampionship inputChampionship{{ result.bracketId }}IncorrectGuesses "
+                      name="incorrectGuesses"
+    {%- endif %}
+  {%- endif %}
+  {% if "Page" == classApiMethodMethod -%}
+                      value="{{result.incorrectGuesses | e }}"
+  {% endif -%}
+                      ></wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmIncorrectGuessesChampionshipPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputIncorrectGuessesChampionshipPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
+{%- macro inputGame1WinnerGuessChampionshipPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_game1WinnerGuess">
+  {%- endif %}
+                  <wa-input
+                      readonly
+                      placeholder="[String] game 1 guess"
+                      label="game 1 guess"
+                      id="Championship_{{classApiMethodMethod}}_game1WinnerGuess"
+  {%- if "Page" == classApiMethodMethod %}
+                      data-bracketId={{ result.bracketId | tojson }}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_game1WinnerGuess setGame1WinnerGuess classChampionship inputChampionship{{ result.bracketId }}Game1WinnerGuess "
+                      name="setGame1WinnerGuess"
+  {%- else %}
+    {%- if "PATCH" == classApiMethodMethod %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_game1WinnerGuess setGame1WinnerGuess classChampionship inputChampionship{{ result.bracketId }}Game1WinnerGuess "
+                      name="setGame1WinnerGuess"
+    {%- else %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_game1WinnerGuess valueGame1WinnerGuess classChampionship inputChampionship{{ result.bracketId }}Game1WinnerGuess "
+                      name="game1WinnerGuess"
+    {%- endif %}
+  {%- endif %}
+  {% if "Page" == classApiMethodMethod -%}
+                      value="{{result.game1WinnerGuess | e }}"
+  {% endif -%}
+                      ></wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmGame1WinnerGuessChampionshipPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputGame1WinnerGuessChampionshipPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
 {%- endmacro %}
 {%- macro inputGame1WinnerChampionshipPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
@@ -323,13 +432,13 @@
                       type="text"
                       placeholder="game 1 winner"
                       label="game 1 winner"
-                      class="label-on-left {{Championship_classApiMethodMethod}}_game1Winner valueObjectSuggest suggestGame1Winner "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_game1Winner valueObjectSuggest suggestGame1Winner "
                       name="setGame1Winner"
                       id="{{ idPrefix }}Championship_{{classApiMethodMethod}}_game1Winner{{ idSuffix }}"
                       data-list="listChampionshipGame1Winner_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.game1Winner | e }}"
   {% endif -%}
                   >
@@ -379,13 +488,13 @@
                       type="text"
                       placeholder="game 1 loser"
                       label="game 1 loser"
-                      class="label-on-left {{Championship_classApiMethodMethod}}_game1Loser valueObjectSuggest suggestGame1Loser "
+                      class="label-on-left Championship_{{classApiMethodMethod}}_game1Loser valueObjectSuggest suggestGame1Loser "
                       name="setGame1Loser"
                       id="{{ idPrefix }}Championship_{{classApiMethodMethod}}_game1Loser{{ idSuffix }}"
                       data-list="listChampionshipGame1Loser_{{classApiMethodMethod}}"
                       data-method="{{classApiMethodMethod}}"
                       autocomplete="off"
-  {% if 'Page' == classApiMethodMethod -%}
+  {% if 'Page' == classApiMethodMethod or 'POST' == classApiMethodMethod -%}
                       value="{{result.game1Loser | e }}"
   {% endif -%}
                   >
@@ -430,9 +539,9 @@
         <wa-dialog with-header with-footer style="--width: 50vw; " id="patchChampionshipDialog" label="Modify championship bracket">
           <form id="htmForm_patchChampionship" class="round-row primary-smart-border-radius ">
 
-            <wa-details open class="HtmRow" id="later-tournaments">
+            <wa-details open class="HtmRow" id="earlier-tournaments">
               <div slot="summary">
-                <span>later tournaments</span>
+                <span>earlier tournaments</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}
@@ -463,12 +572,32 @@
                 {%- endif %}
 
                 {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -479,6 +608,16 @@
                 <span>game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
+                {% if "PATCH" in scopes -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
                 {% if "PATCH" in scopes -%}
                 {{ htmGame1WinnerChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
@@ -519,9 +658,9 @@
           <form id="htmForm_postChampionship" class="round-row primary-smart-border-radius ">
             <div>You can override any default values below: </div>
 
-            <wa-details open class="HtmRow" id="later-tournaments">
+            <wa-details open class="HtmRow" id="earlier-tournaments">
               <div slot="summary">
-                <span>later tournaments</span>
+                <span>earlier tournaments</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "POST" in scopes -%}
@@ -552,12 +691,32 @@
                 {%- endif %}
 
                 {% if "POST" in scopes -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -568,6 +727,16 @@
                 <span>game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
+                {% if "POST" in scopes -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
                 {% if "POST" in scopes -%}
                 {{ htmGame1WinnerChampionshipPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
@@ -689,9 +858,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="later-tournaments">
+            <wa-details open class="HtmRow" id="earlier-tournaments">
               <div slot="summary">
-                <span>later tournaments</span>
+                <span>earlier tournaments</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}
@@ -722,12 +891,32 @@
                 {%- endif %}
 
                 {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmIncorrectGuessesChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -738,6 +927,16 @@
                 <span>game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
+                {% if "PATCH" in scopes -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmGame1WinnerGuessChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
                 {% if "PATCH" in scopes -%}
                 {{ htmGame1WinnerChampionshipPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}

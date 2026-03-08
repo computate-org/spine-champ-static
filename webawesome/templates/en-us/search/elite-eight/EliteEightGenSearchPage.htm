@@ -425,6 +425,8 @@
               , document.querySelector('#htmFormButton_postSweetSixteen')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -434,6 +436,8 @@
               , document.querySelector('#htmFormButton_postGuesser')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -443,6 +447,8 @@
               , document.querySelector('#htmFormButton_postTeam')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -452,6 +458,8 @@
               , document.querySelector('#htmFormButton_postFinalFour')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 {%- block htmScriptInitEliteEightPage %}{%- endblock htmScriptInitEliteEightPage %}

@@ -306,22 +306,6 @@
           document.querySelector('#SweetSixteen_POST_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
           document.querySelector('#SweetSixteen_PATCH_eastGame1Loser')?.addEventListener('input', relate_eastGame1Loser);
           document.querySelector('#SweetSixteen_PATCH_eastGame1Loser')?.addEventListener('focus', relate_eastGame1Loser);
-          function relate_eliteEight(event) {
-            suggestSweetSixteenEliteEight(
-                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,sweetSixteen,pk,editPage,objectTitle' } ] : [{%- if result.eliteEight is defined %}{'name':'fq','value':'sweetSixteen:{{ result.eliteEight }}'}{%- else %}{%- endif %}]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , null
-                , null
-                , true
-                , this
-                );
-          }
-          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('input', relate_eliteEight);
-          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('focus', relate_eliteEight);
-          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('input', relate_eliteEight);
-          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('focus', relate_eliteEight);
           function relate_eastGame2Winner(event) {
             suggestSweetSixteenEastGame2Winner(
                 event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -418,6 +402,22 @@
           document.querySelector('#SweetSixteen_POST_midwestGame2Loser')?.addEventListener('focus', relate_midwestGame2Loser);
           document.querySelector('#SweetSixteen_PATCH_midwestGame2Loser')?.addEventListener('input', relate_midwestGame2Loser);
           document.querySelector('#SweetSixteen_PATCH_midwestGame2Loser')?.addEventListener('focus', relate_midwestGame2Loser);
+          function relate_eliteEight(event) {
+            suggestSweetSixteenEliteEight(
+                event.target.value ? [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,sweetSixteen,pk,editPage,objectTitle' } ] : [{%- if result.eliteEight is defined %}{'name':'fq','value':'sweetSixteen:{{ result.eliteEight }}'}{%- else %}{%- endif %}]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , null
+                , null
+                , true
+                , this
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('focus', relate_eliteEight);
         if(bracketId == null) {
           document.querySelector('#grid-toggle-details')?.addEventListener('click', () => {
             document.querySelector('#site-results-grid').classList.remove('grid-mode-list', 'grid-mode-card');
@@ -536,6 +536,8 @@
               , document.querySelector('#htmFormButton_postGuesser')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -545,6 +547,8 @@
               , document.querySelector('#htmFormButton_postTeam')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -554,6 +558,8 @@
               , document.querySelector('#htmFormButton_postEliteEight')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 {%- block htmScriptInitSweetSixteenPage %}{%- endblock htmScriptInitSweetSixteenPage %}

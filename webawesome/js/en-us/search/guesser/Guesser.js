@@ -84,6 +84,10 @@ async function websocketGuesserInner(apiRequest) {
         var inputArchived = null;
         var inputName = null;
         var inputDescription = null;
+        var inputSweetSixteenBrackets = null;
+        var inputEliteEightBrackets = null;
+        var inputFinalFourBrackets = null;
+        var inputChampionshipBrackets = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
         var inputClassCanonicalNames = null;
@@ -101,47 +105,55 @@ async function websocketGuesserInner(apiRequest) {
         var inputGuesserId = null;
 
         if(vars.includes('pk'))
-          inputPk = $response.querySelector('.Page_pk');
+          inputPk = $response.querySelector('.Guesser_Page_pk');
         if(vars.includes('created'))
-          inputCreated = $response.querySelector('.Page_created');
+          inputCreated = $response.querySelector('.Guesser_Page_created');
         if(vars.includes('modified'))
-          inputModified = $response.querySelector('.Page_modified');
+          inputModified = $response.querySelector('.Guesser_Page_modified');
         if(vars.includes('archived'))
-          inputArchived = $response.querySelector('.Page_archived');
+          inputArchived = $response.querySelector('.Guesser_Page_archived');
         if(vars.includes('name'))
-          inputName = $response.querySelector('.Page_name');
+          inputName = $response.querySelector('.Guesser_Page_name');
         if(vars.includes('description'))
-          inputDescription = $response.querySelector('.Page_description');
+          inputDescription = $response.querySelector('.Guesser_Page_description');
+        if(vars.includes('sweetSixteenBrackets'))
+          inputSweetSixteenBrackets = $response.querySelector('.Guesser_Page_sweetSixteenBrackets');
+        if(vars.includes('eliteEightBrackets'))
+          inputEliteEightBrackets = $response.querySelector('.Guesser_Page_eliteEightBrackets');
+        if(vars.includes('finalFourBrackets'))
+          inputFinalFourBrackets = $response.querySelector('.Guesser_Page_finalFourBrackets');
+        if(vars.includes('championshipBrackets'))
+          inputChampionshipBrackets = $response.querySelector('.Guesser_Page_championshipBrackets');
         if(vars.includes('classCanonicalName'))
-          inputClassCanonicalName = $response.querySelector('.Page_classCanonicalName');
+          inputClassCanonicalName = $response.querySelector('.Guesser_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
-          inputClassSimpleName = $response.querySelector('.Page_classSimpleName');
+          inputClassSimpleName = $response.querySelector('.Guesser_Page_classSimpleName');
         if(vars.includes('classCanonicalNames'))
-          inputClassCanonicalNames = $response.querySelector('.Page_classCanonicalNames');
+          inputClassCanonicalNames = $response.querySelector('.Guesser_Page_classCanonicalNames');
         if(vars.includes('sessionId'))
-          inputSessionId = $response.querySelector('.Page_sessionId');
+          inputSessionId = $response.querySelector('.Guesser_Page_sessionId');
         if(vars.includes('userKey'))
-          inputUserKey = $response.querySelector('.Page_userKey');
+          inputUserKey = $response.querySelector('.Guesser_Page_userKey');
         if(vars.includes('saves'))
-          inputSaves = $response.querySelector('.Page_saves');
+          inputSaves = $response.querySelector('.Guesser_Page_saves');
         if(vars.includes('objectTitle'))
-          inputObjectTitle = $response.querySelector('.Page_objectTitle');
+          inputObjectTitle = $response.querySelector('.Guesser_Page_objectTitle');
         if(vars.includes('displayPage'))
-          inputDisplayPage = $response.querySelector('.Page_displayPage');
+          inputDisplayPage = $response.querySelector('.Guesser_Page_displayPage');
         if(vars.includes('editPage'))
-          inputEditPage = $response.querySelector('.Page_editPage');
+          inputEditPage = $response.querySelector('.Guesser_Page_editPage');
         if(vars.includes('userPage'))
-          inputUserPage = $response.querySelector('.Page_userPage');
+          inputUserPage = $response.querySelector('.Guesser_Page_userPage');
         if(vars.includes('download'))
-          inputDownload = $response.querySelector('.Page_download');
+          inputDownload = $response.querySelector('.Guesser_Page_download');
         if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.Page_objectSuggest');
+          inputObjectSuggest = $response.querySelector('.Guesser_Page_objectSuggest');
         if(vars.includes('objectText'))
-          inputObjectText = $response.querySelector('.Page_objectText');
+          inputObjectText = $response.querySelector('.Guesser_Page_objectText');
         if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.Page_solrId');
+          inputSolrId = $response.querySelector('.Guesser_Page_solrId');
         if(vars.includes('guesserId'))
-          inputGuesserId = $response.querySelector('.Page_guesserId');
+          inputGuesserId = $response.querySelector('.Guesser_Page_guesserId');
 
         jsWebsocketGuesser(guesserId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -149,213 +161,253 @@ async function websocketGuesserInner(apiRequest) {
 
 
         if(inputPk) {
-          document.querySelectorAll('.Page_pk').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_pk').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputPk.getAttribute('value');
             else
               item.textContent = inputPk.textContent;
           });
-          addGlow(document.querySelector('.Page_pk'));
+          addGlow(document.querySelector('.Guesser_Page_pk'));
         }
 
         if(inputCreated) {
-          document.querySelectorAll('.Page_created').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_created').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputCreated.getAttribute('value');
             else
               item.textContent = inputCreated.textContent;
           });
-          addGlow(document.querySelector('.Page_created'));
+          addGlow(document.querySelector('.Guesser_Page_created'));
         }
 
         if(inputModified) {
-          document.querySelectorAll('.Page_modified').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_modified').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputModified.getAttribute('value');
             else
               item.textContent = inputModified.textContent;
           });
-          addGlow(document.querySelector('.Page_modified'));
+          addGlow(document.querySelector('.Guesser_Page_modified'));
         }
 
         if(inputArchived) {
-          document.querySelectorAll('.Page_archived').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_archived').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputArchived.getAttribute('value');
             else
               item.textContent = inputArchived.textContent;
           });
-          addGlow(document.querySelector('.Page_archived'));
+          addGlow(document.querySelector('.Guesser_Page_archived'));
         }
 
         if(inputName) {
-          document.querySelectorAll('.Page_name').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_name').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputName.getAttribute('value');
             else
               item.textContent = inputName.textContent;
           });
-          addGlow(document.querySelector('.Page_name'));
+          addGlow(document.querySelector('.Guesser_Page_name'));
         }
 
         if(inputDescription) {
-          document.querySelectorAll('.Page_description').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_description').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDescription.getAttribute('value');
             else
               item.textContent = inputDescription.textContent;
           });
-          addGlow(document.querySelector('.Page_description'));
+          addGlow(document.querySelector('.Guesser_Page_description'));
+        }
+
+        if(inputSweetSixteenBrackets) {
+          document.querySelectorAll('.Guesser_Page_sweetSixteenBrackets').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSweetSixteenBrackets.getAttribute('value');
+            else
+              item.textContent = inputSweetSixteenBrackets.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_sweetSixteenBrackets'));
+        }
+
+        if(inputEliteEightBrackets) {
+          document.querySelectorAll('.Guesser_Page_eliteEightBrackets').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputEliteEightBrackets.getAttribute('value');
+            else
+              item.textContent = inputEliteEightBrackets.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_eliteEightBrackets'));
+        }
+
+        if(inputFinalFourBrackets) {
+          document.querySelectorAll('.Guesser_Page_finalFourBrackets').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputFinalFourBrackets.getAttribute('value');
+            else
+              item.textContent = inputFinalFourBrackets.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_finalFourBrackets'));
+        }
+
+        if(inputChampionshipBrackets) {
+          document.querySelectorAll('.Guesser_Page_championshipBrackets').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputChampionshipBrackets.getAttribute('value');
+            else
+              item.textContent = inputChampionshipBrackets.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_championshipBrackets'));
         }
 
         if(inputClassCanonicalName) {
-          document.querySelectorAll('.Page_classCanonicalName').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_classCanonicalName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassCanonicalName.getAttribute('value');
             else
               item.textContent = inputClassCanonicalName.textContent;
           });
-          addGlow(document.querySelector('.Page_classCanonicalName'));
+          addGlow(document.querySelector('.Guesser_Page_classCanonicalName'));
         }
 
         if(inputClassSimpleName) {
-          document.querySelectorAll('.Page_classSimpleName').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_classSimpleName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassSimpleName.getAttribute('value');
             else
               item.textContent = inputClassSimpleName.textContent;
           });
-          addGlow(document.querySelector('.Page_classSimpleName'));
+          addGlow(document.querySelector('.Guesser_Page_classSimpleName'));
         }
 
         if(inputClassCanonicalNames) {
-          document.querySelectorAll('.Page_classCanonicalNames').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_classCanonicalNames').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassCanonicalNames.getAttribute('value');
             else
               item.textContent = inputClassCanonicalNames.textContent;
           });
-          addGlow(document.querySelector('.Page_classCanonicalNames'));
+          addGlow(document.querySelector('.Guesser_Page_classCanonicalNames'));
         }
 
         if(inputSessionId) {
-          document.querySelectorAll('.Page_sessionId').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_sessionId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSessionId.getAttribute('value');
             else
               item.textContent = inputSessionId.textContent;
           });
-          addGlow(document.querySelector('.Page_sessionId'));
+          addGlow(document.querySelector('.Guesser_Page_sessionId'));
         }
 
         if(inputUserKey) {
-          document.querySelectorAll('.Page_userKey').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_userKey').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputUserKey.getAttribute('value');
             else
               item.textContent = inputUserKey.textContent;
           });
-          addGlow(document.querySelector('.Page_userKey'));
+          addGlow(document.querySelector('.Guesser_Page_userKey'));
         }
 
         if(inputSaves) {
-          document.querySelectorAll('.Page_saves').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_saves').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSaves.getAttribute('value');
             else
               item.textContent = inputSaves.textContent;
           });
-          addGlow(document.querySelector('.Page_saves'));
+          addGlow(document.querySelector('.Guesser_Page_saves'));
         }
 
         if(inputObjectTitle) {
-          document.querySelectorAll('.Page_objectTitle').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_objectTitle').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectTitle.getAttribute('value');
             else
               item.textContent = inputObjectTitle.textContent;
           });
-          addGlow(document.querySelector('.Page_objectTitle'));
+          addGlow(document.querySelector('.Guesser_Page_objectTitle'));
         }
 
         if(inputDisplayPage) {
-          document.querySelectorAll('.Page_displayPage').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_displayPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDisplayPage.getAttribute('value');
             else
               item.textContent = inputDisplayPage.textContent;
           });
-          addGlow(document.querySelector('.Page_displayPage'));
+          addGlow(document.querySelector('.Guesser_Page_displayPage'));
         }
 
         if(inputEditPage) {
-          document.querySelectorAll('.Page_editPage').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_editPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputEditPage.getAttribute('value');
             else
               item.textContent = inputEditPage.textContent;
           });
-          addGlow(document.querySelector('.Page_editPage'));
+          addGlow(document.querySelector('.Guesser_Page_editPage'));
         }
 
         if(inputUserPage) {
-          document.querySelectorAll('.Page_userPage').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_userPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputUserPage.getAttribute('value');
             else
               item.textContent = inputUserPage.textContent;
           });
-          addGlow(document.querySelector('.Page_userPage'));
+          addGlow(document.querySelector('.Guesser_Page_userPage'));
         }
 
         if(inputDownload) {
-          document.querySelectorAll('.Page_download').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_download').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDownload.getAttribute('value');
             else
               item.textContent = inputDownload.textContent;
           });
-          addGlow(document.querySelector('.Page_download'));
+          addGlow(document.querySelector('.Guesser_Page_download'));
         }
 
         if(inputObjectSuggest) {
-          document.querySelectorAll('.Page_objectSuggest').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_objectSuggest').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectSuggest.getAttribute('value');
             else
               item.textContent = inputObjectSuggest.textContent;
           });
-          addGlow(document.querySelector('.Page_objectSuggest'));
+          addGlow(document.querySelector('.Guesser_Page_objectSuggest'));
         }
 
         if(inputObjectText) {
-          document.querySelectorAll('.Page_objectText').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_objectText').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectText.getAttribute('value');
             else
               item.textContent = inputObjectText.textContent;
           });
-          addGlow(document.querySelector('.Page_objectText'));
+          addGlow(document.querySelector('.Guesser_Page_objectText'));
         }
 
         if(inputSolrId) {
-          document.querySelectorAll('.Page_solrId').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_solrId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSolrId.getAttribute('value');
             else
               item.textContent = inputSolrId.textContent;
           });
-          addGlow(document.querySelector('.Page_solrId'));
+          addGlow(document.querySelector('.Guesser_Page_solrId'));
         }
 
         if(inputGuesserId) {
-          document.querySelectorAll('.Page_guesserId').forEach((item, index) => {
+          document.querySelectorAll('.Guesser_Page_guesserId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputGuesserId.getAttribute('value');
             else
               item.textContent = inputGuesserId.textContent;
           });
-          addGlow(document.querySelector('.Page_guesserId'));
+          addGlow(document.querySelector('.Guesser_Page_guesserId'));
         }
 
           pageGraphGuesser();
@@ -533,6 +585,22 @@ function searchGuesserFilters($formFilters) {
     if(filterDescription != null && filterDescription !== '')
       filters.push({ name: 'fq', value: 'description:' + filterDescription });
 
+    var filterSweetSixteenBrackets = $formFilters.querySelector('.valueSweetSixteenBrackets')?.value;
+    if(filterSweetSixteenBrackets != null && filterSweetSixteenBrackets !== '')
+      filters.push({ name: 'fq', value: 'sweetSixteenBrackets:' + filterSweetSixteenBrackets });
+
+    var filterEliteEightBrackets = $formFilters.querySelector('.valueEliteEightBrackets')?.value;
+    if(filterEliteEightBrackets != null && filterEliteEightBrackets !== '')
+      filters.push({ name: 'fq', value: 'eliteEightBrackets:' + filterEliteEightBrackets });
+
+    var filterFinalFourBrackets = $formFilters.querySelector('.valueFinalFourBrackets')?.value;
+    if(filterFinalFourBrackets != null && filterFinalFourBrackets !== '')
+      filters.push({ name: 'fq', value: 'finalFourBrackets:' + filterFinalFourBrackets });
+
+    var filterChampionshipBrackets = $formFilters.querySelector('.valueChampionshipBrackets')?.value;
+    if(filterChampionshipBrackets != null && filterChampionshipBrackets !== '')
+      filters.push({ name: 'fq', value: 'championshipBrackets:' + filterChampionshipBrackets });
+
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -612,6 +680,250 @@ function searchGuesserVals(filters, target, success, error) {
       }
     })
     .catch(response => error(response, target));
+}
+
+function suggestGuesserSweetSixteenBrackets(filters, $list, guesserId = null, sweetSixteenBrackets = null, relate=true, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var iTemplate = document.createElement('template');
+        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        var $i = iTemplate.content;
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
+        $a.setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        var inputVar = 'bracketId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (sweetSixteenBrackets != null && val === sweetSixteenBrackets.toString());
+        var $input = document.createElement('wa-checkbox');
+        $input.setAttribute('id', 'GET_sweetSixteenBrackets_' + guesserId + '_guesserId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
+        $input.setAttribute('class', 'valueSweetSixteenBrackets ');
+        if(guesserId != null) {
+          $input.addEventListener('change', function(event) {
+            patchGuesserVals([{ name: 'fq', value: 'guesserId:' + guesserId }], { [(event.target.checked ? 'add' : 'remove') + 'SweetSixteenBrackets']: o[inputVar] }
+                , target
+                , function(response, target) {
+                  addGlow(target);
+                  suggestGuesserSweetSixteenBrackets(filters, $list, guesserId, o[inputVar], relate, target);
+                }
+                , function(response, target) { addError(target); }
+            );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
+          });
+        }
+        if(checked)
+          $input.setAttribute('checked', 'checked');
+        var $li = document.createElement('li');
+        if(relate)
+          $li.append($input);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  if (typeof searchSweetSixteenVals === 'function') {
+    searchSweetSixteenVals(filters, target, success, error);
+  }
+}
+
+function suggestGuesserEliteEightBrackets(filters, $list, guesserId = null, eliteEightBrackets = null, relate=true, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var iTemplate = document.createElement('template');
+        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        var $i = iTemplate.content;
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
+        $a.setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        var inputVar = 'bracketId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (eliteEightBrackets != null && val === eliteEightBrackets.toString());
+        var $input = document.createElement('wa-checkbox');
+        $input.setAttribute('id', 'GET_eliteEightBrackets_' + guesserId + '_guesserId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
+        $input.setAttribute('class', 'valueEliteEightBrackets ');
+        if(guesserId != null) {
+          $input.addEventListener('change', function(event) {
+            patchGuesserVals([{ name: 'fq', value: 'guesserId:' + guesserId }], { [(event.target.checked ? 'add' : 'remove') + 'EliteEightBrackets']: o[inputVar] }
+                , target
+                , function(response, target) {
+                  addGlow(target);
+                  suggestGuesserEliteEightBrackets(filters, $list, guesserId, o[inputVar], relate, target);
+                }
+                , function(response, target) { addError(target); }
+            );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
+          });
+        }
+        if(checked)
+          $input.setAttribute('checked', 'checked');
+        var $li = document.createElement('li');
+        if(relate)
+          $li.append($input);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  if (typeof searchEliteEightVals === 'function') {
+    searchEliteEightVals(filters, target, success, error);
+  }
+}
+
+function suggestGuesserFinalFourBrackets(filters, $list, guesserId = null, finalFourBrackets = null, relate=true, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var iTemplate = document.createElement('template');
+        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        var $i = iTemplate.content;
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
+        $a.setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        var inputVar = 'bracketId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (finalFourBrackets != null && val === finalFourBrackets.toString());
+        var $input = document.createElement('wa-checkbox');
+        $input.setAttribute('id', 'GET_finalFourBrackets_' + guesserId + '_guesserId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
+        $input.setAttribute('class', 'valueFinalFourBrackets ');
+        if(guesserId != null) {
+          $input.addEventListener('change', function(event) {
+            patchGuesserVals([{ name: 'fq', value: 'guesserId:' + guesserId }], { [(event.target.checked ? 'add' : 'remove') + 'FinalFourBrackets']: o[inputVar] }
+                , target
+                , function(response, target) {
+                  addGlow(target);
+                  suggestGuesserFinalFourBrackets(filters, $list, guesserId, o[inputVar], relate, target);
+                }
+                , function(response, target) { addError(target); }
+            );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
+          });
+        }
+        if(checked)
+          $input.setAttribute('checked', 'checked');
+        var $li = document.createElement('li');
+        if(relate)
+          $li.append($input);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  if (typeof searchFinalFourVals === 'function') {
+    searchFinalFourVals(filters, target, success, error);
+  }
+}
+
+function suggestGuesserChampionshipBrackets(filters, $list, guesserId = null, championshipBrackets = null, relate=true, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var iTemplate = document.createElement('template');
+        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        var $i = iTemplate.content;
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $a = document.createElement('a');
+        $a.setAttribute('target', '_blank');
+        $a.setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        var inputVar = 'bracketId';
+        var val = o[inputVar];
+        var checked = val == null ? false : (championshipBrackets != null && val === championshipBrackets.toString());
+        var $input = document.createElement('wa-checkbox');
+        $input.setAttribute('id', 'GET_championshipBrackets_' + guesserId + '_guesserId_' + o[inputVar]);
+        $input.setAttribute('name', inputVar);
+        $input.setAttribute('data-target', target.getAttribute('id'));
+        $input.value = o[inputVar];
+        $input.setAttribute('class', 'valueChampionshipBrackets ');
+        if(guesserId != null) {
+          $input.addEventListener('change', function(event) {
+            patchGuesserVals([{ name: 'fq', value: 'guesserId:' + guesserId }], { [(event.target.checked ? 'add' : 'remove') + 'ChampionshipBrackets']: o[inputVar] }
+                , target
+                , function(response, target) {
+                  addGlow(target);
+                  suggestGuesserChampionshipBrackets(filters, $list, guesserId, o[inputVar], relate, target);
+                }
+                , function(response, target) { addError(target); }
+            );
+          });
+        } else {
+          $input.addEventListener('change', function(event) {
+            if(event.target.checked) {
+              target.value = event.target.value;
+            } else {
+              target.value = null;
+            }
+          });
+        }
+        if(checked)
+          $input.setAttribute('checked', 'checked');
+        var $li = document.createElement('li');
+        if(relate)
+          $li.append($input);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  if (typeof searchChampionshipVals === 'function') {
+    searchChampionshipVals(filters, target, success, error);
+  }
 }
 
 function suggestGuesserObjectSuggest($formFilters, $list, target) {
@@ -740,6 +1052,22 @@ async function patchGuesser($formFilters, $formValues, target, guesserId, succes
   var removeDescription = $formValues.querySelector('.removeDescription')?.value;
   if(removeDescription != null && removeDescription !== '')
     vals['removeDescription'] = removeDescription;
+
+  var valueSweetSixteenBrackets = (Array.from($formValues.querySelectorAll('.valueSweetSixteenBrackets')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueSweetSixteenBrackets != null && valueSweetSixteenBrackets !== '')
+    vals['addSweetSixteenBrackets'] = valueSweetSixteenBrackets;
+
+  var valueEliteEightBrackets = (Array.from($formValues.querySelectorAll('.valueEliteEightBrackets')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEliteEightBrackets != null && valueEliteEightBrackets !== '')
+    vals['addEliteEightBrackets'] = valueEliteEightBrackets;
+
+  var valueFinalFourBrackets = (Array.from($formValues.querySelectorAll('.valueFinalFourBrackets')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueFinalFourBrackets != null && valueFinalFourBrackets !== '')
+    vals['addFinalFourBrackets'] = valueFinalFourBrackets;
+
+  var valueChampionshipBrackets = (Array.from($formValues.querySelectorAll('.valueChampionshipBrackets')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueChampionshipBrackets != null && valueChampionshipBrackets !== '')
+    vals['addChampionshipBrackets'] = valueChampionshipBrackets;
 
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   var removeSessionId = $formValues.querySelector('.removeSessionId')?.value === 'true';
@@ -874,6 +1202,22 @@ function patchGuesserFilters($formFilters) {
     var filterDescription = $formFilters.querySelector('.valueDescription')?.value;
     if(filterDescription != null && filterDescription !== '')
       filters.push({ name: 'fq', value: 'description:' + filterDescription });
+
+    var filterSweetSixteenBrackets = $formFilters.querySelector('.valueSweetSixteenBrackets')?.value;
+    if(filterSweetSixteenBrackets != null && filterSweetSixteenBrackets !== '')
+      filters.push({ name: 'fq', value: 'sweetSixteenBrackets:' + filterSweetSixteenBrackets });
+
+    var filterEliteEightBrackets = $formFilters.querySelector('.valueEliteEightBrackets')?.value;
+    if(filterEliteEightBrackets != null && filterEliteEightBrackets !== '')
+      filters.push({ name: 'fq', value: 'eliteEightBrackets:' + filterEliteEightBrackets });
+
+    var filterFinalFourBrackets = $formFilters.querySelector('.valueFinalFourBrackets')?.value;
+    if(filterFinalFourBrackets != null && filterFinalFourBrackets !== '')
+      filters.push({ name: 'fq', value: 'finalFourBrackets:' + filterFinalFourBrackets });
+
+    var filterChampionshipBrackets = $formFilters.querySelector('.valueChampionshipBrackets')?.value;
+    if(filterChampionshipBrackets != null && filterChampionshipBrackets !== '')
+      filters.push({ name: 'fq', value: 'championshipBrackets:' + filterChampionshipBrackets });
 
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
@@ -1020,6 +1364,34 @@ async function postGuesser($formValues, target, success, error) {
   var valueDescription = $formValues.querySelector('.valueDescription')?.value;
   if(valueDescription != null && valueDescription !== '')
     vals['description'] = valueDescription;
+
+  var valueSweetSixteenBrackets = [];
+  $formValues.querySelectorAll('input.valueSweetSixteenBrackets:checked').forEach(function(index) {
+    valueSweetSixteenBrackets.push(this.value);
+  });
+  if(valueSweetSixteenBrackets.length > 0)
+    vals['sweetSixteenBrackets'] = valueSweetSixteenBrackets;
+
+  var valueEliteEightBrackets = [];
+  $formValues.querySelectorAll('input.valueEliteEightBrackets:checked').forEach(function(index) {
+    valueEliteEightBrackets.push(this.value);
+  });
+  if(valueEliteEightBrackets.length > 0)
+    vals['eliteEightBrackets'] = valueEliteEightBrackets;
+
+  var valueFinalFourBrackets = [];
+  $formValues.querySelectorAll('input.valueFinalFourBrackets:checked').forEach(function(index) {
+    valueFinalFourBrackets.push(this.value);
+  });
+  if(valueFinalFourBrackets.length > 0)
+    vals['finalFourBrackets'] = valueFinalFourBrackets;
+
+  var valueChampionshipBrackets = [];
+  $formValues.querySelectorAll('input.valueChampionshipBrackets:checked').forEach(function(index) {
+    valueChampionshipBrackets.push(this.value);
+  });
+  if(valueChampionshipBrackets.length > 0)
+    vals['championshipBrackets'] = valueChampionshipBrackets;
 
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   if(valueSessionId != null && valueSessionId !== '')

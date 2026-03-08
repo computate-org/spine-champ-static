@@ -27,6 +27,10 @@
     <script src="{{staticBaseUrl}}/js/en-us/search/guesser/Guesser.js"></script>
     <script type="module" src="{{staticBaseUrl}}/js/en-us/search/guesser/GuesserSearchPage.js"></script>
     <script type="module" src="{{staticBaseUrl}}/js/en-us/search/guesser/GuesserEditPage.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/sweet-sixteen/SweetSixteen.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/elite-eight/EliteEight.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/final-four/FinalFour.js"></script>
+    <script src="{{staticBaseUrl}}/js/en-us/search/championship/Championship.js"></script>
 {%- endblock htmScriptsGuesserPage %}
 {%- endblock htmScriptsPageLayout %}
 
@@ -145,6 +149,690 @@
           if(o)
             window.result = JSON.parse(o);
         {% if result.guesserId is defined %}
+          function relate_sweetSixteenBrackets(event) {
+            suggestGuesserSweetSixteenBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.sweetSixteenBrackets : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_PATCH_sweetSixteenBrackets')?.addEventListener('input', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_PATCH_sweetSixteenBrackets')?.addEventListener('focus', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_Page_sweetSixteenBrackets')?.addEventListener('input', relate_sweetSixteenBrackets);
+          document.querySelector('#Guesser_Page_sweetSixteenBrackets')?.addEventListener('focus', relate_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_guesserId')?.addEventListener('input', relate_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_guesserId')?.addEventListener('focus', relate_sweetSixteenBrackets);
+          if(window.result.sweetSixteenBrackets) {
+          {% if "PATCH" in scopes -%}
+            {{'  '}}suggestGuesserSweetSixteenBrackets([{'name':'fq','value':'guesserId:' + window.result.sweetSixteenBrackets}], document.querySelector('#listGuesserSweetSixteenBrackets_Page'), window.result.guesserId, window.result.sweetSixteenBrackets, true, document.getElementById('Guesser_Page_sweetSixteenBrackets'));
+          {% else -%}
+          {% if "GET" in scopes -%}
+            {{'  '}}suggestGuesserSweetSixteenBrackets([{'name':'fq','value':'guesserId:' + window.result.sweetSixteenBrackets}], document.querySelector('#listGuesserSweetSixteenBrackets_Page'), window.result.guesserId, window.result.sweetSixteenBrackets, true, document.getElementById('Guesser_Page_sweetSixteenBrackets'));
+          {% else -%}
+            {{'  '}}suggestGuesserSweetSixteenBrackets([{'name':'fq','value':'guesserId:' + window.result.sweetSixteenBrackets}], document.querySelector('#listGuesserSweetSixteenBrackets_Page'), window.result.guesserId, window.result.sweetSixteenBrackets, false, document.getElementById('Guesser_Page_sweetSixteenBrackets'));
+          {% endif -%}
+          {% endif -%}
+          }
+          function SweetSixteen_POST_guesserId_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_guesserId_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_guesserId_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_guesserId_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_guesserId_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_guesserId_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_southGame1Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenSouthGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame1Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_southGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_southGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_southGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_southGame1Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenSouthGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame1Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_southGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_southGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_southGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_southGame2Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenSouthGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame2Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_southGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_southGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_southGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_southGame2Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenSouthGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_southGame2Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_southGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_southGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_southGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_southGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_westGame1Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenWestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame1Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_westGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_westGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_westGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_westGame1Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenWestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame1Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_westGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_westGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_westGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_westGame2Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenWestGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame2Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_westGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_westGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_westGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_westGame2Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenWestGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_westGame2Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_westGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_westGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_westGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_westGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_eastGame1Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenEastGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame1Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_eastGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_eastGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_eastGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_eastGame1Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenEastGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame1Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_eastGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_eastGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_eastGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_eastGame2Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenEastGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame2Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_eastGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_eastGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_eastGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_eastGame2Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenEastGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eastGame2Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eastGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_eastGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_eastGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_eastGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_midwestGame1Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenMidwestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame1Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_midwestGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_midwestGame1Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_midwestGame1Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_midwestGame1Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenMidwestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame1Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_midwestGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_midwestGame1Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_midwestGame1Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_midwestGame2Winner_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenMidwestGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame2Winner : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame2Winner_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_midwestGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_midwestGame2Winner_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_midwestGame2Winner_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_midwestGame2Loser_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenMidwestGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame2Loser : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_midwestGame2Loser_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_midwestGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_midwestGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_midwestGame2Loser_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_midwestGame2Loser_Guesser_POST_sweetSixteenBrackets);
+          function SweetSixteen_POST_eliteEight_Guesser_POST_sweetSixteenBrackets(event) {
+            suggestSweetSixteenEliteEight(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
+                , true
+                , document.querySelector('#SweetSixteen_POST_eliteEight_Guesser_POST_sweetSixteenBrackets')
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eliteEight_Guesser_POST_sweetSixteenBrackets')?.addEventListener('input', SweetSixteen_POST_eliteEight_Guesser_POST_sweetSixteenBrackets);
+          document.querySelector('#SweetSixteen_POST_eliteEight_Guesser_POST_sweetSixteenBrackets')?.addEventListener('focus', SweetSixteen_POST_eliteEight_Guesser_POST_sweetSixteenBrackets);
+          function relate_eliteEightBrackets(event) {
+            suggestGuesserEliteEightBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEightBrackets : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#Guesser_POST_eliteEightBrackets')?.addEventListener('input', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_POST_eliteEightBrackets')?.addEventListener('focus', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_PATCH_eliteEightBrackets')?.addEventListener('input', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_PATCH_eliteEightBrackets')?.addEventListener('focus', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_Page_eliteEightBrackets')?.addEventListener('input', relate_eliteEightBrackets);
+          document.querySelector('#Guesser_Page_eliteEightBrackets')?.addEventListener('focus', relate_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_guesserId')?.addEventListener('input', relate_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_guesserId')?.addEventListener('focus', relate_eliteEightBrackets);
+          if(window.result.eliteEightBrackets) {
+          {% if "PATCH" in scopes -%}
+            {{'  '}}suggestGuesserEliteEightBrackets([{'name':'fq','value':'guesserId:' + window.result.eliteEightBrackets}], document.querySelector('#listGuesserEliteEightBrackets_Page'), window.result.guesserId, window.result.eliteEightBrackets, true, document.getElementById('Guesser_Page_eliteEightBrackets'));
+          {% else -%}
+          {% if "GET" in scopes -%}
+            {{'  '}}suggestGuesserEliteEightBrackets([{'name':'fq','value':'guesserId:' + window.result.eliteEightBrackets}], document.querySelector('#listGuesserEliteEightBrackets_Page'), window.result.guesserId, window.result.eliteEightBrackets, true, document.getElementById('Guesser_Page_eliteEightBrackets'));
+          {% else -%}
+            {{'  '}}suggestGuesserEliteEightBrackets([{'name':'fq','value':'guesserId:' + window.result.eliteEightBrackets}], document.querySelector('#listGuesserEliteEightBrackets_Page'), window.result.guesserId, window.result.eliteEightBrackets, false, document.getElementById('Guesser_Page_eliteEightBrackets'));
+          {% endif -%}
+          {% endif -%}
+          }
+          function EliteEight_POST_sweetSixteen_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightSweetSixteen(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.sweetSixteen : null
+                , true
+                , document.querySelector('#EliteEight_POST_sweetSixteen_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_sweetSixteen_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_sweetSixteen_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_sweetSixteen_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_sweetSixteen_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_guesserId_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#EliteEight_POST_guesserId_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_guesserId_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_guesserId_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_guesserId_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_guesserId_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_southGame1Winner_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightSouthGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_southGame1Winner_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_southGame1Winner_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_southGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_southGame1Winner_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_southGame1Loser_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightSouthGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_southGame1Loser_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_southGame1Loser_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_southGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_southGame1Loser_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_westGame1Winner_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightWestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_westGame1Winner_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_westGame1Winner_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_westGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_westGame1Winner_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_westGame1Loser_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightWestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_westGame1Loser_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_westGame1Loser_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_westGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_westGame1Loser_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_eastGame1Winner_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightEastGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_eastGame1Winner_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_eastGame1Winner_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_eastGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_eastGame1Winner_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_eastGame1Loser_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightEastGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_eastGame1Loser_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_eastGame1Loser_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_eastGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_eastGame1Loser_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_midwestGame1Winner_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightMidwestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_midwestGame1Winner_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_midwestGame1Winner_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_midwestGame1Winner_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_midwestGame1Winner_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_midwestGame1Loser_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightMidwestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_midwestGame1Loser_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_midwestGame1Loser_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_midwestGame1Loser_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_midwestGame1Loser_Guesser_POST_eliteEightBrackets);
+          function EliteEight_POST_finalFour_Guesser_POST_eliteEightBrackets(event) {
+            suggestEliteEightFinalFour(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFour : null
+                , true
+                , document.querySelector('#EliteEight_POST_finalFour_Guesser_POST_eliteEightBrackets')
+                );
+          }
+          document.querySelector('#EliteEight_POST_finalFour_Guesser_POST_eliteEightBrackets')?.addEventListener('input', EliteEight_POST_finalFour_Guesser_POST_eliteEightBrackets);
+          document.querySelector('#EliteEight_POST_finalFour_Guesser_POST_eliteEightBrackets')?.addEventListener('focus', EliteEight_POST_finalFour_Guesser_POST_eliteEightBrackets);
+          function relate_finalFourBrackets(event) {
+            suggestGuesserFinalFourBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFourBrackets : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#Guesser_POST_finalFourBrackets')?.addEventListener('input', relate_finalFourBrackets);
+          document.querySelector('#Guesser_POST_finalFourBrackets')?.addEventListener('focus', relate_finalFourBrackets);
+          document.querySelector('#Guesser_PATCH_finalFourBrackets')?.addEventListener('input', relate_finalFourBrackets);
+          document.querySelector('#Guesser_PATCH_finalFourBrackets')?.addEventListener('focus', relate_finalFourBrackets);
+          document.querySelector('#Guesser_Page_finalFourBrackets')?.addEventListener('input', relate_finalFourBrackets);
+          document.querySelector('#Guesser_Page_finalFourBrackets')?.addEventListener('focus', relate_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_guesserId')?.addEventListener('input', relate_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_guesserId')?.addEventListener('focus', relate_finalFourBrackets);
+          if(window.result.finalFourBrackets) {
+          {% if "PATCH" in scopes -%}
+            {{'  '}}suggestGuesserFinalFourBrackets([{'name':'fq','value':'guesserId:' + window.result.finalFourBrackets}], document.querySelector('#listGuesserFinalFourBrackets_Page'), window.result.guesserId, window.result.finalFourBrackets, true, document.getElementById('Guesser_Page_finalFourBrackets'));
+          {% else -%}
+          {% if "GET" in scopes -%}
+            {{'  '}}suggestGuesserFinalFourBrackets([{'name':'fq','value':'guesserId:' + window.result.finalFourBrackets}], document.querySelector('#listGuesserFinalFourBrackets_Page'), window.result.guesserId, window.result.finalFourBrackets, true, document.getElementById('Guesser_Page_finalFourBrackets'));
+          {% else -%}
+            {{'  '}}suggestGuesserFinalFourBrackets([{'name':'fq','value':'guesserId:' + window.result.finalFourBrackets}], document.querySelector('#listGuesserFinalFourBrackets_Page'), window.result.guesserId, window.result.finalFourBrackets, false, document.getElementById('Guesser_Page_finalFourBrackets'));
+          {% endif -%}
+          {% endif -%}
+          }
+          function FinalFour_POST_guesserId_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#FinalFour_POST_guesserId_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_guesserId_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_guesserId_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_guesserId_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_guesserId_Guesser_POST_finalFourBrackets);
+          function FinalFour_POST_game1Winner_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Winner : null
+                , true
+                , document.querySelector('#FinalFour_POST_game1Winner_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Winner_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_game1Winner_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_game1Winner_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_game1Winner_Guesser_POST_finalFourBrackets);
+          function FinalFour_POST_game1Loser_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Loser : null
+                , true
+                , document.querySelector('#FinalFour_POST_game1Loser_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game1Loser_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_game1Loser_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_game1Loser_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_game1Loser_Guesser_POST_finalFourBrackets);
+          function FinalFour_POST_game2Winner_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourGame2Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Winner : null
+                , true
+                , document.querySelector('#FinalFour_POST_game2Winner_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Winner_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_game2Winner_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_game2Winner_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_game2Winner_Guesser_POST_finalFourBrackets);
+          function FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourGame2Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game2Loser : null
+                , true
+                , document.querySelector('#FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets);
+          function FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourEliteEight(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
+                , true
+                , document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets);
+          function FinalFour_POST_championship_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourChampionship(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.championship : null
+                , true
+                , document.querySelector('#FinalFour_POST_championship_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_championship_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_championship_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_championship_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_championship_Guesser_POST_finalFourBrackets);
+          function relate_championshipBrackets(event) {
+            suggestGuesserChampionshipBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.championshipBrackets : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#Guesser_POST_championshipBrackets')?.addEventListener('input', relate_championshipBrackets);
+          document.querySelector('#Guesser_POST_championshipBrackets')?.addEventListener('focus', relate_championshipBrackets);
+          document.querySelector('#Guesser_PATCH_championshipBrackets')?.addEventListener('input', relate_championshipBrackets);
+          document.querySelector('#Guesser_PATCH_championshipBrackets')?.addEventListener('focus', relate_championshipBrackets);
+          document.querySelector('#Guesser_Page_championshipBrackets')?.addEventListener('input', relate_championshipBrackets);
+          document.querySelector('#Guesser_Page_championshipBrackets')?.addEventListener('focus', relate_championshipBrackets);
+          document.querySelector('#Championship_POST_guesserId')?.addEventListener('input', relate_championshipBrackets);
+          document.querySelector('#Championship_POST_guesserId')?.addEventListener('focus', relate_championshipBrackets);
+          if(window.result.championshipBrackets) {
+          {% if "PATCH" in scopes -%}
+            {{'  '}}suggestGuesserChampionshipBrackets([{'name':'fq','value':'guesserId:' + window.result.championshipBrackets}], document.querySelector('#listGuesserChampionshipBrackets_Page'), window.result.guesserId, window.result.championshipBrackets, true, document.getElementById('Guesser_Page_championshipBrackets'));
+          {% else -%}
+          {% if "GET" in scopes -%}
+            {{'  '}}suggestGuesserChampionshipBrackets([{'name':'fq','value':'guesserId:' + window.result.championshipBrackets}], document.querySelector('#listGuesserChampionshipBrackets_Page'), window.result.guesserId, window.result.championshipBrackets, true, document.getElementById('Guesser_Page_championshipBrackets'));
+          {% else -%}
+            {{'  '}}suggestGuesserChampionshipBrackets([{'name':'fq','value':'guesserId:' + window.result.championshipBrackets}], document.querySelector('#listGuesserChampionshipBrackets_Page'), window.result.guesserId, window.result.championshipBrackets, false, document.getElementById('Guesser_Page_championshipBrackets'));
+          {% endif -%}
+          {% endif -%}
+          }
+          function Championship_POST_finalFour_Guesser_POST_championshipBrackets(event) {
+            suggestChampionshipFinalFour(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFour : null
+                , true
+                , document.querySelector('#Championship_POST_finalFour_Guesser_POST_championshipBrackets')
+                );
+          }
+          document.querySelector('#Championship_POST_finalFour_Guesser_POST_championshipBrackets')?.addEventListener('input', Championship_POST_finalFour_Guesser_POST_championshipBrackets);
+          document.querySelector('#Championship_POST_finalFour_Guesser_POST_championshipBrackets')?.addEventListener('focus', Championship_POST_finalFour_Guesser_POST_championshipBrackets);
+          function Championship_POST_guesserId_Guesser_POST_championshipBrackets(event) {
+            suggestChampionshipGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#Championship_POST_guesserId_Guesser_POST_championshipBrackets')
+                );
+          }
+          document.querySelector('#Championship_POST_guesserId_Guesser_POST_championshipBrackets')?.addEventListener('input', Championship_POST_guesserId_Guesser_POST_championshipBrackets);
+          document.querySelector('#Championship_POST_guesserId_Guesser_POST_championshipBrackets')?.addEventListener('focus', Championship_POST_guesserId_Guesser_POST_championshipBrackets);
+          function Championship_POST_game1Winner_Guesser_POST_championshipBrackets(event) {
+            suggestChampionshipGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Winner : null
+                , true
+                , document.querySelector('#Championship_POST_game1Winner_Guesser_POST_championshipBrackets')
+                );
+          }
+          document.querySelector('#Championship_POST_game1Winner_Guesser_POST_championshipBrackets')?.addEventListener('input', Championship_POST_game1Winner_Guesser_POST_championshipBrackets);
+          document.querySelector('#Championship_POST_game1Winner_Guesser_POST_championshipBrackets')?.addEventListener('focus', Championship_POST_game1Winner_Guesser_POST_championshipBrackets);
+          function Championship_POST_game1Loser_Guesser_POST_championshipBrackets(event) {
+            suggestChampionshipGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.game1Loser : null
+                , true
+                , document.querySelector('#Championship_POST_game1Loser_Guesser_POST_championshipBrackets')
+                );
+          }
+          document.querySelector('#Championship_POST_game1Loser_Guesser_POST_championshipBrackets')?.addEventListener('input', Championship_POST_game1Loser_Guesser_POST_championshipBrackets);
+          document.querySelector('#Championship_POST_game1Loser_Guesser_POST_championshipBrackets')?.addEventListener('focus', Championship_POST_game1Loser_Guesser_POST_championshipBrackets);
         {% endif %}
         }
         var l = document.querySelector('.pageForm .listGuesser')?.value;
@@ -237,6 +925,42 @@
           event.preventDefault();
           deletefilterGuesser(event.target);
           return false;
+        });
+
+        document.querySelector('#htmFormButton_postSweetSixteen')?.addEventListener('click', event => {
+          event.preventDefault();
+          postSweetSixteen(document.querySelector('#htmForm_postSweetSixteen')
+              , document.querySelector('#htmFormButton_postSweetSixteen')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postEliteEight')?.addEventListener('click', event => {
+          event.preventDefault();
+          postEliteEight(document.querySelector('#htmForm_postEliteEight')
+              , document.querySelector('#htmFormButton_postEliteEight')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postFinalFour')?.addEventListener('click', event => {
+          event.preventDefault();
+          postFinalFour(document.querySelector('#htmForm_postFinalFour')
+              , document.querySelector('#htmFormButton_postFinalFour')
+              , (json, target) => {
+                addGlow(target);
+              });
+        });
+
+        document.querySelector('#htmFormButton_postChampionship')?.addEventListener('click', event => {
+          event.preventDefault();
+          postChampionship(document.querySelector('#htmForm_postChampionship')
+              , document.querySelector('#htmFormButton_postChampionship')
+              , (json, target) => {
+                addGlow(target);
+              });
         });
 {%- block htmScriptInitGuesserPage %}{%- endblock htmScriptInitGuesserPage %}
       });

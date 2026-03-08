@@ -85,12 +85,16 @@ async function websocketEliteEightInner(apiRequest) {
         var inputSweetSixteen = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputSouthGame1WinnerGuess = null;
         var inputSouthGame1Winner = null;
         var inputSouthGame1Loser = null;
+        var inputWestGame1WinnerGuess = null;
         var inputWestGame1Winner = null;
         var inputWestGame1Loser = null;
+        var inputEastGame1WinnerGuess = null;
         var inputEastGame1Winner = null;
         var inputEastGame1Loser = null;
+        var inputMidwestGame1WinnerGuess = null;
         var inputMidwestGame1Winner = null;
         var inputMidwestGame1Loser = null;
         var inputFinalFour = null;
@@ -108,73 +112,87 @@ async function websocketEliteEightInner(apiRequest) {
         var inputObjectSuggest = null;
         var inputObjectText = null;
         var inputSolrId = null;
+        var inputActualSweetSixteen = null;
+        var inputActualEliteEight = null;
         var inputBracketId = null;
         var inputName = null;
 
         if(vars.includes('pk'))
-          inputPk = $response.querySelector('.Page_pk');
+          inputPk = $response.querySelector('.EliteEight_Page_pk');
         if(vars.includes('created'))
-          inputCreated = $response.querySelector('.Page_created');
+          inputCreated = $response.querySelector('.EliteEight_Page_created');
         if(vars.includes('modified'))
-          inputModified = $response.querySelector('.Page_modified');
+          inputModified = $response.querySelector('.EliteEight_Page_modified');
         if(vars.includes('archived'))
-          inputArchived = $response.querySelector('.Page_archived');
+          inputArchived = $response.querySelector('.EliteEight_Page_archived');
         if(vars.includes('sweetSixteen'))
-          inputSweetSixteen = $response.querySelector('.Page_sweetSixteen');
+          inputSweetSixteen = $response.querySelector('.EliteEight_Page_sweetSixteen');
         if(vars.includes('guesserId'))
-          inputGuesserId = $response.querySelector('.Page_guesserId');
+          inputGuesserId = $response.querySelector('.EliteEight_Page_guesserId');
         if(vars.includes('year'))
-          inputYear = $response.querySelector('.Page_year');
+          inputYear = $response.querySelector('.EliteEight_Page_year');
+        if(vars.includes('southGame1WinnerGuess'))
+          inputSouthGame1WinnerGuess = $response.querySelector('.EliteEight_Page_southGame1WinnerGuess');
         if(vars.includes('southGame1Winner'))
-          inputSouthGame1Winner = $response.querySelector('.Page_southGame1Winner');
+          inputSouthGame1Winner = $response.querySelector('.EliteEight_Page_southGame1Winner');
         if(vars.includes('southGame1Loser'))
-          inputSouthGame1Loser = $response.querySelector('.Page_southGame1Loser');
+          inputSouthGame1Loser = $response.querySelector('.EliteEight_Page_southGame1Loser');
+        if(vars.includes('westGame1WinnerGuess'))
+          inputWestGame1WinnerGuess = $response.querySelector('.EliteEight_Page_westGame1WinnerGuess');
         if(vars.includes('westGame1Winner'))
-          inputWestGame1Winner = $response.querySelector('.Page_westGame1Winner');
+          inputWestGame1Winner = $response.querySelector('.EliteEight_Page_westGame1Winner');
         if(vars.includes('westGame1Loser'))
-          inputWestGame1Loser = $response.querySelector('.Page_westGame1Loser');
+          inputWestGame1Loser = $response.querySelector('.EliteEight_Page_westGame1Loser');
+        if(vars.includes('eastGame1WinnerGuess'))
+          inputEastGame1WinnerGuess = $response.querySelector('.EliteEight_Page_eastGame1WinnerGuess');
         if(vars.includes('eastGame1Winner'))
-          inputEastGame1Winner = $response.querySelector('.Page_eastGame1Winner');
+          inputEastGame1Winner = $response.querySelector('.EliteEight_Page_eastGame1Winner');
         if(vars.includes('eastGame1Loser'))
-          inputEastGame1Loser = $response.querySelector('.Page_eastGame1Loser');
+          inputEastGame1Loser = $response.querySelector('.EliteEight_Page_eastGame1Loser');
+        if(vars.includes('midwestGame1WinnerGuess'))
+          inputMidwestGame1WinnerGuess = $response.querySelector('.EliteEight_Page_midwestGame1WinnerGuess');
         if(vars.includes('midwestGame1Winner'))
-          inputMidwestGame1Winner = $response.querySelector('.Page_midwestGame1Winner');
+          inputMidwestGame1Winner = $response.querySelector('.EliteEight_Page_midwestGame1Winner');
         if(vars.includes('midwestGame1Loser'))
-          inputMidwestGame1Loser = $response.querySelector('.Page_midwestGame1Loser');
+          inputMidwestGame1Loser = $response.querySelector('.EliteEight_Page_midwestGame1Loser');
         if(vars.includes('finalFour'))
-          inputFinalFour = $response.querySelector('.Page_finalFour');
+          inputFinalFour = $response.querySelector('.EliteEight_Page_finalFour');
         if(vars.includes('classCanonicalName'))
-          inputClassCanonicalName = $response.querySelector('.Page_classCanonicalName');
+          inputClassCanonicalName = $response.querySelector('.EliteEight_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
-          inputClassSimpleName = $response.querySelector('.Page_classSimpleName');
+          inputClassSimpleName = $response.querySelector('.EliteEight_Page_classSimpleName');
         if(vars.includes('classCanonicalNames'))
-          inputClassCanonicalNames = $response.querySelector('.Page_classCanonicalNames');
+          inputClassCanonicalNames = $response.querySelector('.EliteEight_Page_classCanonicalNames');
         if(vars.includes('sessionId'))
-          inputSessionId = $response.querySelector('.Page_sessionId');
+          inputSessionId = $response.querySelector('.EliteEight_Page_sessionId');
         if(vars.includes('userKey'))
-          inputUserKey = $response.querySelector('.Page_userKey');
+          inputUserKey = $response.querySelector('.EliteEight_Page_userKey');
         if(vars.includes('saves'))
-          inputSaves = $response.querySelector('.Page_saves');
+          inputSaves = $response.querySelector('.EliteEight_Page_saves');
         if(vars.includes('objectTitle'))
-          inputObjectTitle = $response.querySelector('.Page_objectTitle');
+          inputObjectTitle = $response.querySelector('.EliteEight_Page_objectTitle');
         if(vars.includes('displayPage'))
-          inputDisplayPage = $response.querySelector('.Page_displayPage');
+          inputDisplayPage = $response.querySelector('.EliteEight_Page_displayPage');
         if(vars.includes('editPage'))
-          inputEditPage = $response.querySelector('.Page_editPage');
+          inputEditPage = $response.querySelector('.EliteEight_Page_editPage');
         if(vars.includes('userPage'))
-          inputUserPage = $response.querySelector('.Page_userPage');
+          inputUserPage = $response.querySelector('.EliteEight_Page_userPage');
         if(vars.includes('download'))
-          inputDownload = $response.querySelector('.Page_download');
+          inputDownload = $response.querySelector('.EliteEight_Page_download');
         if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.Page_objectSuggest');
+          inputObjectSuggest = $response.querySelector('.EliteEight_Page_objectSuggest');
         if(vars.includes('objectText'))
-          inputObjectText = $response.querySelector('.Page_objectText');
+          inputObjectText = $response.querySelector('.EliteEight_Page_objectText');
         if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.Page_solrId');
+          inputSolrId = $response.querySelector('.EliteEight_Page_solrId');
+        if(vars.includes('actualSweetSixteen'))
+          inputActualSweetSixteen = $response.querySelector('.EliteEight_Page_actualSweetSixteen');
+        if(vars.includes('actualEliteEight'))
+          inputActualEliteEight = $response.querySelector('.EliteEight_Page_actualEliteEight');
         if(vars.includes('bracketId'))
-          inputBracketId = $response.querySelector('.Page_bracketId');
+          inputBracketId = $response.querySelector('.EliteEight_Page_bracketId');
         if(vars.includes('name'))
-          inputName = $response.querySelector('.Page_name');
+          inputName = $response.querySelector('.EliteEight_Page_name');
 
         jsWebsocketEliteEight(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -182,323 +200,383 @@ async function websocketEliteEightInner(apiRequest) {
 
 
         if(inputPk) {
-          document.querySelectorAll('.Page_pk').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_pk').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputPk.getAttribute('value');
             else
               item.textContent = inputPk.textContent;
           });
-          addGlow(document.querySelector('.Page_pk'));
+          addGlow(document.querySelector('.EliteEight_Page_pk'));
         }
 
         if(inputCreated) {
-          document.querySelectorAll('.Page_created').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_created').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputCreated.getAttribute('value');
             else
               item.textContent = inputCreated.textContent;
           });
-          addGlow(document.querySelector('.Page_created'));
+          addGlow(document.querySelector('.EliteEight_Page_created'));
         }
 
         if(inputModified) {
-          document.querySelectorAll('.Page_modified').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_modified').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputModified.getAttribute('value');
             else
               item.textContent = inputModified.textContent;
           });
-          addGlow(document.querySelector('.Page_modified'));
+          addGlow(document.querySelector('.EliteEight_Page_modified'));
         }
 
         if(inputArchived) {
-          document.querySelectorAll('.Page_archived').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_archived').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputArchived.getAttribute('value');
             else
               item.textContent = inputArchived.textContent;
           });
-          addGlow(document.querySelector('.Page_archived'));
+          addGlow(document.querySelector('.EliteEight_Page_archived'));
         }
 
         if(inputSweetSixteen) {
-          document.querySelectorAll('.Page_sweetSixteen').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_sweetSixteen').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSweetSixteen.getAttribute('value');
             else
               item.textContent = inputSweetSixteen.textContent;
           });
-          addGlow(document.querySelector('.Page_sweetSixteen'));
+          addGlow(document.querySelector('.EliteEight_Page_sweetSixteen'));
         }
 
         if(inputGuesserId) {
-          document.querySelectorAll('.Page_guesserId').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_guesserId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputGuesserId.getAttribute('value');
             else
               item.textContent = inputGuesserId.textContent;
           });
-          addGlow(document.querySelector('.Page_guesserId'));
+          addGlow(document.querySelector('.EliteEight_Page_guesserId'));
         }
 
         if(inputYear) {
-          document.querySelectorAll('.Page_year').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_year').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputYear.getAttribute('value');
             else
               item.textContent = inputYear.textContent;
           });
-          addGlow(document.querySelector('.Page_year'));
+          addGlow(document.querySelector('.EliteEight_Page_year'));
+        }
+
+        if(inputSouthGame1WinnerGuess) {
+          document.querySelectorAll('.EliteEight_Page_southGame1WinnerGuess').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSouthGame1WinnerGuess.getAttribute('value');
+            else
+              item.textContent = inputSouthGame1WinnerGuess.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_southGame1WinnerGuess'));
         }
 
         if(inputSouthGame1Winner) {
-          document.querySelectorAll('.Page_southGame1Winner').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_southGame1Winner').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSouthGame1Winner.getAttribute('value');
             else
               item.textContent = inputSouthGame1Winner.textContent;
           });
-          addGlow(document.querySelector('.Page_southGame1Winner'));
+          addGlow(document.querySelector('.EliteEight_Page_southGame1Winner'));
         }
 
         if(inputSouthGame1Loser) {
-          document.querySelectorAll('.Page_southGame1Loser').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_southGame1Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSouthGame1Loser.getAttribute('value');
             else
               item.textContent = inputSouthGame1Loser.textContent;
           });
-          addGlow(document.querySelector('.Page_southGame1Loser'));
+          addGlow(document.querySelector('.EliteEight_Page_southGame1Loser'));
+        }
+
+        if(inputWestGame1WinnerGuess) {
+          document.querySelectorAll('.EliteEight_Page_westGame1WinnerGuess').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputWestGame1WinnerGuess.getAttribute('value');
+            else
+              item.textContent = inputWestGame1WinnerGuess.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_westGame1WinnerGuess'));
         }
 
         if(inputWestGame1Winner) {
-          document.querySelectorAll('.Page_westGame1Winner').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_westGame1Winner').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputWestGame1Winner.getAttribute('value');
             else
               item.textContent = inputWestGame1Winner.textContent;
           });
-          addGlow(document.querySelector('.Page_westGame1Winner'));
+          addGlow(document.querySelector('.EliteEight_Page_westGame1Winner'));
         }
 
         if(inputWestGame1Loser) {
-          document.querySelectorAll('.Page_westGame1Loser').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_westGame1Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputWestGame1Loser.getAttribute('value');
             else
               item.textContent = inputWestGame1Loser.textContent;
           });
-          addGlow(document.querySelector('.Page_westGame1Loser'));
+          addGlow(document.querySelector('.EliteEight_Page_westGame1Loser'));
+        }
+
+        if(inputEastGame1WinnerGuess) {
+          document.querySelectorAll('.EliteEight_Page_eastGame1WinnerGuess').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputEastGame1WinnerGuess.getAttribute('value');
+            else
+              item.textContent = inputEastGame1WinnerGuess.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_eastGame1WinnerGuess'));
         }
 
         if(inputEastGame1Winner) {
-          document.querySelectorAll('.Page_eastGame1Winner').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_eastGame1Winner').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputEastGame1Winner.getAttribute('value');
             else
               item.textContent = inputEastGame1Winner.textContent;
           });
-          addGlow(document.querySelector('.Page_eastGame1Winner'));
+          addGlow(document.querySelector('.EliteEight_Page_eastGame1Winner'));
         }
 
         if(inputEastGame1Loser) {
-          document.querySelectorAll('.Page_eastGame1Loser').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_eastGame1Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputEastGame1Loser.getAttribute('value');
             else
               item.textContent = inputEastGame1Loser.textContent;
           });
-          addGlow(document.querySelector('.Page_eastGame1Loser'));
+          addGlow(document.querySelector('.EliteEight_Page_eastGame1Loser'));
+        }
+
+        if(inputMidwestGame1WinnerGuess) {
+          document.querySelectorAll('.EliteEight_Page_midwestGame1WinnerGuess').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputMidwestGame1WinnerGuess.getAttribute('value');
+            else
+              item.textContent = inputMidwestGame1WinnerGuess.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_midwestGame1WinnerGuess'));
         }
 
         if(inputMidwestGame1Winner) {
-          document.querySelectorAll('.Page_midwestGame1Winner').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_midwestGame1Winner').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputMidwestGame1Winner.getAttribute('value');
             else
               item.textContent = inputMidwestGame1Winner.textContent;
           });
-          addGlow(document.querySelector('.Page_midwestGame1Winner'));
+          addGlow(document.querySelector('.EliteEight_Page_midwestGame1Winner'));
         }
 
         if(inputMidwestGame1Loser) {
-          document.querySelectorAll('.Page_midwestGame1Loser').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_midwestGame1Loser').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputMidwestGame1Loser.getAttribute('value');
             else
               item.textContent = inputMidwestGame1Loser.textContent;
           });
-          addGlow(document.querySelector('.Page_midwestGame1Loser'));
+          addGlow(document.querySelector('.EliteEight_Page_midwestGame1Loser'));
         }
 
         if(inputFinalFour) {
-          document.querySelectorAll('.Page_finalFour').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_finalFour').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputFinalFour.getAttribute('value');
             else
               item.textContent = inputFinalFour.textContent;
           });
-          addGlow(document.querySelector('.Page_finalFour'));
+          addGlow(document.querySelector('.EliteEight_Page_finalFour'));
         }
 
         if(inputClassCanonicalName) {
-          document.querySelectorAll('.Page_classCanonicalName').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_classCanonicalName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassCanonicalName.getAttribute('value');
             else
               item.textContent = inputClassCanonicalName.textContent;
           });
-          addGlow(document.querySelector('.Page_classCanonicalName'));
+          addGlow(document.querySelector('.EliteEight_Page_classCanonicalName'));
         }
 
         if(inputClassSimpleName) {
-          document.querySelectorAll('.Page_classSimpleName').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_classSimpleName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassSimpleName.getAttribute('value');
             else
               item.textContent = inputClassSimpleName.textContent;
           });
-          addGlow(document.querySelector('.Page_classSimpleName'));
+          addGlow(document.querySelector('.EliteEight_Page_classSimpleName'));
         }
 
         if(inputClassCanonicalNames) {
-          document.querySelectorAll('.Page_classCanonicalNames').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_classCanonicalNames').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassCanonicalNames.getAttribute('value');
             else
               item.textContent = inputClassCanonicalNames.textContent;
           });
-          addGlow(document.querySelector('.Page_classCanonicalNames'));
+          addGlow(document.querySelector('.EliteEight_Page_classCanonicalNames'));
         }
 
         if(inputSessionId) {
-          document.querySelectorAll('.Page_sessionId').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_sessionId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSessionId.getAttribute('value');
             else
               item.textContent = inputSessionId.textContent;
           });
-          addGlow(document.querySelector('.Page_sessionId'));
+          addGlow(document.querySelector('.EliteEight_Page_sessionId'));
         }
 
         if(inputUserKey) {
-          document.querySelectorAll('.Page_userKey').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_userKey').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputUserKey.getAttribute('value');
             else
               item.textContent = inputUserKey.textContent;
           });
-          addGlow(document.querySelector('.Page_userKey'));
+          addGlow(document.querySelector('.EliteEight_Page_userKey'));
         }
 
         if(inputSaves) {
-          document.querySelectorAll('.Page_saves').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_saves').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSaves.getAttribute('value');
             else
               item.textContent = inputSaves.textContent;
           });
-          addGlow(document.querySelector('.Page_saves'));
+          addGlow(document.querySelector('.EliteEight_Page_saves'));
         }
 
         if(inputObjectTitle) {
-          document.querySelectorAll('.Page_objectTitle').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_objectTitle').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectTitle.getAttribute('value');
             else
               item.textContent = inputObjectTitle.textContent;
           });
-          addGlow(document.querySelector('.Page_objectTitle'));
+          addGlow(document.querySelector('.EliteEight_Page_objectTitle'));
         }
 
         if(inputDisplayPage) {
-          document.querySelectorAll('.Page_displayPage').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_displayPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDisplayPage.getAttribute('value');
             else
               item.textContent = inputDisplayPage.textContent;
           });
-          addGlow(document.querySelector('.Page_displayPage'));
+          addGlow(document.querySelector('.EliteEight_Page_displayPage'));
         }
 
         if(inputEditPage) {
-          document.querySelectorAll('.Page_editPage').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_editPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputEditPage.getAttribute('value');
             else
               item.textContent = inputEditPage.textContent;
           });
-          addGlow(document.querySelector('.Page_editPage'));
+          addGlow(document.querySelector('.EliteEight_Page_editPage'));
         }
 
         if(inputUserPage) {
-          document.querySelectorAll('.Page_userPage').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_userPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputUserPage.getAttribute('value');
             else
               item.textContent = inputUserPage.textContent;
           });
-          addGlow(document.querySelector('.Page_userPage'));
+          addGlow(document.querySelector('.EliteEight_Page_userPage'));
         }
 
         if(inputDownload) {
-          document.querySelectorAll('.Page_download').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_download').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDownload.getAttribute('value');
             else
               item.textContent = inputDownload.textContent;
           });
-          addGlow(document.querySelector('.Page_download'));
+          addGlow(document.querySelector('.EliteEight_Page_download'));
         }
 
         if(inputObjectSuggest) {
-          document.querySelectorAll('.Page_objectSuggest').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_objectSuggest').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectSuggest.getAttribute('value');
             else
               item.textContent = inputObjectSuggest.textContent;
           });
-          addGlow(document.querySelector('.Page_objectSuggest'));
+          addGlow(document.querySelector('.EliteEight_Page_objectSuggest'));
         }
 
         if(inputObjectText) {
-          document.querySelectorAll('.Page_objectText').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_objectText').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectText.getAttribute('value');
             else
               item.textContent = inputObjectText.textContent;
           });
-          addGlow(document.querySelector('.Page_objectText'));
+          addGlow(document.querySelector('.EliteEight_Page_objectText'));
         }
 
         if(inputSolrId) {
-          document.querySelectorAll('.Page_solrId').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_solrId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSolrId.getAttribute('value');
             else
               item.textContent = inputSolrId.textContent;
           });
-          addGlow(document.querySelector('.Page_solrId'));
+          addGlow(document.querySelector('.EliteEight_Page_solrId'));
+        }
+
+        if(inputActualSweetSixteen) {
+          document.querySelectorAll('.EliteEight_Page_actualSweetSixteen').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualSweetSixteen.getAttribute('value');
+            else
+              item.textContent = inputActualSweetSixteen.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_actualSweetSixteen'));
+        }
+
+        if(inputActualEliteEight) {
+          document.querySelectorAll('.EliteEight_Page_actualEliteEight').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualEliteEight.getAttribute('value');
+            else
+              item.textContent = inputActualEliteEight.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_actualEliteEight'));
         }
 
         if(inputBracketId) {
-          document.querySelectorAll('.Page_bracketId').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_bracketId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputBracketId.getAttribute('value');
             else
               item.textContent = inputBracketId.textContent;
           });
-          addGlow(document.querySelector('.Page_bracketId'));
+          addGlow(document.querySelector('.EliteEight_Page_bracketId'));
         }
 
         if(inputName) {
-          document.querySelectorAll('.Page_name').forEach((item, index) => {
+          document.querySelectorAll('.EliteEight_Page_name').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputName.getAttribute('value');
             else
               item.textContent = inputName.textContent;
           });
-          addGlow(document.querySelector('.Page_name'));
+          addGlow(document.querySelector('.EliteEight_Page_name'));
         }
 
           pageGraphEliteEight();
@@ -680,6 +758,10 @@ function searchEliteEightFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterSouthGame1WinnerGuess = $formFilters.querySelector('.valueSouthGame1WinnerGuess')?.value;
+    if(filterSouthGame1WinnerGuess != null && filterSouthGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'southGame1WinnerGuess:' + filterSouthGame1WinnerGuess });
+
     var filterSouthGame1Winner = $formFilters.querySelector('.valueSouthGame1Winner')?.value;
     if(filterSouthGame1Winner != null && filterSouthGame1Winner !== '')
       filters.push({ name: 'fq', value: 'southGame1Winner:' + filterSouthGame1Winner });
@@ -687,6 +769,10 @@ function searchEliteEightFilters($formFilters) {
     var filterSouthGame1Loser = $formFilters.querySelector('.valueSouthGame1Loser')?.value;
     if(filterSouthGame1Loser != null && filterSouthGame1Loser !== '')
       filters.push({ name: 'fq', value: 'southGame1Loser:' + filterSouthGame1Loser });
+
+    var filterWestGame1WinnerGuess = $formFilters.querySelector('.valueWestGame1WinnerGuess')?.value;
+    if(filterWestGame1WinnerGuess != null && filterWestGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'westGame1WinnerGuess:' + filterWestGame1WinnerGuess });
 
     var filterWestGame1Winner = $formFilters.querySelector('.valueWestGame1Winner')?.value;
     if(filterWestGame1Winner != null && filterWestGame1Winner !== '')
@@ -696,6 +782,10 @@ function searchEliteEightFilters($formFilters) {
     if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
       filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
 
+    var filterEastGame1WinnerGuess = $formFilters.querySelector('.valueEastGame1WinnerGuess')?.value;
+    if(filterEastGame1WinnerGuess != null && filterEastGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'eastGame1WinnerGuess:' + filterEastGame1WinnerGuess });
+
     var filterEastGame1Winner = $formFilters.querySelector('.valueEastGame1Winner')?.value;
     if(filterEastGame1Winner != null && filterEastGame1Winner !== '')
       filters.push({ name: 'fq', value: 'eastGame1Winner:' + filterEastGame1Winner });
@@ -703,6 +793,10 @@ function searchEliteEightFilters($formFilters) {
     var filterEastGame1Loser = $formFilters.querySelector('.valueEastGame1Loser')?.value;
     if(filterEastGame1Loser != null && filterEastGame1Loser !== '')
       filters.push({ name: 'fq', value: 'eastGame1Loser:' + filterEastGame1Loser });
+
+    var filterMidwestGame1WinnerGuess = $formFilters.querySelector('.valueMidwestGame1WinnerGuess')?.value;
+    if(filterMidwestGame1WinnerGuess != null && filterMidwestGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'midwestGame1WinnerGuess:' + filterMidwestGame1WinnerGuess });
 
     var filterMidwestGame1Winner = $formFilters.querySelector('.valueMidwestGame1Winner')?.value;
     if(filterMidwestGame1Winner != null && filterMidwestGame1Winner !== '')
@@ -1235,6 +1329,28 @@ function suggestEliteEightEastGame1Winner(filters, $list, bracketId = null, east
   }
 }
 
+function suggestEliteEightObjectSuggest($formFilters, $list, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var $i = document.querySelector('<i class="fa-regular fa-buildings"></i>');
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $li = document.createElement('li');
+        var $a = document.createElement('a').setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  searchEliteEightVals($formFilters, target, success, error);
+}
+
 function suggestEliteEightEastGame1Loser(filters, $list, bracketId = null, eastGame1Loser = null, relate=true, target) {
   success = function( data, textStatus, jQxhr ) {
     if($list) {
@@ -1483,28 +1599,6 @@ function suggestEliteEightFinalFour(filters, $list, bracketId = null, finalFour 
   }
 }
 
-function suggestEliteEightObjectSuggest($formFilters, $list, target) {
-  success = function( data, textStatus, jQxhr ) {
-    if($list) {
-      $list.innerHTML = '';
-      data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="fa-regular fa-buildings"></i>');
-        var $span = document.createElement('span');
-        $span.setAttribute('class', '');
-        $span.innerText = o['objectTitle'];
-        var $li = document.createElement('li');
-        var $a = document.createElement('a').setAttribute('href', o['editPage']);
-        $a.append($i);
-        $a.append($span);
-        $li.append($a);
-        $list.append($li);
-      });
-    }
-  };
-  error = function( jqXhr, target2 ) {};
-  searchEliteEightVals($formFilters, target, success, error);
-}
-
 // GET //
 
 async function getEliteEight(pk) {
@@ -1606,6 +1700,18 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueSouthGame1WinnerGuess = $formValues.querySelector('.valueSouthGame1WinnerGuess')?.value;
+  var removeSouthGame1WinnerGuess = $formValues.querySelector('.removeSouthGame1WinnerGuess')?.value === 'true';
+  var setSouthGame1WinnerGuess = removeSouthGame1WinnerGuess ? null : $formValues.querySelector('.setSouthGame1WinnerGuess')?.value;
+  var addSouthGame1WinnerGuess = $formValues.querySelector('.addSouthGame1WinnerGuess')?.value;
+  if(removeSouthGame1WinnerGuess || setSouthGame1WinnerGuess != null && setSouthGame1WinnerGuess !== '')
+    vals['setSouthGame1WinnerGuess'] = setSouthGame1WinnerGuess;
+  if(addSouthGame1WinnerGuess != null && addSouthGame1WinnerGuess !== '')
+    vals['addSouthGame1WinnerGuess'] = addSouthGame1WinnerGuess;
+  var removeSouthGame1WinnerGuess = $formValues.querySelector('.removeSouthGame1WinnerGuess')?.value;
+  if(removeSouthGame1WinnerGuess != null && removeSouthGame1WinnerGuess !== '')
+    vals['removeSouthGame1WinnerGuess'] = removeSouthGame1WinnerGuess;
+
   var valueSouthGame1Winner = (Array.from($formValues.querySelectorAll('.valueSouthGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame1Winner != null && valueSouthGame1Winner !== '')
     vals['setSouthGame1Winner'] = valueSouthGame1Winner;
@@ -1613,6 +1719,18 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   var valueSouthGame1Loser = (Array.from($formValues.querySelectorAll('.valueSouthGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame1Loser != null && valueSouthGame1Loser !== '')
     vals['setSouthGame1Loser'] = valueSouthGame1Loser;
+
+  var valueWestGame1WinnerGuess = $formValues.querySelector('.valueWestGame1WinnerGuess')?.value;
+  var removeWestGame1WinnerGuess = $formValues.querySelector('.removeWestGame1WinnerGuess')?.value === 'true';
+  var setWestGame1WinnerGuess = removeWestGame1WinnerGuess ? null : $formValues.querySelector('.setWestGame1WinnerGuess')?.value;
+  var addWestGame1WinnerGuess = $formValues.querySelector('.addWestGame1WinnerGuess')?.value;
+  if(removeWestGame1WinnerGuess || setWestGame1WinnerGuess != null && setWestGame1WinnerGuess !== '')
+    vals['setWestGame1WinnerGuess'] = setWestGame1WinnerGuess;
+  if(addWestGame1WinnerGuess != null && addWestGame1WinnerGuess !== '')
+    vals['addWestGame1WinnerGuess'] = addWestGame1WinnerGuess;
+  var removeWestGame1WinnerGuess = $formValues.querySelector('.removeWestGame1WinnerGuess')?.value;
+  if(removeWestGame1WinnerGuess != null && removeWestGame1WinnerGuess !== '')
+    vals['removeWestGame1WinnerGuess'] = removeWestGame1WinnerGuess;
 
   var valueWestGame1Winner = (Array.from($formValues.querySelectorAll('.valueWestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueWestGame1Winner != null && valueWestGame1Winner !== '')
@@ -1622,6 +1740,18 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
     vals['setWestGame1Loser'] = valueWestGame1Loser;
 
+  var valueEastGame1WinnerGuess = $formValues.querySelector('.valueEastGame1WinnerGuess')?.value;
+  var removeEastGame1WinnerGuess = $formValues.querySelector('.removeEastGame1WinnerGuess')?.value === 'true';
+  var setEastGame1WinnerGuess = removeEastGame1WinnerGuess ? null : $formValues.querySelector('.setEastGame1WinnerGuess')?.value;
+  var addEastGame1WinnerGuess = $formValues.querySelector('.addEastGame1WinnerGuess')?.value;
+  if(removeEastGame1WinnerGuess || setEastGame1WinnerGuess != null && setEastGame1WinnerGuess !== '')
+    vals['setEastGame1WinnerGuess'] = setEastGame1WinnerGuess;
+  if(addEastGame1WinnerGuess != null && addEastGame1WinnerGuess !== '')
+    vals['addEastGame1WinnerGuess'] = addEastGame1WinnerGuess;
+  var removeEastGame1WinnerGuess = $formValues.querySelector('.removeEastGame1WinnerGuess')?.value;
+  if(removeEastGame1WinnerGuess != null && removeEastGame1WinnerGuess !== '')
+    vals['removeEastGame1WinnerGuess'] = removeEastGame1WinnerGuess;
+
   var valueEastGame1Winner = (Array.from($formValues.querySelectorAll('.valueEastGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame1Winner != null && valueEastGame1Winner !== '')
     vals['setEastGame1Winner'] = valueEastGame1Winner;
@@ -1629,6 +1759,18 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   var valueEastGame1Loser = (Array.from($formValues.querySelectorAll('.valueEastGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame1Loser != null && valueEastGame1Loser !== '')
     vals['setEastGame1Loser'] = valueEastGame1Loser;
+
+  var valueMidwestGame1WinnerGuess = $formValues.querySelector('.valueMidwestGame1WinnerGuess')?.value;
+  var removeMidwestGame1WinnerGuess = $formValues.querySelector('.removeMidwestGame1WinnerGuess')?.value === 'true';
+  var setMidwestGame1WinnerGuess = removeMidwestGame1WinnerGuess ? null : $formValues.querySelector('.setMidwestGame1WinnerGuess')?.value;
+  var addMidwestGame1WinnerGuess = $formValues.querySelector('.addMidwestGame1WinnerGuess')?.value;
+  if(removeMidwestGame1WinnerGuess || setMidwestGame1WinnerGuess != null && setMidwestGame1WinnerGuess !== '')
+    vals['setMidwestGame1WinnerGuess'] = setMidwestGame1WinnerGuess;
+  if(addMidwestGame1WinnerGuess != null && addMidwestGame1WinnerGuess !== '')
+    vals['addMidwestGame1WinnerGuess'] = addMidwestGame1WinnerGuess;
+  var removeMidwestGame1WinnerGuess = $formValues.querySelector('.removeMidwestGame1WinnerGuess')?.value;
+  if(removeMidwestGame1WinnerGuess != null && removeMidwestGame1WinnerGuess !== '')
+    vals['removeMidwestGame1WinnerGuess'] = removeMidwestGame1WinnerGuess;
 
   var valueMidwestGame1Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueMidwestGame1Winner != null && valueMidwestGame1Winner !== '')
@@ -1792,6 +1934,10 @@ function patchEliteEightFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterSouthGame1WinnerGuess = $formFilters.querySelector('.valueSouthGame1WinnerGuess')?.value;
+    if(filterSouthGame1WinnerGuess != null && filterSouthGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'southGame1WinnerGuess:' + filterSouthGame1WinnerGuess });
+
     var filterSouthGame1Winner = $formFilters.querySelector('.valueSouthGame1Winner')?.value;
     if(filterSouthGame1Winner != null && filterSouthGame1Winner !== '')
       filters.push({ name: 'fq', value: 'southGame1Winner:' + filterSouthGame1Winner });
@@ -1799,6 +1945,10 @@ function patchEliteEightFilters($formFilters) {
     var filterSouthGame1Loser = $formFilters.querySelector('.valueSouthGame1Loser')?.value;
     if(filterSouthGame1Loser != null && filterSouthGame1Loser !== '')
       filters.push({ name: 'fq', value: 'southGame1Loser:' + filterSouthGame1Loser });
+
+    var filterWestGame1WinnerGuess = $formFilters.querySelector('.valueWestGame1WinnerGuess')?.value;
+    if(filterWestGame1WinnerGuess != null && filterWestGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'westGame1WinnerGuess:' + filterWestGame1WinnerGuess });
 
     var filterWestGame1Winner = $formFilters.querySelector('.valueWestGame1Winner')?.value;
     if(filterWestGame1Winner != null && filterWestGame1Winner !== '')
@@ -1808,6 +1958,10 @@ function patchEliteEightFilters($formFilters) {
     if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
       filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
 
+    var filterEastGame1WinnerGuess = $formFilters.querySelector('.valueEastGame1WinnerGuess')?.value;
+    if(filterEastGame1WinnerGuess != null && filterEastGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'eastGame1WinnerGuess:' + filterEastGame1WinnerGuess });
+
     var filterEastGame1Winner = $formFilters.querySelector('.valueEastGame1Winner')?.value;
     if(filterEastGame1Winner != null && filterEastGame1Winner !== '')
       filters.push({ name: 'fq', value: 'eastGame1Winner:' + filterEastGame1Winner });
@@ -1815,6 +1969,10 @@ function patchEliteEightFilters($formFilters) {
     var filterEastGame1Loser = $formFilters.querySelector('.valueEastGame1Loser')?.value;
     if(filterEastGame1Loser != null && filterEastGame1Loser !== '')
       filters.push({ name: 'fq', value: 'eastGame1Loser:' + filterEastGame1Loser });
+
+    var filterMidwestGame1WinnerGuess = $formFilters.querySelector('.valueMidwestGame1WinnerGuess')?.value;
+    if(filterMidwestGame1WinnerGuess != null && filterMidwestGame1WinnerGuess !== '')
+      filters.push({ name: 'fq', value: 'midwestGame1WinnerGuess:' + filterMidwestGame1WinnerGuess });
 
     var filterMidwestGame1Winner = $formFilters.querySelector('.valueMidwestGame1Winner')?.value;
     if(filterMidwestGame1Winner != null && filterMidwestGame1Winner !== '')
@@ -1982,6 +2140,10 @@ async function postEliteEight($formValues, target, success, error) {
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
 
+  var valueSouthGame1WinnerGuess = $formValues.querySelector('.valueSouthGame1WinnerGuess')?.value;
+  if(valueSouthGame1WinnerGuess != null && valueSouthGame1WinnerGuess !== '')
+    vals['southGame1WinnerGuess'] = valueSouthGame1WinnerGuess;
+
   var valueSouthGame1Winner = (Array.from($formValues.querySelectorAll('.valueSouthGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame1Winner != null && valueSouthGame1Winner !== '')
     vals['southGame1Winner'] = valueSouthGame1Winner;
@@ -1989,6 +2151,10 @@ async function postEliteEight($formValues, target, success, error) {
   var valueSouthGame1Loser = (Array.from($formValues.querySelectorAll('.valueSouthGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSouthGame1Loser != null && valueSouthGame1Loser !== '')
     vals['southGame1Loser'] = valueSouthGame1Loser;
+
+  var valueWestGame1WinnerGuess = $formValues.querySelector('.valueWestGame1WinnerGuess')?.value;
+  if(valueWestGame1WinnerGuess != null && valueWestGame1WinnerGuess !== '')
+    vals['westGame1WinnerGuess'] = valueWestGame1WinnerGuess;
 
   var valueWestGame1Winner = (Array.from($formValues.querySelectorAll('.valueWestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueWestGame1Winner != null && valueWestGame1Winner !== '')
@@ -1998,6 +2164,10 @@ async function postEliteEight($formValues, target, success, error) {
   if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
     vals['westGame1Loser'] = valueWestGame1Loser;
 
+  var valueEastGame1WinnerGuess = $formValues.querySelector('.valueEastGame1WinnerGuess')?.value;
+  if(valueEastGame1WinnerGuess != null && valueEastGame1WinnerGuess !== '')
+    vals['eastGame1WinnerGuess'] = valueEastGame1WinnerGuess;
+
   var valueEastGame1Winner = (Array.from($formValues.querySelectorAll('.valueEastGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame1Winner != null && valueEastGame1Winner !== '')
     vals['eastGame1Winner'] = valueEastGame1Winner;
@@ -2005,6 +2175,10 @@ async function postEliteEight($formValues, target, success, error) {
   var valueEastGame1Loser = (Array.from($formValues.querySelectorAll('.valueEastGame1Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame1Loser != null && valueEastGame1Loser !== '')
     vals['eastGame1Loser'] = valueEastGame1Loser;
+
+  var valueMidwestGame1WinnerGuess = $formValues.querySelector('.valueMidwestGame1WinnerGuess')?.value;
+  if(valueMidwestGame1WinnerGuess != null && valueMidwestGame1WinnerGuess !== '')
+    vals['midwestGame1WinnerGuess'] = valueMidwestGame1WinnerGuess;
 
   var valueMidwestGame1Winner = (Array.from($formValues.querySelectorAll('.valueMidwestGame1Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueMidwestGame1Winner != null && valueMidwestGame1Winner !== '')

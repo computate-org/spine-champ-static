@@ -253,17 +253,6 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'eastGame2WinnerGuess', false);
   });
 
-  document.querySelector('#pageSelectSortSweetSixteen_eliteEight')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'eliteEight', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'eliteEight', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'eliteEight', false);
-  });
-
   document.querySelector('#pageSelectSortSweetSixteen_eastGame2Winner')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'eastGame2Winner', event.currentTarget.value);
   });
@@ -350,6 +339,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_midwestGame2Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'midwestGame2Loser', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_eliteEight')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'eliteEight', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'eliteEight', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_eliteEight')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'eliteEight', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_classCanonicalName')?.addEventListener('change', (event) => {
@@ -504,17 +504,6 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_solrId')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'solrId', false);
-  });
-
-  document.querySelector('#pageSelectSortSweetSixteen_actualSweetSixteen')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'actualSweetSixteen', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_actualSweetSixteen')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'actualSweetSixteen', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_actualSweetSixteen')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'actualSweetSixteen', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_bracketId')?.addEventListener('change', (event) => {

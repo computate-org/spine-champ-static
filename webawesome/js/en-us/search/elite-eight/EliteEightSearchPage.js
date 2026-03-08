@@ -88,6 +88,17 @@ Promise.all([
     facetStatsChange('EliteEight', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortEliteEight_southGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('EliteEight', 'southGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsEliteEight_southGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('EliteEight', 'southGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsEliteEight_southGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('EliteEight', 'southGame1WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortEliteEight_southGame1Winner')?.addEventListener('change', (event) => {
     sort('EliteEight', 'southGame1Winner', event.currentTarget.value);
   });
@@ -108,6 +119,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsEliteEight_southGame1Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('EliteEight', 'southGame1Loser', false);
+  });
+
+  document.querySelector('#pageSelectSortEliteEight_westGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('EliteEight', 'westGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsEliteEight_westGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('EliteEight', 'westGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsEliteEight_westGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('EliteEight', 'westGame1WinnerGuess', false);
   });
 
   document.querySelector('#pageSelectSortEliteEight_westGame1Winner')?.addEventListener('change', (event) => {
@@ -132,6 +154,17 @@ Promise.all([
     facetStatsChange('EliteEight', 'westGame1Loser', false);
   });
 
+  document.querySelector('#pageSelectSortEliteEight_eastGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('EliteEight', 'eastGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsEliteEight_eastGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('EliteEight', 'eastGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsEliteEight_eastGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('EliteEight', 'eastGame1WinnerGuess', false);
+  });
+
   document.querySelector('#pageSelectSortEliteEight_eastGame1Winner')?.addEventListener('change', (event) => {
     sort('EliteEight', 'eastGame1Winner', event.currentTarget.value);
   });
@@ -152,6 +185,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsEliteEight_eastGame1Loser')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('EliteEight', 'eastGame1Loser', false);
+  });
+
+  document.querySelector('#pageSelectSortEliteEight_midwestGame1WinnerGuess')?.addEventListener('change', (event) => {
+    sort('EliteEight', 'midwestGame1WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsEliteEight_midwestGame1WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('EliteEight', 'midwestGame1WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsEliteEight_midwestGame1WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('EliteEight', 'midwestGame1WinnerGuess', false);
   });
 
   document.querySelector('#pageSelectSortEliteEight_midwestGame1Winner')?.addEventListener('change', (event) => {

@@ -179,6 +179,62 @@
           {% endif -%}
           {% endif -%}
           }
+          function Guesser_POST_sweetSixteenBrackets_SweetSixteen_POST_guesserId(event) {
+            suggestGuesserSweetSixteenBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.sweetSixteenBrackets : null
+                , true
+                , document.querySelector('#Guesser_POST_sweetSixteenBrackets_SweetSixteen_POST_guesserId')
+                );
+          }
+          document.querySelector('#Guesser_POST_sweetSixteenBrackets_SweetSixteen_POST_guesserId')?.addEventListener('input', Guesser_POST_sweetSixteenBrackets_SweetSixteen_POST_guesserId);
+          document.querySelector('#Guesser_POST_sweetSixteenBrackets_SweetSixteen_POST_guesserId')?.addEventListener('focus', Guesser_POST_sweetSixteenBrackets_SweetSixteen_POST_guesserId);
+          function Guesser_POST_eliteEightBrackets_SweetSixteen_POST_guesserId(event) {
+            suggestGuesserEliteEightBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEightBrackets : null
+                , true
+                , document.querySelector('#Guesser_POST_eliteEightBrackets_SweetSixteen_POST_guesserId')
+                );
+          }
+          document.querySelector('#Guesser_POST_eliteEightBrackets_SweetSixteen_POST_guesserId')?.addEventListener('input', Guesser_POST_eliteEightBrackets_SweetSixteen_POST_guesserId);
+          document.querySelector('#Guesser_POST_eliteEightBrackets_SweetSixteen_POST_guesserId')?.addEventListener('focus', Guesser_POST_eliteEightBrackets_SweetSixteen_POST_guesserId);
+          function Guesser_POST_finalFourBrackets_SweetSixteen_POST_guesserId(event) {
+            suggestGuesserFinalFourBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFourBrackets : null
+                , true
+                , document.querySelector('#Guesser_POST_finalFourBrackets_SweetSixteen_POST_guesserId')
+                );
+          }
+          document.querySelector('#Guesser_POST_finalFourBrackets_SweetSixteen_POST_guesserId')?.addEventListener('input', Guesser_POST_finalFourBrackets_SweetSixteen_POST_guesserId);
+          document.querySelector('#Guesser_POST_finalFourBrackets_SweetSixteen_POST_guesserId')?.addEventListener('focus', Guesser_POST_finalFourBrackets_SweetSixteen_POST_guesserId);
+          function Guesser_POST_championshipBrackets_SweetSixteen_POST_guesserId(event) {
+            suggestGuesserChampionshipBrackets(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.championshipBrackets : null
+                , true
+                , document.querySelector('#Guesser_POST_championshipBrackets_SweetSixteen_POST_guesserId')
+                );
+          }
+          document.querySelector('#Guesser_POST_championshipBrackets_SweetSixteen_POST_guesserId')?.addEventListener('input', Guesser_POST_championshipBrackets_SweetSixteen_POST_guesserId);
+          document.querySelector('#Guesser_POST_championshipBrackets_SweetSixteen_POST_guesserId')?.addEventListener('focus', Guesser_POST_championshipBrackets_SweetSixteen_POST_guesserId);
           function relate_southGame1Winner(event) {
             suggestSweetSixteenSouthGame1Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -489,191 +545,6 @@
           {% endif -%}
           {% endif -%}
           }
-          function relate_eliteEight(event) {
-            suggestSweetSixteenEliteEight(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,sweetSixteen,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
-                , true
-                , event.target
-                );
-          }
-          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('input', relate_eliteEight);
-          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('focus', relate_eliteEight);
-          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('input', relate_eliteEight);
-          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('focus', relate_eliteEight);
-          document.querySelector('#SweetSixteen_Page_eliteEight')?.addEventListener('input', relate_eliteEight);
-          document.querySelector('#SweetSixteen_Page_eliteEight')?.addEventListener('focus', relate_eliteEight);
-          document.querySelector('#EliteEight_POST_bracketId')?.addEventListener('input', relate_eliteEight);
-          document.querySelector('#EliteEight_POST_bracketId')?.addEventListener('focus', relate_eliteEight);
-          if(window.result.eliteEight) {
-          {% if "PATCH" in scopes -%}
-            {{'  '}}suggestSweetSixteenEliteEight([{'name':'fq','value':'sweetSixteen:' + window.result.eliteEight}], document.querySelector('#listSweetSixteenEliteEight_Page'), window.result.bracketId, window.result.eliteEight, true, document.getElementById('SweetSixteen_Page_eliteEight'));
-          {% else -%}
-          {% if "GET" in scopes -%}
-            {{'  '}}suggestSweetSixteenEliteEight([{'name':'fq','value':'sweetSixteen:' + window.result.eliteEight}], document.querySelector('#listSweetSixteenEliteEight_Page'), window.result.bracketId, window.result.eliteEight, true, document.getElementById('SweetSixteen_Page_eliteEight'));
-          {% else -%}
-            {{'  '}}suggestSweetSixteenEliteEight([{'name':'fq','value':'sweetSixteen:' + window.result.eliteEight}], document.querySelector('#listSweetSixteenEliteEight_Page'), window.result.bracketId, window.result.eliteEight, false, document.getElementById('SweetSixteen_Page_eliteEight'));
-          {% endif -%}
-          {% endif -%}
-          }
-          function EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightSweetSixteen(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.sweetSixteen : null
-                , true
-                , document.querySelector('#EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightGuesserId(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
-                , true
-                , document.querySelector('#EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightSouthGame1Winner(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
-                , true
-                , document.querySelector('#EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightSouthGame1Loser(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
-                , true
-                , document.querySelector('#EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightWestGame1Winner(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
-                , true
-                , document.querySelector('#EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightWestGame1Loser(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
-                , true
-                , document.querySelector('#EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightEastGame1Winner(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
-                , true
-                , document.querySelector('#EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightEastGame1Loser(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
-                , true
-                , document.querySelector('#EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightMidwestGame1Winner(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
-                , true
-                , document.querySelector('#EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightMidwestGame1Loser(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
-                , true
-                , document.querySelector('#EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight);
-          function EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight(event) {
-            suggestEliteEightFinalFour(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFour : null
-                , true
-                , document.querySelector('#EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight')
-                );
-          }
-          document.querySelector('#EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight);
-          document.querySelector('#EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight);
           function relate_eastGame2Winner(event) {
             suggestSweetSixteenEastGame2Winner(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -860,6 +731,191 @@
           {% endif -%}
           {% endif -%}
           }
+          function relate_eliteEight(event) {
+            suggestSweetSixteenEliteEight(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,sweetSixteen,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
+                , true
+                , event.target
+                );
+          }
+          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#SweetSixteen_POST_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#SweetSixteen_PATCH_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#SweetSixteen_Page_eliteEight')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#SweetSixteen_Page_eliteEight')?.addEventListener('focus', relate_eliteEight);
+          document.querySelector('#EliteEight_POST_bracketId')?.addEventListener('input', relate_eliteEight);
+          document.querySelector('#EliteEight_POST_bracketId')?.addEventListener('focus', relate_eliteEight);
+          if(window.result.eliteEight) {
+          {% if "PATCH" in scopes -%}
+            {{'  '}}suggestSweetSixteenEliteEight([{'name':'fq','value':'sweetSixteen:' + window.result.eliteEight}], document.querySelector('#listSweetSixteenEliteEight_Page'), window.result.bracketId, window.result.eliteEight, true, document.getElementById('SweetSixteen_Page_eliteEight'));
+          {% else -%}
+          {% if "GET" in scopes -%}
+            {{'  '}}suggestSweetSixteenEliteEight([{'name':'fq','value':'sweetSixteen:' + window.result.eliteEight}], document.querySelector('#listSweetSixteenEliteEight_Page'), window.result.bracketId, window.result.eliteEight, true, document.getElementById('SweetSixteen_Page_eliteEight'));
+          {% else -%}
+            {{'  '}}suggestSweetSixteenEliteEight([{'name':'fq','value':'sweetSixteen:' + window.result.eliteEight}], document.querySelector('#listSweetSixteenEliteEight_Page'), window.result.bracketId, window.result.eliteEight, false, document.getElementById('SweetSixteen_Page_eliteEight'));
+          {% endif -%}
+          {% endif -%}
+          }
+          function EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightSweetSixteen(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.sweetSixteen : null
+                , true
+                , document.querySelector('#EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_sweetSixteen_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightGuesserId(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,guesserId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , true
+                , document.querySelector('#EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_guesserId_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightSouthGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_southGame1Winner_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightSouthGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.southGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_southGame1Loser_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightWestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_westGame1Winner_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightWestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.westGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_westGame1Loser_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightEastGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_eastGame1Winner_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightEastGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eastGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_eastGame1Loser_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightMidwestGame1Winner(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Winner : null
+                , true
+                , document.querySelector('#EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_midwestGame1Winner_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightMidwestGame1Loser(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,teamId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.midwestGame1Loser : null
+                , true
+                , document.querySelector('#EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_midwestGame1Loser_SweetSixteen_POST_eliteEight);
+          function EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight(event) {
+            suggestEliteEightFinalFour(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.bracketId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.finalFour : null
+                , true
+                , document.querySelector('#EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight')
+                );
+          }
+          document.querySelector('#EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight')?.addEventListener('input', EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight);
+          document.querySelector('#EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight')?.addEventListener('focus', EliteEight_POST_finalFour_SweetSixteen_POST_eliteEight);
         {% endif %}
         }
         var l = document.querySelector('.pageForm .listSweetSixteen')?.value;
@@ -960,6 +1016,8 @@
               , document.querySelector('#htmFormButton_postGuesser')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -969,6 +1027,8 @@
               , document.querySelector('#htmFormButton_postTeam')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -978,6 +1038,8 @@
               , document.querySelector('#htmFormButton_postEliteEight')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 {%- block htmScriptInitSweetSixteenPage %}{%- endblock htmScriptInitSweetSixteenPage %}

@@ -100,7 +100,6 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputEastGame1Winner = null;
         var inputEastGame1Loser = null;
         var inputEastGame2WinnerGuess = null;
-        var inputEliteEight = null;
         var inputEastGame2Winner = null;
         var inputEastGame2Loser = null;
         var inputMidwestGame1WinnerGuess = null;
@@ -109,6 +108,7 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputMidwestGame2WinnerGuess = null;
         var inputMidwestGame2Winner = null;
         var inputMidwestGame2Loser = null;
+        var inputEliteEight = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
         var inputClassCanonicalNames = null;
@@ -171,8 +171,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputEastGame1Loser = $response.querySelector('.SweetSixteen_Page_eastGame1Loser');
         if(vars.includes('eastGame2WinnerGuess'))
           inputEastGame2WinnerGuess = $response.querySelector('.SweetSixteen_Page_eastGame2WinnerGuess');
-        if(vars.includes('eliteEight'))
-          inputEliteEight = $response.querySelector('.SweetSixteen_Page_eliteEight');
         if(vars.includes('eastGame2Winner'))
           inputEastGame2Winner = $response.querySelector('.SweetSixteen_Page_eastGame2Winner');
         if(vars.includes('eastGame2Loser'))
@@ -189,6 +187,8 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputMidwestGame2Winner = $response.querySelector('.SweetSixteen_Page_midwestGame2Winner');
         if(vars.includes('midwestGame2Loser'))
           inputMidwestGame2Loser = $response.querySelector('.SweetSixteen_Page_midwestGame2Loser');
+        if(vars.includes('eliteEight'))
+          inputEliteEight = $response.querySelector('.SweetSixteen_Page_eliteEight');
         if(vars.includes('classCanonicalName'))
           inputClassCanonicalName = $response.querySelector('.SweetSixteen_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
@@ -449,16 +449,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.SweetSixteen_Page_eastGame2WinnerGuess'));
         }
 
-        if(inputEliteEight) {
-          document.querySelectorAll('.SweetSixteen_Page_eliteEight').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputEliteEight.getAttribute('value');
-            else
-              item.textContent = inputEliteEight.textContent;
-          });
-          addGlow(document.querySelector('.SweetSixteen_Page_eliteEight'));
-        }
-
         if(inputEastGame2Winner) {
           document.querySelectorAll('.SweetSixteen_Page_eastGame2Winner').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -537,6 +527,16 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputMidwestGame2Loser.textContent;
           });
           addGlow(document.querySelector('.SweetSixteen_Page_midwestGame2Loser'));
+        }
+
+        if(inputEliteEight) {
+          document.querySelectorAll('.SweetSixteen_Page_eliteEight').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputEliteEight.getAttribute('value');
+            else
+              item.textContent = inputEliteEight.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_eliteEight'));
         }
 
         if(inputClassCanonicalName) {
@@ -948,10 +948,6 @@ function searchSweetSixteenFilters($formFilters) {
     if(filterEastGame2WinnerGuess != null && filterEastGame2WinnerGuess !== '')
       filters.push({ name: 'fq', value: 'eastGame2WinnerGuess:' + filterEastGame2WinnerGuess });
 
-    var filterEliteEight = $formFilters.querySelector('.valueEliteEight')?.value;
-    if(filterEliteEight != null && filterEliteEight !== '')
-      filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
-
     var filterEastGame2Winner = $formFilters.querySelector('.valueEastGame2Winner')?.value;
     if(filterEastGame2Winner != null && filterEastGame2Winner !== '')
       filters.push({ name: 'fq', value: 'eastGame2Winner:' + filterEastGame2Winner });
@@ -983,6 +979,10 @@ function searchSweetSixteenFilters($formFilters) {
     var filterMidwestGame2Loser = $formFilters.querySelector('.valueMidwestGame2Loser')?.value;
     if(filterMidwestGame2Loser != null && filterMidwestGame2Loser !== '')
       filters.push({ name: 'fq', value: 'midwestGame2Loser:' + filterMidwestGame2Loser });
+
+    var filterEliteEight = $formFilters.querySelector('.valueEliteEight')?.value;
+    if(filterEliteEight != null && filterEliteEight !== '')
+      filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
 
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
@@ -1039,10 +1039,6 @@ function searchSweetSixteenFilters($formFilters) {
     var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
     if(filterSolrId != null && filterSolrId !== '')
       filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
-
-    var filterActualSweetSixteen = $formFilters.querySelector('.valueActualSweetSixteen')?.value;
-    if(filterActualSweetSixteen != null && filterActualSweetSixteen !== '')
-      filters.push({ name: 'fq', value: 'actualSweetSixteen:' + filterActualSweetSixteen });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -2420,10 +2416,6 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   if(removeEastGame2WinnerGuess != null && removeEastGame2WinnerGuess !== '')
     vals['removeEastGame2WinnerGuess'] = removeEastGame2WinnerGuess;
 
-  var valueEliteEight = (Array.from($formValues.querySelectorAll('.valueEliteEight')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEliteEight != null && valueEliteEight !== '')
-    vals['setEliteEight'] = valueEliteEight;
-
   var valueEastGame2Winner = (Array.from($formValues.querySelectorAll('.valueEastGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame2Winner != null && valueEastGame2Winner !== '')
     vals['setEastGame2Winner'] = valueEastGame2Winner;
@@ -2471,6 +2463,10 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   var valueMidwestGame2Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueMidwestGame2Loser != null && valueMidwestGame2Loser !== '')
     vals['setMidwestGame2Loser'] = valueMidwestGame2Loser;
+
+  var valueEliteEight = (Array.from($formValues.querySelectorAll('.valueEliteEight')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEliteEight != null && valueEliteEight !== '')
+    vals['setEliteEight'] = valueEliteEight;
 
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   var removeSessionId = $formValues.querySelector('.removeSessionId')?.value === 'true';
@@ -2682,10 +2678,6 @@ function patchSweetSixteenFilters($formFilters) {
     if(filterEastGame2WinnerGuess != null && filterEastGame2WinnerGuess !== '')
       filters.push({ name: 'fq', value: 'eastGame2WinnerGuess:' + filterEastGame2WinnerGuess });
 
-    var filterEliteEight = $formFilters.querySelector('.valueEliteEight')?.value;
-    if(filterEliteEight != null && filterEliteEight !== '')
-      filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
-
     var filterEastGame2Winner = $formFilters.querySelector('.valueEastGame2Winner')?.value;
     if(filterEastGame2Winner != null && filterEastGame2Winner !== '')
       filters.push({ name: 'fq', value: 'eastGame2Winner:' + filterEastGame2Winner });
@@ -2717,6 +2709,10 @@ function patchSweetSixteenFilters($formFilters) {
     var filterMidwestGame2Loser = $formFilters.querySelector('.valueMidwestGame2Loser')?.value;
     if(filterMidwestGame2Loser != null && filterMidwestGame2Loser !== '')
       filters.push({ name: 'fq', value: 'midwestGame2Loser:' + filterMidwestGame2Loser });
+
+    var filterEliteEight = $formFilters.querySelector('.valueEliteEight')?.value;
+    if(filterEliteEight != null && filterEliteEight !== '')
+      filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
 
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
@@ -2773,10 +2769,6 @@ function patchSweetSixteenFilters($formFilters) {
     var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
     if(filterSolrId != null && filterSolrId !== '')
       filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
-
-    var filterActualSweetSixteen = $formFilters.querySelector('.valueActualSweetSixteen')?.value;
-    if(filterActualSweetSixteen != null && filterActualSweetSixteen !== '')
-      filters.push({ name: 'fq', value: 'actualSweetSixteen:' + filterActualSweetSixteen });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -2936,10 +2928,6 @@ async function postSweetSixteen($formValues, target, success, error) {
   if(valueEastGame2WinnerGuess != null && valueEastGame2WinnerGuess !== '')
     vals['eastGame2WinnerGuess'] = valueEastGame2WinnerGuess;
 
-  var valueEliteEight = (Array.from($formValues.querySelectorAll('.valueEliteEight')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueEliteEight != null && valueEliteEight !== '')
-    vals['eliteEight'] = valueEliteEight;
-
   var valueEastGame2Winner = (Array.from($formValues.querySelectorAll('.valueEastGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEastGame2Winner != null && valueEastGame2Winner !== '')
     vals['eastGame2Winner'] = valueEastGame2Winner;
@@ -2971,6 +2959,10 @@ async function postSweetSixteen($formValues, target, success, error) {
   var valueMidwestGame2Loser = (Array.from($formValues.querySelectorAll('.valueMidwestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueMidwestGame2Loser != null && valueMidwestGame2Loser !== '')
     vals['midwestGame2Loser'] = valueMidwestGame2Loser;
+
+  var valueEliteEight = (Array.from($formValues.querySelectorAll('.valueEliteEight')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueEliteEight != null && valueEliteEight !== '')
+    vals['eliteEight'] = valueEliteEight;
 
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   if(valueSessionId != null && valueSessionId !== '')
