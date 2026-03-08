@@ -85,6 +85,8 @@ async function websocketEliteEightInner(apiRequest) {
         var inputSweetSixteen = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputCorrectGuesses = null;
+        var inputIncorrectGuesses = null;
         var inputSouthGame1WinnerGuess = null;
         var inputSouthGame1Winner = null;
         var inputSouthGame1Loser = null;
@@ -112,9 +114,9 @@ async function websocketEliteEightInner(apiRequest) {
         var inputObjectSuggest = null;
         var inputObjectText = null;
         var inputSolrId = null;
+        var inputBracketId = null;
         var inputActualSweetSixteen = null;
         var inputActualEliteEight = null;
-        var inputBracketId = null;
         var inputName = null;
 
         if(vars.includes('pk'))
@@ -131,6 +133,10 @@ async function websocketEliteEightInner(apiRequest) {
           inputGuesserId = $response.querySelector('.EliteEight_Page_guesserId');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.EliteEight_Page_year');
+        if(vars.includes('correctGuesses'))
+          inputCorrectGuesses = $response.querySelector('.EliteEight_Page_correctGuesses');
+        if(vars.includes('incorrectGuesses'))
+          inputIncorrectGuesses = $response.querySelector('.EliteEight_Page_incorrectGuesses');
         if(vars.includes('southGame1WinnerGuess'))
           inputSouthGame1WinnerGuess = $response.querySelector('.EliteEight_Page_southGame1WinnerGuess');
         if(vars.includes('southGame1Winner'))
@@ -185,12 +191,12 @@ async function websocketEliteEightInner(apiRequest) {
           inputObjectText = $response.querySelector('.EliteEight_Page_objectText');
         if(vars.includes('solrId'))
           inputSolrId = $response.querySelector('.EliteEight_Page_solrId');
+        if(vars.includes('bracketId'))
+          inputBracketId = $response.querySelector('.EliteEight_Page_bracketId');
         if(vars.includes('actualSweetSixteen'))
           inputActualSweetSixteen = $response.querySelector('.EliteEight_Page_actualSweetSixteen');
         if(vars.includes('actualEliteEight'))
           inputActualEliteEight = $response.querySelector('.EliteEight_Page_actualEliteEight');
-        if(vars.includes('bracketId'))
-          inputBracketId = $response.querySelector('.EliteEight_Page_bracketId');
         if(vars.includes('name'))
           inputName = $response.querySelector('.EliteEight_Page_name');
 
@@ -267,6 +273,26 @@ async function websocketEliteEightInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.EliteEight_Page_year'));
+        }
+
+        if(inputCorrectGuesses) {
+          document.querySelectorAll('.EliteEight_Page_correctGuesses').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputCorrectGuesses.getAttribute('value');
+            else
+              item.textContent = inputCorrectGuesses.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_correctGuesses'));
+        }
+
+        if(inputIncorrectGuesses) {
+          document.querySelectorAll('.EliteEight_Page_incorrectGuesses').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputIncorrectGuesses.getAttribute('value');
+            else
+              item.textContent = inputIncorrectGuesses.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_incorrectGuesses'));
         }
 
         if(inputSouthGame1WinnerGuess) {
@@ -539,6 +565,16 @@ async function websocketEliteEightInner(apiRequest) {
           addGlow(document.querySelector('.EliteEight_Page_solrId'));
         }
 
+        if(inputBracketId) {
+          document.querySelectorAll('.EliteEight_Page_bracketId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputBracketId.getAttribute('value');
+            else
+              item.textContent = inputBracketId.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_bracketId'));
+        }
+
         if(inputActualSweetSixteen) {
           document.querySelectorAll('.EliteEight_Page_actualSweetSixteen').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -557,16 +593,6 @@ async function websocketEliteEightInner(apiRequest) {
               item.textContent = inputActualEliteEight.textContent;
           });
           addGlow(document.querySelector('.EliteEight_Page_actualEliteEight'));
-        }
-
-        if(inputBracketId) {
-          document.querySelectorAll('.EliteEight_Page_bracketId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputBracketId.getAttribute('value');
-            else
-              item.textContent = inputBracketId.textContent;
-          });
-          addGlow(document.querySelector('.EliteEight_Page_bracketId'));
         }
 
         if(inputName) {
@@ -757,6 +783,14 @@ function searchEliteEightFilters($formFilters) {
     var filterYear = $formFilters.querySelector('.valueYear')?.value;
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
+
+    var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
+    if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
+      filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
+
+    var filterIncorrectGuesses = $formFilters.querySelector('.valueIncorrectGuesses')?.value;
+    if(filterIncorrectGuesses != null && filterIncorrectGuesses !== '')
+      filters.push({ name: 'fq', value: 'incorrectGuesses:' + filterIncorrectGuesses });
 
     var filterSouthGame1WinnerGuess = $formFilters.querySelector('.valueSouthGame1WinnerGuess')?.value;
     if(filterSouthGame1WinnerGuess != null && filterSouthGame1WinnerGuess !== '')
@@ -1700,6 +1734,30 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
+  var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value === 'true';
+  var setCorrectGuesses = removeCorrectGuesses ? null : $formValues.querySelector('.setCorrectGuesses')?.value;
+  var addCorrectGuesses = $formValues.querySelector('.addCorrectGuesses')?.value;
+  if(removeCorrectGuesses || setCorrectGuesses != null && setCorrectGuesses !== '')
+    vals['setCorrectGuesses'] = setCorrectGuesses;
+  if(addCorrectGuesses != null && addCorrectGuesses !== '')
+    vals['addCorrectGuesses'] = addCorrectGuesses;
+  var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value;
+  if(removeCorrectGuesses != null && removeCorrectGuesses !== '')
+    vals['removeCorrectGuesses'] = removeCorrectGuesses;
+
+  var valueIncorrectGuesses = $formValues.querySelector('.valueIncorrectGuesses')?.value;
+  var removeIncorrectGuesses = $formValues.querySelector('.removeIncorrectGuesses')?.value === 'true';
+  var setIncorrectGuesses = removeIncorrectGuesses ? null : $formValues.querySelector('.setIncorrectGuesses')?.value;
+  var addIncorrectGuesses = $formValues.querySelector('.addIncorrectGuesses')?.value;
+  if(removeIncorrectGuesses || setIncorrectGuesses != null && setIncorrectGuesses !== '')
+    vals['setIncorrectGuesses'] = setIncorrectGuesses;
+  if(addIncorrectGuesses != null && addIncorrectGuesses !== '')
+    vals['addIncorrectGuesses'] = addIncorrectGuesses;
+  var removeIncorrectGuesses = $formValues.querySelector('.removeIncorrectGuesses')?.value;
+  if(removeIncorrectGuesses != null && removeIncorrectGuesses !== '')
+    vals['removeIncorrectGuesses'] = removeIncorrectGuesses;
+
   var valueSouthGame1WinnerGuess = $formValues.querySelector('.valueSouthGame1WinnerGuess')?.value;
   var removeSouthGame1WinnerGuess = $formValues.querySelector('.removeSouthGame1WinnerGuess')?.value === 'true';
   var setSouthGame1WinnerGuess = removeSouthGame1WinnerGuess ? null : $formValues.querySelector('.setSouthGame1WinnerGuess')?.value;
@@ -1934,6 +1992,14 @@ function patchEliteEightFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
+    if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
+      filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
+
+    var filterIncorrectGuesses = $formFilters.querySelector('.valueIncorrectGuesses')?.value;
+    if(filterIncorrectGuesses != null && filterIncorrectGuesses !== '')
+      filters.push({ name: 'fq', value: 'incorrectGuesses:' + filterIncorrectGuesses });
+
     var filterSouthGame1WinnerGuess = $formFilters.querySelector('.valueSouthGame1WinnerGuess')?.value;
     if(filterSouthGame1WinnerGuess != null && filterSouthGame1WinnerGuess !== '')
       filters.push({ name: 'fq', value: 'southGame1WinnerGuess:' + filterSouthGame1WinnerGuess });
@@ -2139,6 +2205,14 @@ async function postEliteEight($formValues, target, success, error) {
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
+
+  var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
+  if(valueCorrectGuesses != null && valueCorrectGuesses !== '')
+    vals['correctGuesses'] = valueCorrectGuesses;
+
+  var valueIncorrectGuesses = $formValues.querySelector('.valueIncorrectGuesses')?.value;
+  if(valueIncorrectGuesses != null && valueIncorrectGuesses !== '')
+    vals['incorrectGuesses'] = valueIncorrectGuesses;
 
   var valueSouthGame1WinnerGuess = $formValues.querySelector('.valueSouthGame1WinnerGuess')?.value;
   if(valueSouthGame1WinnerGuess != null && valueSouthGame1WinnerGuess !== '')

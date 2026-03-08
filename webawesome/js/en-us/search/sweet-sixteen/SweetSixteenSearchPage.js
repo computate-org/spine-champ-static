@@ -77,6 +77,28 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_correctGuesses')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'correctGuesses', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_correctGuesses')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'correctGuesses', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_correctGuesses')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'correctGuesses', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_incorrectGuesses')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'incorrectGuesses', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_incorrectGuesses')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'incorrectGuesses', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_incorrectGuesses')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'incorrectGuesses', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_southGame1WinnerGuess')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'southGame1WinnerGuess', event.currentTarget.value);
   });

@@ -61,27 +61,6 @@ Promise.all([
             const valid = form.reportValidity();
           });
 
-          // PATCH correctGuesses
-          document.querySelector('#Championship_Page_correctGuesses')?.addEventListener('change', (event) => {
-            const form = document.querySelector('#PageForm_correctGuesses');
-            const valid = form.checkValidity();
-            if(valid) {
-              patchChampionshipVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
-                  , 'setCorrectGuesses', event.currentTarget.value
-                  , event.currentTarget
-                , function(response, target) { addGlow(target); }
-                  , function(response, target) { addError(target); }
-                  );
-            }
-          });
-          document.querySelector('#Championship_Page_correctGuesses')?.addEventListener('focus', (event) => {
-            removeGlow(event.currentTarget);
-          });
-          document.querySelector('#Championship_Page_correctGuesses')?.addEventListener('blur', (event) => {
-            const form = document.querySelector('#PageForm_correctGuesses');
-            const valid = form.reportValidity();
-          });
-
           // PATCH year
           document.querySelector('#Championship_Page_year')?.addEventListener('change', (event) => {
             const form = document.querySelector('#PageForm_year');
@@ -100,27 +79,6 @@ Promise.all([
           });
           document.querySelector('#Championship_Page_year')?.addEventListener('blur', (event) => {
             const form = document.querySelector('#PageForm_year');
-            const valid = form.reportValidity();
-          });
-
-          // PATCH incorrectGuesses
-          document.querySelector('#Championship_Page_incorrectGuesses')?.addEventListener('change', (event) => {
-            const form = document.querySelector('#PageForm_incorrectGuesses');
-            const valid = form.checkValidity();
-            if(valid) {
-              patchChampionshipVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
-                  , 'setIncorrectGuesses', event.currentTarget.value
-                  , event.currentTarget
-                , function(response, target) { addGlow(target); }
-                  , function(response, target) { addError(target); }
-                  );
-            }
-          });
-          document.querySelector('#Championship_Page_incorrectGuesses')?.addEventListener('focus', (event) => {
-            removeGlow(event.currentTarget);
-          });
-          document.querySelector('#Championship_Page_incorrectGuesses')?.addEventListener('blur', (event) => {
-            const form = document.querySelector('#PageForm_incorrectGuesses');
             const valid = form.reportValidity();
           });
 

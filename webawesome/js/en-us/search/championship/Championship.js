@@ -84,8 +84,8 @@ async function websocketChampionshipInner(apiRequest) {
         var inputArchived = null;
         var inputFinalFour = null;
         var inputGuesserId = null;
-        var inputCorrectGuesses = null;
         var inputYear = null;
+        var inputCorrectGuesses = null;
         var inputIncorrectGuesses = null;
         var inputGame1WinnerGuess = null;
         var inputGame1Winner = null;
@@ -104,10 +104,10 @@ async function websocketChampionshipInner(apiRequest) {
         var inputObjectSuggest = null;
         var inputObjectText = null;
         var inputSolrId = null;
-        var inputActualFinalFour = null;
         var inputActualChampionship = null;
         var inputBracketId = null;
         var inputName = null;
+        var inputActualFinalFour = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.Championship_Page_pk');
@@ -121,10 +121,10 @@ async function websocketChampionshipInner(apiRequest) {
           inputFinalFour = $response.querySelector('.Championship_Page_finalFour');
         if(vars.includes('guesserId'))
           inputGuesserId = $response.querySelector('.Championship_Page_guesserId');
-        if(vars.includes('correctGuesses'))
-          inputCorrectGuesses = $response.querySelector('.Championship_Page_correctGuesses');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.Championship_Page_year');
+        if(vars.includes('correctGuesses'))
+          inputCorrectGuesses = $response.querySelector('.Championship_Page_correctGuesses');
         if(vars.includes('incorrectGuesses'))
           inputIncorrectGuesses = $response.querySelector('.Championship_Page_incorrectGuesses');
         if(vars.includes('game1WinnerGuess'))
@@ -161,14 +161,14 @@ async function websocketChampionshipInner(apiRequest) {
           inputObjectText = $response.querySelector('.Championship_Page_objectText');
         if(vars.includes('solrId'))
           inputSolrId = $response.querySelector('.Championship_Page_solrId');
-        if(vars.includes('actualFinalFour'))
-          inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
         if(vars.includes('actualChampionship'))
           inputActualChampionship = $response.querySelector('.Championship_Page_actualChampionship');
         if(vars.includes('bracketId'))
           inputBracketId = $response.querySelector('.Championship_Page_bracketId');
         if(vars.includes('name'))
           inputName = $response.querySelector('.Championship_Page_name');
+        if(vars.includes('actualFinalFour'))
+          inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
 
         jsWebsocketChampionship(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -235,16 +235,6 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_guesserId'));
         }
 
-        if(inputCorrectGuesses) {
-          document.querySelectorAll('.Championship_Page_correctGuesses').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputCorrectGuesses.getAttribute('value');
-            else
-              item.textContent = inputCorrectGuesses.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_correctGuesses'));
-        }
-
         if(inputYear) {
           document.querySelectorAll('.Championship_Page_year').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -253,6 +243,16 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_year'));
+        }
+
+        if(inputCorrectGuesses) {
+          document.querySelectorAll('.Championship_Page_correctGuesses').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputCorrectGuesses.getAttribute('value');
+            else
+              item.textContent = inputCorrectGuesses.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_correctGuesses'));
         }
 
         if(inputIncorrectGuesses) {
@@ -435,16 +435,6 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_solrId'));
         }
 
-        if(inputActualFinalFour) {
-          document.querySelectorAll('.Championship_Page_actualFinalFour').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputActualFinalFour.getAttribute('value');
-            else
-              item.textContent = inputActualFinalFour.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_actualFinalFour'));
-        }
-
         if(inputActualChampionship) {
           document.querySelectorAll('.Championship_Page_actualChampionship').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -473,6 +463,16 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputName.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_name'));
+        }
+
+        if(inputActualFinalFour) {
+          document.querySelectorAll('.Championship_Page_actualFinalFour').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualFinalFour.getAttribute('value');
+            else
+              item.textContent = inputActualFinalFour.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_actualFinalFour'));
         }
 
           pageGraphChampionship();
@@ -650,13 +650,13 @@ function searchChampionshipFilters($formFilters) {
     if(filterGuesserId != null && filterGuesserId !== '')
       filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
 
-    var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
-    if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
-      filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
-
     var filterYear = $formFilters.querySelector('.valueYear')?.value;
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
+
+    var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
+    if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
+      filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
 
     var filterIncorrectGuesses = $formFilters.querySelector('.valueIncorrectGuesses')?.value;
     if(filterIncorrectGuesses != null && filterIncorrectGuesses !== '')
@@ -1118,18 +1118,6 @@ async function patchChampionship($formFilters, $formValues, target, bracketId, s
   if(valueGuesserId != null && valueGuesserId !== '')
     vals['setGuesserId'] = valueGuesserId;
 
-  var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
-  var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value === 'true';
-  var setCorrectGuesses = removeCorrectGuesses ? null : $formValues.querySelector('.setCorrectGuesses')?.value;
-  var addCorrectGuesses = $formValues.querySelector('.addCorrectGuesses')?.value;
-  if(removeCorrectGuesses || setCorrectGuesses != null && setCorrectGuesses !== '')
-    vals['setCorrectGuesses'] = setCorrectGuesses;
-  if(addCorrectGuesses != null && addCorrectGuesses !== '')
-    vals['addCorrectGuesses'] = addCorrectGuesses;
-  var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value;
-  if(removeCorrectGuesses != null && removeCorrectGuesses !== '')
-    vals['removeCorrectGuesses'] = removeCorrectGuesses;
-
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   var removeYear = $formValues.querySelector('.removeYear')?.value === 'true';
   var setYear = removeYear ? null : $formValues.querySelector('.setYear')?.value;
@@ -1141,6 +1129,18 @@ async function patchChampionship($formFilters, $formValues, target, bracketId, s
   var removeYear = $formValues.querySelector('.removeYear')?.value;
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
+
+  var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
+  var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value === 'true';
+  var setCorrectGuesses = removeCorrectGuesses ? null : $formValues.querySelector('.setCorrectGuesses')?.value;
+  var addCorrectGuesses = $formValues.querySelector('.addCorrectGuesses')?.value;
+  if(removeCorrectGuesses || setCorrectGuesses != null && setCorrectGuesses !== '')
+    vals['setCorrectGuesses'] = setCorrectGuesses;
+  if(addCorrectGuesses != null && addCorrectGuesses !== '')
+    vals['addCorrectGuesses'] = addCorrectGuesses;
+  var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value;
+  if(removeCorrectGuesses != null && removeCorrectGuesses !== '')
+    vals['removeCorrectGuesses'] = removeCorrectGuesses;
 
   var valueIncorrectGuesses = $formValues.querySelector('.valueIncorrectGuesses')?.value;
   var removeIncorrectGuesses = $formValues.querySelector('.removeIncorrectGuesses')?.value === 'true';
@@ -1320,13 +1320,13 @@ function patchChampionshipFilters($formFilters) {
     if(filterGuesserId != null && filterGuesserId !== '')
       filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
 
-    var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
-    if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
-      filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
-
     var filterYear = $formFilters.querySelector('.valueYear')?.value;
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
+
+    var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
+    if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
+      filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
 
     var filterIncorrectGuesses = $formFilters.querySelector('.valueIncorrectGuesses')?.value;
     if(filterIncorrectGuesses != null && filterIncorrectGuesses !== '')
@@ -1494,13 +1494,13 @@ async function postChampionship($formValues, target, success, error) {
   if(valueGuesserId != null && valueGuesserId !== '')
     vals['guesserId'] = valueGuesserId;
 
-  var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
-  if(valueCorrectGuesses != null && valueCorrectGuesses !== '')
-    vals['correctGuesses'] = valueCorrectGuesses;
-
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
+
+  var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
+  if(valueCorrectGuesses != null && valueCorrectGuesses !== '')
+    vals['correctGuesses'] = valueCorrectGuesses;
 
   var valueIncorrectGuesses = $formValues.querySelector('.valueIncorrectGuesses')?.value;
   if(valueIncorrectGuesses != null && valueIncorrectGuesses !== '')

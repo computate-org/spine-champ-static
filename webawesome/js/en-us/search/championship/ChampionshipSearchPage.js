@@ -77,17 +77,6 @@ Promise.all([
     facetStatsChange('Championship', 'guesserId', false);
   });
 
-  document.querySelector('#pageSelectSortChampionship_correctGuesses')?.addEventListener('change', (event) => {
-    sort('Championship', 'correctGuesses', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsChampionship_correctGuesses')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Championship', 'correctGuesses', true);
-  });
-  document.querySelector('#pageStatsChampionship_correctGuesses')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Championship', 'correctGuesses', false);
-  });
-
   document.querySelector('#pageSelectSortChampionship_year')?.addEventListener('change', (event) => {
     sort('Championship', 'year', event.currentTarget.value);
   });
@@ -97,6 +86,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsChampionship_year')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('Championship', 'year', false);
+  });
+
+  document.querySelector('#pageSelectSortChampionship_correctGuesses')?.addEventListener('change', (event) => {
+    sort('Championship', 'correctGuesses', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_correctGuesses')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'correctGuesses', true);
+  });
+  document.querySelector('#pageStatsChampionship_correctGuesses')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'correctGuesses', false);
   });
 
   document.querySelector('#pageSelectSortChampionship_incorrectGuesses')?.addEventListener('change', (event) => {
