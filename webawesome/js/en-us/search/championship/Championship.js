@@ -104,10 +104,10 @@ async function websocketChampionshipInner(apiRequest) {
         var inputObjectSuggest = null;
         var inputObjectText = null;
         var inputSolrId = null;
+        var inputActualFinalFour = null;
         var inputActualChampionship = null;
         var inputBracketId = null;
         var inputName = null;
-        var inputActualFinalFour = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.Championship_Page_pk');
@@ -161,14 +161,14 @@ async function websocketChampionshipInner(apiRequest) {
           inputObjectText = $response.querySelector('.Championship_Page_objectText');
         if(vars.includes('solrId'))
           inputSolrId = $response.querySelector('.Championship_Page_solrId');
+        if(vars.includes('actualFinalFour'))
+          inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
         if(vars.includes('actualChampionship'))
           inputActualChampionship = $response.querySelector('.Championship_Page_actualChampionship');
         if(vars.includes('bracketId'))
           inputBracketId = $response.querySelector('.Championship_Page_bracketId');
         if(vars.includes('name'))
           inputName = $response.querySelector('.Championship_Page_name');
-        if(vars.includes('actualFinalFour'))
-          inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
 
         jsWebsocketChampionship(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -435,6 +435,16 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_solrId'));
         }
 
+        if(inputActualFinalFour) {
+          document.querySelectorAll('.Championship_Page_actualFinalFour').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualFinalFour.getAttribute('value');
+            else
+              item.textContent = inputActualFinalFour.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_actualFinalFour'));
+        }
+
         if(inputActualChampionship) {
           document.querySelectorAll('.Championship_Page_actualChampionship').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -463,16 +473,6 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputName.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_name'));
-        }
-
-        if(inputActualFinalFour) {
-          document.querySelectorAll('.Championship_Page_actualFinalFour').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputActualFinalFour.getAttribute('value');
-            else
-              item.textContent = inputActualFinalFour.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_actualFinalFour'));
         }
 
           pageGraphChampionship();

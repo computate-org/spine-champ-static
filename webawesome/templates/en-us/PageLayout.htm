@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ SITE_LOCALE }}" class="wa-cloak wa-{{ userSiteTheme | default(SITE_THEME) }} wa-theme-{{ userWebComponentsTheme | default(WEB_COMPONENTS_THEME) }} ">
+<html lang="{{ SITE_LOCALE }}" class="wa-cloak wa-{{ userSiteTheme | default(SITE_THEME) }}">
   <head>
 {%- block htmHeadPageLayout %}
     <meta charset="UTF-8" />
@@ -135,7 +135,7 @@
 {%- block websocketPageLayout %}{%- endblock websocketPageLayout %}
     </script>
   </head>
-  <body class="wa-body-{{ userFontSize[0:1] }} wa-size-{{ userFontSize[0:1] }} ">
+  <body class="">
     {% if WEB_COMPONENTS_PRO == 'true' -%}
     <wa-page disable-sticky="header">
     {%- else -%}

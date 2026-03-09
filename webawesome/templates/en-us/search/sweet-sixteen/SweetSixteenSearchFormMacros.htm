@@ -247,12 +247,44 @@
 {%- macro htmYearSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
                             {{ inputYearSweetSixteenPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
 {%- endmacro %}
+{%- macro inputCorrectGuessesChartSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+                {% if 'Page' == classApiMethodMethod -%}
+                </div>
+                <div
+                      class="wa-stack"
+                    >
+                  {% endif -%}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_correctGuessesChart">
+  {%- endif %}
+                  {% if 'Page' == classApiMethodMethod -%}
+                  <wa-pie-chart
+                      class="SweetSixteen_{{classApiMethodMethod}}_correctGuessesChart inputSweetSixteen{{ result.bracketId }}CorrectGuessesChart "
+                      id="SweetSixteen_{{classApiMethodMethod}}_correctGuessesChart"
+                      div=""
+                      class="wa-stack"
+                      label="correct guesses"
+                      description="A chart of the number of correct guesses in this Championship bracket"
+                      >
+                    <script type="application/json">
+                      {{ toJsonObjectString(result.correctGuessesChart) }}
+                    </script>
+                  </wa-pie-chart>
+                  {% endif -%}
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputCorrectGuessesChartSweetSixteenPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
 {%- macro inputCorrectGuessesSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_correctGuesses">
   {%- endif %}
                   <wa-input
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      readonly
                       placeholder="[Integer] correct guesses"
                       label="correct guesses"
                       type="number"
@@ -289,7 +321,7 @@
                 <form class="subgrid-2col " id="PageForm_incorrectGuesses">
   {%- endif %}
                   <wa-input
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      readonly
                       placeholder="[Integer] incorrect guesses"
                       label="incorrect guesses"
                       type="number"
@@ -1592,6 +1624,16 @@
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
               </div>
 
               <div class="grid-with-subgrid-2col ">
@@ -1970,6 +2012,16 @@
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -2431,6 +2483,16 @@
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>

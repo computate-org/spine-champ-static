@@ -309,7 +309,7 @@
                 <form class="subgrid-2col " id="PageForm_correctGuesses">
   {%- endif %}
                   <wa-input
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      readonly
                       placeholder="[Integer] correct guesses"
                       label="correct guesses"
                       type="number"
@@ -346,7 +346,7 @@
                 <form class="subgrid-2col " id="PageForm_incorrectGuesses">
   {%- endif %}
                   <wa-input
-                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      readonly
                       placeholder="[Integer] incorrect guesses"
                       label="incorrect guesses"
                       type="number"

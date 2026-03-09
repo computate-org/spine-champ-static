@@ -84,6 +84,7 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputArchived = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputCorrectGuessesChart = null;
         var inputCorrectGuesses = null;
         var inputIncorrectGuesses = null;
         var inputSouthGame1WinnerGuess = null;
@@ -141,6 +142,8 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputGuesserId = $response.querySelector('.SweetSixteen_Page_guesserId');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.SweetSixteen_Page_year');
+        if(vars.includes('correctGuessesChart'))
+          inputCorrectGuessesChart = $response.querySelector('.SweetSixteen_Page_correctGuessesChart');
         if(vars.includes('correctGuesses'))
           inputCorrectGuesses = $response.querySelector('.SweetSixteen_Page_correctGuesses');
         if(vars.includes('incorrectGuesses'))
@@ -293,6 +296,20 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.SweetSixteen_Page_year'));
+        }
+
+        if(inputCorrectGuessesChart) {
+          document.querySelectorAll('.SweetSixteen_Page_correctGuessesChart').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputCorrectGuessesChart.getAttribute('value');
+            else
+              item.textContent = inputCorrectGuessesChart.textContent;
+            for (let i = 0; i < item.chart.data.datasets.length; i++) {
+              item.chart.data.datasets[i].data = JSON.parse(inputCorrectGuessesChart.textContent).data.datasets[i].data;
+            }
+            item.chart.update();
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_correctGuessesChart'));
         }
 
         if(inputCorrectGuesses) {
@@ -2338,6 +2355,18 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value === 'true';
+  var setCorrectGuessesChart = removeCorrectGuessesChart ? null : $formValues.querySelector('.setCorrectGuessesChart')?.value;
+  var addCorrectGuessesChart = $formValues.querySelector('.addCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart || setCorrectGuessesChart != null && setCorrectGuessesChart !== '')
+    vals['setCorrectGuessesChart'] = JSON.parse(setCorrectGuessesChart);
+  if(addCorrectGuessesChart != null && addCorrectGuessesChart !== '')
+    vals['addCorrectGuessesChart'] = addCorrectGuessesChart;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart != null && removeCorrectGuessesChart !== '')
+    vals['removeCorrectGuessesChart'] = removeCorrectGuessesChart;
+
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value === 'true';
   var setCorrectGuesses = removeCorrectGuesses ? null : $formValues.querySelector('.setCorrectGuesses')?.value;
@@ -2929,6 +2958,10 @@ async function postSweetSixteen($formValues, target, success, error) {
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
+
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  if(valueCorrectGuessesChart != null && valueCorrectGuessesChart !== '')
+    vals['correctGuessesChart'] = JSON.parse(valueCorrectGuessesChart);
 
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   if(valueCorrectGuesses != null && valueCorrectGuesses !== '')

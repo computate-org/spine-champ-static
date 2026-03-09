@@ -114,9 +114,9 @@ async function websocketEliteEightInner(apiRequest) {
         var inputObjectSuggest = null;
         var inputObjectText = null;
         var inputSolrId = null;
-        var inputBracketId = null;
         var inputActualSweetSixteen = null;
         var inputActualEliteEight = null;
+        var inputBracketId = null;
         var inputName = null;
 
         if(vars.includes('pk'))
@@ -191,12 +191,12 @@ async function websocketEliteEightInner(apiRequest) {
           inputObjectText = $response.querySelector('.EliteEight_Page_objectText');
         if(vars.includes('solrId'))
           inputSolrId = $response.querySelector('.EliteEight_Page_solrId');
-        if(vars.includes('bracketId'))
-          inputBracketId = $response.querySelector('.EliteEight_Page_bracketId');
         if(vars.includes('actualSweetSixteen'))
           inputActualSweetSixteen = $response.querySelector('.EliteEight_Page_actualSweetSixteen');
         if(vars.includes('actualEliteEight'))
           inputActualEliteEight = $response.querySelector('.EliteEight_Page_actualEliteEight');
+        if(vars.includes('bracketId'))
+          inputBracketId = $response.querySelector('.EliteEight_Page_bracketId');
         if(vars.includes('name'))
           inputName = $response.querySelector('.EliteEight_Page_name');
 
@@ -565,16 +565,6 @@ async function websocketEliteEightInner(apiRequest) {
           addGlow(document.querySelector('.EliteEight_Page_solrId'));
         }
 
-        if(inputBracketId) {
-          document.querySelectorAll('.EliteEight_Page_bracketId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputBracketId.getAttribute('value');
-            else
-              item.textContent = inputBracketId.textContent;
-          });
-          addGlow(document.querySelector('.EliteEight_Page_bracketId'));
-        }
-
         if(inputActualSweetSixteen) {
           document.querySelectorAll('.EliteEight_Page_actualSweetSixteen').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -593,6 +583,16 @@ async function websocketEliteEightInner(apiRequest) {
               item.textContent = inputActualEliteEight.textContent;
           });
           addGlow(document.querySelector('.EliteEight_Page_actualEliteEight'));
+        }
+
+        if(inputBracketId) {
+          document.querySelectorAll('.EliteEight_Page_bracketId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputBracketId.getAttribute('value');
+            else
+              item.textContent = inputBracketId.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_bracketId'));
         }
 
         if(inputName) {
