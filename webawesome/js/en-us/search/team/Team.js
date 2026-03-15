@@ -103,51 +103,51 @@ async function websocketTeamInner(apiRequest) {
         var inputTeamId = null;
 
         if(vars.includes('pk'))
-          inputPk = $response.querySelector('.Page_pk');
+          inputPk = $response.querySelector('.Team_Page_pk');
         if(vars.includes('created'))
-          inputCreated = $response.querySelector('.Page_created');
+          inputCreated = $response.querySelector('.Team_Page_created');
         if(vars.includes('modified'))
-          inputModified = $response.querySelector('.Page_modified');
+          inputModified = $response.querySelector('.Team_Page_modified');
         if(vars.includes('archived'))
-          inputArchived = $response.querySelector('.Page_archived');
+          inputArchived = $response.querySelector('.Team_Page_archived');
         if(vars.includes('region'))
-          inputRegion = $response.querySelector('.Page_region');
+          inputRegion = $response.querySelector('.Team_Page_region');
         if(vars.includes('name'))
-          inputName = $response.querySelector('.Page_name');
+          inputName = $response.querySelector('.Team_Page_name');
         if(vars.includes('abbreviation'))
-          inputAbbreviation = $response.querySelector('.Page_abbreviation');
+          inputAbbreviation = $response.querySelector('.Team_Page_abbreviation');
         if(vars.includes('classCanonicalName'))
-          inputClassCanonicalName = $response.querySelector('.Page_classCanonicalName');
+          inputClassCanonicalName = $response.querySelector('.Team_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
-          inputClassSimpleName = $response.querySelector('.Page_classSimpleName');
+          inputClassSimpleName = $response.querySelector('.Team_Page_classSimpleName');
         if(vars.includes('classCanonicalNames'))
-          inputClassCanonicalNames = $response.querySelector('.Page_classCanonicalNames');
+          inputClassCanonicalNames = $response.querySelector('.Team_Page_classCanonicalNames');
         if(vars.includes('sessionId'))
-          inputSessionId = $response.querySelector('.Page_sessionId');
+          inputSessionId = $response.querySelector('.Team_Page_sessionId');
         if(vars.includes('userKey'))
-          inputUserKey = $response.querySelector('.Page_userKey');
+          inputUserKey = $response.querySelector('.Team_Page_userKey');
         if(vars.includes('saves'))
-          inputSaves = $response.querySelector('.Page_saves');
+          inputSaves = $response.querySelector('.Team_Page_saves');
         if(vars.includes('objectTitle'))
-          inputObjectTitle = $response.querySelector('.Page_objectTitle');
+          inputObjectTitle = $response.querySelector('.Team_Page_objectTitle');
         if(vars.includes('displayPage'))
-          inputDisplayPage = $response.querySelector('.Page_displayPage');
+          inputDisplayPage = $response.querySelector('.Team_Page_displayPage');
         if(vars.includes('editPage'))
-          inputEditPage = $response.querySelector('.Page_editPage');
+          inputEditPage = $response.querySelector('.Team_Page_editPage');
         if(vars.includes('userPage'))
-          inputUserPage = $response.querySelector('.Page_userPage');
+          inputUserPage = $response.querySelector('.Team_Page_userPage');
         if(vars.includes('download'))
-          inputDownload = $response.querySelector('.Page_download');
+          inputDownload = $response.querySelector('.Team_Page_download');
         if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.Page_objectSuggest');
+          inputObjectSuggest = $response.querySelector('.Team_Page_objectSuggest');
         if(vars.includes('objectText'))
-          inputObjectText = $response.querySelector('.Page_objectText');
+          inputObjectText = $response.querySelector('.Team_Page_objectText');
         if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.Page_solrId');
+          inputSolrId = $response.querySelector('.Team_Page_solrId');
         if(vars.includes('displayName'))
-          inputDisplayName = $response.querySelector('.Page_displayName');
+          inputDisplayName = $response.querySelector('.Team_Page_displayName');
         if(vars.includes('teamId'))
-          inputTeamId = $response.querySelector('.Page_teamId');
+          inputTeamId = $response.querySelector('.Team_Page_teamId');
 
         jsWebsocketTeam(teamId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -155,233 +155,233 @@ async function websocketTeamInner(apiRequest) {
 
 
         if(inputPk) {
-          document.querySelectorAll('.Page_pk').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_pk').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputPk.getAttribute('value');
             else
               item.textContent = inputPk.textContent;
           });
-          addGlow(document.querySelector('.Page_pk'));
+          addGlow(document.querySelector('.Team_Page_pk'));
         }
 
         if(inputCreated) {
-          document.querySelectorAll('.Page_created').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_created').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputCreated.getAttribute('value');
             else
               item.textContent = inputCreated.textContent;
           });
-          addGlow(document.querySelector('.Page_created'));
+          addGlow(document.querySelector('.Team_Page_created'));
         }
 
         if(inputModified) {
-          document.querySelectorAll('.Page_modified').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_modified').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputModified.getAttribute('value');
             else
               item.textContent = inputModified.textContent;
           });
-          addGlow(document.querySelector('.Page_modified'));
+          addGlow(document.querySelector('.Team_Page_modified'));
         }
 
         if(inputArchived) {
-          document.querySelectorAll('.Page_archived').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_archived').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputArchived.getAttribute('value');
             else
               item.textContent = inputArchived.textContent;
           });
-          addGlow(document.querySelector('.Page_archived'));
+          addGlow(document.querySelector('.Team_Page_archived'));
         }
 
         if(inputRegion) {
-          document.querySelectorAll('.Page_region').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_region').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputRegion.getAttribute('value');
             else
               item.textContent = inputRegion.textContent;
           });
-          addGlow(document.querySelector('.Page_region'));
+          addGlow(document.querySelector('.Team_Page_region'));
         }
 
         if(inputName) {
-          document.querySelectorAll('.Page_name').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_name').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputName.getAttribute('value');
             else
               item.textContent = inputName.textContent;
           });
-          addGlow(document.querySelector('.Page_name'));
+          addGlow(document.querySelector('.Team_Page_name'));
         }
 
         if(inputAbbreviation) {
-          document.querySelectorAll('.Page_abbreviation').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_abbreviation').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputAbbreviation.getAttribute('value');
             else
               item.textContent = inputAbbreviation.textContent;
           });
-          addGlow(document.querySelector('.Page_abbreviation'));
+          addGlow(document.querySelector('.Team_Page_abbreviation'));
         }
 
         if(inputClassCanonicalName) {
-          document.querySelectorAll('.Page_classCanonicalName').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_classCanonicalName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassCanonicalName.getAttribute('value');
             else
               item.textContent = inputClassCanonicalName.textContent;
           });
-          addGlow(document.querySelector('.Page_classCanonicalName'));
+          addGlow(document.querySelector('.Team_Page_classCanonicalName'));
         }
 
         if(inputClassSimpleName) {
-          document.querySelectorAll('.Page_classSimpleName').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_classSimpleName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassSimpleName.getAttribute('value');
             else
               item.textContent = inputClassSimpleName.textContent;
           });
-          addGlow(document.querySelector('.Page_classSimpleName'));
+          addGlow(document.querySelector('.Team_Page_classSimpleName'));
         }
 
         if(inputClassCanonicalNames) {
-          document.querySelectorAll('.Page_classCanonicalNames').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_classCanonicalNames').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputClassCanonicalNames.getAttribute('value');
             else
               item.textContent = inputClassCanonicalNames.textContent;
           });
-          addGlow(document.querySelector('.Page_classCanonicalNames'));
+          addGlow(document.querySelector('.Team_Page_classCanonicalNames'));
         }
 
         if(inputSessionId) {
-          document.querySelectorAll('.Page_sessionId').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_sessionId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSessionId.getAttribute('value');
             else
               item.textContent = inputSessionId.textContent;
           });
-          addGlow(document.querySelector('.Page_sessionId'));
+          addGlow(document.querySelector('.Team_Page_sessionId'));
         }
 
         if(inputUserKey) {
-          document.querySelectorAll('.Page_userKey').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_userKey').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputUserKey.getAttribute('value');
             else
               item.textContent = inputUserKey.textContent;
           });
-          addGlow(document.querySelector('.Page_userKey'));
+          addGlow(document.querySelector('.Team_Page_userKey'));
         }
 
         if(inputSaves) {
-          document.querySelectorAll('.Page_saves').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_saves').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSaves.getAttribute('value');
             else
               item.textContent = inputSaves.textContent;
           });
-          addGlow(document.querySelector('.Page_saves'));
+          addGlow(document.querySelector('.Team_Page_saves'));
         }
 
         if(inputObjectTitle) {
-          document.querySelectorAll('.Page_objectTitle').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_objectTitle').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectTitle.getAttribute('value');
             else
               item.textContent = inputObjectTitle.textContent;
           });
-          addGlow(document.querySelector('.Page_objectTitle'));
+          addGlow(document.querySelector('.Team_Page_objectTitle'));
         }
 
         if(inputDisplayPage) {
-          document.querySelectorAll('.Page_displayPage').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_displayPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDisplayPage.getAttribute('value');
             else
               item.textContent = inputDisplayPage.textContent;
           });
-          addGlow(document.querySelector('.Page_displayPage'));
+          addGlow(document.querySelector('.Team_Page_displayPage'));
         }
 
         if(inputEditPage) {
-          document.querySelectorAll('.Page_editPage').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_editPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputEditPage.getAttribute('value');
             else
               item.textContent = inputEditPage.textContent;
           });
-          addGlow(document.querySelector('.Page_editPage'));
+          addGlow(document.querySelector('.Team_Page_editPage'));
         }
 
         if(inputUserPage) {
-          document.querySelectorAll('.Page_userPage').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_userPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputUserPage.getAttribute('value');
             else
               item.textContent = inputUserPage.textContent;
           });
-          addGlow(document.querySelector('.Page_userPage'));
+          addGlow(document.querySelector('.Team_Page_userPage'));
         }
 
         if(inputDownload) {
-          document.querySelectorAll('.Page_download').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_download').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDownload.getAttribute('value');
             else
               item.textContent = inputDownload.textContent;
           });
-          addGlow(document.querySelector('.Page_download'));
+          addGlow(document.querySelector('.Team_Page_download'));
         }
 
         if(inputObjectSuggest) {
-          document.querySelectorAll('.Page_objectSuggest').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_objectSuggest').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectSuggest.getAttribute('value');
             else
               item.textContent = inputObjectSuggest.textContent;
           });
-          addGlow(document.querySelector('.Page_objectSuggest'));
+          addGlow(document.querySelector('.Team_Page_objectSuggest'));
         }
 
         if(inputObjectText) {
-          document.querySelectorAll('.Page_objectText').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_objectText').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputObjectText.getAttribute('value');
             else
               item.textContent = inputObjectText.textContent;
           });
-          addGlow(document.querySelector('.Page_objectText'));
+          addGlow(document.querySelector('.Team_Page_objectText'));
         }
 
         if(inputSolrId) {
-          document.querySelectorAll('.Page_solrId').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_solrId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputSolrId.getAttribute('value');
             else
               item.textContent = inputSolrId.textContent;
           });
-          addGlow(document.querySelector('.Page_solrId'));
+          addGlow(document.querySelector('.Team_Page_solrId'));
         }
 
         if(inputDisplayName) {
-          document.querySelectorAll('.Page_displayName').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_displayName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputDisplayName.getAttribute('value');
             else
               item.textContent = inputDisplayName.textContent;
           });
-          addGlow(document.querySelector('.Page_displayName'));
+          addGlow(document.querySelector('.Team_Page_displayName'));
         }
 
         if(inputTeamId) {
-          document.querySelectorAll('.Page_teamId').forEach((item, index) => {
+          document.querySelectorAll('.Team_Page_teamId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
               item.value = inputTeamId.getAttribute('value');
             else
               item.textContent = inputTeamId.textContent;
           });
-          addGlow(document.querySelector('.Page_teamId'));
+          addGlow(document.querySelector('.Team_Page_teamId'));
         }
 
           pageGraphTeam();

@@ -11,14 +11,14 @@
                       id="Team_{{classApiMethodMethod}}_pk"
   {%- if "Page" == classApiMethodMethod %}
                       data-teamId={{ result.teamId | tojson }}
-                      class="label-on-left {{Team_classApiMethodMethod}}_pk setPk classTeam inputTeam{{ result.teamId }}Pk "
+                      class="label-on-left Team_{{classApiMethodMethod}}_pk setPk classTeam inputTeam{{ result.teamId }}Pk "
                       name="setPk"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_pk setPk classTeam inputTeam{{ result.teamId }}Pk "
+                      class="label-on-left Team_{{classApiMethodMethod}}_pk setPk classTeam inputTeam{{ result.teamId }}Pk "
                       name="setPk"
     {%- else %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_pk valuePk classTeam inputTeam{{ result.teamId }}Pk "
+                      class="label-on-left Team_{{classApiMethodMethod}}_pk valuePk classTeam inputTeam{{ result.teamId }}Pk "
                       name="pk"
     {%- endif %}
   {%- endif %}
@@ -44,7 +44,7 @@
                       readonly
                       hint="A created timestamp for this record in the database"
                       label="created {{ formatZonedDateTime(result.created, "'['VV']'", defaultLocaleId, defaultZoneId) | e }}"
-                      class="label-on-left {{Team_classApiMethodMethod}}_created datetimepicker setCreated classTeam inputTeam{{ result.teamId }}Created "
+                      class="label-on-left Team_{{classApiMethodMethod}}_created datetimepicker setCreated classTeam inputTeam{{ result.teamId }}Created "
                       placeholder="MM/dd/yyyy h:mm a '['VV']'"
                       data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
                       id="Team_{{classApiMethodMethod}}_created"
@@ -72,7 +72,7 @@
                       readonly
                       hint="A modified timestamp for this record in the database"
                       label="modified {{ formatZonedDateTime(result.modified, "'['VV']'", defaultLocaleId, defaultZoneId) | e }}"
-                      class="label-on-left {{Team_classApiMethodMethod}}_modified datetimepicker setModified classTeam inputTeam{{ result.teamId }}Modified "
+                      class="label-on-left Team_{{classApiMethodMethod}}_modified datetimepicker setModified classTeam inputTeam{{ result.teamId }}Modified "
                       placeholder="MM/dd/yyyy h:mm a '['VV']'"
                       data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
                       id="Team_{{classApiMethodMethod}}_modified"
@@ -101,7 +101,7 @@
                       placeholder="archive"
                       label="archive"
                       hint="For archiving this record"
-                      class="label-on-left {{Team_classApiMethodMethod}}_archived classTeam inputTeam{{ result.teamId }}Archived "
+                      class="label-on-left Team_{{classApiMethodMethod}}_archived classTeam inputTeam{{ result.teamId }}Archived "
                       name="setArchived"
                       data-teamId={{ result.teamId | tojson }}
                       data-val="{{ result.archived | e }}"
@@ -120,14 +120,14 @@
                       label="archive"
                       hint="For archiving this record"
   {%- if 'Page' == classApiMethodMethod %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_archived classTeam inputTeam{{ result.teamId }}Archived "
+                      class="label-on-left Team_{{classApiMethodMethod}}_archived classTeam inputTeam{{ result.teamId }}Archived "
                       name="setArchived"
   {%- else %}
     {%- if 'Page' == classApiMethodMethod %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_archived classTeam inputTeam{{ result.teamId }}Archived "
+                      class="label-on-left Team_{{classApiMethodMethod}}_archived classTeam inputTeam{{ result.teamId }}Archived "
                       name="setArchived"
     {%- else %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_archived setArchived valueArchived classTeam inputTeam{{ result.teamId }}Archived "
+                      class="label-on-left Team_{{classApiMethodMethod}}_archived setArchived valueArchived classTeam inputTeam{{ result.teamId }}Archived "
                       name="setArchived"
     {%- endif %}
   {%- endif %}
@@ -166,14 +166,14 @@
                       id="Team_{{classApiMethodMethod}}_region"
   {%- if "Page" == classApiMethodMethod %}
                       data-teamId={{ result.teamId | tojson }}
-                      class="label-on-left {{Team_classApiMethodMethod}}_region setRegion classTeam inputTeam{{ result.teamId }}Region "
+                      class="label-on-left Team_{{classApiMethodMethod}}_region setRegion classTeam inputTeam{{ result.teamId }}Region "
                       name="setRegion"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_region setRegion classTeam inputTeam{{ result.teamId }}Region "
+                      class="label-on-left Team_{{classApiMethodMethod}}_region setRegion classTeam inputTeam{{ result.teamId }}Region "
                       name="setRegion"
     {%- else %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_region valueRegion classTeam inputTeam{{ result.teamId }}Region "
+                      class="label-on-left Team_{{classApiMethodMethod}}_region valueRegion classTeam inputTeam{{ result.teamId }}Region "
                       name="region"
     {%- endif %}
   {%- endif %}
@@ -203,14 +203,14 @@
                       id="Team_{{classApiMethodMethod}}_name"
   {%- if "Page" == classApiMethodMethod %}
                       data-teamId={{ result.teamId | tojson }}
-                      class="label-on-left {{Team_classApiMethodMethod}}_name setName classTeam inputTeam{{ result.teamId }}Name "
+                      class="label-on-left Team_{{classApiMethodMethod}}_name setName classTeam inputTeam{{ result.teamId }}Name "
                       name="setName"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_name setName classTeam inputTeam{{ result.teamId }}Name "
+                      class="label-on-left Team_{{classApiMethodMethod}}_name setName classTeam inputTeam{{ result.teamId }}Name "
                       name="setName"
     {%- else %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_name valueName classTeam inputTeam{{ result.teamId }}Name "
+                      class="label-on-left Team_{{classApiMethodMethod}}_name valueName classTeam inputTeam{{ result.teamId }}Name "
                       name="name"
     {%- endif %}
   {%- endif %}
@@ -240,14 +240,14 @@
                       id="Team_{{classApiMethodMethod}}_abbreviation"
   {%- if "Page" == classApiMethodMethod %}
                       data-teamId={{ result.teamId | tojson }}
-                      class="label-on-left {{Team_classApiMethodMethod}}_abbreviation setAbbreviation classTeam inputTeam{{ result.teamId }}Abbreviation "
+                      class="label-on-left Team_{{classApiMethodMethod}}_abbreviation setAbbreviation classTeam inputTeam{{ result.teamId }}Abbreviation "
                       name="setAbbreviation"
   {%- else %}
     {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_abbreviation setAbbreviation classTeam inputTeam{{ result.teamId }}Abbreviation "
+                      class="label-on-left Team_{{classApiMethodMethod}}_abbreviation setAbbreviation classTeam inputTeam{{ result.teamId }}Abbreviation "
                       name="setAbbreviation"
     {%- else %}
-                      class="label-on-left {{Team_classApiMethodMethod}}_abbreviation valueAbbreviation classTeam inputTeam{{ result.teamId }}Abbreviation "
+                      class="label-on-left Team_{{classApiMethodMethod}}_abbreviation valueAbbreviation classTeam inputTeam{{ result.teamId }}Abbreviation "
                       name="abbreviation"
     {%- endif %}
   {%- endif %}

@@ -698,7 +698,7 @@ function suggestGuesserSweetSixteenBrackets(filters, $list, guesserId = null, sw
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var inputVar = 'bracketId';
+        var inputVar = 'guesserId';
         var val = o[inputVar];
         var checked = val == null ? false : (sweetSixteenBrackets != null && val === sweetSixteenBrackets.toString());
         var $input = document.createElement('wa-checkbox');
@@ -759,7 +759,7 @@ function suggestGuesserEliteEightBrackets(filters, $list, guesserId = null, elit
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var inputVar = 'bracketId';
+        var inputVar = 'guesserId';
         var val = o[inputVar];
         var checked = val == null ? false : (eliteEightBrackets != null && val === eliteEightBrackets.toString());
         var $input = document.createElement('wa-checkbox');
@@ -820,7 +820,7 @@ function suggestGuesserFinalFourBrackets(filters, $list, guesserId = null, final
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var inputVar = 'bracketId';
+        var inputVar = 'guesserId';
         var val = o[inputVar];
         var checked = val == null ? false : (finalFourBrackets != null && val === finalFourBrackets.toString());
         var $input = document.createElement('wa-checkbox');
@@ -881,7 +881,7 @@ function suggestGuesserChampionshipBrackets(filters, $list, guesserId = null, ch
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
         $a.append($span);
-        var inputVar = 'bracketId';
+        var inputVar = 'guesserId';
         var val = o[inputVar];
         var checked = val == null ? false : (championshipBrackets != null && val === championshipBrackets.toString());
         var $input = document.createElement('wa-checkbox');

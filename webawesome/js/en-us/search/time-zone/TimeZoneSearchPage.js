@@ -99,61 +99,6 @@ Promise.all([
     facetStatsChange('TimeZone', 'displayPage', false);
   });
 
-  document.querySelector('#pageSelectSortTimeZone_classCanonicalName')?.addEventListener('change', (event) => {
-    sort('TimeZone', 'classCanonicalName', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsTimeZone_classCanonicalName')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('TimeZone', 'classCanonicalName', true);
-  });
-  document.querySelector('#pageStatsTimeZone_classCanonicalName')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('TimeZone', 'classCanonicalName', false);
-  });
-
-  document.querySelector('#pageSelectSortTimeZone_classSimpleName')?.addEventListener('change', (event) => {
-    sort('TimeZone', 'classSimpleName', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsTimeZone_classSimpleName')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('TimeZone', 'classSimpleName', true);
-  });
-  document.querySelector('#pageStatsTimeZone_classSimpleName')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('TimeZone', 'classSimpleName', false);
-  });
-
-  document.querySelector('#pageSelectSortTimeZone_classCanonicalNames')?.addEventListener('change', (event) => {
-    sort('TimeZone', 'classCanonicalNames', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsTimeZone_classCanonicalNames')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('TimeZone', 'classCanonicalNames', true);
-  });
-  document.querySelector('#pageStatsTimeZone_classCanonicalNames')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('TimeZone', 'classCanonicalNames', false);
-  });
-
-  document.querySelector('#pageSelectSortTimeZone_saves')?.addEventListener('change', (event) => {
-    sort('TimeZone', 'saves', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsTimeZone_saves')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('TimeZone', 'saves', true);
-  });
-  document.querySelector('#pageStatsTimeZone_saves')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('TimeZone', 'saves', false);
-  });
-
-  document.querySelector('#pageSelectSortTimeZone_objectTitle')?.addEventListener('change', (event) => {
-    sort('TimeZone', 'objectTitle', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsTimeZone_objectTitle')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('TimeZone', 'objectTitle', true);
-  });
-  document.querySelector('#pageStatsTimeZone_objectTitle')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('TimeZone', 'objectTitle', false);
-  });
-
   document.querySelector('#pageSelectSortTimeZone_editPage')?.addEventListener('change', (event) => {
     sort('TimeZone', 'editPage', event.currentTarget.value);
   });
@@ -218,6 +163,61 @@ Promise.all([
   });
   document.querySelector('#pageStatsTimeZone_solrId')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('TimeZone', 'solrId', false);
+  });
+
+  document.querySelector('#pageSelectSortTimeZone_classCanonicalName')?.addEventListener('change', (event) => {
+    sort('TimeZone', 'classCanonicalName', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsTimeZone_classCanonicalName')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('TimeZone', 'classCanonicalName', true);
+  });
+  document.querySelector('#pageStatsTimeZone_classCanonicalName')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('TimeZone', 'classCanonicalName', false);
+  });
+
+  document.querySelector('#pageSelectSortTimeZone_classSimpleName')?.addEventListener('change', (event) => {
+    sort('TimeZone', 'classSimpleName', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsTimeZone_classSimpleName')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('TimeZone', 'classSimpleName', true);
+  });
+  document.querySelector('#pageStatsTimeZone_classSimpleName')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('TimeZone', 'classSimpleName', false);
+  });
+
+  document.querySelector('#pageSelectSortTimeZone_classCanonicalNames')?.addEventListener('change', (event) => {
+    sort('TimeZone', 'classCanonicalNames', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsTimeZone_classCanonicalNames')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('TimeZone', 'classCanonicalNames', true);
+  });
+  document.querySelector('#pageStatsTimeZone_classCanonicalNames')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('TimeZone', 'classCanonicalNames', false);
+  });
+
+  document.querySelector('#pageSelectSortTimeZone_saves')?.addEventListener('change', (event) => {
+    sort('TimeZone', 'saves', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsTimeZone_saves')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('TimeZone', 'saves', true);
+  });
+  document.querySelector('#pageStatsTimeZone_saves')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('TimeZone', 'saves', false);
+  });
+
+  document.querySelector('#pageSelectSortTimeZone_objectTitle')?.addEventListener('change', (event) => {
+    sort('TimeZone', 'objectTitle', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsTimeZone_objectTitle')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('TimeZone', 'objectTitle', true);
+  });
+  document.querySelector('#pageStatsTimeZone_objectTitle')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('TimeZone', 'objectTitle', false);
   });
 
   document.querySelector('#pageSelectSortTimeZone_displayName')?.addEventListener('change', (event) => {

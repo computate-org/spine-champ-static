@@ -648,6 +648,20 @@
           {% endif -%}
           {% endif -%}
           }
+          function FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets(event) {
+            suggestFinalFourEliteEight(
+                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
+                , { 'name': 'rows', 'value': '10' }
+                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
+                , document.querySelector('#' + event.target.getAttribute('data-list'))
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
+                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
+                , true
+                , document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')
+                );
+          }
+          document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets);
+          document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets);
           function FinalFour_POST_guesserId_Guesser_POST_finalFourBrackets(event) {
             suggestFinalFourGuesserId(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -718,20 +732,6 @@
           }
           document.querySelector('#FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets);
           document.querySelector('#FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_game2Loser_Guesser_POST_finalFourBrackets);
-          function FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets(event) {
-            suggestFinalFourEliteEight(
-                [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
-                , { 'name': 'rows', 'value': '10' }
-                , { 'name': 'fl', 'value': 'classCanonicalName,bracketId,pk,editPage,objectTitle' } ]
-                , document.querySelector('#' + event.target.getAttribute('data-list'))
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.guesserId : null
-                , event.target.getAttribute('data-method') === 'Page' ? window.result.eliteEight : null
-                , true
-                , document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')
-                );
-          }
-          document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')?.addEventListener('input', FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets);
-          document.querySelector('#FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets')?.addEventListener('focus', FinalFour_POST_eliteEight_Guesser_POST_finalFourBrackets);
           function FinalFour_POST_championship_Guesser_POST_finalFourBrackets(event) {
             suggestFinalFourChampionship(
                 [ { 'name': 'q', 'value': 'objectSuggest:' + (event.target.value ? event.target.value : '') }
@@ -933,6 +933,8 @@
               , document.querySelector('#htmFormButton_postSweetSixteen')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -942,6 +944,8 @@
               , document.querySelector('#htmFormButton_postEliteEight')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -951,6 +955,8 @@
               , document.querySelector('#htmFormButton_postFinalFour')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 
@@ -960,6 +966,8 @@
               , document.querySelector('#htmFormButton_postChampionship')
               , (json, target) => {
                 addGlow(target);
+                if(json['editPage'])
+                  window.location.href = json['editPage'];
               });
         });
 {%- block htmScriptInitGuesserPage %}{%- endblock htmScriptInitGuesserPage %}
