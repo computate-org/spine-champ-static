@@ -88,21 +88,21 @@ async function websocketGuesserInner(apiRequest) {
         var inputEliteEightBrackets = null;
         var inputFinalFourBrackets = null;
         var inputChampionshipBrackets = null;
-        var inputSaves = null;
+        var inputGuesserId = null;
+        var inputClassCanonicalNames = null;
         var inputObjectTitle = null;
-        var inputObjectSuggest = null;
-        var inputSolrId = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
-        var inputClassCanonicalNames = null;
         var inputSessionId = null;
         var inputUserKey = null;
+        var inputSaves = null;
         var inputDisplayPage = null;
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
+        var inputObjectSuggest = null;
         var inputObjectText = null;
-        var inputGuesserId = null;
+        var inputSolrId = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.Guesser_Page_pk');
@@ -124,24 +124,22 @@ async function websocketGuesserInner(apiRequest) {
           inputFinalFourBrackets = $response.querySelector('.Guesser_Page_finalFourBrackets');
         if(vars.includes('championshipBrackets'))
           inputChampionshipBrackets = $response.querySelector('.Guesser_Page_championshipBrackets');
-        if(vars.includes('saves'))
-          inputSaves = $response.querySelector('.Guesser_Page_saves');
+        if(vars.includes('guesserId'))
+          inputGuesserId = $response.querySelector('.Guesser_Page_guesserId');
+        if(vars.includes('classCanonicalNames'))
+          inputClassCanonicalNames = $response.querySelector('.Guesser_Page_classCanonicalNames');
         if(vars.includes('objectTitle'))
           inputObjectTitle = $response.querySelector('.Guesser_Page_objectTitle');
-        if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.Guesser_Page_objectSuggest');
-        if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.Guesser_Page_solrId');
         if(vars.includes('classCanonicalName'))
           inputClassCanonicalName = $response.querySelector('.Guesser_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
           inputClassSimpleName = $response.querySelector('.Guesser_Page_classSimpleName');
-        if(vars.includes('classCanonicalNames'))
-          inputClassCanonicalNames = $response.querySelector('.Guesser_Page_classCanonicalNames');
         if(vars.includes('sessionId'))
           inputSessionId = $response.querySelector('.Guesser_Page_sessionId');
         if(vars.includes('userKey'))
           inputUserKey = $response.querySelector('.Guesser_Page_userKey');
+        if(vars.includes('saves'))
+          inputSaves = $response.querySelector('.Guesser_Page_saves');
         if(vars.includes('displayPage'))
           inputDisplayPage = $response.querySelector('.Guesser_Page_displayPage');
         if(vars.includes('editPage'))
@@ -150,10 +148,12 @@ async function websocketGuesserInner(apiRequest) {
           inputUserPage = $response.querySelector('.Guesser_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.Guesser_Page_download');
+        if(vars.includes('objectSuggest'))
+          inputObjectSuggest = $response.querySelector('.Guesser_Page_objectSuggest');
         if(vars.includes('objectText'))
           inputObjectText = $response.querySelector('.Guesser_Page_objectText');
-        if(vars.includes('guesserId'))
-          inputGuesserId = $response.querySelector('.Guesser_Page_guesserId');
+        if(vars.includes('solrId'))
+          inputSolrId = $response.querySelector('.Guesser_Page_solrId');
 
         jsWebsocketGuesser(guesserId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -260,14 +260,24 @@ async function websocketGuesserInner(apiRequest) {
           addGlow(document.querySelector('.Guesser_Page_championshipBrackets'));
         }
 
-        if(inputSaves) {
-          document.querySelectorAll('.Guesser_Page_saves').forEach((item, index) => {
+        if(inputGuesserId) {
+          document.querySelectorAll('.Guesser_Page_guesserId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
-              item.value = inputSaves.getAttribute('value');
+              item.value = inputGuesserId.getAttribute('value');
             else
-              item.textContent = inputSaves.textContent;
+              item.textContent = inputGuesserId.textContent;
           });
-          addGlow(document.querySelector('.Guesser_Page_saves'));
+          addGlow(document.querySelector('.Guesser_Page_guesserId'));
+        }
+
+        if(inputClassCanonicalNames) {
+          document.querySelectorAll('.Guesser_Page_classCanonicalNames').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputClassCanonicalNames.getAttribute('value');
+            else
+              item.textContent = inputClassCanonicalNames.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_classCanonicalNames'));
         }
 
         if(inputObjectTitle) {
@@ -278,26 +288,6 @@ async function websocketGuesserInner(apiRequest) {
               item.textContent = inputObjectTitle.textContent;
           });
           addGlow(document.querySelector('.Guesser_Page_objectTitle'));
-        }
-
-        if(inputObjectSuggest) {
-          document.querySelectorAll('.Guesser_Page_objectSuggest').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectSuggest.getAttribute('value');
-            else
-              item.textContent = inputObjectSuggest.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_objectSuggest'));
-        }
-
-        if(inputSolrId) {
-          document.querySelectorAll('.Guesser_Page_solrId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSolrId.getAttribute('value');
-            else
-              item.textContent = inputSolrId.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_solrId'));
         }
 
         if(inputClassCanonicalName) {
@@ -320,16 +310,6 @@ async function websocketGuesserInner(apiRequest) {
           addGlow(document.querySelector('.Guesser_Page_classSimpleName'));
         }
 
-        if(inputClassCanonicalNames) {
-          document.querySelectorAll('.Guesser_Page_classCanonicalNames').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputClassCanonicalNames.getAttribute('value');
-            else
-              item.textContent = inputClassCanonicalNames.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_classCanonicalNames'));
-        }
-
         if(inputSessionId) {
           document.querySelectorAll('.Guesser_Page_sessionId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -348,6 +328,16 @@ async function websocketGuesserInner(apiRequest) {
               item.textContent = inputUserKey.textContent;
           });
           addGlow(document.querySelector('.Guesser_Page_userKey'));
+        }
+
+        if(inputSaves) {
+          document.querySelectorAll('.Guesser_Page_saves').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSaves.getAttribute('value');
+            else
+              item.textContent = inputSaves.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_saves'));
         }
 
         if(inputDisplayPage) {
@@ -390,6 +380,16 @@ async function websocketGuesserInner(apiRequest) {
           addGlow(document.querySelector('.Guesser_Page_download'));
         }
 
+        if(inputObjectSuggest) {
+          document.querySelectorAll('.Guesser_Page_objectSuggest').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectSuggest.getAttribute('value');
+            else
+              item.textContent = inputObjectSuggest.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_objectSuggest'));
+        }
+
         if(inputObjectText) {
           document.querySelectorAll('.Guesser_Page_objectText').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -400,14 +400,14 @@ async function websocketGuesserInner(apiRequest) {
           addGlow(document.querySelector('.Guesser_Page_objectText'));
         }
 
-        if(inputGuesserId) {
-          document.querySelectorAll('.Guesser_Page_guesserId').forEach((item, index) => {
+        if(inputSolrId) {
+          document.querySelectorAll('.Guesser_Page_solrId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
-              item.value = inputGuesserId.getAttribute('value');
+              item.value = inputSolrId.getAttribute('value');
             else
-              item.textContent = inputGuesserId.textContent;
+              item.textContent = inputSolrId.textContent;
           });
-          addGlow(document.querySelector('.Guesser_Page_guesserId'));
+          addGlow(document.querySelector('.Guesser_Page_solrId'));
         }
 
           pageGraphGuesser();
@@ -601,21 +601,17 @@ function searchGuesserFilters($formFilters) {
     if(filterChampionshipBrackets != null && filterChampionshipBrackets !== '')
       filters.push({ name: 'fq', value: 'championshipBrackets:' + filterChampionshipBrackets });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
+    if(filterGuesserId != null && filterGuesserId !== '')
+      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
+
+    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
+    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
+      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
 
     var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
     if(filterObjectTitle != null && filterObjectTitle !== '')
       filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
 
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
@@ -625,10 +621,6 @@ function searchGuesserFilters($formFilters) {
     if(filterClassSimpleName != null && filterClassSimpleName !== '')
       filters.push({ name: 'fq', value: 'classSimpleName:' + filterClassSimpleName });
 
-    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
-    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
-      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
-
     var filterSessionId = $formFilters.querySelector('.valueSessionId')?.value;
     if(filterSessionId != null && filterSessionId !== '')
       filters.push({ name: 'fq', value: 'sessionId:' + filterSessionId });
@@ -636,6 +628,10 @@ function searchGuesserFilters($formFilters) {
     var filterUserKey = $formFilters.querySelector('.valueUserKey')?.value;
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
+
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
 
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
@@ -653,13 +649,17 @@ function searchGuesserFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
     var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
     if(filterObjectText != null && filterObjectText !== '')
       filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
 
-    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
-    if(filterGuesserId != null && filterGuesserId !== '')
-      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
   }
   return filters;
 }
@@ -1069,6 +1069,18 @@ async function patchGuesser($formFilters, $formValues, target, guesserId, succes
   if(valueChampionshipBrackets != null && valueChampionshipBrackets !== '')
     vals['addChampionshipBrackets'] = valueChampionshipBrackets;
 
+  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
+  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value === 'true';
+  var setGuesserId = removeGuesserId ? null : $formValues.querySelector('.setGuesserId')?.value;
+  var addGuesserId = $formValues.querySelector('.addGuesserId')?.value;
+  if(removeGuesserId || setGuesserId != null && setGuesserId !== '')
+    vals['setGuesserId'] = setGuesserId;
+  if(addGuesserId != null && addGuesserId !== '')
+    vals['addGuesserId'] = addGuesserId;
+  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value;
+  if(removeGuesserId != null && removeGuesserId !== '')
+    vals['removeGuesserId'] = removeGuesserId;
+
   var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
   var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
   var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
@@ -1153,18 +1165,6 @@ async function patchGuesser($formFilters, $formValues, target, guesserId, succes
   if(removeDownload != null && removeDownload !== '')
     vals['removeDownload'] = removeDownload;
 
-  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
-  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value === 'true';
-  var setGuesserId = removeGuesserId ? null : $formValues.querySelector('.setGuesserId')?.value;
-  var addGuesserId = $formValues.querySelector('.addGuesserId')?.value;
-  if(removeGuesserId || setGuesserId != null && setGuesserId !== '')
-    vals['setGuesserId'] = setGuesserId;
-  if(addGuesserId != null && addGuesserId !== '')
-    vals['addGuesserId'] = addGuesserId;
-  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value;
-  if(removeGuesserId != null && removeGuesserId !== '')
-    vals['removeGuesserId'] = removeGuesserId;
-
   patchGuesserVals(guesserId == null ? deparam(window.location.search ? window.location.search.substring(1) : window.location.search) : [{name:'fq', value:'guesserId:' + guesserId}], vals, target, success, error);
 }
 
@@ -1219,21 +1219,17 @@ function patchGuesserFilters($formFilters) {
     if(filterChampionshipBrackets != null && filterChampionshipBrackets !== '')
       filters.push({ name: 'fq', value: 'championshipBrackets:' + filterChampionshipBrackets });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
+    if(filterGuesserId != null && filterGuesserId !== '')
+      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
+
+    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
+    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
+      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
 
     var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
     if(filterObjectTitle != null && filterObjectTitle !== '')
       filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
 
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
@@ -1243,10 +1239,6 @@ function patchGuesserFilters($formFilters) {
     if(filterClassSimpleName != null && filterClassSimpleName !== '')
       filters.push({ name: 'fq', value: 'classSimpleName:' + filterClassSimpleName });
 
-    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
-    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
-      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
-
     var filterSessionId = $formFilters.querySelector('.valueSessionId')?.value;
     if(filterSessionId != null && filterSessionId !== '')
       filters.push({ name: 'fq', value: 'sessionId:' + filterSessionId });
@@ -1254,6 +1246,10 @@ function patchGuesserFilters($formFilters) {
     var filterUserKey = $formFilters.querySelector('.valueUserKey')?.value;
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
+
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
 
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
@@ -1271,13 +1267,17 @@ function patchGuesserFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
     var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
     if(filterObjectText != null && filterObjectText !== '')
       filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
 
-    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
-    if(filterGuesserId != null && filterGuesserId !== '')
-      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
   }
   return filters;
 }
@@ -1393,6 +1393,10 @@ async function postGuesser($formValues, target, success, error) {
   if(valueChampionshipBrackets.length > 0)
     vals['championshipBrackets'] = valueChampionshipBrackets;
 
+  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
+  if(valueGuesserId != null && valueGuesserId !== '')
+    vals['guesserId'] = valueGuesserId;
+
   var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
   if(valueObjectTitle != null && valueObjectTitle !== '')
     vals['objectTitle'] = valueObjectTitle;
@@ -1420,10 +1424,6 @@ async function postGuesser($formValues, target, success, error) {
   var valueDownload = $formValues.querySelector('.valueDownload')?.value;
   if(valueDownload != null && valueDownload !== '')
     vals['download'] = valueDownload;
-
-  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
-  if(valueGuesserId != null && valueGuesserId !== '')
-    vals['guesserId'] = valueGuesserId;
 
   fetch(
     '/en-us/api/guesser'

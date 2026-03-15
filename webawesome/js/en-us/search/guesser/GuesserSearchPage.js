@@ -121,15 +121,26 @@ Promise.all([
     facetStatsChange('Guesser', 'championshipBrackets', false);
   });
 
-  document.querySelector('#pageSelectSortGuesser_saves')?.addEventListener('change', (event) => {
-    sort('Guesser', 'saves', event.currentTarget.value);
+  document.querySelector('#pageSelectSortGuesser_guesserId')?.addEventListener('change', (event) => {
+    sort('Guesser', 'guesserId', event.currentTarget.value);
   });
 
-  document.querySelector('#pageStatsGuesser_saves')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Guesser', 'saves', true);
+  document.querySelector('#pageStatsGuesser_guesserId')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'guesserId', true);
   });
-  document.querySelector('#pageStatsGuesser_saves')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Guesser', 'saves', false);
+  document.querySelector('#pageStatsGuesser_guesserId')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'guesserId', false);
+  });
+
+  document.querySelector('#pageSelectSortGuesser_classCanonicalNames')?.addEventListener('change', (event) => {
+    sort('Guesser', 'classCanonicalNames', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsGuesser_classCanonicalNames')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'classCanonicalNames', true);
+  });
+  document.querySelector('#pageStatsGuesser_classCanonicalNames')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'classCanonicalNames', false);
   });
 
   document.querySelector('#pageSelectSortGuesser_objectTitle')?.addEventListener('change', (event) => {
@@ -141,28 +152,6 @@ Promise.all([
   });
   document.querySelector('#pageStatsGuesser_objectTitle')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('Guesser', 'objectTitle', false);
-  });
-
-  document.querySelector('#pageSelectSortGuesser_objectSuggest')?.addEventListener('change', (event) => {
-    sort('Guesser', 'objectSuggest', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsGuesser_objectSuggest')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Guesser', 'objectSuggest', true);
-  });
-  document.querySelector('#pageStatsGuesser_objectSuggest')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Guesser', 'objectSuggest', false);
-  });
-
-  document.querySelector('#pageSelectSortGuesser_solrId')?.addEventListener('change', (event) => {
-    sort('Guesser', 'solrId', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsGuesser_solrId')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Guesser', 'solrId', true);
-  });
-  document.querySelector('#pageStatsGuesser_solrId')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Guesser', 'solrId', false);
   });
 
   document.querySelector('#pageSelectSortGuesser_classCanonicalName')?.addEventListener('change', (event) => {
@@ -187,17 +176,6 @@ Promise.all([
     facetStatsChange('Guesser', 'classSimpleName', false);
   });
 
-  document.querySelector('#pageSelectSortGuesser_classCanonicalNames')?.addEventListener('change', (event) => {
-    sort('Guesser', 'classCanonicalNames', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsGuesser_classCanonicalNames')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Guesser', 'classCanonicalNames', true);
-  });
-  document.querySelector('#pageStatsGuesser_classCanonicalNames')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Guesser', 'classCanonicalNames', false);
-  });
-
   document.querySelector('#pageSelectSortGuesser_sessionId')?.addEventListener('change', (event) => {
     sort('Guesser', 'sessionId', event.currentTarget.value);
   });
@@ -218,6 +196,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsGuesser_userKey')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('Guesser', 'userKey', false);
+  });
+
+  document.querySelector('#pageSelectSortGuesser_saves')?.addEventListener('change', (event) => {
+    sort('Guesser', 'saves', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsGuesser_saves')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'saves', true);
+  });
+  document.querySelector('#pageStatsGuesser_saves')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'saves', false);
   });
 
   document.querySelector('#pageSelectSortGuesser_displayPage')?.addEventListener('change', (event) => {
@@ -264,6 +253,17 @@ Promise.all([
     facetStatsChange('Guesser', 'download', false);
   });
 
+  document.querySelector('#pageSelectSortGuesser_objectSuggest')?.addEventListener('change', (event) => {
+    sort('Guesser', 'objectSuggest', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsGuesser_objectSuggest')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'objectSuggest', true);
+  });
+  document.querySelector('#pageStatsGuesser_objectSuggest')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'objectSuggest', false);
+  });
+
   document.querySelector('#pageSelectSortGuesser_objectText')?.addEventListener('change', (event) => {
     sort('Guesser', 'objectText', event.currentTarget.value);
   });
@@ -275,15 +275,15 @@ Promise.all([
     facetStatsChange('Guesser', 'objectText', false);
   });
 
-  document.querySelector('#pageSelectSortGuesser_guesserId')?.addEventListener('change', (event) => {
-    sort('Guesser', 'guesserId', event.currentTarget.value);
+  document.querySelector('#pageSelectSortGuesser_solrId')?.addEventListener('change', (event) => {
+    sort('Guesser', 'solrId', event.currentTarget.value);
   });
 
-  document.querySelector('#pageStatsGuesser_guesserId')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Guesser', 'guesserId', true);
+  document.querySelector('#pageStatsGuesser_solrId')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Guesser', 'solrId', true);
   });
-  document.querySelector('#pageStatsGuesser_guesserId')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Guesser', 'guesserId', false);
+  document.querySelector('#pageStatsGuesser_solrId')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Guesser', 'solrId', false);
   });
           document.querySelector('#fqGuesser_created')?.addEventListener('change', (event) => {
             fqChange('Guesser', event.currentTarget, facetChangeGuesserSuccess, facetChangeGuesserError);
