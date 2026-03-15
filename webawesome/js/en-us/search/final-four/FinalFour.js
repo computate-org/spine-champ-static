@@ -24,7 +24,7 @@ async function websocketFinalFour(success) {
       $header.setAttribute('class', 'w3-container fa- ');
       $header.setAttribute('id', 'header-' + bracketId);
       var iTemplate = document.createElement('template');
-      iTemplate.innerHTML = '<i class="fa-thin fa-person-basketball"></i>';
+      iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
       var $i = iTemplate.content;
       var $headerSpan = document.createElement('span');
       $headerSpan.setAttribute('class', '');
@@ -94,20 +94,20 @@ async function websocketFinalFourInner(apiRequest) {
         var inputGame2Winner = null;
         var inputGame2Loser = null;
         var inputChampionship = null;
-        var inputSaves = null;
-        var inputObjectTitle = null;
-        var inputObjectSuggest = null;
-        var inputSolrId = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
         var inputClassCanonicalNames = null;
         var inputSessionId = null;
         var inputUserKey = null;
+        var inputSaves = null;
+        var inputObjectSuggest = null;
+        var inputObjectText = null;
+        var inputSolrId = null;
+        var inputObjectTitle = null;
         var inputDisplayPage = null;
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputObjectText = null;
         var inputActualEliteEight = null;
         var inputActualFinalFour = null;
         var inputBracketId = null;
@@ -145,14 +145,6 @@ async function websocketFinalFourInner(apiRequest) {
           inputGame2Loser = $response.querySelector('.FinalFour_Page_game2Loser');
         if(vars.includes('championship'))
           inputChampionship = $response.querySelector('.FinalFour_Page_championship');
-        if(vars.includes('saves'))
-          inputSaves = $response.querySelector('.FinalFour_Page_saves');
-        if(vars.includes('objectTitle'))
-          inputObjectTitle = $response.querySelector('.FinalFour_Page_objectTitle');
-        if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.FinalFour_Page_objectSuggest');
-        if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.FinalFour_Page_solrId');
         if(vars.includes('classCanonicalName'))
           inputClassCanonicalName = $response.querySelector('.FinalFour_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
@@ -163,6 +155,16 @@ async function websocketFinalFourInner(apiRequest) {
           inputSessionId = $response.querySelector('.FinalFour_Page_sessionId');
         if(vars.includes('userKey'))
           inputUserKey = $response.querySelector('.FinalFour_Page_userKey');
+        if(vars.includes('saves'))
+          inputSaves = $response.querySelector('.FinalFour_Page_saves');
+        if(vars.includes('objectSuggest'))
+          inputObjectSuggest = $response.querySelector('.FinalFour_Page_objectSuggest');
+        if(vars.includes('objectText'))
+          inputObjectText = $response.querySelector('.FinalFour_Page_objectText');
+        if(vars.includes('solrId'))
+          inputSolrId = $response.querySelector('.FinalFour_Page_solrId');
+        if(vars.includes('objectTitle'))
+          inputObjectTitle = $response.querySelector('.FinalFour_Page_objectTitle');
         if(vars.includes('displayPage'))
           inputDisplayPage = $response.querySelector('.FinalFour_Page_displayPage');
         if(vars.includes('editPage'))
@@ -171,8 +173,6 @@ async function websocketFinalFourInner(apiRequest) {
           inputUserPage = $response.querySelector('.FinalFour_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.FinalFour_Page_download');
-        if(vars.includes('objectText'))
-          inputObjectText = $response.querySelector('.FinalFour_Page_objectText');
         if(vars.includes('actualEliteEight'))
           inputActualEliteEight = $response.querySelector('.FinalFour_Page_actualEliteEight');
         if(vars.includes('actualFinalFour'))
@@ -347,46 +347,6 @@ async function websocketFinalFourInner(apiRequest) {
           addGlow(document.querySelector('.FinalFour_Page_championship'));
         }
 
-        if(inputSaves) {
-          document.querySelectorAll('.FinalFour_Page_saves').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSaves.getAttribute('value');
-            else
-              item.textContent = inputSaves.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_saves'));
-        }
-
-        if(inputObjectTitle) {
-          document.querySelectorAll('.FinalFour_Page_objectTitle').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectTitle.getAttribute('value');
-            else
-              item.textContent = inputObjectTitle.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_objectTitle'));
-        }
-
-        if(inputObjectSuggest) {
-          document.querySelectorAll('.FinalFour_Page_objectSuggest').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectSuggest.getAttribute('value');
-            else
-              item.textContent = inputObjectSuggest.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_objectSuggest'));
-        }
-
-        if(inputSolrId) {
-          document.querySelectorAll('.FinalFour_Page_solrId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSolrId.getAttribute('value');
-            else
-              item.textContent = inputSolrId.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_solrId'));
-        }
-
         if(inputClassCanonicalName) {
           document.querySelectorAll('.FinalFour_Page_classCanonicalName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -437,6 +397,56 @@ async function websocketFinalFourInner(apiRequest) {
           addGlow(document.querySelector('.FinalFour_Page_userKey'));
         }
 
+        if(inputSaves) {
+          document.querySelectorAll('.FinalFour_Page_saves').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSaves.getAttribute('value');
+            else
+              item.textContent = inputSaves.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_saves'));
+        }
+
+        if(inputObjectSuggest) {
+          document.querySelectorAll('.FinalFour_Page_objectSuggest').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectSuggest.getAttribute('value');
+            else
+              item.textContent = inputObjectSuggest.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_objectSuggest'));
+        }
+
+        if(inputObjectText) {
+          document.querySelectorAll('.FinalFour_Page_objectText').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectText.getAttribute('value');
+            else
+              item.textContent = inputObjectText.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_objectText'));
+        }
+
+        if(inputSolrId) {
+          document.querySelectorAll('.FinalFour_Page_solrId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSolrId.getAttribute('value');
+            else
+              item.textContent = inputSolrId.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_solrId'));
+        }
+
+        if(inputObjectTitle) {
+          document.querySelectorAll('.FinalFour_Page_objectTitle').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectTitle.getAttribute('value');
+            else
+              item.textContent = inputObjectTitle.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_objectTitle'));
+        }
+
         if(inputDisplayPage) {
           document.querySelectorAll('.FinalFour_Page_displayPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -475,16 +485,6 @@ async function websocketFinalFourInner(apiRequest) {
               item.textContent = inputDownload.textContent;
           });
           addGlow(document.querySelector('.FinalFour_Page_download'));
-        }
-
-        if(inputObjectText) {
-          document.querySelectorAll('.FinalFour_Page_objectText').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectText.getAttribute('value');
-            else
-              item.textContent = inputObjectText.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_objectText'));
         }
 
         if(inputActualEliteEight) {
@@ -742,22 +742,6 @@ function searchFinalFourFilters($formFilters) {
     if(filterChampionship != null && filterChampionship !== '')
       filters.push({ name: 'fq', value: 'championship:' + filterChampionship });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
-
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -778,6 +762,26 @@ function searchFinalFourFilters($formFilters) {
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
 
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
+    if(filterObjectText != null && filterObjectText !== '')
+      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
+
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
       filters.push({ name: 'fq', value: 'displayPage:' + filterDisplayPage });
@@ -793,10 +797,6 @@ function searchFinalFourFilters($formFilters) {
     var filterDownload = $formFilters.querySelector('.valueDownload')?.value;
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
-
-    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
-    if(filterObjectText != null && filterObjectText !== '')
-      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -833,12 +833,13 @@ function suggestFinalFourEliteEight(filters, $list, bracketId = null, eliteEight
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-basketball-hoop"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-basketball-hoop"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -876,6 +877,7 @@ function suggestFinalFourEliteEight(filters, $list, bracketId = null, eliteEight
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -895,12 +897,13 @@ function suggestFinalFourGuesserId(filters, $list, bracketId = null, guesserId =
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -938,6 +941,7 @@ function suggestFinalFourGuesserId(filters, $list, bracketId = null, guesserId =
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -957,12 +961,13 @@ function suggestFinalFourGame1Winner(filters, $list, bracketId = null, game1Winn
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1000,6 +1005,7 @@ function suggestFinalFourGame1Winner(filters, $list, bracketId = null, game1Winn
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1019,12 +1025,13 @@ function suggestFinalFourGame1Loser(filters, $list, bracketId = null, game1Loser
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1062,6 +1069,7 @@ function suggestFinalFourGame1Loser(filters, $list, bracketId = null, game1Loser
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1081,12 +1089,13 @@ function suggestFinalFourGame2Winner(filters, $list, bracketId = null, game2Winn
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1124,6 +1133,7 @@ function suggestFinalFourGame2Winner(filters, $list, bracketId = null, game2Winn
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1143,12 +1153,13 @@ function suggestFinalFourGame2Loser(filters, $list, bracketId = null, game2Loser
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1186,6 +1197,7 @@ function suggestFinalFourGame2Loser(filters, $list, bracketId = null, game2Loser
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1205,12 +1217,13 @@ function suggestFinalFourChampionship(filters, $list, bracketId = null, champion
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-court-sport"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-court-sport"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1248,6 +1261,7 @@ function suggestFinalFourChampionship(filters, $list, bracketId = null, champion
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1266,7 +1280,7 @@ function suggestFinalFourObjectSuggest($formFilters, $list, target) {
     if($list) {
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="fa-thin fa-person-basketball"></i>');
+        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-person-basketball"></i>');
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
@@ -1452,18 +1466,6 @@ async function patchFinalFour($formFilters, $formValues, target, bracketId, succ
   if(valueChampionship != null && valueChampionship !== '')
     vals['setChampionship'] = valueChampionship;
 
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
-  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
-  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
-  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
-    vals['setObjectTitle'] = setObjectTitle;
-  if(addObjectTitle != null && addObjectTitle !== '')
-    vals['addObjectTitle'] = addObjectTitle;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
-  if(removeObjectTitle != null && removeObjectTitle !== '')
-    vals['removeObjectTitle'] = removeObjectTitle;
-
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   var removeSessionId = $formValues.querySelector('.removeSessionId')?.value === 'true';
   var setSessionId = removeSessionId ? null : $formValues.querySelector('.setSessionId')?.value;
@@ -1487,6 +1489,18 @@ async function patchFinalFour($formFilters, $formValues, target, bracketId, succ
   var removeUserKey = $formValues.querySelector('.removeUserKey')?.value;
   if(removeUserKey != null && removeUserKey !== '')
     vals['removeUserKey'] = removeUserKey;
+
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
+  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
+  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
+  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
+    vals['setObjectTitle'] = setObjectTitle;
+  if(addObjectTitle != null && addObjectTitle !== '')
+    vals['addObjectTitle'] = addObjectTitle;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
+  if(removeObjectTitle != null && removeObjectTitle !== '')
+    vals['removeObjectTitle'] = removeObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   var removeDisplayPage = $formValues.querySelector('.removeDisplayPage')?.value === 'true';
@@ -1638,22 +1652,6 @@ function patchFinalFourFilters($formFilters) {
     if(filterChampionship != null && filterChampionship !== '')
       filters.push({ name: 'fq', value: 'championship:' + filterChampionship });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
-
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -1674,6 +1672,26 @@ function patchFinalFourFilters($formFilters) {
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
 
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
+    if(filterObjectText != null && filterObjectText !== '')
+      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
+
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
       filters.push({ name: 'fq', value: 'displayPage:' + filterDisplayPage });
@@ -1689,10 +1707,6 @@ function patchFinalFourFilters($formFilters) {
     var filterDownload = $formFilters.querySelector('.valueDownload')?.value;
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
-
-    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
-    if(filterObjectText != null && filterObjectText !== '')
-      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -1828,10 +1842,6 @@ async function postFinalFour($formValues, target, success, error) {
   if(valueChampionship != null && valueChampionship !== '')
     vals['championship'] = valueChampionship;
 
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  if(valueObjectTitle != null && valueObjectTitle !== '')
-    vals['objectTitle'] = valueObjectTitle;
-
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   if(valueSessionId != null && valueSessionId !== '')
     vals['sessionId'] = valueSessionId;
@@ -1839,6 +1849,10 @@ async function postFinalFour($formValues, target, success, error) {
   var valueUserKey = $formValues.querySelector('.valueUserKey')?.value;
   if(valueUserKey != null && valueUserKey !== '')
     vals['userKey'] = valueUserKey;
+
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  if(valueObjectTitle != null && valueObjectTitle !== '')
+    vals['objectTitle'] = valueObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   if(valueDisplayPage != null && valueDisplayPage !== '')

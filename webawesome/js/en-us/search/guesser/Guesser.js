@@ -24,7 +24,7 @@ async function websocketGuesser(success) {
       $header.setAttribute('class', 'w3-container fa- ');
       $header.setAttribute('id', 'header-' + guesserId);
       var iTemplate = document.createElement('template');
-      iTemplate.innerHTML = '<i class="fa-thin fa-person"></i>';
+      iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person"></i>';
       var $i = iTemplate.content;
       var $headerSpan = document.createElement('span');
       $headerSpan.setAttribute('class', '');
@@ -88,21 +88,21 @@ async function websocketGuesserInner(apiRequest) {
         var inputEliteEightBrackets = null;
         var inputFinalFourBrackets = null;
         var inputChampionshipBrackets = null;
-        var inputGuesserId = null;
-        var inputClassCanonicalNames = null;
-        var inputObjectTitle = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
+        var inputClassCanonicalNames = null;
         var inputSessionId = null;
         var inputUserKey = null;
         var inputSaves = null;
+        var inputObjectSuggest = null;
+        var inputObjectText = null;
+        var inputSolrId = null;
+        var inputObjectTitle = null;
         var inputDisplayPage = null;
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputObjectSuggest = null;
-        var inputObjectText = null;
-        var inputSolrId = null;
+        var inputGuesserId = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.Guesser_Page_pk');
@@ -124,22 +124,26 @@ async function websocketGuesserInner(apiRequest) {
           inputFinalFourBrackets = $response.querySelector('.Guesser_Page_finalFourBrackets');
         if(vars.includes('championshipBrackets'))
           inputChampionshipBrackets = $response.querySelector('.Guesser_Page_championshipBrackets');
-        if(vars.includes('guesserId'))
-          inputGuesserId = $response.querySelector('.Guesser_Page_guesserId');
-        if(vars.includes('classCanonicalNames'))
-          inputClassCanonicalNames = $response.querySelector('.Guesser_Page_classCanonicalNames');
-        if(vars.includes('objectTitle'))
-          inputObjectTitle = $response.querySelector('.Guesser_Page_objectTitle');
         if(vars.includes('classCanonicalName'))
           inputClassCanonicalName = $response.querySelector('.Guesser_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
           inputClassSimpleName = $response.querySelector('.Guesser_Page_classSimpleName');
+        if(vars.includes('classCanonicalNames'))
+          inputClassCanonicalNames = $response.querySelector('.Guesser_Page_classCanonicalNames');
         if(vars.includes('sessionId'))
           inputSessionId = $response.querySelector('.Guesser_Page_sessionId');
         if(vars.includes('userKey'))
           inputUserKey = $response.querySelector('.Guesser_Page_userKey');
         if(vars.includes('saves'))
           inputSaves = $response.querySelector('.Guesser_Page_saves');
+        if(vars.includes('objectSuggest'))
+          inputObjectSuggest = $response.querySelector('.Guesser_Page_objectSuggest');
+        if(vars.includes('objectText'))
+          inputObjectText = $response.querySelector('.Guesser_Page_objectText');
+        if(vars.includes('solrId'))
+          inputSolrId = $response.querySelector('.Guesser_Page_solrId');
+        if(vars.includes('objectTitle'))
+          inputObjectTitle = $response.querySelector('.Guesser_Page_objectTitle');
         if(vars.includes('displayPage'))
           inputDisplayPage = $response.querySelector('.Guesser_Page_displayPage');
         if(vars.includes('editPage'))
@@ -148,12 +152,8 @@ async function websocketGuesserInner(apiRequest) {
           inputUserPage = $response.querySelector('.Guesser_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.Guesser_Page_download');
-        if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.Guesser_Page_objectSuggest');
-        if(vars.includes('objectText'))
-          inputObjectText = $response.querySelector('.Guesser_Page_objectText');
-        if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.Guesser_Page_solrId');
+        if(vars.includes('guesserId'))
+          inputGuesserId = $response.querySelector('.Guesser_Page_guesserId');
 
         jsWebsocketGuesser(guesserId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -260,36 +260,6 @@ async function websocketGuesserInner(apiRequest) {
           addGlow(document.querySelector('.Guesser_Page_championshipBrackets'));
         }
 
-        if(inputGuesserId) {
-          document.querySelectorAll('.Guesser_Page_guesserId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputGuesserId.getAttribute('value');
-            else
-              item.textContent = inputGuesserId.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_guesserId'));
-        }
-
-        if(inputClassCanonicalNames) {
-          document.querySelectorAll('.Guesser_Page_classCanonicalNames').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputClassCanonicalNames.getAttribute('value');
-            else
-              item.textContent = inputClassCanonicalNames.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_classCanonicalNames'));
-        }
-
-        if(inputObjectTitle) {
-          document.querySelectorAll('.Guesser_Page_objectTitle').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectTitle.getAttribute('value');
-            else
-              item.textContent = inputObjectTitle.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_objectTitle'));
-        }
-
         if(inputClassCanonicalName) {
           document.querySelectorAll('.Guesser_Page_classCanonicalName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -308,6 +278,16 @@ async function websocketGuesserInner(apiRequest) {
               item.textContent = inputClassSimpleName.textContent;
           });
           addGlow(document.querySelector('.Guesser_Page_classSimpleName'));
+        }
+
+        if(inputClassCanonicalNames) {
+          document.querySelectorAll('.Guesser_Page_classCanonicalNames').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputClassCanonicalNames.getAttribute('value');
+            else
+              item.textContent = inputClassCanonicalNames.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_classCanonicalNames'));
         }
 
         if(inputSessionId) {
@@ -338,6 +318,46 @@ async function websocketGuesserInner(apiRequest) {
               item.textContent = inputSaves.textContent;
           });
           addGlow(document.querySelector('.Guesser_Page_saves'));
+        }
+
+        if(inputObjectSuggest) {
+          document.querySelectorAll('.Guesser_Page_objectSuggest').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectSuggest.getAttribute('value');
+            else
+              item.textContent = inputObjectSuggest.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_objectSuggest'));
+        }
+
+        if(inputObjectText) {
+          document.querySelectorAll('.Guesser_Page_objectText').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectText.getAttribute('value');
+            else
+              item.textContent = inputObjectText.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_objectText'));
+        }
+
+        if(inputSolrId) {
+          document.querySelectorAll('.Guesser_Page_solrId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSolrId.getAttribute('value');
+            else
+              item.textContent = inputSolrId.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_solrId'));
+        }
+
+        if(inputObjectTitle) {
+          document.querySelectorAll('.Guesser_Page_objectTitle').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectTitle.getAttribute('value');
+            else
+              item.textContent = inputObjectTitle.textContent;
+          });
+          addGlow(document.querySelector('.Guesser_Page_objectTitle'));
         }
 
         if(inputDisplayPage) {
@@ -380,34 +400,14 @@ async function websocketGuesserInner(apiRequest) {
           addGlow(document.querySelector('.Guesser_Page_download'));
         }
 
-        if(inputObjectSuggest) {
-          document.querySelectorAll('.Guesser_Page_objectSuggest').forEach((item, index) => {
+        if(inputGuesserId) {
+          document.querySelectorAll('.Guesser_Page_guesserId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
-              item.value = inputObjectSuggest.getAttribute('value');
+              item.value = inputGuesserId.getAttribute('value');
             else
-              item.textContent = inputObjectSuggest.textContent;
+              item.textContent = inputGuesserId.textContent;
           });
-          addGlow(document.querySelector('.Guesser_Page_objectSuggest'));
-        }
-
-        if(inputObjectText) {
-          document.querySelectorAll('.Guesser_Page_objectText').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectText.getAttribute('value');
-            else
-              item.textContent = inputObjectText.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_objectText'));
-        }
-
-        if(inputSolrId) {
-          document.querySelectorAll('.Guesser_Page_solrId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSolrId.getAttribute('value');
-            else
-              item.textContent = inputSolrId.textContent;
-          });
-          addGlow(document.querySelector('.Guesser_Page_solrId'));
+          addGlow(document.querySelector('.Guesser_Page_guesserId'));
         }
 
           pageGraphGuesser();
@@ -601,18 +601,6 @@ function searchGuesserFilters($formFilters) {
     if(filterChampionshipBrackets != null && filterChampionshipBrackets !== '')
       filters.push({ name: 'fq', value: 'championshipBrackets:' + filterChampionshipBrackets });
 
-    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
-    if(filterGuesserId != null && filterGuesserId !== '')
-      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
-
-    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
-    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
-      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -620,6 +608,10 @@ function searchGuesserFilters($formFilters) {
     var filterClassSimpleName = $formFilters.querySelector('.valueClassSimpleName')?.value;
     if(filterClassSimpleName != null && filterClassSimpleName !== '')
       filters.push({ name: 'fq', value: 'classSimpleName:' + filterClassSimpleName });
+
+    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
+    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
+      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
 
     var filterSessionId = $formFilters.querySelector('.valueSessionId')?.value;
     if(filterSessionId != null && filterSessionId !== '')
@@ -632,6 +624,22 @@ function searchGuesserFilters($formFilters) {
     var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
     if(filterSaves != null && filterSaves !== '')
       filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
+    if(filterObjectText != null && filterObjectText !== '')
+      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
 
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
@@ -649,17 +657,9 @@ function searchGuesserFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
-    if(filterObjectText != null && filterObjectText !== '')
-      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
+    if(filterGuesserId != null && filterGuesserId !== '')
+      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
   }
   return filters;
 }
@@ -688,12 +688,13 @@ function suggestGuesserSweetSixteenBrackets(filters, $list, guesserId = null, sw
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-basketball"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -730,6 +731,7 @@ function suggestGuesserSweetSixteenBrackets(filters, $list, guesserId = null, sw
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -749,12 +751,13 @@ function suggestGuesserEliteEightBrackets(filters, $list, guesserId = null, elit
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-basketball-hoop"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-basketball-hoop"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -791,6 +794,7 @@ function suggestGuesserEliteEightBrackets(filters, $list, guesserId = null, elit
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -810,12 +814,13 @@ function suggestGuesserFinalFourBrackets(filters, $list, guesserId = null, final
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-person-basketball"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -852,6 +857,7 @@ function suggestGuesserFinalFourBrackets(filters, $list, guesserId = null, final
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -871,12 +877,13 @@ function suggestGuesserChampionshipBrackets(filters, $list, guesserId = null, ch
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-court-sport"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-court-sport"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -913,6 +920,7 @@ function suggestGuesserChampionshipBrackets(filters, $list, guesserId = null, ch
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -931,7 +939,7 @@ function suggestGuesserObjectSuggest($formFilters, $list, target) {
     if($list) {
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="fa-thin fa-person"></i>');
+        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-person"></i>');
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
@@ -1069,30 +1077,6 @@ async function patchGuesser($formFilters, $formValues, target, guesserId, succes
   if(valueChampionshipBrackets != null && valueChampionshipBrackets !== '')
     vals['addChampionshipBrackets'] = valueChampionshipBrackets;
 
-  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
-  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value === 'true';
-  var setGuesserId = removeGuesserId ? null : $formValues.querySelector('.setGuesserId')?.value;
-  var addGuesserId = $formValues.querySelector('.addGuesserId')?.value;
-  if(removeGuesserId || setGuesserId != null && setGuesserId !== '')
-    vals['setGuesserId'] = setGuesserId;
-  if(addGuesserId != null && addGuesserId !== '')
-    vals['addGuesserId'] = addGuesserId;
-  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value;
-  if(removeGuesserId != null && removeGuesserId !== '')
-    vals['removeGuesserId'] = removeGuesserId;
-
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
-  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
-  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
-  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
-    vals['setObjectTitle'] = setObjectTitle;
-  if(addObjectTitle != null && addObjectTitle !== '')
-    vals['addObjectTitle'] = addObjectTitle;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
-  if(removeObjectTitle != null && removeObjectTitle !== '')
-    vals['removeObjectTitle'] = removeObjectTitle;
-
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   var removeSessionId = $formValues.querySelector('.removeSessionId')?.value === 'true';
   var setSessionId = removeSessionId ? null : $formValues.querySelector('.setSessionId')?.value;
@@ -1116,6 +1100,18 @@ async function patchGuesser($formFilters, $formValues, target, guesserId, succes
   var removeUserKey = $formValues.querySelector('.removeUserKey')?.value;
   if(removeUserKey != null && removeUserKey !== '')
     vals['removeUserKey'] = removeUserKey;
+
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
+  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
+  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
+  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
+    vals['setObjectTitle'] = setObjectTitle;
+  if(addObjectTitle != null && addObjectTitle !== '')
+    vals['addObjectTitle'] = addObjectTitle;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
+  if(removeObjectTitle != null && removeObjectTitle !== '')
+    vals['removeObjectTitle'] = removeObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   var removeDisplayPage = $formValues.querySelector('.removeDisplayPage')?.value === 'true';
@@ -1164,6 +1160,18 @@ async function patchGuesser($formFilters, $formValues, target, guesserId, succes
   var removeDownload = $formValues.querySelector('.removeDownload')?.value;
   if(removeDownload != null && removeDownload !== '')
     vals['removeDownload'] = removeDownload;
+
+  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
+  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value === 'true';
+  var setGuesserId = removeGuesserId ? null : $formValues.querySelector('.setGuesserId')?.value;
+  var addGuesserId = $formValues.querySelector('.addGuesserId')?.value;
+  if(removeGuesserId || setGuesserId != null && setGuesserId !== '')
+    vals['setGuesserId'] = setGuesserId;
+  if(addGuesserId != null && addGuesserId !== '')
+    vals['addGuesserId'] = addGuesserId;
+  var removeGuesserId = $formValues.querySelector('.removeGuesserId')?.value;
+  if(removeGuesserId != null && removeGuesserId !== '')
+    vals['removeGuesserId'] = removeGuesserId;
 
   patchGuesserVals(guesserId == null ? deparam(window.location.search ? window.location.search.substring(1) : window.location.search) : [{name:'fq', value:'guesserId:' + guesserId}], vals, target, success, error);
 }
@@ -1219,18 +1227,6 @@ function patchGuesserFilters($formFilters) {
     if(filterChampionshipBrackets != null && filterChampionshipBrackets !== '')
       filters.push({ name: 'fq', value: 'championshipBrackets:' + filterChampionshipBrackets });
 
-    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
-    if(filterGuesserId != null && filterGuesserId !== '')
-      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
-
-    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
-    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
-      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -1238,6 +1234,10 @@ function patchGuesserFilters($formFilters) {
     var filterClassSimpleName = $formFilters.querySelector('.valueClassSimpleName')?.value;
     if(filterClassSimpleName != null && filterClassSimpleName !== '')
       filters.push({ name: 'fq', value: 'classSimpleName:' + filterClassSimpleName });
+
+    var filterClassCanonicalNames = $formFilters.querySelector('.valueClassCanonicalNames')?.value;
+    if(filterClassCanonicalNames != null && filterClassCanonicalNames !== '')
+      filters.push({ name: 'fq', value: 'classCanonicalNames:' + filterClassCanonicalNames });
 
     var filterSessionId = $formFilters.querySelector('.valueSessionId')?.value;
     if(filterSessionId != null && filterSessionId !== '')
@@ -1250,6 +1250,22 @@ function patchGuesserFilters($formFilters) {
     var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
     if(filterSaves != null && filterSaves !== '')
       filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
+    if(filterObjectText != null && filterObjectText !== '')
+      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
 
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
@@ -1267,17 +1283,9 @@ function patchGuesserFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
-    if(filterObjectText != null && filterObjectText !== '')
-      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+    var filterGuesserId = $formFilters.querySelector('.valueGuesserId')?.value;
+    if(filterGuesserId != null && filterGuesserId !== '')
+      filters.push({ name: 'fq', value: 'guesserId:' + filterGuesserId });
   }
   return filters;
 }
@@ -1393,14 +1401,6 @@ async function postGuesser($formValues, target, success, error) {
   if(valueChampionshipBrackets.length > 0)
     vals['championshipBrackets'] = valueChampionshipBrackets;
 
-  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
-  if(valueGuesserId != null && valueGuesserId !== '')
-    vals['guesserId'] = valueGuesserId;
-
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  if(valueObjectTitle != null && valueObjectTitle !== '')
-    vals['objectTitle'] = valueObjectTitle;
-
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   if(valueSessionId != null && valueSessionId !== '')
     vals['sessionId'] = valueSessionId;
@@ -1408,6 +1408,10 @@ async function postGuesser($formValues, target, success, error) {
   var valueUserKey = $formValues.querySelector('.valueUserKey')?.value;
   if(valueUserKey != null && valueUserKey !== '')
     vals['userKey'] = valueUserKey;
+
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  if(valueObjectTitle != null && valueObjectTitle !== '')
+    vals['objectTitle'] = valueObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   if(valueDisplayPage != null && valueDisplayPage !== '')
@@ -1424,6 +1428,10 @@ async function postGuesser($formValues, target, success, error) {
   var valueDownload = $formValues.querySelector('.valueDownload')?.value;
   if(valueDownload != null && valueDownload !== '')
     vals['download'] = valueDownload;
+
+  var valueGuesserId = $formValues.querySelector('.valueGuesserId')?.value;
+  if(valueGuesserId != null && valueGuesserId !== '')
+    vals['guesserId'] = valueGuesserId;
 
   fetch(
     '/en-us/api/guesser'

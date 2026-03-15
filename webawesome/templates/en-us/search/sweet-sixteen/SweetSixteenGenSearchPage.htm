@@ -127,6 +127,7 @@
         , customElements.whenDefined('wa-checkbox')
         , customElements.whenDefined('wa-dropdown')
       ]).then(() => {
+        window.FONTAWESOME_STYLE = document.querySelector('.pageForm .FONTAWESOME_STYLE')?.value;
 
         var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
 
@@ -584,7 +585,7 @@
               <wa-tooltip for="return-to-SweetSixteen">back to all sweet sixteen brackets</wa-tooltip>
               <wa-breadcrumb>
                 <wa-breadcrumb-item id="return-to-SweetSixteen" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-                  <i class="fa-thin fa-basketball"></i>
+                  <i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>
                   all sweet sixteen brackets
                 </wa-breadcrumb-item>
                 <wa-breadcrumb-item>
@@ -603,7 +604,7 @@
           <wa-tooltip for="return-to-SweetSixteen">back to all sweet sixteen brackets</wa-tooltip></wa-tooltip>
           <wa-breadcrumb>
             <wa-breadcrumb-item id="return-to-SweetSixteen" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-              <i class="fa-thin fa-basketball"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>
               all sweet sixteen brackets
             </wa-breadcrumb-item>
             <wa-breadcrumb-item>
@@ -612,7 +613,7 @@
           </wa-breadcrumb>
           <div class="wa-stack wa-align-items-center ">
             <div class="wa-heading-3xl ">
-              <i class="fa-thin fa-basketball"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>
             </div>
             <span class="wa-heading-m ">no sweet sixteen bracket found</span>
             <p class="wa-caption-l ">A predicted tournament with 16 teams. </p>
@@ -622,6 +623,7 @@
 {% include en-us/search/sweet-sixteen/SweetSixteenSuggestedSearch.htm %}
           <div class="pageContent ">
             <form action="/en-us/api/sweet-sixteen" id="SweetSixteenForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+              <input name="FONTAWESOME_STYLE" class="FONTAWESOME_STYLE" type="hidden" value="{{ FONTAWESOME_STYLE }}"/>
               <input name="focusId" type="hidden"/>
               <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
               <input name="listSweetSixteen" id="listSweetSixteen" class="listSweetSixteen"  value='{{ toJsonArrayStringInApostrophes(listSweetSixteen) }}' type="hidden"/>
@@ -682,7 +684,7 @@
                   {% for item in listSweetSixteen%}
                   <div>
                     <a href="{{ item.displayPage }}">
-                      <i class="fa-thin fa-basketball"></i>
+                      <i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>
                       <span>{{ item.guesserId | e }}</span>
                     </a>
                     <a href="{{ item.displayPage }}">

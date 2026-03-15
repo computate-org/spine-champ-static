@@ -24,7 +24,7 @@ async function websocketSweetSixteen(success) {
       $header.setAttribute('class', 'w3-container fa- ');
       $header.setAttribute('id', 'header-' + bracketId);
       var iTemplate = document.createElement('template');
-      iTemplate.innerHTML = '<i class="fa-thin fa-basketball"></i>';
+      iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-basketball"></i>';
       var $i = iTemplate.content;
       var $headerSpan = document.createElement('span');
       $headerSpan.setAttribute('class', '');
@@ -96,8 +96,8 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputWestGame1WinnerGuess = null;
         var inputWestGame1Winner = null;
         var inputWestGame1Loser = null;
-        var inputWestGame2Winner = null;
         var inputWestGame2WinnerGuess = null;
+        var inputWestGame2Winner = null;
         var inputWestGame2Loser = null;
         var inputEastGame1WinnerGuess = null;
         var inputEastGame1Winner = null;
@@ -112,20 +112,20 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputMidwestGame2Winner = null;
         var inputMidwestGame2Loser = null;
         var inputEliteEight = null;
-        var inputSaves = null;
-        var inputObjectTitle = null;
-        var inputObjectSuggest = null;
-        var inputSolrId = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
         var inputClassCanonicalNames = null;
         var inputSessionId = null;
         var inputUserKey = null;
+        var inputSaves = null;
+        var inputObjectSuggest = null;
+        var inputObjectText = null;
+        var inputSolrId = null;
+        var inputObjectTitle = null;
         var inputDisplayPage = null;
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputObjectText = null;
         var inputActualSweetSixteen = null;
         var inputBracketId = null;
         var inputName = null;
@@ -166,10 +166,10 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputWestGame1Winner = $response.querySelector('.SweetSixteen_Page_westGame1Winner');
         if(vars.includes('westGame1Loser'))
           inputWestGame1Loser = $response.querySelector('.SweetSixteen_Page_westGame1Loser');
-        if(vars.includes('westGame2Winner'))
-          inputWestGame2Winner = $response.querySelector('.SweetSixteen_Page_westGame2Winner');
         if(vars.includes('westGame2WinnerGuess'))
           inputWestGame2WinnerGuess = $response.querySelector('.SweetSixteen_Page_westGame2WinnerGuess');
+        if(vars.includes('westGame2Winner'))
+          inputWestGame2Winner = $response.querySelector('.SweetSixteen_Page_westGame2Winner');
         if(vars.includes('westGame2Loser'))
           inputWestGame2Loser = $response.querySelector('.SweetSixteen_Page_westGame2Loser');
         if(vars.includes('eastGame1WinnerGuess'))
@@ -198,14 +198,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputMidwestGame2Loser = $response.querySelector('.SweetSixteen_Page_midwestGame2Loser');
         if(vars.includes('eliteEight'))
           inputEliteEight = $response.querySelector('.SweetSixteen_Page_eliteEight');
-        if(vars.includes('saves'))
-          inputSaves = $response.querySelector('.SweetSixteen_Page_saves');
-        if(vars.includes('objectTitle'))
-          inputObjectTitle = $response.querySelector('.SweetSixteen_Page_objectTitle');
-        if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.SweetSixteen_Page_objectSuggest');
-        if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.SweetSixteen_Page_solrId');
         if(vars.includes('classCanonicalName'))
           inputClassCanonicalName = $response.querySelector('.SweetSixteen_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
@@ -216,6 +208,16 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputSessionId = $response.querySelector('.SweetSixteen_Page_sessionId');
         if(vars.includes('userKey'))
           inputUserKey = $response.querySelector('.SweetSixteen_Page_userKey');
+        if(vars.includes('saves'))
+          inputSaves = $response.querySelector('.SweetSixteen_Page_saves');
+        if(vars.includes('objectSuggest'))
+          inputObjectSuggest = $response.querySelector('.SweetSixteen_Page_objectSuggest');
+        if(vars.includes('objectText'))
+          inputObjectText = $response.querySelector('.SweetSixteen_Page_objectText');
+        if(vars.includes('solrId'))
+          inputSolrId = $response.querySelector('.SweetSixteen_Page_solrId');
+        if(vars.includes('objectTitle'))
+          inputObjectTitle = $response.querySelector('.SweetSixteen_Page_objectTitle');
         if(vars.includes('displayPage'))
           inputDisplayPage = $response.querySelector('.SweetSixteen_Page_displayPage');
         if(vars.includes('editPage'))
@@ -224,8 +226,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputUserPage = $response.querySelector('.SweetSixteen_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.SweetSixteen_Page_download');
-        if(vars.includes('objectText'))
-          inputObjectText = $response.querySelector('.SweetSixteen_Page_objectText');
         if(vars.includes('actualSweetSixteen'))
           inputActualSweetSixteen = $response.querySelector('.SweetSixteen_Page_actualSweetSixteen');
         if(vars.includes('bracketId'))
@@ -422,16 +422,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.SweetSixteen_Page_westGame1Loser'));
         }
 
-        if(inputWestGame2Winner) {
-          document.querySelectorAll('.SweetSixteen_Page_westGame2Winner').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputWestGame2Winner.getAttribute('value');
-            else
-              item.textContent = inputWestGame2Winner.textContent;
-          });
-          addGlow(document.querySelector('.SweetSixteen_Page_westGame2Winner'));
-        }
-
         if(inputWestGame2WinnerGuess) {
           document.querySelectorAll('.SweetSixteen_Page_westGame2WinnerGuess').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -440,6 +430,16 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputWestGame2WinnerGuess.textContent;
           });
           addGlow(document.querySelector('.SweetSixteen_Page_westGame2WinnerGuess'));
+        }
+
+        if(inputWestGame2Winner) {
+          document.querySelectorAll('.SweetSixteen_Page_westGame2Winner').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputWestGame2Winner.getAttribute('value');
+            else
+              item.textContent = inputWestGame2Winner.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_westGame2Winner'));
         }
 
         if(inputWestGame2Loser) {
@@ -582,46 +582,6 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.SweetSixteen_Page_eliteEight'));
         }
 
-        if(inputSaves) {
-          document.querySelectorAll('.SweetSixteen_Page_saves').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSaves.getAttribute('value');
-            else
-              item.textContent = inputSaves.textContent;
-          });
-          addGlow(document.querySelector('.SweetSixteen_Page_saves'));
-        }
-
-        if(inputObjectTitle) {
-          document.querySelectorAll('.SweetSixteen_Page_objectTitle').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectTitle.getAttribute('value');
-            else
-              item.textContent = inputObjectTitle.textContent;
-          });
-          addGlow(document.querySelector('.SweetSixteen_Page_objectTitle'));
-        }
-
-        if(inputObjectSuggest) {
-          document.querySelectorAll('.SweetSixteen_Page_objectSuggest').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectSuggest.getAttribute('value');
-            else
-              item.textContent = inputObjectSuggest.textContent;
-          });
-          addGlow(document.querySelector('.SweetSixteen_Page_objectSuggest'));
-        }
-
-        if(inputSolrId) {
-          document.querySelectorAll('.SweetSixteen_Page_solrId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSolrId.getAttribute('value');
-            else
-              item.textContent = inputSolrId.textContent;
-          });
-          addGlow(document.querySelector('.SweetSixteen_Page_solrId'));
-        }
-
         if(inputClassCanonicalName) {
           document.querySelectorAll('.SweetSixteen_Page_classCanonicalName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -672,6 +632,56 @@ async function websocketSweetSixteenInner(apiRequest) {
           addGlow(document.querySelector('.SweetSixteen_Page_userKey'));
         }
 
+        if(inputSaves) {
+          document.querySelectorAll('.SweetSixteen_Page_saves').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSaves.getAttribute('value');
+            else
+              item.textContent = inputSaves.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_saves'));
+        }
+
+        if(inputObjectSuggest) {
+          document.querySelectorAll('.SweetSixteen_Page_objectSuggest').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectSuggest.getAttribute('value');
+            else
+              item.textContent = inputObjectSuggest.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_objectSuggest'));
+        }
+
+        if(inputObjectText) {
+          document.querySelectorAll('.SweetSixteen_Page_objectText').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectText.getAttribute('value');
+            else
+              item.textContent = inputObjectText.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_objectText'));
+        }
+
+        if(inputSolrId) {
+          document.querySelectorAll('.SweetSixteen_Page_solrId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSolrId.getAttribute('value');
+            else
+              item.textContent = inputSolrId.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_solrId'));
+        }
+
+        if(inputObjectTitle) {
+          document.querySelectorAll('.SweetSixteen_Page_objectTitle').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectTitle.getAttribute('value');
+            else
+              item.textContent = inputObjectTitle.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_objectTitle'));
+        }
+
         if(inputDisplayPage) {
           document.querySelectorAll('.SweetSixteen_Page_displayPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -710,16 +720,6 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputDownload.textContent;
           });
           addGlow(document.querySelector('.SweetSixteen_Page_download'));
-        }
-
-        if(inputObjectText) {
-          document.querySelectorAll('.SweetSixteen_Page_objectText').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectText.getAttribute('value');
-            else
-              item.textContent = inputObjectText.textContent;
-          });
-          addGlow(document.querySelector('.SweetSixteen_Page_objectText'));
         }
 
         if(inputActualSweetSixteen) {
@@ -971,13 +971,13 @@ function searchSweetSixteenFilters($formFilters) {
     if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
       filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
 
-    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
-    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
-
     var filterWestGame2WinnerGuess = $formFilters.querySelector('.valueWestGame2WinnerGuess')?.value;
     if(filterWestGame2WinnerGuess != null && filterWestGame2WinnerGuess !== '')
       filters.push({ name: 'fq', value: 'westGame2WinnerGuess:' + filterWestGame2WinnerGuess });
+
+    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
+    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
 
     var filterWestGame2Loser = $formFilters.querySelector('.valueWestGame2Loser')?.value;
     if(filterWestGame2Loser != null && filterWestGame2Loser !== '')
@@ -1035,22 +1035,6 @@ function searchSweetSixteenFilters($formFilters) {
     if(filterEliteEight != null && filterEliteEight !== '')
       filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
-
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -1071,6 +1055,26 @@ function searchSweetSixteenFilters($formFilters) {
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
 
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
+    if(filterObjectText != null && filterObjectText !== '')
+      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
+
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
       filters.push({ name: 'fq', value: 'displayPage:' + filterDisplayPage });
@@ -1086,10 +1090,6 @@ function searchSweetSixteenFilters($formFilters) {
     var filterDownload = $formFilters.querySelector('.valueDownload')?.value;
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
-
-    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
-    if(filterObjectText != null && filterObjectText !== '')
-      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -1126,12 +1126,13 @@ function suggestSweetSixteenGuesserId(filters, $list, bracketId = null, guesserI
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1169,6 +1170,7 @@ function suggestSweetSixteenGuesserId(filters, $list, bracketId = null, guesserI
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1188,12 +1190,13 @@ function suggestSweetSixteenSouthGame1Winner(filters, $list, bracketId = null, s
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1231,6 +1234,7 @@ function suggestSweetSixteenSouthGame1Winner(filters, $list, bracketId = null, s
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1250,12 +1254,13 @@ function suggestSweetSixteenSouthGame1Loser(filters, $list, bracketId = null, so
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1293,6 +1298,7 @@ function suggestSweetSixteenSouthGame1Loser(filters, $list, bracketId = null, so
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1312,12 +1318,13 @@ function suggestSweetSixteenSouthGame2Winner(filters, $list, bracketId = null, s
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1355,6 +1362,7 @@ function suggestSweetSixteenSouthGame2Winner(filters, $list, bracketId = null, s
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1374,12 +1382,13 @@ function suggestSweetSixteenSouthGame2Loser(filters, $list, bracketId = null, so
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1417,6 +1426,7 @@ function suggestSweetSixteenSouthGame2Loser(filters, $list, bracketId = null, so
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1436,12 +1446,13 @@ function suggestSweetSixteenWestGame1Winner(filters, $list, bracketId = null, we
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1479,6 +1490,7 @@ function suggestSweetSixteenWestGame1Winner(filters, $list, bracketId = null, we
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1498,12 +1510,13 @@ function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, wes
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1541,6 +1554,7 @@ function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, wes
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1560,12 +1574,13 @@ function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, we
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1603,6 +1618,7 @@ function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, we
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1621,7 +1637,7 @@ function suggestSweetSixteenObjectSuggest($formFilters, $list, target) {
     if($list) {
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="fa-thin fa-basketball"></i>');
+        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>');
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
@@ -1644,12 +1660,13 @@ function suggestSweetSixteenWestGame2Loser(filters, $list, bracketId = null, wes
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1687,6 +1704,7 @@ function suggestSweetSixteenWestGame2Loser(filters, $list, bracketId = null, wes
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1706,12 +1724,13 @@ function suggestSweetSixteenEastGame1Winner(filters, $list, bracketId = null, ea
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1749,6 +1768,7 @@ function suggestSweetSixteenEastGame1Winner(filters, $list, bracketId = null, ea
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1768,12 +1788,13 @@ function suggestSweetSixteenEastGame1Loser(filters, $list, bracketId = null, eas
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1811,6 +1832,7 @@ function suggestSweetSixteenEastGame1Loser(filters, $list, bracketId = null, eas
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1830,12 +1852,13 @@ function suggestSweetSixteenEastGame2Winner(filters, $list, bracketId = null, ea
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1873,6 +1896,7 @@ function suggestSweetSixteenEastGame2Winner(filters, $list, bracketId = null, ea
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1892,12 +1916,13 @@ function suggestSweetSixteenEastGame2Loser(filters, $list, bracketId = null, eas
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1935,6 +1960,7 @@ function suggestSweetSixteenEastGame2Loser(filters, $list, bracketId = null, eas
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -1954,12 +1980,13 @@ function suggestSweetSixteenMidwestGame1Winner(filters, $list, bracketId = null,
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -1997,6 +2024,7 @@ function suggestSweetSixteenMidwestGame1Winner(filters, $list, bracketId = null,
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -2016,12 +2044,13 @@ function suggestSweetSixteenMidwestGame1Loser(filters, $list, bracketId = null, 
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -2059,6 +2088,7 @@ function suggestSweetSixteenMidwestGame1Loser(filters, $list, bracketId = null, 
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -2078,12 +2108,13 @@ function suggestSweetSixteenMidwestGame2Winner(filters, $list, bracketId = null,
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -2121,6 +2152,7 @@ function suggestSweetSixteenMidwestGame2Winner(filters, $list, bracketId = null,
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -2140,12 +2172,13 @@ function suggestSweetSixteenMidwestGame2Loser(filters, $list, bracketId = null, 
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -2183,6 +2216,7 @@ function suggestSweetSixteenMidwestGame2Loser(filters, $list, bracketId = null, 
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -2202,12 +2236,13 @@ function suggestSweetSixteenEliteEight(filters, $list, bracketId = null, eliteEi
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-basketball-hoop"></i>';
+        iTemplate.innerHTML = '<i class="' + window.FONTAWESOME_STYLE + ' fa-basketball-hoop"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
         var $a = document.createElement('a');
+        $a.setAttribute('class', 'wa-flank wa-gap-xs ');
         $a.setAttribute('target', '_blank');
         $a.setAttribute('href', o['editPage']);
         $a.append($i);
@@ -2245,6 +2280,7 @@ function suggestSweetSixteenEliteEight(filters, $list, bracketId = null, eliteEi
         if(checked)
           $input.setAttribute('checked', 'checked');
         var $li = document.createElement('li');
+        $li.setAttribute('class', 'wa-flank wa-gap-0 ');
         if(relate)
           $li.append($input);
         $li.append($a);
@@ -2451,10 +2487,6 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
     vals['setWestGame1Loser'] = valueWestGame1Loser;
 
-  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
-    vals['setWestGame2Winner'] = valueWestGame2Winner;
-
   var valueWestGame2WinnerGuess = $formValues.querySelector('.valueWestGame2WinnerGuess')?.value;
   var removeWestGame2WinnerGuess = $formValues.querySelector('.removeWestGame2WinnerGuess')?.value === 'true';
   var setWestGame2WinnerGuess = removeWestGame2WinnerGuess ? null : $formValues.querySelector('.setWestGame2WinnerGuess')?.value;
@@ -2466,6 +2498,10 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   var removeWestGame2WinnerGuess = $formValues.querySelector('.removeWestGame2WinnerGuess')?.value;
   if(removeWestGame2WinnerGuess != null && removeWestGame2WinnerGuess !== '')
     vals['removeWestGame2WinnerGuess'] = removeWestGame2WinnerGuess;
+
+  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
+    vals['setWestGame2Winner'] = valueWestGame2Winner;
 
   var valueWestGame2Loser = (Array.from($formValues.querySelectorAll('.valueWestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueWestGame2Loser != null && valueWestGame2Loser !== '')
@@ -2555,18 +2591,6 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   if(valueEliteEight != null && valueEliteEight !== '')
     vals['setEliteEight'] = valueEliteEight;
 
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
-  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
-  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
-  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
-    vals['setObjectTitle'] = setObjectTitle;
-  if(addObjectTitle != null && addObjectTitle !== '')
-    vals['addObjectTitle'] = addObjectTitle;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
-  if(removeObjectTitle != null && removeObjectTitle !== '')
-    vals['removeObjectTitle'] = removeObjectTitle;
-
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   var removeSessionId = $formValues.querySelector('.removeSessionId')?.value === 'true';
   var setSessionId = removeSessionId ? null : $formValues.querySelector('.setSessionId')?.value;
@@ -2590,6 +2614,18 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   var removeUserKey = $formValues.querySelector('.removeUserKey')?.value;
   if(removeUserKey != null && removeUserKey !== '')
     vals['removeUserKey'] = removeUserKey;
+
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
+  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
+  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
+  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
+    vals['setObjectTitle'] = setObjectTitle;
+  if(addObjectTitle != null && addObjectTitle !== '')
+    vals['addObjectTitle'] = addObjectTitle;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
+  if(removeObjectTitle != null && removeObjectTitle !== '')
+    vals['removeObjectTitle'] = removeObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   var removeDisplayPage = $formValues.querySelector('.removeDisplayPage')?.value === 'true';
@@ -2745,13 +2781,13 @@ function patchSweetSixteenFilters($formFilters) {
     if(filterWestGame1Loser != null && filterWestGame1Loser !== '')
       filters.push({ name: 'fq', value: 'westGame1Loser:' + filterWestGame1Loser });
 
-    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
-    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
-      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
-
     var filterWestGame2WinnerGuess = $formFilters.querySelector('.valueWestGame2WinnerGuess')?.value;
     if(filterWestGame2WinnerGuess != null && filterWestGame2WinnerGuess !== '')
       filters.push({ name: 'fq', value: 'westGame2WinnerGuess:' + filterWestGame2WinnerGuess });
+
+    var filterWestGame2Winner = $formFilters.querySelector('.valueWestGame2Winner')?.value;
+    if(filterWestGame2Winner != null && filterWestGame2Winner !== '')
+      filters.push({ name: 'fq', value: 'westGame2Winner:' + filterWestGame2Winner });
 
     var filterWestGame2Loser = $formFilters.querySelector('.valueWestGame2Loser')?.value;
     if(filterWestGame2Loser != null && filterWestGame2Loser !== '')
@@ -2809,22 +2845,6 @@ function patchSweetSixteenFilters($formFilters) {
     if(filterEliteEight != null && filterEliteEight !== '')
       filters.push({ name: 'fq', value: 'eliteEight:' + filterEliteEight });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
-
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -2845,6 +2865,26 @@ function patchSweetSixteenFilters($formFilters) {
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
 
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
+    if(filterObjectText != null && filterObjectText !== '')
+      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
+
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
       filters.push({ name: 'fq', value: 'displayPage:' + filterDisplayPage });
@@ -2860,10 +2900,6 @@ function patchSweetSixteenFilters($formFilters) {
     var filterDownload = $formFilters.querySelector('.valueDownload')?.value;
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
-
-    var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
-    if(filterObjectText != null && filterObjectText !== '')
-      filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -3007,13 +3043,13 @@ async function postSweetSixteen($formValues, target, success, error) {
   if(valueWestGame1Loser != null && valueWestGame1Loser !== '')
     vals['westGame1Loser'] = valueWestGame1Loser;
 
-  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
-  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
-    vals['westGame2Winner'] = valueWestGame2Winner;
-
   var valueWestGame2WinnerGuess = $formValues.querySelector('.valueWestGame2WinnerGuess')?.value;
   if(valueWestGame2WinnerGuess != null && valueWestGame2WinnerGuess !== '')
     vals['westGame2WinnerGuess'] = valueWestGame2WinnerGuess;
+
+  var valueWestGame2Winner = (Array.from($formValues.querySelectorAll('.valueWestGame2Winner')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
+  if(valueWestGame2Winner != null && valueWestGame2Winner !== '')
+    vals['westGame2Winner'] = valueWestGame2Winner;
 
   var valueWestGame2Loser = (Array.from($formValues.querySelectorAll('.valueWestGame2Loser')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueWestGame2Loser != null && valueWestGame2Loser !== '')
@@ -3071,10 +3107,6 @@ async function postSweetSixteen($formValues, target, success, error) {
   if(valueEliteEight != null && valueEliteEight !== '')
     vals['eliteEight'] = valueEliteEight;
 
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  if(valueObjectTitle != null && valueObjectTitle !== '')
-    vals['objectTitle'] = valueObjectTitle;
-
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   if(valueSessionId != null && valueSessionId !== '')
     vals['sessionId'] = valueSessionId;
@@ -3082,6 +3114,10 @@ async function postSweetSixteen($formValues, target, success, error) {
   var valueUserKey = $formValues.querySelector('.valueUserKey')?.value;
   if(valueUserKey != null && valueUserKey !== '')
     vals['userKey'] = valueUserKey;
+
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  if(valueObjectTitle != null && valueObjectTitle !== '')
+    vals['objectTitle'] = valueObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   if(valueDisplayPage != null && valueDisplayPage !== '')

@@ -127,6 +127,7 @@
         , customElements.whenDefined('wa-checkbox')
         , customElements.whenDefined('wa-dropdown')
       ]).then(() => {
+        window.FONTAWESOME_STYLE = document.querySelector('.pageForm .FONTAWESOME_STYLE')?.value;
 
         var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
 
@@ -1075,7 +1076,7 @@
               <wa-tooltip for="return-to-SweetSixteen">back to all sweet sixteen brackets</wa-tooltip>
               <wa-breadcrumb>
                 <wa-breadcrumb-item id="return-to-SweetSixteen" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-                  <i class="fa-thin fa-basketball"></i>
+                  <i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>
                   all sweet sixteen brackets
                 </wa-breadcrumb-item>
                 <wa-breadcrumb-item>
@@ -1090,7 +1091,7 @@
 {%- block htmBodyStartSweetSixteenPage %}
 {% if resultCount > 0 %}
           <div class="wa-flank ">
-            <h1 class="Page_objectTitle"><i class="fa-thin fa-basketball"></i> {{ result.objectTitle | e }}</h1>
+            <h1 class="Page_objectTitle"><i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i> {{ result.objectTitle | e }}</h1>
           </div>
 {% endif %}
 {% include en-us/search/sweet-sixteen/SweetSixteenSearchForm.htm %}
@@ -1106,7 +1107,7 @@
           <wa-tooltip for="return-to-SweetSixteen">back to all sweet sixteen brackets</wa-tooltip></wa-tooltip>
           <wa-breadcrumb>
             <wa-breadcrumb-item id="return-to-SweetSixteen" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-              <i class="fa-thin fa-basketball"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>
               all sweet sixteen brackets
             </wa-breadcrumb-item>
             <wa-breadcrumb-item>
@@ -1115,7 +1116,7 @@
           </wa-breadcrumb>
           <div class="wa-stack wa-align-items-center ">
             <div class="wa-heading-3xl ">
-              <i class="fa-thin fa-basketball"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>
             </div>
             <span class="wa-heading-m ">no sweet sixteen bracket found</span>
             <p class="wa-caption-l ">A predicted tournament with 16 teams. </p>
@@ -1126,6 +1127,7 @@
 {% endif %}
 {%- block htmFormSweetSixteenPage %}
           <form action="/en-us/api/sweet-sixteen" id="SweetSixteenForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+            <input name="FONTAWESOME_STYLE" class="FONTAWESOME_STYLE" type="hidden" value="{{ FONTAWESOME_STYLE }}"/>
 {% if result.bracketId is defined %}
             <input name="bracketId" class="valueBracketId" type="hidden" value="{{ result.bracketId }}"/>
             {% endif %}

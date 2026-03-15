@@ -128,6 +128,7 @@
         , customElements.whenDefined('wa-checkbox')
         , customElements.whenDefined('wa-dropdown')
       ]).then(() => {
+        window.FONTAWESOME_STYLE = document.querySelector('.pageForm .FONTAWESOME_STYLE')?.value;
 
         var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
 
@@ -1066,7 +1067,7 @@
               <wa-tooltip for="return-to-EliteEight">back to all elite eight brackets</wa-tooltip>
               <wa-breadcrumb>
                 <wa-breadcrumb-item id="return-to-EliteEight" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-                  <i class="fa-thin fa-basketball-hoop"></i>
+                  <i class="{{ FONTAWESOME_STYLE }} fa-basketball-hoop"></i>
                   all elite eight brackets
                 </wa-breadcrumb-item>
                 <wa-breadcrumb-item>
@@ -1081,7 +1082,7 @@
 {%- block htmBodyStartEliteEightPage %}
 {% if resultCount > 0 %}
           <div class="wa-flank ">
-            <h1 class="Page_objectTitle"><i class="fa-thin fa-basketball-hoop"></i> {{ result.objectTitle | e }}</h1>
+            <h1 class="Page_objectTitle"><i class="{{ FONTAWESOME_STYLE }} fa-basketball-hoop"></i> {{ result.objectTitle | e }}</h1>
           </div>
 {% endif %}
 {% include en-us/search/elite-eight/EliteEightSearchForm.htm %}
@@ -1097,7 +1098,7 @@
           <wa-tooltip for="return-to-EliteEight">back to all elite eight brackets</wa-tooltip></wa-tooltip>
           <wa-breadcrumb>
             <wa-breadcrumb-item id="return-to-EliteEight" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-              <i class="fa-thin fa-basketball-hoop"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-basketball-hoop"></i>
               all elite eight brackets
             </wa-breadcrumb-item>
             <wa-breadcrumb-item>
@@ -1106,7 +1107,7 @@
           </wa-breadcrumb>
           <div class="wa-stack wa-align-items-center ">
             <div class="wa-heading-3xl ">
-              <i class="fa-thin fa-basketball-hoop"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-basketball-hoop"></i>
             </div>
             <span class="wa-heading-m ">no elite eight bracket found</span>
             <p class="wa-caption-l ">A predicted tournament with 8 teams. </p>
@@ -1117,6 +1118,7 @@
 {% endif %}
 {%- block htmFormEliteEightPage %}
           <form action="/en-us/api/elite-eight" id="EliteEightForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+            <input name="FONTAWESOME_STYLE" class="FONTAWESOME_STYLE" type="hidden" value="{{ FONTAWESOME_STYLE }}"/>
 {% if result.bracketId is defined %}
             <input name="bracketId" class="valueBracketId" type="hidden" value="{{ result.bracketId }}"/>
             {% endif %}

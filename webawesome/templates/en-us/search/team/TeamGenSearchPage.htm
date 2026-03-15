@@ -124,6 +124,7 @@
         , customElements.whenDefined('wa-checkbox')
         , customElements.whenDefined('wa-dropdown')
       ]).then(() => {
+        window.FONTAWESOME_STYLE = document.querySelector('.pageForm .FONTAWESOME_STYLE')?.value;
 
         var teamId = {% if result.teamId is defined %}{{ result.teamId | tojson }}{% else %}null{% endif %};
 
@@ -260,7 +261,7 @@
               <wa-tooltip for="return-to-Team">back to all teams</wa-tooltip>
               <wa-breadcrumb>
                 <wa-breadcrumb-item id="return-to-Team" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-                  <i class="fa-thin fa-person-basketball"></i>
+                  <i class="{{ FONTAWESOME_STYLE }} fa-person-basketball"></i>
                   all teams
                 </wa-breadcrumb-item>
                 <wa-breadcrumb-item>
@@ -279,7 +280,7 @@
           <wa-tooltip for="return-to-Team">back to all teams</wa-tooltip></wa-tooltip>
           <wa-breadcrumb>
             <wa-breadcrumb-item id="return-to-Team" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-              <i class="fa-thin fa-person-basketball"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-person-basketball"></i>
               all teams
             </wa-breadcrumb-item>
             <wa-breadcrumb-item>
@@ -288,7 +289,7 @@
           </wa-breadcrumb>
           <div class="wa-stack wa-align-items-center ">
             <div class="wa-heading-3xl ">
-              <i class="fa-thin fa-person-basketball"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-person-basketball"></i>
             </div>
             <span class="wa-heading-m ">no team found</span>
             <p class="wa-caption-l ">A sports team. </p>
@@ -298,6 +299,7 @@
 {% include en-us/search/team/TeamSuggestedSearch.htm %}
           <div class="pageContent ">
             <form action="/en-us/api/team" id="TeamForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+              <input name="FONTAWESOME_STYLE" class="FONTAWESOME_STYLE" type="hidden" value="{{ FONTAWESOME_STYLE }}"/>
               <input name="focusId" type="hidden"/>
               <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
               <input name="listTeam" id="listTeam" class="listTeam"  value='{{ toJsonArrayStringInApostrophes(listTeam) }}' type="hidden"/>
@@ -371,7 +373,7 @@
                   {% for item in listTeam%}
                   <div>
                     <a href="{{ item.displayPage }}">
-                      <i class="fa-thin fa-person-basketball"></i>
+                      <i class="{{ FONTAWESOME_STYLE }} fa-person-basketball"></i>
                       <span>{{ item.region | e }}</span>
                     </a>
                     <a href="{{ item.displayPage }}">

@@ -127,6 +127,7 @@
         , customElements.whenDefined('wa-checkbox')
         , customElements.whenDefined('wa-dropdown')
       ]).then(() => {
+        window.FONTAWESOME_STYLE = document.querySelector('.pageForm .FONTAWESOME_STYLE')?.value;
 
         var bracketId = {% if result.bracketId is defined %}{{ result.bracketId | tojson }}{% else %}null{% endif %};
 
@@ -360,7 +361,7 @@
               <wa-tooltip for="return-to-Championship">back to all championship brackets</wa-tooltip>
               <wa-breadcrumb>
                 <wa-breadcrumb-item id="return-to-Championship" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-                  <i class="fa-thin fa-court-sport"></i>
+                  <i class="{{ FONTAWESOME_STYLE }} fa-court-sport"></i>
                   all championship brackets
                 </wa-breadcrumb-item>
                 <wa-breadcrumb-item>
@@ -379,7 +380,7 @@
           <wa-tooltip for="return-to-Championship">back to all championship brackets</wa-tooltip></wa-tooltip>
           <wa-breadcrumb>
             <wa-breadcrumb-item id="return-to-Championship" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-              <i class="fa-thin fa-court-sport"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-court-sport"></i>
               all championship brackets
             </wa-breadcrumb-item>
             <wa-breadcrumb-item>
@@ -388,7 +389,7 @@
           </wa-breadcrumb>
           <div class="wa-stack wa-align-items-center ">
             <div class="wa-heading-3xl ">
-              <i class="fa-thin fa-court-sport"></i>
+              <i class="{{ FONTAWESOME_STYLE }} fa-court-sport"></i>
             </div>
             <span class="wa-heading-m ">no championship bracket found</span>
             <p class="wa-caption-l ">A predicted tournament with 2 teams. </p>
@@ -398,6 +399,7 @@
 {% include en-us/search/championship/ChampionshipSuggestedSearch.htm %}
           <div class="pageContent ">
             <form action="/en-us/api/championship" id="ChampionshipForm" class="pageForm " onsubmit="event.preventDefault(); return false; ">
+              <input name="FONTAWESOME_STYLE" class="FONTAWESOME_STYLE" type="hidden" value="{{ FONTAWESOME_STYLE }}"/>
               <input name="focusId" type="hidden"/>
               <input name="pageResponse" id="pageResponse" class="pageResponse"  value='{{ toJsonObjectStringInApostrophes(pageResponse) }}' type="hidden"/>
               <input name="listChampionship" id="listChampionship" class="listChampionship"  value='{{ toJsonArrayStringInApostrophes(listChampionship) }}' type="hidden"/>
@@ -458,7 +460,7 @@
                   {% for item in listChampionship%}
                   <div>
                     <a href="{{ item.displayPage }}">
-                      <i class="fa-thin fa-court-sport"></i>
+                      <i class="{{ FONTAWESOME_STYLE }} fa-court-sport"></i>
                       <span>{{ item.guesserId | e }}</span>
                     </a>
                     <a href="{{ item.displayPage }}">
