@@ -1003,7 +1003,7 @@
               <wa-tooltip for="return-to-Guesser">back to all guessers</wa-tooltip>
               <wa-breadcrumb>
                 <wa-breadcrumb-item id="return-to-Guesser" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-                  <i class="fa-regular fa-buildings"></i>
+                  <i class="fa-thin fa-person"></i>
                   all guessers
                 </wa-breadcrumb-item>
                 <wa-breadcrumb-item>
@@ -1018,7 +1018,7 @@
 {%- block htmBodyStartGuesserPage %}
 {% if resultCount > 0 %}
           <div class="wa-flank ">
-            <h1 class="Page_objectTitle"><i class="fa-regular fa-buildings"></i> {{ result.objectTitle | e }}</h1>
+            <h1 class="Page_objectTitle"><i class="fa-thin fa-person"></i> {{ result.objectTitle | e }}</h1>
           </div>
 {% endif %}
 {% include en-us/search/guesser/GuesserSearchForm.htm %}
@@ -1034,7 +1034,7 @@
           <wa-tooltip for="return-to-Guesser">back to all guessers</wa-tooltip></wa-tooltip>
           <wa-breadcrumb>
             <wa-breadcrumb-item id="return-to-Guesser" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-              <i class="fa-regular fa-buildings"></i>
+              <i class="fa-thin fa-person"></i>
               all guessers
             </wa-breadcrumb-item>
             <wa-breadcrumb-item>
@@ -1043,7 +1043,7 @@
           </wa-breadcrumb>
           <div class="wa-stack wa-align-items-center ">
             <div class="wa-heading-3xl ">
-              <i class="fa-regular fa-buildings"></i>
+              <i class="fa-thin fa-person"></i>
             </div>
             <span class="wa-heading-m ">no guesser found</span>
             <p class="wa-caption-l ">a person guessing on a tournament. </p>

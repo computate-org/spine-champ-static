@@ -103,6 +103,27 @@ Promise.all([
             const valid = form.reportValidity();
           });
 
+          // PATCH objectTitle
+          document.querySelector('#Guesser_Page_objectTitle')?.addEventListener('change', (event) => {
+            const form = document.querySelector('#PageForm_objectTitle');
+            const valid = form.checkValidity();
+            if(valid) {
+              patchGuesserVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'guesserId:' + event.currentTarget.getAttribute('data-guesserId') }]
+                  , 'setObjectTitle', event.currentTarget.value
+                  , event.currentTarget
+                , function(response, target) { addGlow(target); }
+                  , function(response, target) { addError(target); }
+                  );
+            }
+          });
+          document.querySelector('#Guesser_Page_objectTitle')?.addEventListener('focus', (event) => {
+            removeGlow(event.currentTarget);
+          });
+          document.querySelector('#Guesser_Page_objectTitle')?.addEventListener('blur', (event) => {
+            const form = document.querySelector('#PageForm_objectTitle');
+            const valid = form.reportValidity();
+          });
+
           // PATCH sessionId
           document.querySelector('#Guesser_Page_sessionId')?.addEventListener('change', (event) => {
             const form = document.querySelector('#PageForm_sessionId');
@@ -142,27 +163,6 @@ Promise.all([
           });
           document.querySelector('#Guesser_Page_userKey')?.addEventListener('blur', (event) => {
             const form = document.querySelector('#PageForm_userKey');
-            const valid = form.reportValidity();
-          });
-
-          // PATCH objectTitle
-          document.querySelector('#Guesser_Page_objectTitle')?.addEventListener('change', (event) => {
-            const form = document.querySelector('#PageForm_objectTitle');
-            const valid = form.checkValidity();
-            if(valid) {
-              patchGuesserVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'guesserId:' + event.currentTarget.getAttribute('data-guesserId') }]
-                  , 'setObjectTitle', event.currentTarget.value
-                  , event.currentTarget
-                , function(response, target) { addGlow(target); }
-                  , function(response, target) { addError(target); }
-                  );
-            }
-          });
-          document.querySelector('#Guesser_Page_objectTitle')?.addEventListener('focus', (event) => {
-            removeGlow(event.currentTarget);
-          });
-          document.querySelector('#Guesser_Page_objectTitle')?.addEventListener('blur', (event) => {
-            const form = document.querySelector('#PageForm_objectTitle');
             const valid = form.reportValidity();
           });
 

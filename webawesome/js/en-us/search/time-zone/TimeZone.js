@@ -24,7 +24,7 @@ async function websocketTimeZone(success) {
       $header.setAttribute('class', 'w3-container fa- ');
       $header.setAttribute('id', 'header-' + id);
       var iTemplate = document.createElement('template');
-      iTemplate.innerHTML = '<i class="fa-duotone fa-regular fa-globe"></i>';
+      iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-globe"></i>';
       var $i = iTemplate.content;
       var $headerSpan = document.createElement('span');
       $headerSpan.setAttribute('class', '');
@@ -603,7 +603,7 @@ function suggestTimeZoneObjectSuggest($formFilters, $list, target) {
     if($list) {
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="fa-duotone fa-regular fa-globe"></i>');
+        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }}fa-globe"></i>');
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];

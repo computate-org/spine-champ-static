@@ -187,6 +187,50 @@ Promise.all([
     facetStatsChange('FinalFour', 'championship', false);
   });
 
+  document.querySelector('#pageSelectSortFinalFour_saves')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'saves', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_saves')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'saves', true);
+  });
+  document.querySelector('#pageStatsFinalFour_saves')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'saves', false);
+  });
+
+  document.querySelector('#pageSelectSortFinalFour_objectTitle')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'objectTitle', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_objectTitle')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'objectTitle', true);
+  });
+  document.querySelector('#pageStatsFinalFour_objectTitle')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'objectTitle', false);
+  });
+
+  document.querySelector('#pageSelectSortFinalFour_objectSuggest')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'objectSuggest', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_objectSuggest')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'objectSuggest', true);
+  });
+  document.querySelector('#pageStatsFinalFour_objectSuggest')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'objectSuggest', false);
+  });
+
+  document.querySelector('#pageSelectSortFinalFour_solrId')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'solrId', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_solrId')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'solrId', true);
+  });
+  document.querySelector('#pageStatsFinalFour_solrId')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'solrId', false);
+  });
+
   document.querySelector('#pageSelectSortFinalFour_classCanonicalName')?.addEventListener('change', (event) => {
     sort('FinalFour', 'classCanonicalName', event.currentTarget.value);
   });
@@ -242,28 +286,6 @@ Promise.all([
     facetStatsChange('FinalFour', 'userKey', false);
   });
 
-  document.querySelector('#pageSelectSortFinalFour_saves')?.addEventListener('change', (event) => {
-    sort('FinalFour', 'saves', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsFinalFour_saves')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('FinalFour', 'saves', true);
-  });
-  document.querySelector('#pageStatsFinalFour_saves')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('FinalFour', 'saves', false);
-  });
-
-  document.querySelector('#pageSelectSortFinalFour_objectTitle')?.addEventListener('change', (event) => {
-    sort('FinalFour', 'objectTitle', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsFinalFour_objectTitle')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('FinalFour', 'objectTitle', true);
-  });
-  document.querySelector('#pageStatsFinalFour_objectTitle')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('FinalFour', 'objectTitle', false);
-  });
-
   document.querySelector('#pageSelectSortFinalFour_displayPage')?.addEventListener('change', (event) => {
     sort('FinalFour', 'displayPage', event.currentTarget.value);
   });
@@ -308,17 +330,6 @@ Promise.all([
     facetStatsChange('FinalFour', 'download', false);
   });
 
-  document.querySelector('#pageSelectSortFinalFour_objectSuggest')?.addEventListener('change', (event) => {
-    sort('FinalFour', 'objectSuggest', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsFinalFour_objectSuggest')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('FinalFour', 'objectSuggest', true);
-  });
-  document.querySelector('#pageStatsFinalFour_objectSuggest')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('FinalFour', 'objectSuggest', false);
-  });
-
   document.querySelector('#pageSelectSortFinalFour_objectText')?.addEventListener('change', (event) => {
     sort('FinalFour', 'objectText', event.currentTarget.value);
   });
@@ -328,17 +339,6 @@ Promise.all([
   });
   document.querySelector('#pageStatsFinalFour_objectText')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('FinalFour', 'objectText', false);
-  });
-
-  document.querySelector('#pageSelectSortFinalFour_solrId')?.addEventListener('change', (event) => {
-    sort('FinalFour', 'solrId', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsFinalFour_solrId')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('FinalFour', 'solrId', true);
-  });
-  document.querySelector('#pageStatsFinalFour_solrId')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('FinalFour', 'solrId', false);
   });
 
   document.querySelector('#pageSelectSortFinalFour_bracketId')?.addEventListener('change', (event) => {

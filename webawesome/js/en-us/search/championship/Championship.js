@@ -24,7 +24,7 @@ async function websocketChampionship(success) {
       $header.setAttribute('class', 'w3-container fa- ');
       $header.setAttribute('id', 'header-' + bracketId);
       var iTemplate = document.createElement('template');
-      iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+      iTemplate.innerHTML = '<i class="fa-thin fa-court-sport"></i>';
       var $i = iTemplate.content;
       var $headerSpan = document.createElement('span');
       $headerSpan.setAttribute('class', '');
@@ -90,20 +90,20 @@ async function websocketChampionshipInner(apiRequest) {
         var inputGame1WinnerGuess = null;
         var inputGame1Winner = null;
         var inputGame1Loser = null;
+        var inputSaves = null;
+        var inputObjectTitle = null;
+        var inputObjectSuggest = null;
+        var inputSolrId = null;
         var inputClassCanonicalName = null;
         var inputClassSimpleName = null;
         var inputClassCanonicalNames = null;
         var inputSessionId = null;
         var inputUserKey = null;
-        var inputSaves = null;
-        var inputObjectTitle = null;
         var inputDisplayPage = null;
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputObjectSuggest = null;
         var inputObjectText = null;
-        var inputSolrId = null;
         var inputActualFinalFour = null;
         var inputActualChampionship = null;
         var inputBracketId = null;
@@ -133,6 +133,14 @@ async function websocketChampionshipInner(apiRequest) {
           inputGame1Winner = $response.querySelector('.Championship_Page_game1Winner');
         if(vars.includes('game1Loser'))
           inputGame1Loser = $response.querySelector('.Championship_Page_game1Loser');
+        if(vars.includes('saves'))
+          inputSaves = $response.querySelector('.Championship_Page_saves');
+        if(vars.includes('objectTitle'))
+          inputObjectTitle = $response.querySelector('.Championship_Page_objectTitle');
+        if(vars.includes('objectSuggest'))
+          inputObjectSuggest = $response.querySelector('.Championship_Page_objectSuggest');
+        if(vars.includes('solrId'))
+          inputSolrId = $response.querySelector('.Championship_Page_solrId');
         if(vars.includes('classCanonicalName'))
           inputClassCanonicalName = $response.querySelector('.Championship_Page_classCanonicalName');
         if(vars.includes('classSimpleName'))
@@ -143,10 +151,6 @@ async function websocketChampionshipInner(apiRequest) {
           inputSessionId = $response.querySelector('.Championship_Page_sessionId');
         if(vars.includes('userKey'))
           inputUserKey = $response.querySelector('.Championship_Page_userKey');
-        if(vars.includes('saves'))
-          inputSaves = $response.querySelector('.Championship_Page_saves');
-        if(vars.includes('objectTitle'))
-          inputObjectTitle = $response.querySelector('.Championship_Page_objectTitle');
         if(vars.includes('displayPage'))
           inputDisplayPage = $response.querySelector('.Championship_Page_displayPage');
         if(vars.includes('editPage'))
@@ -155,12 +159,8 @@ async function websocketChampionshipInner(apiRequest) {
           inputUserPage = $response.querySelector('.Championship_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.Championship_Page_download');
-        if(vars.includes('objectSuggest'))
-          inputObjectSuggest = $response.querySelector('.Championship_Page_objectSuggest');
         if(vars.includes('objectText'))
           inputObjectText = $response.querySelector('.Championship_Page_objectText');
-        if(vars.includes('solrId'))
-          inputSolrId = $response.querySelector('.Championship_Page_solrId');
         if(vars.includes('actualFinalFour'))
           inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
         if(vars.includes('actualChampionship'))
@@ -295,6 +295,46 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_game1Loser'));
         }
 
+        if(inputSaves) {
+          document.querySelectorAll('.Championship_Page_saves').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSaves.getAttribute('value');
+            else
+              item.textContent = inputSaves.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_saves'));
+        }
+
+        if(inputObjectTitle) {
+          document.querySelectorAll('.Championship_Page_objectTitle').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectTitle.getAttribute('value');
+            else
+              item.textContent = inputObjectTitle.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_objectTitle'));
+        }
+
+        if(inputObjectSuggest) {
+          document.querySelectorAll('.Championship_Page_objectSuggest').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputObjectSuggest.getAttribute('value');
+            else
+              item.textContent = inputObjectSuggest.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_objectSuggest'));
+        }
+
+        if(inputSolrId) {
+          document.querySelectorAll('.Championship_Page_solrId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputSolrId.getAttribute('value');
+            else
+              item.textContent = inputSolrId.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_solrId'));
+        }
+
         if(inputClassCanonicalName) {
           document.querySelectorAll('.Championship_Page_classCanonicalName').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -345,26 +385,6 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_userKey'));
         }
 
-        if(inputSaves) {
-          document.querySelectorAll('.Championship_Page_saves').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSaves.getAttribute('value');
-            else
-              item.textContent = inputSaves.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_saves'));
-        }
-
-        if(inputObjectTitle) {
-          document.querySelectorAll('.Championship_Page_objectTitle').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectTitle.getAttribute('value');
-            else
-              item.textContent = inputObjectTitle.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_objectTitle'));
-        }
-
         if(inputDisplayPage) {
           document.querySelectorAll('.Championship_Page_displayPage').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -405,16 +425,6 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_download'));
         }
 
-        if(inputObjectSuggest) {
-          document.querySelectorAll('.Championship_Page_objectSuggest').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputObjectSuggest.getAttribute('value');
-            else
-              item.textContent = inputObjectSuggest.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_objectSuggest'));
-        }
-
         if(inputObjectText) {
           document.querySelectorAll('.Championship_Page_objectText').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -423,16 +433,6 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputObjectText.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_objectText'));
-        }
-
-        if(inputSolrId) {
-          document.querySelectorAll('.Championship_Page_solrId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputSolrId.getAttribute('value');
-            else
-              item.textContent = inputSolrId.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_solrId'));
         }
 
         if(inputActualFinalFour) {
@@ -674,6 +674,22 @@ function searchChampionshipFilters($formFilters) {
     if(filterGame1Loser != null && filterGame1Loser !== '')
       filters.push({ name: 'fq', value: 'game1Loser:' + filterGame1Loser });
 
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -694,14 +710,6 @@ function searchChampionshipFilters($formFilters) {
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
       filters.push({ name: 'fq', value: 'displayPage:' + filterDisplayPage });
@@ -718,17 +726,9 @@ function searchChampionshipFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
     var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
     if(filterObjectText != null && filterObjectText !== '')
       filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -765,7 +765,7 @@ function suggestChampionshipFinalFour(filters, $list, bracketId = null, finalFou
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="fa-thin fa-person-basketball"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
@@ -827,7 +827,7 @@ function suggestChampionshipGuesserId(filters, $list, bracketId = null, guesserI
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="{{ FONTAWESOME_STYLE }}fa-buildings"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
@@ -889,7 +889,7 @@ function suggestChampionshipGame1Winner(filters, $list, bracketId = null, game1W
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
@@ -951,7 +951,7 @@ function suggestChampionshipGame1Loser(filters, $list, bracketId = null, game1Lo
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
         var iTemplate = document.createElement('template');
-        iTemplate.innerHTML = '<i class="fa-regular fa-buildings"></i>';
+        iTemplate.innerHTML = '<i class="fa-thin fa-buildings"></i>';
         var $i = iTemplate.content;
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
@@ -1012,7 +1012,7 @@ function suggestChampionshipObjectSuggest($formFilters, $list, target) {
     if($list) {
       $list.innerHTML = '';
       data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="fa-regular fa-buildings"></i>');
+        var $i = document.querySelector('<i class="fa-thin fa-court-sport"></i>');
         var $span = document.createElement('span');
         $span.setAttribute('class', '');
         $span.innerText = o['objectTitle'];
@@ -1174,6 +1174,18 @@ async function patchChampionship($formFilters, $formValues, target, bracketId, s
   if(valueGame1Loser != null && valueGame1Loser !== '')
     vals['setGame1Loser'] = valueGame1Loser;
 
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
+  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
+  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
+  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
+    vals['setObjectTitle'] = setObjectTitle;
+  if(addObjectTitle != null && addObjectTitle !== '')
+    vals['addObjectTitle'] = addObjectTitle;
+  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
+  if(removeObjectTitle != null && removeObjectTitle !== '')
+    vals['removeObjectTitle'] = removeObjectTitle;
+
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   var removeSessionId = $formValues.querySelector('.removeSessionId')?.value === 'true';
   var setSessionId = removeSessionId ? null : $formValues.querySelector('.setSessionId')?.value;
@@ -1197,18 +1209,6 @@ async function patchChampionship($formFilters, $formValues, target, bracketId, s
   var removeUserKey = $formValues.querySelector('.removeUserKey')?.value;
   if(removeUserKey != null && removeUserKey !== '')
     vals['removeUserKey'] = removeUserKey;
-
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value === 'true';
-  var setObjectTitle = removeObjectTitle ? null : $formValues.querySelector('.setObjectTitle')?.value;
-  var addObjectTitle = $formValues.querySelector('.addObjectTitle')?.value;
-  if(removeObjectTitle || setObjectTitle != null && setObjectTitle !== '')
-    vals['setObjectTitle'] = setObjectTitle;
-  if(addObjectTitle != null && addObjectTitle !== '')
-    vals['addObjectTitle'] = addObjectTitle;
-  var removeObjectTitle = $formValues.querySelector('.removeObjectTitle')?.value;
-  if(removeObjectTitle != null && removeObjectTitle !== '')
-    vals['removeObjectTitle'] = removeObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   var removeDisplayPage = $formValues.querySelector('.removeDisplayPage')?.value === 'true';
@@ -1344,6 +1344,22 @@ function patchChampionshipFilters($formFilters) {
     if(filterGame1Loser != null && filterGame1Loser !== '')
       filters.push({ name: 'fq', value: 'game1Loser:' + filterGame1Loser });
 
+    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
+    if(filterSaves != null && filterSaves !== '')
+      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
+
+    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
+    if(filterObjectTitle != null && filterObjectTitle !== '')
+      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
+
+    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
+    if(filterObjectSuggest != null && filterObjectSuggest !== '')
+      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
+
+    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
+    if(filterSolrId != null && filterSolrId !== '')
+      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
+
     var filterClassCanonicalName = $formFilters.querySelector('.valueClassCanonicalName')?.value;
     if(filterClassCanonicalName != null && filterClassCanonicalName !== '')
       filters.push({ name: 'fq', value: 'classCanonicalName:' + filterClassCanonicalName });
@@ -1364,14 +1380,6 @@ function patchChampionshipFilters($formFilters) {
     if(filterUserKey != null && filterUserKey !== '')
       filters.push({ name: 'fq', value: 'userKey:' + filterUserKey });
 
-    var filterSaves = $formFilters.querySelector('.valueSaves')?.value;
-    if(filterSaves != null && filterSaves !== '')
-      filters.push({ name: 'fq', value: 'saves:' + filterSaves });
-
-    var filterObjectTitle = $formFilters.querySelector('.valueObjectTitle')?.value;
-    if(filterObjectTitle != null && filterObjectTitle !== '')
-      filters.push({ name: 'fq', value: 'objectTitle:' + filterObjectTitle });
-
     var filterDisplayPage = $formFilters.querySelector('.valueDisplayPage')?.value;
     if(filterDisplayPage != null && filterDisplayPage !== '')
       filters.push({ name: 'fq', value: 'displayPage:' + filterDisplayPage });
@@ -1388,17 +1396,9 @@ function patchChampionshipFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
-    var filterObjectSuggest = $formFilters.querySelector('.valueObjectSuggest')?.value;
-    if(filterObjectSuggest != null && filterObjectSuggest !== '')
-      filters.push({ name: 'q', value: 'objectSuggest:' + filterObjectSuggest });
-
     var filterObjectText = $formFilters.querySelector('.valueObjectText')?.value;
     if(filterObjectText != null && filterObjectText !== '')
       filters.push({ name: 'fq', value: 'objectText:' + filterObjectText });
-
-    var filterSolrId = $formFilters.querySelector('.valueSolrId')?.value;
-    if(filterSolrId != null && filterSolrId !== '')
-      filters.push({ name: 'fq', value: 'solrId:' + filterSolrId });
 
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
@@ -1518,6 +1518,10 @@ async function postChampionship($formValues, target, success, error) {
   if(valueGame1Loser != null && valueGame1Loser !== '')
     vals['game1Loser'] = valueGame1Loser;
 
+  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
+  if(valueObjectTitle != null && valueObjectTitle !== '')
+    vals['objectTitle'] = valueObjectTitle;
+
   var valueSessionId = $formValues.querySelector('.valueSessionId')?.value;
   if(valueSessionId != null && valueSessionId !== '')
     vals['sessionId'] = valueSessionId;
@@ -1525,10 +1529,6 @@ async function postChampionship($formValues, target, success, error) {
   var valueUserKey = $formValues.querySelector('.valueUserKey')?.value;
   if(valueUserKey != null && valueUserKey !== '')
     vals['userKey'] = valueUserKey;
-
-  var valueObjectTitle = $formValues.querySelector('.valueObjectTitle')?.value;
-  if(valueObjectTitle != null && valueObjectTitle !== '')
-    vals['objectTitle'] = valueObjectTitle;
 
   var valueDisplayPage = $formValues.querySelector('.valueDisplayPage')?.value;
   if(valueDisplayPage != null && valueDisplayPage !== '')

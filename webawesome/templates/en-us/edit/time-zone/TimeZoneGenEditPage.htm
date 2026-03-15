@@ -271,7 +271,7 @@
               <wa-tooltip for="return-to-TimeZone">back to all time zones</wa-tooltip>
               <wa-breadcrumb>
                 <wa-breadcrumb-item id="return-to-TimeZone" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-                  <i class="fa-duotone fa-regular fa-globe"></i>
+                  <i class="{{ FONTAWESOME_STYLE }}fa-globe"></i>
                   all time zones
                 </wa-breadcrumb-item>
                 <wa-breadcrumb-item>
@@ -286,7 +286,7 @@
 {%- block htmBodyStartTimeZonePage %}
 {% if resultCount > 0 %}
           <div class="wa-flank ">
-            <h1 class="Page_objectTitle"><i class="fa-duotone fa-regular fa-globe"></i> {{ result.objectTitle | e }}</h1>
+            <h1 class="Page_objectTitle"><i class="{{ FONTAWESOME_STYLE }}fa-globe"></i> {{ result.objectTitle | e }}</h1>
           </div>
 {% endif %}
 {% include en-us/search/time-zone/TimeZoneSearchForm.htm %}
@@ -302,7 +302,7 @@
           <wa-tooltip for="return-to-TimeZone">back to all time zones</wa-tooltip></wa-tooltip>
           <wa-breadcrumb>
             <wa-breadcrumb-item id="return-to-TimeZone" variant="brand" href="{{ SITE_BASE_URL }}{{ pageUri }}">
-              <i class="fa-duotone fa-regular fa-globe"></i>
+              <i class="{{ FONTAWESOME_STYLE }}fa-globe"></i>
               all time zones
             </wa-breadcrumb-item>
             <wa-breadcrumb-item>
@@ -311,7 +311,7 @@
           </wa-breadcrumb>
           <div class="wa-stack wa-align-items-center ">
             <div class="wa-heading-3xl ">
-              <i class="fa-duotone fa-regular fa-globe"></i>
+              <i class="{{ FONTAWESOME_STYLE }}fa-globe"></i>
             </div>
             <span class="wa-heading-m ">no time zone found</span>
             <p class="wa-caption-l ">A timezone</p>

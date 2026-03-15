@@ -198,17 +198,6 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'westGame1Loser', false);
   });
 
-  document.querySelector('#pageSelectSortSweetSixteen_westGame2WinnerGuess')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'westGame2WinnerGuess', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_westGame2WinnerGuess')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'westGame2WinnerGuess', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_westGame2WinnerGuess')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'westGame2WinnerGuess', false);
-  });
-
   document.querySelector('#pageSelectSortSweetSixteen_westGame2Winner')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'westGame2Winner', event.currentTarget.value);
   });
@@ -218,6 +207,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_westGame2Winner')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'westGame2Winner', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_westGame2WinnerGuess')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'westGame2WinnerGuess', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_westGame2WinnerGuess')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'westGame2WinnerGuess', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_westGame2WinnerGuess')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'westGame2WinnerGuess', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_westGame2Loser')?.addEventListener('change', (event) => {
@@ -374,6 +374,50 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'eliteEight', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_saves')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'saves', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_saves')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'saves', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_saves')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'saves', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_objectTitle')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'objectTitle', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_objectTitle')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'objectTitle', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_objectTitle')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'objectTitle', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_objectSuggest')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'objectSuggest', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_objectSuggest')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'objectSuggest', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_objectSuggest')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'objectSuggest', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_solrId')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'solrId', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_solrId')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'solrId', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_solrId')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'solrId', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_classCanonicalName')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'classCanonicalName', event.currentTarget.value);
   });
@@ -429,28 +473,6 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'userKey', false);
   });
 
-  document.querySelector('#pageSelectSortSweetSixteen_saves')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'saves', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_saves')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'saves', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_saves')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'saves', false);
-  });
-
-  document.querySelector('#pageSelectSortSweetSixteen_objectTitle')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'objectTitle', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_objectTitle')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'objectTitle', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_objectTitle')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'objectTitle', false);
-  });
-
   document.querySelector('#pageSelectSortSweetSixteen_displayPage')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'displayPage', event.currentTarget.value);
   });
@@ -495,17 +517,6 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'download', false);
   });
 
-  document.querySelector('#pageSelectSortSweetSixteen_objectSuggest')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'objectSuggest', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_objectSuggest')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'objectSuggest', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_objectSuggest')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'objectSuggest', false);
-  });
-
   document.querySelector('#pageSelectSortSweetSixteen_objectText')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'objectText', event.currentTarget.value);
   });
@@ -515,17 +526,6 @@ Promise.all([
   });
   document.querySelector('#pageStatsSweetSixteen_objectText')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('SweetSixteen', 'objectText', false);
-  });
-
-  document.querySelector('#pageSelectSortSweetSixteen_solrId')?.addEventListener('change', (event) => {
-    sort('SweetSixteen', 'solrId', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsSweetSixteen_solrId')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('SweetSixteen', 'solrId', true);
-  });
-  document.querySelector('#pageStatsSweetSixteen_solrId')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('SweetSixteen', 'solrId', false);
   });
 
   document.querySelector('#pageSelectSortSweetSixteen_bracketId')?.addEventListener('change', (event) => {

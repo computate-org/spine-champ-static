@@ -793,41 +793,6 @@
                 {%- endif %}
                 {%- endif %}
 {%- endmacro %}
-{%- macro inputWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
-  {%- if 'Page' == classApiMethodMethod %}
-                <form class="subgrid-2col " id="PageForm_westGame2WinnerGuess">
-  {%- endif %}
-                  <wa-input
-                      readonly
-                      placeholder="[String] Actual West game 2 winner"
-                      label="Actual West game 2 winner"
-                      id="SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess"
-  {%- if "Page" == classApiMethodMethod %}
-                      data-bracketId={{ result.bracketId | tojson }}
-                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess setWestGame2WinnerGuess classSweetSixteen inputSweetSixteen{{ result.bracketId }}WestGame2WinnerGuess "
-                      name="setWestGame2WinnerGuess"
-  {%- else %}
-    {%- if "PATCH" == classApiMethodMethod %}
-                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess setWestGame2WinnerGuess classSweetSixteen inputSweetSixteen{{ result.bracketId }}WestGame2WinnerGuess "
-                      name="setWestGame2WinnerGuess"
-    {%- else %}
-                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess valueWestGame2WinnerGuess classSweetSixteen inputSweetSixteen{{ result.bracketId }}WestGame2WinnerGuess "
-                      name="westGame2WinnerGuess"
-    {%- endif %}
-  {%- endif %}
-  {% if "Page" == classApiMethodMethod -%}
-                      value="{{result.westGame2WinnerGuess | e }}"
-  {% endif -%}
-                      ></wa-input>
-
-  {%- if 'Page' == classApiMethodMethod %}
-                </form>
-  {%- endif %}
-{%- endmacro %}
-
-{%- macro htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
-                            {{ inputWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
-{%- endmacro %}
 {%- macro inputWestGame2WinnerSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_westGame2Winner">
@@ -883,6 +848,41 @@
                   </div>
                 {%- endif %}
                 {%- endif %}
+{%- endmacro %}
+{%- macro inputWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_westGame2WinnerGuess">
+  {%- endif %}
+                  <wa-input
+                      readonly
+                      placeholder="[String] Actual West game 2 winner"
+                      label="Actual West game 2 winner"
+                      id="SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess"
+  {%- if "Page" == classApiMethodMethod %}
+                      data-bracketId={{ result.bracketId | tojson }}
+                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess setWestGame2WinnerGuess classSweetSixteen inputSweetSixteen{{ result.bracketId }}WestGame2WinnerGuess "
+                      name="setWestGame2WinnerGuess"
+  {%- else %}
+    {%- if "PATCH" == classApiMethodMethod %}
+                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess setWestGame2WinnerGuess classSweetSixteen inputSweetSixteen{{ result.bracketId }}WestGame2WinnerGuess "
+                      name="setWestGame2WinnerGuess"
+    {%- else %}
+                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_westGame2WinnerGuess valueWestGame2WinnerGuess classSweetSixteen inputSweetSixteen{{ result.bracketId }}WestGame2WinnerGuess "
+                      name="westGame2WinnerGuess"
+    {%- endif %}
+  {%- endif %}
+  {% if "Page" == classApiMethodMethod -%}
+                      value="{{result.westGame2WinnerGuess | e }}"
+  {% endif -%}
+                      ></wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
 {%- endmacro %}
 {%- macro inputWestGame2LoserSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
@@ -1767,23 +1767,8 @@
                 {%- endif %}
                 {%- endif %}
               </div>
-            </wa-details>
 
-            <wa-details open class="HtmRow" id="west-game-2">
-              <div slot="summary">
-                <span>West game 2</span>
-              </div>
               <div class="grid-with-subgrid-2col ">
-                {% if "PATCH" in scopes -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {% if "GET" in scopes -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
-                {%- endif %}
-                {%- endif %}
-
                 {% if "PATCH" in scopes -%}
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
@@ -1791,6 +1776,16 @@
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 
@@ -2157,23 +2152,8 @@
                 {%- endif %}
                 {%- endif %}
               </div>
-            </wa-details>
 
-            <wa-details open class="HtmRow" id="west-game-2">
-              <div slot="summary">
-                <span>West game 2</span>
-              </div>
               <div class="grid-with-subgrid-2col ">
-                {% if "POST" in scopes -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {% if "GET" in scopes -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
-                {%- endif %}
-                {%- endif %}
-
                 {% if "POST" in scopes -%}
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
@@ -2181,6 +2161,16 @@
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 
@@ -2628,23 +2618,8 @@
                 {%- endif %}
                 {%- endif %}
               </div>
-            </wa-details>
 
-            <wa-details open class="HtmRow" id="west-game-2">
-              <div slot="summary">
-                <span>West game 2</span>
-              </div>
               <div class="grid-with-subgrid-2col ">
-                {% if "PATCH" in scopes -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {% if "GET" in scopes -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
-                {% else -%}
-                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
-                {%- endif %}
-                {%- endif %}
-
                 {% if "PATCH" in scopes -%}
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
@@ -2652,6 +2627,16 @@
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmWestGame2WinnerSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmWestGame2WinnerGuessSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 

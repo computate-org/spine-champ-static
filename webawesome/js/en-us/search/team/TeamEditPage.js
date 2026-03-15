@@ -124,6 +124,27 @@ Promise.all([
             const valid = form.reportValidity();
           });
 
+          // PATCH objectTitle
+          document.querySelector('#Team_Page_objectTitle')?.addEventListener('change', (event) => {
+            const form = document.querySelector('#PageForm_objectTitle');
+            const valid = form.checkValidity();
+            if(valid) {
+              patchTeamVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'teamId:' + event.currentTarget.getAttribute('data-teamId') }]
+                  , 'setObjectTitle', event.currentTarget.value
+                  , event.currentTarget
+                , function(response, target) { addGlow(target); }
+                  , function(response, target) { addError(target); }
+                  );
+            }
+          });
+          document.querySelector('#Team_Page_objectTitle')?.addEventListener('focus', (event) => {
+            removeGlow(event.currentTarget);
+          });
+          document.querySelector('#Team_Page_objectTitle')?.addEventListener('blur', (event) => {
+            const form = document.querySelector('#PageForm_objectTitle');
+            const valid = form.reportValidity();
+          });
+
           // PATCH sessionId
           document.querySelector('#Team_Page_sessionId')?.addEventListener('change', (event) => {
             const form = document.querySelector('#PageForm_sessionId');
@@ -163,27 +184,6 @@ Promise.all([
           });
           document.querySelector('#Team_Page_userKey')?.addEventListener('blur', (event) => {
             const form = document.querySelector('#PageForm_userKey');
-            const valid = form.reportValidity();
-          });
-
-          // PATCH objectTitle
-          document.querySelector('#Team_Page_objectTitle')?.addEventListener('change', (event) => {
-            const form = document.querySelector('#PageForm_objectTitle');
-            const valid = form.checkValidity();
-            if(valid) {
-              patchTeamVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'teamId:' + event.currentTarget.getAttribute('data-teamId') }]
-                  , 'setObjectTitle', event.currentTarget.value
-                  , event.currentTarget
-                , function(response, target) { addGlow(target); }
-                  , function(response, target) { addError(target); }
-                  );
-            }
-          });
-          document.querySelector('#Team_Page_objectTitle')?.addEventListener('focus', (event) => {
-            removeGlow(event.currentTarget);
-          });
-          document.querySelector('#Team_Page_objectTitle')?.addEventListener('blur', (event) => {
-            const form = document.querySelector('#PageForm_objectTitle');
             const valid = form.reportValidity();
           });
 

@@ -143,6 +143,50 @@ Promise.all([
     facetStatsChange('Championship', 'game1Loser', false);
   });
 
+  document.querySelector('#pageSelectSortChampionship_saves')?.addEventListener('change', (event) => {
+    sort('Championship', 'saves', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_saves')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'saves', true);
+  });
+  document.querySelector('#pageStatsChampionship_saves')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'saves', false);
+  });
+
+  document.querySelector('#pageSelectSortChampionship_objectTitle')?.addEventListener('change', (event) => {
+    sort('Championship', 'objectTitle', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_objectTitle')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'objectTitle', true);
+  });
+  document.querySelector('#pageStatsChampionship_objectTitle')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'objectTitle', false);
+  });
+
+  document.querySelector('#pageSelectSortChampionship_objectSuggest')?.addEventListener('change', (event) => {
+    sort('Championship', 'objectSuggest', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_objectSuggest')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'objectSuggest', true);
+  });
+  document.querySelector('#pageStatsChampionship_objectSuggest')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'objectSuggest', false);
+  });
+
+  document.querySelector('#pageSelectSortChampionship_solrId')?.addEventListener('change', (event) => {
+    sort('Championship', 'solrId', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_solrId')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'solrId', true);
+  });
+  document.querySelector('#pageStatsChampionship_solrId')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'solrId', false);
+  });
+
   document.querySelector('#pageSelectSortChampionship_classCanonicalName')?.addEventListener('change', (event) => {
     sort('Championship', 'classCanonicalName', event.currentTarget.value);
   });
@@ -198,28 +242,6 @@ Promise.all([
     facetStatsChange('Championship', 'userKey', false);
   });
 
-  document.querySelector('#pageSelectSortChampionship_saves')?.addEventListener('change', (event) => {
-    sort('Championship', 'saves', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsChampionship_saves')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Championship', 'saves', true);
-  });
-  document.querySelector('#pageStatsChampionship_saves')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Championship', 'saves', false);
-  });
-
-  document.querySelector('#pageSelectSortChampionship_objectTitle')?.addEventListener('change', (event) => {
-    sort('Championship', 'objectTitle', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsChampionship_objectTitle')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Championship', 'objectTitle', true);
-  });
-  document.querySelector('#pageStatsChampionship_objectTitle')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Championship', 'objectTitle', false);
-  });
-
   document.querySelector('#pageSelectSortChampionship_displayPage')?.addEventListener('change', (event) => {
     sort('Championship', 'displayPage', event.currentTarget.value);
   });
@@ -264,17 +286,6 @@ Promise.all([
     facetStatsChange('Championship', 'download', false);
   });
 
-  document.querySelector('#pageSelectSortChampionship_objectSuggest')?.addEventListener('change', (event) => {
-    sort('Championship', 'objectSuggest', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsChampionship_objectSuggest')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Championship', 'objectSuggest', true);
-  });
-  document.querySelector('#pageStatsChampionship_objectSuggest')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Championship', 'objectSuggest', false);
-  });
-
   document.querySelector('#pageSelectSortChampionship_objectText')?.addEventListener('change', (event) => {
     sort('Championship', 'objectText', event.currentTarget.value);
   });
@@ -284,17 +295,6 @@ Promise.all([
   });
   document.querySelector('#pageStatsChampionship_objectText')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('Championship', 'objectText', false);
-  });
-
-  document.querySelector('#pageSelectSortChampionship_solrId')?.addEventListener('change', (event) => {
-    sort('Championship', 'solrId', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsChampionship_solrId')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('Championship', 'solrId', true);
-  });
-  document.querySelector('#pageStatsChampionship_solrId')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('Championship', 'solrId', false);
   });
 
   document.querySelector('#pageSelectSortChampionship_bracketId')?.addEventListener('change', (event) => {
