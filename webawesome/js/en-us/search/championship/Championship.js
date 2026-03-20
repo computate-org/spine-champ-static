@@ -105,10 +105,10 @@ async function websocketChampionshipInner(apiRequest) {
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputActualFinalFour = null;
-        var inputActualChampionship = null;
         var inputBracketId = null;
         var inputName = null;
+        var inputActualFinalFour = null;
+        var inputActualChampionship = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.Championship_Page_pk');
@@ -164,14 +164,14 @@ async function websocketChampionshipInner(apiRequest) {
           inputUserPage = $response.querySelector('.Championship_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.Championship_Page_download');
-        if(vars.includes('actualFinalFour'))
-          inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
-        if(vars.includes('actualChampionship'))
-          inputActualChampionship = $response.querySelector('.Championship_Page_actualChampionship');
         if(vars.includes('bracketId'))
           inputBracketId = $response.querySelector('.Championship_Page_bracketId');
         if(vars.includes('name'))
           inputName = $response.querySelector('.Championship_Page_name');
+        if(vars.includes('actualFinalFour'))
+          inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
+        if(vars.includes('actualChampionship'))
+          inputActualChampionship = $response.querySelector('.Championship_Page_actualChampionship');
 
         jsWebsocketChampionship(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -448,26 +448,6 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_download'));
         }
 
-        if(inputActualFinalFour) {
-          document.querySelectorAll('.Championship_Page_actualFinalFour').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputActualFinalFour.getAttribute('value');
-            else
-              item.textContent = inputActualFinalFour.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_actualFinalFour'));
-        }
-
-        if(inputActualChampionship) {
-          document.querySelectorAll('.Championship_Page_actualChampionship').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputActualChampionship.getAttribute('value');
-            else
-              item.textContent = inputActualChampionship.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_actualChampionship'));
-        }
-
         if(inputBracketId) {
           document.querySelectorAll('.Championship_Page_bracketId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -486,6 +466,26 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputName.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_name'));
+        }
+
+        if(inputActualFinalFour) {
+          document.querySelectorAll('.Championship_Page_actualFinalFour').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualFinalFour.getAttribute('value');
+            else
+              item.textContent = inputActualFinalFour.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_actualFinalFour'));
+        }
+
+        if(inputActualChampionship) {
+          document.querySelectorAll('.Championship_Page_actualChampionship').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualChampionship.getAttribute('value');
+            else
+              item.textContent = inputActualChampionship.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_actualChampionship'));
         }
 
           pageGraphChampionship();
@@ -759,6 +759,7 @@ function searchChampionshipFilters($formFilters) {
 }
 
 function searchChampionshipVals(filters, target, success, error) {
+
 
   fetch(
     '/en-us/api/championship?' + filters.map(function(m) { return m.name + '=' + encodeURIComponent(m.value) }).join('&')

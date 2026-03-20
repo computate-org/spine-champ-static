@@ -109,10 +109,10 @@ async function websocketFinalFourInner(apiRequest) {
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputBracketId = null;
-        var inputName = null;
         var inputActualEliteEight = null;
         var inputActualFinalFour = null;
+        var inputBracketId = null;
+        var inputName = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.FinalFour_Page_pk');
@@ -176,14 +176,14 @@ async function websocketFinalFourInner(apiRequest) {
           inputUserPage = $response.querySelector('.FinalFour_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.FinalFour_Page_download');
-        if(vars.includes('bracketId'))
-          inputBracketId = $response.querySelector('.FinalFour_Page_bracketId');
-        if(vars.includes('name'))
-          inputName = $response.querySelector('.FinalFour_Page_name');
         if(vars.includes('actualEliteEight'))
           inputActualEliteEight = $response.querySelector('.FinalFour_Page_actualEliteEight');
         if(vars.includes('actualFinalFour'))
           inputActualFinalFour = $response.querySelector('.FinalFour_Page_actualFinalFour');
+        if(vars.includes('bracketId'))
+          inputBracketId = $response.querySelector('.FinalFour_Page_bracketId');
+        if(vars.includes('name'))
+          inputName = $response.querySelector('.FinalFour_Page_name');
 
         jsWebsocketFinalFour(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -500,26 +500,6 @@ async function websocketFinalFourInner(apiRequest) {
           addGlow(document.querySelector('.FinalFour_Page_download'));
         }
 
-        if(inputBracketId) {
-          document.querySelectorAll('.FinalFour_Page_bracketId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputBracketId.getAttribute('value');
-            else
-              item.textContent = inputBracketId.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_bracketId'));
-        }
-
-        if(inputName) {
-          document.querySelectorAll('.FinalFour_Page_name').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputName.getAttribute('value');
-            else
-              item.textContent = inputName.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_name'));
-        }
-
         if(inputActualEliteEight) {
           document.querySelectorAll('.FinalFour_Page_actualEliteEight').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -538,6 +518,26 @@ async function websocketFinalFourInner(apiRequest) {
               item.textContent = inputActualFinalFour.textContent;
           });
           addGlow(document.querySelector('.FinalFour_Page_actualFinalFour'));
+        }
+
+        if(inputBracketId) {
+          document.querySelectorAll('.FinalFour_Page_bracketId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputBracketId.getAttribute('value');
+            else
+              item.textContent = inputBracketId.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_bracketId'));
+        }
+
+        if(inputName) {
+          document.querySelectorAll('.FinalFour_Page_name').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputName.getAttribute('value');
+            else
+              item.textContent = inputName.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_name'));
         }
 
           pageGraphFinalFour();
@@ -827,6 +827,7 @@ function searchFinalFourFilters($formFilters) {
 }
 
 function searchFinalFourVals(filters, target, success, error) {
+
 
   fetch(
     '/en-us/api/final-four?' + filters.map(function(m) { return m.name + '=' + encodeURIComponent(m.value) }).join('&')

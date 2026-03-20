@@ -421,8 +421,8 @@
   {%- endif %}
                   <wa-input
                       readonly
-                      placeholder="[String] South game 1 guess"
-                      label="South game 1 guess"
+                      placeholder="[String] East game 1 guess"
+                      label="East game 1 guess"
                       id="EliteEight_{{classApiMethodMethod}}_southGame1WinnerGuess"
   {%- if "Page" == classApiMethodMethod %}
                       data-bracketId={{ result.bracketId | tojson }}
@@ -467,8 +467,8 @@
   {%- endif %}
                   <wa-input
                       type="text"
-                      placeholder="South game 1 winner"
-                      label="South game 1 winner"
+                      placeholder="East game 1 winner"
+                      label="East game 1 winner"
                       class="label-on-left EliteEight_{{classApiMethodMethod}}_southGame1Winner valueObjectSuggest suggestSouthGame1Winner "
                       name="setSouthGame1Winner"
                       id="{{ idPrefix }}EliteEight_{{classApiMethodMethod}}_southGame1Winner{{ idSuffix }}"
@@ -523,8 +523,8 @@
   {%- endif %}
                   <wa-input
                       type="text"
-                      placeholder="South game 1 loser"
-                      label="South game 1 loser"
+                      placeholder="East game 1 loser"
+                      label="East game 1 loser"
                       class="label-on-left EliteEight_{{classApiMethodMethod}}_southGame1Loser valueObjectSuggest suggestSouthGame1Loser "
                       name="setSouthGame1Loser"
                       id="{{ idPrefix }}EliteEight_{{classApiMethodMethod}}_southGame1Loser{{ idSuffix }}"
@@ -568,8 +568,8 @@
   {%- endif %}
                   <wa-input
                       readonly
-                      placeholder="[String] Actual West game 1 winner"
-                      label="Actual West game 1 winner"
+                      placeholder="[String] Actual South game 1 winner"
+                      label="Actual South game 1 winner"
                       id="EliteEight_{{classApiMethodMethod}}_westGame1WinnerGuess"
   {%- if "Page" == classApiMethodMethod %}
                       data-bracketId={{ result.bracketId | tojson }}
@@ -614,8 +614,8 @@
   {%- endif %}
                   <wa-input
                       type="text"
-                      placeholder="West game 1 winner"
-                      label="West game 1 winner"
+                      placeholder="South game 1 winner"
+                      label="South game 1 winner"
                       class="label-on-left EliteEight_{{classApiMethodMethod}}_westGame1Winner valueObjectSuggest suggestWestGame1Winner "
                       name="setWestGame1Winner"
                       id="{{ idPrefix }}EliteEight_{{classApiMethodMethod}}_westGame1Winner{{ idSuffix }}"
@@ -670,8 +670,8 @@
   {%- endif %}
                   <wa-input
                       type="text"
-                      placeholder="West game 1 loser"
-                      label="West game 1 loser"
+                      placeholder="South game 1 loser"
+                      label="South game 1 loser"
                       class="label-on-left EliteEight_{{classApiMethodMethod}}_westGame1Loser valueObjectSuggest suggestWestGame1Loser "
                       name="setWestGame1Loser"
                       id="{{ idPrefix }}EliteEight_{{classApiMethodMethod}}_westGame1Loser{{ idSuffix }}"
@@ -715,8 +715,8 @@
   {%- endif %}
                   <wa-input
                       readonly
-                      placeholder="[String] Actual East game 1 winner"
-                      label="Actual East game 1 winner"
+                      placeholder="[String] Actual West game 1 winner"
+                      label="Actual West game 1 winner"
                       id="EliteEight_{{classApiMethodMethod}}_eastGame1WinnerGuess"
   {%- if "Page" == classApiMethodMethod %}
                       data-bracketId={{ result.bracketId | tojson }}
@@ -761,8 +761,8 @@
   {%- endif %}
                   <wa-input
                       type="text"
-                      placeholder="East game 1 winner"
-                      label="East game 1 winner"
+                      placeholder="West game 1 winner"
+                      label="West game 1 winner"
                       class="label-on-left EliteEight_{{classApiMethodMethod}}_eastGame1Winner valueObjectSuggest suggestEastGame1Winner "
                       name="setEastGame1Winner"
                       id="{{ idPrefix }}EliteEight_{{classApiMethodMethod}}_eastGame1Winner{{ idSuffix }}"
@@ -817,8 +817,8 @@
   {%- endif %}
                   <wa-input
                       type="text"
-                      placeholder="East game 1 loser"
-                      label="East game 1 loser"
+                      placeholder="West game 1 loser"
+                      label="West game 1 loser"
                       class="label-on-left EliteEight_{{classApiMethodMethod}}_eastGame1Loser valueObjectSuggest suggestEastGame1Loser "
                       name="setEastGame1Loser"
                       id="{{ idPrefix }}EliteEight_{{classApiMethodMethod}}_eastGame1Loser{{ idSuffix }}"
@@ -1148,9 +1148,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="south-game-1">
+            <wa-details open class="HtmRow" id="east-game-1">
               <div slot="summary">
-                <span>South game 1</span>
+                <span>East game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}
@@ -1185,9 +1185,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="west-game-1">
+            <wa-details open class="HtmRow" id="south-game-1">
               <div slot="summary">
-                <span>West game 1</span>
+                <span>South game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}
@@ -1222,9 +1222,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="east-game-1">
+            <wa-details open class="HtmRow" id="west-game-1">
               <div slot="summary">
-                <span>East game 1</span>
+                <span>West game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}
@@ -1405,9 +1405,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="south-game-1">
+            <wa-details open class="HtmRow" id="east-game-1">
               <div slot="summary">
-                <span>South game 1</span>
+                <span>East game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "POST" in scopes -%}
@@ -1442,9 +1442,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="west-game-1">
+            <wa-details open class="HtmRow" id="south-game-1">
               <div slot="summary">
-                <span>West game 1</span>
+                <span>South game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "POST" in scopes -%}
@@ -1479,9 +1479,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="east-game-1">
+            <wa-details open class="HtmRow" id="west-game-1">
               <div slot="summary">
-                <span>East game 1</span>
+                <span>West game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "POST" in scopes -%}
@@ -1743,9 +1743,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="south-game-1">
+            <wa-details open class="HtmRow" id="east-game-1">
               <div slot="summary">
-                <span>South game 1</span>
+                <span>East game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}
@@ -1780,9 +1780,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="west-game-1">
+            <wa-details open class="HtmRow" id="south-game-1">
               <div slot="summary">
-                <span>West game 1</span>
+                <span>South game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}
@@ -1817,9 +1817,9 @@
               </div>
             </wa-details>
 
-            <wa-details open class="HtmRow" id="east-game-1">
+            <wa-details open class="HtmRow" id="west-game-1">
               <div slot="summary">
-                <span>East game 1</span>
+                <span>West game 1</span>
               </div>
               <div class="grid-with-subgrid-2col ">
                 {% if "PATCH" in scopes -%}

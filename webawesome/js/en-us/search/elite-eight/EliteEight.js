@@ -930,6 +930,7 @@ function searchEliteEightFilters($formFilters) {
 
 function searchEliteEightVals(filters, target, success, error) {
 
+
   fetch(
     '/en-us/api/elite-eight?' + filters.map(function(m) { return m.name + '=' + encodeURIComponent(m.value) }).join('&')
     , {
