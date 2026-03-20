@@ -82,6 +82,48 @@ Promise.all([
             const valid = form.reportValidity();
           });
 
+          // PATCH freeThrowsMadeFirstRound
+          document.querySelector('#SweetSixteen_Page_freeThrowsMadeFirstRound')?.addEventListener('change', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMadeFirstRound');
+            const valid = form.checkValidity();
+            if(valid) {
+              patchSweetSixteenVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
+                  , 'setFreeThrowsMadeFirstRound', event.currentTarget.value
+                  , event.currentTarget
+                , function(response, target) { addGlow(target); }
+                  , function(response, target) { addError(target); }
+                  );
+            }
+          });
+          document.querySelector('#SweetSixteen_Page_freeThrowsMadeFirstRound')?.addEventListener('focus', (event) => {
+            removeGlow(event.currentTarget);
+          });
+          document.querySelector('#SweetSixteen_Page_freeThrowsMadeFirstRound')?.addEventListener('blur', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMadeFirstRound');
+            const valid = form.reportValidity();
+          });
+
+          // PATCH freeThrowsMadeSecondRound
+          document.querySelector('#SweetSixteen_Page_freeThrowsMadeSecondRound')?.addEventListener('change', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMadeSecondRound');
+            const valid = form.checkValidity();
+            if(valid) {
+              patchSweetSixteenVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
+                  , 'setFreeThrowsMadeSecondRound', event.currentTarget.value
+                  , event.currentTarget
+                , function(response, target) { addGlow(target); }
+                  , function(response, target) { addError(target); }
+                  );
+            }
+          });
+          document.querySelector('#SweetSixteen_Page_freeThrowsMadeSecondRound')?.addEventListener('focus', (event) => {
+            removeGlow(event.currentTarget);
+          });
+          document.querySelector('#SweetSixteen_Page_freeThrowsMadeSecondRound')?.addEventListener('blur', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMadeSecondRound');
+            const valid = form.reportValidity();
+          });
+
           // PATCH freeThrowsMade
           document.querySelector('#SweetSixteen_Page_freeThrowsMade')?.addEventListener('change', (event) => {
             const form = document.querySelector('#PageForm_freeThrowsMade');

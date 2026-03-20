@@ -77,6 +77,28 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_freeThrowsMadeFirstRound')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'freeThrowsMadeFirstRound', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_freeThrowsMadeFirstRound')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'freeThrowsMadeFirstRound', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_freeThrowsMadeFirstRound')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'freeThrowsMadeFirstRound', false);
+  });
+
+  document.querySelector('#pageSelectSortSweetSixteen_freeThrowsMadeSecondRound')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'freeThrowsMadeSecondRound', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_freeThrowsMadeSecondRound')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'freeThrowsMadeSecondRound', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_freeThrowsMadeSecondRound')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'freeThrowsMadeSecondRound', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_freeThrowsMade')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'freeThrowsMade', event.currentTarget.value);
   });

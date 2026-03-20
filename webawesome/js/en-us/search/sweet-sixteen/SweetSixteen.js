@@ -84,6 +84,8 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputArchived = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputFreeThrowsMadeFirstRound = null;
+        var inputFreeThrowsMadeSecondRound = null;
         var inputFreeThrowsMade = null;
         var inputCorrectGuessesChart = null;
         var inputCorrectGuesses = null;
@@ -143,6 +145,10 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputGuesserId = $response.querySelector('.SweetSixteen_Page_guesserId');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.SweetSixteen_Page_year');
+        if(vars.includes('freeThrowsMadeFirstRound'))
+          inputFreeThrowsMadeFirstRound = $response.querySelector('.SweetSixteen_Page_freeThrowsMadeFirstRound');
+        if(vars.includes('freeThrowsMadeSecondRound'))
+          inputFreeThrowsMadeSecondRound = $response.querySelector('.SweetSixteen_Page_freeThrowsMadeSecondRound');
         if(vars.includes('freeThrowsMade'))
           inputFreeThrowsMade = $response.querySelector('.SweetSixteen_Page_freeThrowsMade');
         if(vars.includes('correctGuessesChart'))
@@ -299,6 +305,26 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.SweetSixteen_Page_year'));
+        }
+
+        if(inputFreeThrowsMadeFirstRound) {
+          document.querySelectorAll('.SweetSixteen_Page_freeThrowsMadeFirstRound').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputFreeThrowsMadeFirstRound.getAttribute('value');
+            else
+              item.textContent = inputFreeThrowsMadeFirstRound.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_freeThrowsMadeFirstRound'));
+        }
+
+        if(inputFreeThrowsMadeSecondRound) {
+          document.querySelectorAll('.SweetSixteen_Page_freeThrowsMadeSecondRound').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputFreeThrowsMadeSecondRound.getAttribute('value');
+            else
+              item.textContent = inputFreeThrowsMadeSecondRound.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_freeThrowsMadeSecondRound'));
         }
 
         if(inputFreeThrowsMade) {
@@ -940,6 +966,14 @@ function searchSweetSixteenFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterFreeThrowsMadeFirstRound = $formFilters.querySelector('.valueFreeThrowsMadeFirstRound')?.value;
+    if(filterFreeThrowsMadeFirstRound != null && filterFreeThrowsMadeFirstRound !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMadeFirstRound:' + filterFreeThrowsMadeFirstRound });
+
+    var filterFreeThrowsMadeSecondRound = $formFilters.querySelector('.valueFreeThrowsMadeSecondRound')?.value;
+    if(filterFreeThrowsMadeSecondRound != null && filterFreeThrowsMadeSecondRound !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMadeSecondRound:' + filterFreeThrowsMadeSecondRound });
+
     var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
     if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
       filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
@@ -1522,6 +1556,28 @@ function suggestSweetSixteenWestGame1Winner(filters, $list, bracketId = null, we
   }
 }
 
+function suggestSweetSixteenObjectSuggest($formFilters, $list, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>');
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $li = document.createElement('li');
+        var $a = document.createElement('a').setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  searchSweetSixteenVals($formFilters, target, success, error);
+}
+
 function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, westGame1Loser = null, relate=true, target) {
   success = function( data, textStatus, jQxhr ) {
     if($list) {
@@ -1584,28 +1640,6 @@ function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, wes
   if (typeof searchTeamVals === 'function') {
     searchTeamVals(filters, target, success, error);
   }
-}
-
-function suggestSweetSixteenObjectSuggest($formFilters, $list, target) {
-  success = function( data, textStatus, jQxhr ) {
-    if($list) {
-      $list.innerHTML = '';
-      data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>');
-        var $span = document.createElement('span');
-        $span.setAttribute('class', '');
-        $span.innerText = o['objectTitle'];
-        var $li = document.createElement('li');
-        var $a = document.createElement('a').setAttribute('href', o['editPage']);
-        $a.append($i);
-        $a.append($span);
-        $li.append($a);
-        $list.append($li);
-      });
-    }
-  };
-  error = function( jqXhr, target2 ) {};
-  searchSweetSixteenVals($formFilters, target, success, error);
 }
 
 function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, westGame2Winner = null, relate=true, target) {
@@ -2409,6 +2443,30 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueFreeThrowsMadeFirstRound = $formValues.querySelector('.valueFreeThrowsMadeFirstRound')?.value;
+  var removeFreeThrowsMadeFirstRound = $formValues.querySelector('.removeFreeThrowsMadeFirstRound')?.value === 'true';
+  var setFreeThrowsMadeFirstRound = removeFreeThrowsMadeFirstRound ? null : $formValues.querySelector('.setFreeThrowsMadeFirstRound')?.value;
+  var addFreeThrowsMadeFirstRound = $formValues.querySelector('.addFreeThrowsMadeFirstRound')?.value;
+  if(removeFreeThrowsMadeFirstRound || setFreeThrowsMadeFirstRound != null && setFreeThrowsMadeFirstRound !== '')
+    vals['setFreeThrowsMadeFirstRound'] = setFreeThrowsMadeFirstRound;
+  if(addFreeThrowsMadeFirstRound != null && addFreeThrowsMadeFirstRound !== '')
+    vals['addFreeThrowsMadeFirstRound'] = addFreeThrowsMadeFirstRound;
+  var removeFreeThrowsMadeFirstRound = $formValues.querySelector('.removeFreeThrowsMadeFirstRound')?.value;
+  if(removeFreeThrowsMadeFirstRound != null && removeFreeThrowsMadeFirstRound !== '')
+    vals['removeFreeThrowsMadeFirstRound'] = removeFreeThrowsMadeFirstRound;
+
+  var valueFreeThrowsMadeSecondRound = $formValues.querySelector('.valueFreeThrowsMadeSecondRound')?.value;
+  var removeFreeThrowsMadeSecondRound = $formValues.querySelector('.removeFreeThrowsMadeSecondRound')?.value === 'true';
+  var setFreeThrowsMadeSecondRound = removeFreeThrowsMadeSecondRound ? null : $formValues.querySelector('.setFreeThrowsMadeSecondRound')?.value;
+  var addFreeThrowsMadeSecondRound = $formValues.querySelector('.addFreeThrowsMadeSecondRound')?.value;
+  if(removeFreeThrowsMadeSecondRound || setFreeThrowsMadeSecondRound != null && setFreeThrowsMadeSecondRound !== '')
+    vals['setFreeThrowsMadeSecondRound'] = setFreeThrowsMadeSecondRound;
+  if(addFreeThrowsMadeSecondRound != null && addFreeThrowsMadeSecondRound !== '')
+    vals['addFreeThrowsMadeSecondRound'] = addFreeThrowsMadeSecondRound;
+  var removeFreeThrowsMadeSecondRound = $formValues.querySelector('.removeFreeThrowsMadeSecondRound')?.value;
+  if(removeFreeThrowsMadeSecondRound != null && removeFreeThrowsMadeSecondRound !== '')
+    vals['removeFreeThrowsMadeSecondRound'] = removeFreeThrowsMadeSecondRound;
+
   var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
   var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value === 'true';
   var setFreeThrowsMade = removeFreeThrowsMade ? null : $formValues.querySelector('.setFreeThrowsMade')?.value;
@@ -2767,6 +2825,14 @@ function patchSweetSixteenFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterFreeThrowsMadeFirstRound = $formFilters.querySelector('.valueFreeThrowsMadeFirstRound')?.value;
+    if(filterFreeThrowsMadeFirstRound != null && filterFreeThrowsMadeFirstRound !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMadeFirstRound:' + filterFreeThrowsMadeFirstRound });
+
+    var filterFreeThrowsMadeSecondRound = $formFilters.querySelector('.valueFreeThrowsMadeSecondRound')?.value;
+    if(filterFreeThrowsMadeSecondRound != null && filterFreeThrowsMadeSecondRound !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMadeSecondRound:' + filterFreeThrowsMadeSecondRound });
+
     var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
     if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
       filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
@@ -3028,6 +3094,14 @@ async function postSweetSixteen($formValues, target, success, error) {
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
+
+  var valueFreeThrowsMadeFirstRound = $formValues.querySelector('.valueFreeThrowsMadeFirstRound')?.value;
+  if(valueFreeThrowsMadeFirstRound != null && valueFreeThrowsMadeFirstRound !== '')
+    vals['freeThrowsMadeFirstRound'] = valueFreeThrowsMadeFirstRound;
+
+  var valueFreeThrowsMadeSecondRound = $formValues.querySelector('.valueFreeThrowsMadeSecondRound')?.value;
+  if(valueFreeThrowsMadeSecondRound != null && valueFreeThrowsMadeSecondRound !== '')
+    vals['freeThrowsMadeSecondRound'] = valueFreeThrowsMadeSecondRound;
 
   var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
   if(valueFreeThrowsMade != null && valueFreeThrowsMade !== '')
