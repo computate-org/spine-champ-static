@@ -18,7 +18,7 @@
             {"tid": 15, "cid": 4, "did": 8, "region":    "Iowa State", "name": "Cyclones", "abbrev": "IOWAST", "pop": 305, "city": "Ames", "state": "IA", "latitude": 42.034, "longitude": -93.620},
             {"tid": 16, "cid": 4, "did": 8, "region":    "Baylor", "name": "Bears", "abbrev": "BAYL", "pop": 304, "city": "Waco", "state": "TX", "latitude": 31.551, "longitude": -97.155},
             {"tid": 17, "cid": 19, "did": 39, "region":  "SMU", "name": "Mustangs", "abbrev": "SMU", "pop": 303, "city": "University Park", "state": "TX", "latitude": 32.841 , "longitude": -96.784},
-            {"tid": 18, "cid": 0, "did": 0, "region":    "Louisville", "name": "Cardinals", "abbrev": "UL", "pop": 302, "city": "Louisville", "state": "KY", "latitude": 38.25, "longitude": -85.766},
+            {"tid": 18, "cid": 0, "did": 0, "region":    "Louisville", "name": "Cardinals", "abbrev": "LOU", "pop": 302, "city": "Louisville", "state": "KY", "latitude": 38.25, "longitude": -85.766},
             {"tid": 19, "cid": 4, "did": 8, "region":    "Oklahoma", "name": "Sooners", "abbrev": "OKLA", "pop": 301, "city": "Norman", "state": "OK", "latitude": 35.220, "longitude": -97.440},
             {"tid": 20, "cid": 11, "did": 23, "region":  "VCU", "name": "Rams", "abbrev": "VCU", "pop": 300, "city": "Richmond", "state": "VA", "latitude": 37.533 , "longitude": -77.466},
             {"tid": 21, "cid": 4, "did": 9, "region":    "West Virginia", "name": "Mountaineers", "abbrev": "WVU", "pop": 299, "city": "Morgantown", "state": "WV", "latitude": 39.633, "longitude": -79.950},
@@ -47,7 +47,7 @@
             {"tid": 44, "cid": 14, "did": 29, "region": "Louisiana Tech", "name": "Bulldogs", "abbrev": "LATECH", "pop": 276, "city": "Ruston", "state": "LA", "latitude": 32.529 , "longitude":  -92.640},			
             {"tid": 45, "cid": 3, "did": 7, "region": "Boise State", "name": "Broncos", "abbrev": "BOISE", "pop": 275, "city": "Boise", "state": "ID", "latitude": 43.616, "longitude": -116.200},
             {"tid": 46, "cid": 18, "did": 36, "region": "Murray State", "name": "Racers", "abbrev": "MURR", "pop": 274, "city": "Murray", "state": "KY", "latitude": 36.609 , "longitude": -88.315},		
-            {"tid": 47, "cid": 0, "did": 1, "region": "Miami", "name": "Hurricanes ", "abbrev": "CANES", "pop": 273, "city": "Coral Gables", "state": "FL", "latitude": 25.75, "longitude": -80.271},
+            {"tid": 47, "cid": 0, "did": 1, "region": "Miami", "name": "Hurricanes", "abbrev": "MIA", "pop": 273, "city": "Coral Gables", "state": "FL", "latitude": 25.75, "longitude": -80.271},
             {"tid": 48, "cid": 17, "did": 34, "region": "Wofford", "name": "Terriers", "abbrev": "WOFF", "pop": 272, "city": "Spartanburg", "state": "SC", "latitude": 34.946  , "longitude": -81.927},		
             {"tid": 49, "cid": 19, "did": 39, "region": "Tulsa", "name": "Golden Hurricane", "abbrev": "TULSA", "pop": 271, "city": "Tulsa", "state": "OK", "latitude": 36.152 , "longitude": -95.946},		
             {"tid": 50, "cid": 4, "did": 9, "region": "Texas", "name": "Longhorns", "abbrev": "TEXAS", "pop": 270, "city": "Austin", "state": "TX", "latitude": 30.250, "longitude": -97.750},
@@ -79,7 +79,7 @@
             {"tid": 76, "cid": 0, "did": 1, "region": "Pittsburgh", "name": "Panthers", "abbrev": "PITT", "pop": 244, "city": "Pittsburgh", "state": "PA", "latitude": 40.439, "longitude": -79.976},
             {"tid": 77, "cid": 1, "did": 3, "region": "Illinois", "name": "Fighting Illini", "abbrev": "ILL", "pop": 243, "city": "Champaign", "state": "IL", "latitude": 40.115, "longitude": -88.272},
             {"tid": 78, "cid": 1, "did": 2, "region": "Michigan", "name": "Wolverines", "abbrev": "MICH", "pop": 242, "city": "Ann Arbor", "state": "MI", "latitude": 42.281, "longitude": -83.748},
-            {"tid": 79, "cid": 2, "did": 5, "region": "Alabama", "name": "Crimson Tide", "abbrev": "BAMA", "pop": 241, "city": "Tuscaloosa", "state": "AL", "latitude": 33.206, "longitude": -87.534},
+            {"tid": 79, "cid": 2, "did": 5, "region": "Alabama", "name": "Crimson Tide", "abbrev": "ALA BAMA", "pop": 241, "city": "Tuscaloosa", "state": "AL", "latitude": 33.206, "longitude": -87.534},
             {"tid": 80, "cid": 11, "did": 23, "region": "George Washington", "name": "Colonials", "abbrev": "GWU", "pop": 240, "city": "Washington", "state": "DC", "latitude": 38.904 , "longitude": -77.016},
             {"tid": 81, "cid": 10, "did": 21, "region": "Connecticut", "name": "Huskies", "abbrev": "UCONN", "pop": 239, "city": "Storrs", "state": "CT", "latitude": 41.807 , "longitude": -72.252},
             {"tid": 82, "cid": 13, "did": 26, "region": "Evansville", "name": "Purple Aces", "abbrev": "EVANS", "pop": 238, "city": "Evansville", "state": "IN", "latitude": 37.971 , "longitude": -87.531},
@@ -144,7 +144,7 @@
             {"tid": 141, "cid": 0, "did": 0, "region": "Wake Forest", "name": "Demon Deacons", "abbrev": "WAKE", "pop": 179, "city": "Winston-Salem", "state": "NC", "latitude": 36.102, "longitude": -80.260},
             {"tid": 142, "cid": 6, "did": 13, "region": "Montana", "name": "Grizzlies", "abbrev": "MONT", "pop": 178, "city": "Missoula", "state": "MT", "latitude": 46.862, "longitude": -114.011},
             {"tid": 143, "cid": 14, "did": 28, "region": "Middle Tennessee State", "name": "Blue Raiders", "abbrev": "MTSU", "pop": 177, "city": "Murfreesboro", "state": "TN", "latitude": 35.846 , "longitude": -86.392},
-            {"tid": 144, "cid": 19, "did": 38, "region": "Utah State", "name": "Aggies", "abbrev": "UTAHST", "pop": 176, "city": "Logan", "state": "UT", "latitude": 41.737, "longitude": -111.830},
+            {"tid": 144, "cid": 19, "did": 38, "region": "Utah State", "name": "Aggies", "abbrev": "USU", "pop": 176, "city": "Logan", "state": "UT", "latitude": 41.737, "longitude": -111.830},
             {"tid": 145, "cid": 0, "did": 1, "region": "Georgia Tech", "name": "Yellow Jackets", "abbrev": "GT", "pop": 175, "city": "Atlanta", "state": "GA", "latitude": 33.775, "longitude":  -84.394},
             {"tid": 146, "cid": 13, "did": 27, "region": "Marquette", "name": "Golden Eagles", "abbrev": "MARQ", "pop": 174, "city": "Milwaukee", "state": "WI", "latitude": 43.038 , "longitude": -87.928},
             {"tid": 147, "cid": 15, "did": 31, "region": "Eastern Michigan", "name": "Eagles", "abbrev": "EMICH", "pop": 173, "city": "Ypsilanti", "state": "MI", "latitude": 42.242 , "longitude":  -83.618},
@@ -182,7 +182,7 @@
             {"tid": 179, "cid": 1, "did": 2, "region": "Rutgers", "name": "Scarlet Knights", "abbrev": "RUTG", "pop": 141, "city": "New Brunswick", "state": "NJ", "latitude": 40.486, "longitude": -74.444},
             {"tid": 180, "cid": 10, "did": 21, "region": "Hofstra", "name": "Pride", "abbrev": "HOF", "pop": 140, "city": "Hempstead", "state": "NY", "latitude": 40.714 , "longitude": -73.600},
             {"tid": 181, "cid": 19, "did": 38, "region": "Fresno State", "name": "Bulldogs", "abbrev": "FRES", "pop": 139, "city": "Fresno", "state": "CA", "latitude": 36.750, "longitude": -119.766},
-            {"tid": 182, "cid": 11, "did": 23, "region": "Saint Joseph's", "name": "Hawks", "abbrev": "STJOE", "pop": 138, "city": "Philadelphia", "state": "PA", "latitude": 39.950 , "longitude": -75.166},
+            {"tid": 182, "cid": 11, "did": 23, "region": "Saint Joseph's", "name": "Hawks", "abbrev": "SJU", "pop": 138, "city": "Philadelphia", "state": "PA", "latitude": 39.950 , "longitude": -75.166},
             {"tid": 183, "cid": 4, "did": 9, "region": "Texas Tech", "name": "Red Raiders", "abbrev": "TTU", "pop": 137, "city": "Lubbock", "state": "TX", "latitude": 33.566, "longitude": -101.883},
             {"tid": 184, "cid": 8, "did": 16, "region": "San Francisco", "name": "Dons", "abbrev": "SANFRAN", "pop": 136, "city": "San Francisco", "state": "CA", "latitude": 37.783, "longitude": -122.416},
             {"tid": 185, "cid": 18, "did": 37, "region": "Mount Saint Mary's", "name": "Mountaineers", "abbrev": "STMARY", "pop": 135, "city": "Emmittsburg", "state": "MD", "latitude": 39.682 , "longitude": -77.353},
@@ -229,7 +229,7 @@
             {"tid": 226, "cid": 7, "did": 14, "region": "Southern", "name": "Jaguars", "abbrev": "SU", "pop": 94, "city": "Baton Rouge", "state": "LA", "latitude": 30.450, "longitude": -91.140},
             {"tid": 227, "cid": 16, "did": 33, "region": "Quinnipiac", "name": "Bobcats", "abbrev": "QUINN", "pop": 93, "city": "Hamden", "state": "CT", "latitude": 41.397 , "longitude": -72.921},
             {"tid": 228, "cid": 16, "did": 32, "region": "Cornell", "name": "Big Red", "abbrev": "CORN", "pop": 92, "city": "Ithaca", "state": "NY", "latitude": 42.443 , "longitude": -76.500},
-            {"tid": 229, "cid": 15, "did": 30, "region": "Miami (OH)", "name": "Redhawks", "abbrev": "MIAOH", "pop": 91, "city": "Oxford", "state": "OH", "latitude": 39.507 , "longitude":  -84.746},
+            {"tid": 229, "cid": 15, "did": 30, "region": "Miami (OH)", "name": "Redhawks", "abbrev": "M-OH", "pop": 91, "city": "Oxford", "state": "OH", "latitude": 39.507 , "longitude":  -84.746},
             {"tid": 230, "cid": 14, "did": 29, "region": "Texas San Antonio", "name": "Roadrunners", "abbrev": "UTSA", "pop": 90, "city": "San Antonio", "state": "TX", "latitude": 29.416 , "longitude":  -98.500},
             {"tid": 231, "cid": 5, "did": 10, "region": "Texas State", "name": "Bobcats", "abbrev": "TEXST", "pop": 89, "city": "San Marcos", "state": "TX", "latitude": 29.879, "longitude": -97.938}, 
             {"tid": 232, "cid": 3, "did": 6, "region": "Denver", "name": "Pioneers", "abbrev": "DENV", "pop": 88, "city": "Denver", "state": "CO", "latitude": 39.678, "longitude": -104.962},
@@ -320,6 +320,6 @@
             {"tid": 317, "cid": 10, "did": 20, "region": "Marist", "name": "Red Foxes", "abbrev": "MARIST", "pop": 3, "city": "Poughkeepsie", "state": "NY", "latitude": 41.725, "longitude": -73.933},
             {"tid": 318, "cid": 12, "did": 24, "region": "Kennesaw State", "name": "Owls", "abbrev": "KENNST", "pop": 2, "city": "Kennesaw", "state": "GA", "latitude":  34.037 , "longitude": -84.581},
             {"tid": 319, "cid": 2, "did": 4, "region": "South Carolina State", "name": "Bulldogs", "abbrev": "SCST", "pop": 1, "city": "Orangeburg", "state": "SC", "latitude": 33.497, "longitude": -80.85}
- 
+            , {"tid": 320, "cid": 6, "did": 12, "region": "Idaho State University", "name": "Bengals", "abbrev": "ISU"} 
     ]
 }
