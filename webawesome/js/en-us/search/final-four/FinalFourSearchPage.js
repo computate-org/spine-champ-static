@@ -88,6 +88,17 @@ Promise.all([
     facetStatsChange('FinalFour', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortFinalFour_freeThrowsMade')?.addEventListener('change', (event) => {
+    sort('FinalFour', 'freeThrowsMade', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsFinalFour_freeThrowsMade')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('FinalFour', 'freeThrowsMade', true);
+  });
+  document.querySelector('#pageStatsFinalFour_freeThrowsMade')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('FinalFour', 'freeThrowsMade', false);
+  });
+
   document.querySelector('#pageSelectSortFinalFour_correctGuesses')?.addEventListener('change', (event) => {
     sort('FinalFour', 'correctGuesses', event.currentTarget.value);
   });

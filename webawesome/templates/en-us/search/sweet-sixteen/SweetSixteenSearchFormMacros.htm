@@ -247,6 +247,43 @@
 {%- macro htmYearSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
                             {{ inputYearSweetSixteenPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
 {%- endmacro %}
+{%- macro inputFreeThrowsMadeSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_freeThrowsMade">
+  {%- endif %}
+                  <wa-input
+                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      placeholder="[Integer] free throws made"
+                      label="free throws made"
+                      type="number"
+                      hint="The number of free throws the guesser made. "
+                      id="SweetSixteen_{{classApiMethodMethod}}_freeThrowsMade"
+  {%- if "Page" == classApiMethodMethod %}
+                      data-bracketId={{ result.bracketId | tojson }}
+                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_freeThrowsMade setFreeThrowsMade classSweetSixteen inputSweetSixteen{{ result.bracketId }}FreeThrowsMade "
+                      name="setFreeThrowsMade"
+  {%- else %}
+    {%- if "PATCH" == classApiMethodMethod %}
+                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_freeThrowsMade setFreeThrowsMade classSweetSixteen inputSweetSixteen{{ result.bracketId }}FreeThrowsMade "
+                      name="setFreeThrowsMade"
+    {%- else %}
+                      class="label-on-left SweetSixteen_{{classApiMethodMethod}}_freeThrowsMade valueFreeThrowsMade classSweetSixteen inputSweetSixteen{{ result.bracketId }}FreeThrowsMade "
+                      name="freeThrowsMade"
+    {%- endif %}
+  {%- endif %}
+  {% if "Page" == classApiMethodMethod -%}
+                      value="{{result.freeThrowsMade | e }}"
+  {% endif -%}
+                      ></wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputFreeThrowsMadeSweetSixteenPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
 {%- macro inputCorrectGuessesChartSweetSixteenPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
                 {% if 'Page' == classApiMethodMethod -%}
                 </div>
@@ -1625,6 +1662,16 @@
                 {%- endif %}
 
                 {% if "PATCH" in scopes -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
                 {{ htmCorrectGuessesChartSweetSixteenPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
@@ -2011,6 +2058,16 @@
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 
@@ -2482,6 +2539,16 @@
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeSweetSixteenPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 

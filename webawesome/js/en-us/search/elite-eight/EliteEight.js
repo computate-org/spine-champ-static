@@ -85,6 +85,7 @@ async function websocketEliteEightInner(apiRequest) {
         var inputSweetSixteen = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputFreeThrowsMade = null;
         var inputCorrectGuesses = null;
         var inputIncorrectGuesses = null;
         var inputSouthGame1WinnerGuess = null;
@@ -114,10 +115,10 @@ async function websocketEliteEightInner(apiRequest) {
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputName = null;
         var inputActualSweetSixteen = null;
-        var inputBracketId = null;
         var inputActualEliteEight = null;
+        var inputBracketId = null;
+        var inputName = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.EliteEight_Page_pk');
@@ -133,6 +134,8 @@ async function websocketEliteEightInner(apiRequest) {
           inputGuesserId = $response.querySelector('.EliteEight_Page_guesserId');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.EliteEight_Page_year');
+        if(vars.includes('freeThrowsMade'))
+          inputFreeThrowsMade = $response.querySelector('.EliteEight_Page_freeThrowsMade');
         if(vars.includes('correctGuesses'))
           inputCorrectGuesses = $response.querySelector('.EliteEight_Page_correctGuesses');
         if(vars.includes('incorrectGuesses'))
@@ -191,14 +194,14 @@ async function websocketEliteEightInner(apiRequest) {
           inputUserPage = $response.querySelector('.EliteEight_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.EliteEight_Page_download');
-        if(vars.includes('name'))
-          inputName = $response.querySelector('.EliteEight_Page_name');
         if(vars.includes('actualSweetSixteen'))
           inputActualSweetSixteen = $response.querySelector('.EliteEight_Page_actualSweetSixteen');
-        if(vars.includes('bracketId'))
-          inputBracketId = $response.querySelector('.EliteEight_Page_bracketId');
         if(vars.includes('actualEliteEight'))
           inputActualEliteEight = $response.querySelector('.EliteEight_Page_actualEliteEight');
+        if(vars.includes('bracketId'))
+          inputBracketId = $response.querySelector('.EliteEight_Page_bracketId');
+        if(vars.includes('name'))
+          inputName = $response.querySelector('.EliteEight_Page_name');
 
         jsWebsocketEliteEight(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -273,6 +276,16 @@ async function websocketEliteEightInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.EliteEight_Page_year'));
+        }
+
+        if(inputFreeThrowsMade) {
+          document.querySelectorAll('.EliteEight_Page_freeThrowsMade').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputFreeThrowsMade.getAttribute('value');
+            else
+              item.textContent = inputFreeThrowsMade.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_freeThrowsMade'));
         }
 
         if(inputCorrectGuesses) {
@@ -565,16 +578,6 @@ async function websocketEliteEightInner(apiRequest) {
           addGlow(document.querySelector('.EliteEight_Page_download'));
         }
 
-        if(inputName) {
-          document.querySelectorAll('.EliteEight_Page_name').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputName.getAttribute('value');
-            else
-              item.textContent = inputName.textContent;
-          });
-          addGlow(document.querySelector('.EliteEight_Page_name'));
-        }
-
         if(inputActualSweetSixteen) {
           document.querySelectorAll('.EliteEight_Page_actualSweetSixteen').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -583,6 +586,16 @@ async function websocketEliteEightInner(apiRequest) {
               item.textContent = inputActualSweetSixteen.textContent;
           });
           addGlow(document.querySelector('.EliteEight_Page_actualSweetSixteen'));
+        }
+
+        if(inputActualEliteEight) {
+          document.querySelectorAll('.EliteEight_Page_actualEliteEight').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualEliteEight.getAttribute('value');
+            else
+              item.textContent = inputActualEliteEight.textContent;
+          });
+          addGlow(document.querySelector('.EliteEight_Page_actualEliteEight'));
         }
 
         if(inputBracketId) {
@@ -595,14 +608,14 @@ async function websocketEliteEightInner(apiRequest) {
           addGlow(document.querySelector('.EliteEight_Page_bracketId'));
         }
 
-        if(inputActualEliteEight) {
-          document.querySelectorAll('.EliteEight_Page_actualEliteEight').forEach((item, index) => {
+        if(inputName) {
+          document.querySelectorAll('.EliteEight_Page_name').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
-              item.value = inputActualEliteEight.getAttribute('value');
+              item.value = inputName.getAttribute('value');
             else
-              item.textContent = inputActualEliteEight.textContent;
+              item.textContent = inputName.textContent;
           });
-          addGlow(document.querySelector('.EliteEight_Page_actualEliteEight'));
+          addGlow(document.querySelector('.EliteEight_Page_name'));
         }
 
           pageGraphEliteEight();
@@ -784,6 +797,10 @@ function searchEliteEightFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
+
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
       filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
@@ -900,13 +917,13 @@ function searchEliteEightFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
-    var filterName = $formFilters.querySelector('.valueName')?.value;
-    if(filterName != null && filterName !== '')
-      filters.push({ name: 'fq', value: 'name:' + filterName });
-
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
       filters.push({ name: 'fq', value: 'bracketId:' + filterBracketId });
+
+    var filterName = $formFilters.querySelector('.valueName')?.value;
+    if(filterName != null && filterName !== '')
+      filters.push({ name: 'fq', value: 'name:' + filterName });
   }
   return filters;
 }
@@ -1313,6 +1330,28 @@ function suggestEliteEightWestGame1Loser(filters, $list, bracketId = null, westG
   }
 }
 
+function suggestEliteEightObjectSuggest($formFilters, $list, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-basketball-hoop"></i>');
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $li = document.createElement('li');
+        var $a = document.createElement('a').setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  searchEliteEightVals($formFilters, target, success, error);
+}
+
 function suggestEliteEightEastGame1Winner(filters, $list, bracketId = null, eastGame1Winner = null, relate=true, target) {
   success = function( data, textStatus, jQxhr ) {
     if($list) {
@@ -1375,28 +1414,6 @@ function suggestEliteEightEastGame1Winner(filters, $list, bracketId = null, east
   if (typeof searchTeamVals === 'function') {
     searchTeamVals(filters, target, success, error);
   }
-}
-
-function suggestEliteEightObjectSuggest($formFilters, $list, target) {
-  success = function( data, textStatus, jQxhr ) {
-    if($list) {
-      $list.innerHTML = '';
-      data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-basketball-hoop"></i>');
-        var $span = document.createElement('span');
-        $span.setAttribute('class', '');
-        $span.innerText = o['objectTitle'];
-        var $li = document.createElement('li');
-        var $a = document.createElement('a').setAttribute('href', o['editPage']);
-        $a.append($i);
-        $a.append($span);
-        $li.append($a);
-        $list.append($li);
-      });
-    }
-  };
-  error = function( jqXhr, target2 ) {};
-  searchEliteEightVals($formFilters, target, success, error);
 }
 
 function suggestEliteEightEastGame1Loser(filters, $list, bracketId = null, eastGame1Loser = null, relate=true, target) {
@@ -1756,6 +1773,18 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value === 'true';
+  var setFreeThrowsMade = removeFreeThrowsMade ? null : $formValues.querySelector('.setFreeThrowsMade')?.value;
+  var addFreeThrowsMade = $formValues.querySelector('.addFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade || setFreeThrowsMade != null && setFreeThrowsMade !== '')
+    vals['setFreeThrowsMade'] = setFreeThrowsMade;
+  if(addFreeThrowsMade != null && addFreeThrowsMade !== '')
+    vals['addFreeThrowsMade'] = addFreeThrowsMade;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade != null && removeFreeThrowsMade !== '')
+    vals['removeFreeThrowsMade'] = removeFreeThrowsMade;
+
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value === 'true';
   var setCorrectGuesses = removeCorrectGuesses ? null : $formValues.querySelector('.setCorrectGuesses')?.value;
@@ -1948,18 +1977,6 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   if(removeDownload != null && removeDownload !== '')
     vals['removeDownload'] = removeDownload;
 
-  var valueName = $formValues.querySelector('.valueName')?.value;
-  var removeName = $formValues.querySelector('.removeName')?.value === 'true';
-  var setName = removeName ? null : $formValues.querySelector('.setName')?.value;
-  var addName = $formValues.querySelector('.addName')?.value;
-  if(removeName || setName != null && setName !== '')
-    vals['setName'] = setName;
-  if(addName != null && addName !== '')
-    vals['addName'] = addName;
-  var removeName = $formValues.querySelector('.removeName')?.value;
-  if(removeName != null && removeName !== '')
-    vals['removeName'] = removeName;
-
   var valueBracketId = $formValues.querySelector('.valueBracketId')?.value;
   var removeBracketId = $formValues.querySelector('.removeBracketId')?.value === 'true';
   var setBracketId = removeBracketId ? null : $formValues.querySelector('.setBracketId')?.value;
@@ -1971,6 +1988,18 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   var removeBracketId = $formValues.querySelector('.removeBracketId')?.value;
   if(removeBracketId != null && removeBracketId !== '')
     vals['removeBracketId'] = removeBracketId;
+
+  var valueName = $formValues.querySelector('.valueName')?.value;
+  var removeName = $formValues.querySelector('.removeName')?.value === 'true';
+  var setName = removeName ? null : $formValues.querySelector('.setName')?.value;
+  var addName = $formValues.querySelector('.addName')?.value;
+  if(removeName || setName != null && setName !== '')
+    vals['setName'] = setName;
+  if(addName != null && addName !== '')
+    vals['addName'] = addName;
+  var removeName = $formValues.querySelector('.removeName')?.value;
+  if(removeName != null && removeName !== '')
+    vals['removeName'] = removeName;
 
   patchEliteEightVals(bracketId == null ? deparam(window.location.search ? window.location.search.substring(1) : window.location.search) : [{name:'fq', value:'bracketId:' + bracketId}], vals, target, success, error);
 }
@@ -2013,6 +2042,10 @@ function patchEliteEightFilters($formFilters) {
     var filterYear = $formFilters.querySelector('.valueYear')?.value;
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
+
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
 
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
@@ -2130,13 +2163,13 @@ function patchEliteEightFilters($formFilters) {
     if(filterDownload != null && filterDownload !== '')
       filters.push({ name: 'fq', value: 'download:' + filterDownload });
 
-    var filterName = $formFilters.querySelector('.valueName')?.value;
-    if(filterName != null && filterName !== '')
-      filters.push({ name: 'fq', value: 'name:' + filterName });
-
     var filterBracketId = $formFilters.querySelector('.valueBracketId')?.value;
     if(filterBracketId != null && filterBracketId !== '')
       filters.push({ name: 'fq', value: 'bracketId:' + filterBracketId });
+
+    var filterName = $formFilters.querySelector('.valueName')?.value;
+    if(filterName != null && filterName !== '')
+      filters.push({ name: 'fq', value: 'name:' + filterName });
   }
   return filters;
 }
@@ -2228,6 +2261,10 @@ async function postEliteEight($formValues, target, success, error) {
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
 
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  if(valueFreeThrowsMade != null && valueFreeThrowsMade !== '')
+    vals['freeThrowsMade'] = valueFreeThrowsMade;
+
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   if(valueCorrectGuesses != null && valueCorrectGuesses !== '')
     vals['correctGuesses'] = valueCorrectGuesses;
@@ -2316,13 +2353,13 @@ async function postEliteEight($formValues, target, success, error) {
   if(valueDownload != null && valueDownload !== '')
     vals['download'] = valueDownload;
 
-  var valueName = $formValues.querySelector('.valueName')?.value;
-  if(valueName != null && valueName !== '')
-    vals['name'] = valueName;
-
   var valueBracketId = $formValues.querySelector('.valueBracketId')?.value;
   if(valueBracketId != null && valueBracketId !== '')
     vals['bracketId'] = valueBracketId;
+
+  var valueName = $formValues.querySelector('.valueName')?.value;
+  if(valueName != null && valueName !== '')
+    vals['name'] = valueName;
 
   fetch(
     '/en-us/api/elite-eight'

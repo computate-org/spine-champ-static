@@ -85,6 +85,7 @@ async function websocketChampionshipInner(apiRequest) {
         var inputFinalFour = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputFreeThrowsMade = null;
         var inputCorrectGuesses = null;
         var inputIncorrectGuesses = null;
         var inputGame1WinnerGuess = null;
@@ -123,6 +124,8 @@ async function websocketChampionshipInner(apiRequest) {
           inputGuesserId = $response.querySelector('.Championship_Page_guesserId');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.Championship_Page_year');
+        if(vars.includes('freeThrowsMade'))
+          inputFreeThrowsMade = $response.querySelector('.Championship_Page_freeThrowsMade');
         if(vars.includes('correctGuesses'))
           inputCorrectGuesses = $response.querySelector('.Championship_Page_correctGuesses');
         if(vars.includes('incorrectGuesses'))
@@ -243,6 +246,16 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_year'));
+        }
+
+        if(inputFreeThrowsMade) {
+          document.querySelectorAll('.Championship_Page_freeThrowsMade').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputFreeThrowsMade.getAttribute('value');
+            else
+              item.textContent = inputFreeThrowsMade.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_freeThrowsMade'));
         }
 
         if(inputCorrectGuesses) {
@@ -653,6 +666,10 @@ function searchChampionshipFilters($formFilters) {
     var filterYear = $formFilters.querySelector('.valueYear')?.value;
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
+
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
 
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
@@ -1138,6 +1155,18 @@ async function patchChampionship($formFilters, $formValues, target, bracketId, s
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value === 'true';
+  var setFreeThrowsMade = removeFreeThrowsMade ? null : $formValues.querySelector('.setFreeThrowsMade')?.value;
+  var addFreeThrowsMade = $formValues.querySelector('.addFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade || setFreeThrowsMade != null && setFreeThrowsMade !== '')
+    vals['setFreeThrowsMade'] = setFreeThrowsMade;
+  if(addFreeThrowsMade != null && addFreeThrowsMade !== '')
+    vals['addFreeThrowsMade'] = addFreeThrowsMade;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade != null && removeFreeThrowsMade !== '')
+    vals['removeFreeThrowsMade'] = removeFreeThrowsMade;
+
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value === 'true';
   var setCorrectGuesses = removeCorrectGuesses ? null : $formValues.querySelector('.setCorrectGuesses')?.value;
@@ -1332,6 +1361,10 @@ function patchChampionshipFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
+
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
       filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
@@ -1505,6 +1538,10 @@ async function postChampionship($formValues, target, success, error) {
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
+
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  if(valueFreeThrowsMade != null && valueFreeThrowsMade !== '')
+    vals['freeThrowsMade'] = valueFreeThrowsMade;
 
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   if(valueCorrectGuesses != null && valueCorrectGuesses !== '')

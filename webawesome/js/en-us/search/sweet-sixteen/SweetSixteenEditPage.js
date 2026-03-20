@@ -82,6 +82,27 @@ Promise.all([
             const valid = form.reportValidity();
           });
 
+          // PATCH freeThrowsMade
+          document.querySelector('#SweetSixteen_Page_freeThrowsMade')?.addEventListener('change', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMade');
+            const valid = form.checkValidity();
+            if(valid) {
+              patchSweetSixteenVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
+                  , 'setFreeThrowsMade', event.currentTarget.value
+                  , event.currentTarget
+                , function(response, target) { addGlow(target); }
+                  , function(response, target) { addError(target); }
+                  );
+            }
+          });
+          document.querySelector('#SweetSixteen_Page_freeThrowsMade')?.addEventListener('focus', (event) => {
+            removeGlow(event.currentTarget);
+          });
+          document.querySelector('#SweetSixteen_Page_freeThrowsMade')?.addEventListener('blur', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMade');
+            const valid = form.reportValidity();
+          });
+
           // PATCH sessionId
           document.querySelector('#SweetSixteen_Page_sessionId')?.addEventListener('change', (event) => {
             const form = document.querySelector('#PageForm_sessionId');

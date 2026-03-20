@@ -77,6 +77,17 @@ Promise.all([
     facetStatsChange('SweetSixteen', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortSweetSixteen_freeThrowsMade')?.addEventListener('change', (event) => {
+    sort('SweetSixteen', 'freeThrowsMade', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsSweetSixteen_freeThrowsMade')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('SweetSixteen', 'freeThrowsMade', true);
+  });
+  document.querySelector('#pageStatsSweetSixteen_freeThrowsMade')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('SweetSixteen', 'freeThrowsMade', false);
+  });
+
   document.querySelector('#pageSelectSortSweetSixteen_correctGuesses')?.addEventListener('change', (event) => {
     sort('SweetSixteen', 'correctGuesses', event.currentTarget.value);
   });

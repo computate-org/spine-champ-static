@@ -82,6 +82,27 @@ Promise.all([
             const valid = form.reportValidity();
           });
 
+          // PATCH freeThrowsMade
+          document.querySelector('#EliteEight_Page_freeThrowsMade')?.addEventListener('change', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMade');
+            const valid = form.checkValidity();
+            if(valid) {
+              patchEliteEightVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
+                  , 'setFreeThrowsMade', event.currentTarget.value
+                  , event.currentTarget
+                , function(response, target) { addGlow(target); }
+                  , function(response, target) { addError(target); }
+                  );
+            }
+          });
+          document.querySelector('#EliteEight_Page_freeThrowsMade')?.addEventListener('focus', (event) => {
+            removeGlow(event.currentTarget);
+          });
+          document.querySelector('#EliteEight_Page_freeThrowsMade')?.addEventListener('blur', (event) => {
+            const form = document.querySelector('#PageForm_freeThrowsMade');
+            const valid = form.reportValidity();
+          });
+
           // PATCH sessionId
           document.querySelector('#EliteEight_Page_sessionId')?.addEventListener('change', (event) => {
             const form = document.querySelector('#PageForm_sessionId');
@@ -229,27 +250,6 @@ Promise.all([
             const valid = form.reportValidity();
           });
 
-          // PATCH name
-          document.querySelector('#EliteEight_Page_name')?.addEventListener('change', (event) => {
-            const form = document.querySelector('#PageForm_name');
-            const valid = form.checkValidity();
-            if(valid) {
-              patchEliteEightVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
-                  , 'setName', event.currentTarget.value
-                  , event.currentTarget
-                , function(response, target) { addGlow(target); }
-                  , function(response, target) { addError(target); }
-                  );
-            }
-          });
-          document.querySelector('#EliteEight_Page_name')?.addEventListener('focus', (event) => {
-            removeGlow(event.currentTarget);
-          });
-          document.querySelector('#EliteEight_Page_name')?.addEventListener('blur', (event) => {
-            const form = document.querySelector('#PageForm_name');
-            const valid = form.reportValidity();
-          });
-
           // PATCH bracketId
           document.querySelector('#EliteEight_Page_bracketId')?.addEventListener('change', (event) => {
             const form = document.querySelector('#PageForm_bracketId');
@@ -268,6 +268,27 @@ Promise.all([
           });
           document.querySelector('#EliteEight_Page_bracketId')?.addEventListener('blur', (event) => {
             const form = document.querySelector('#PageForm_bracketId');
+            const valid = form.reportValidity();
+          });
+
+          // PATCH name
+          document.querySelector('#EliteEight_Page_name')?.addEventListener('change', (event) => {
+            const form = document.querySelector('#PageForm_name');
+            const valid = form.checkValidity();
+            if(valid) {
+              patchEliteEightVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'bracketId:' + event.currentTarget.getAttribute('data-bracketId') }]
+                  , 'setName', event.currentTarget.value
+                  , event.currentTarget
+                , function(response, target) { addGlow(target); }
+                  , function(response, target) { addError(target); }
+                  );
+            }
+          });
+          document.querySelector('#EliteEight_Page_name')?.addEventListener('focus', (event) => {
+            removeGlow(event.currentTarget);
+          });
+          document.querySelector('#EliteEight_Page_name')?.addEventListener('blur', (event) => {
+            const form = document.querySelector('#PageForm_name');
             const valid = form.reportValidity();
           });
 });

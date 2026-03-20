@@ -304,6 +304,43 @@
 {%- macro htmYearEliteEightPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
                             {{ inputYearEliteEightPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
 {%- endmacro %}
+{%- macro inputFreeThrowsMadeEliteEightPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_freeThrowsMade">
+  {%- endif %}
+                  <wa-input
+                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      placeholder="[Integer] free throws made"
+                      label="free throws made"
+                      type="number"
+                      hint="The number of free throws the guesser made. "
+                      id="EliteEight_{{classApiMethodMethod}}_freeThrowsMade"
+  {%- if "Page" == classApiMethodMethod %}
+                      data-bracketId={{ result.bracketId | tojson }}
+                      class="label-on-left EliteEight_{{classApiMethodMethod}}_freeThrowsMade setFreeThrowsMade classEliteEight inputEliteEight{{ result.bracketId }}FreeThrowsMade "
+                      name="setFreeThrowsMade"
+  {%- else %}
+    {%- if "PATCH" == classApiMethodMethod %}
+                      class="label-on-left EliteEight_{{classApiMethodMethod}}_freeThrowsMade setFreeThrowsMade classEliteEight inputEliteEight{{ result.bracketId }}FreeThrowsMade "
+                      name="setFreeThrowsMade"
+    {%- else %}
+                      class="label-on-left EliteEight_{{classApiMethodMethod}}_freeThrowsMade valueFreeThrowsMade classEliteEight inputEliteEight{{ result.bracketId }}FreeThrowsMade "
+                      name="freeThrowsMade"
+    {%- endif %}
+  {%- endif %}
+  {% if "Page" == classApiMethodMethod -%}
+                      value="{{result.freeThrowsMade | e }}"
+  {% endif -%}
+                      ></wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmFreeThrowsMadeEliteEightPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputFreeThrowsMadeEliteEightPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
 {%- macro inputCorrectGuessesEliteEightPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_correctGuesses">
@@ -1080,6 +1117,16 @@
                 {%- endif %}
 
                 {% if "PATCH" in scopes -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
                 {{ htmCorrectGuessesEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
@@ -1323,6 +1370,16 @@
                 {{ htmYearEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 
@@ -1651,6 +1708,16 @@
                 {{ htmYearEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 

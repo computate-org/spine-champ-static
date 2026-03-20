@@ -84,6 +84,7 @@ async function websocketSweetSixteenInner(apiRequest) {
         var inputArchived = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputFreeThrowsMade = null;
         var inputCorrectGuessesChart = null;
         var inputCorrectGuesses = null;
         var inputIncorrectGuesses = null;
@@ -142,6 +143,8 @@ async function websocketSweetSixteenInner(apiRequest) {
           inputGuesserId = $response.querySelector('.SweetSixteen_Page_guesserId');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.SweetSixteen_Page_year');
+        if(vars.includes('freeThrowsMade'))
+          inputFreeThrowsMade = $response.querySelector('.SweetSixteen_Page_freeThrowsMade');
         if(vars.includes('correctGuessesChart'))
           inputCorrectGuessesChart = $response.querySelector('.SweetSixteen_Page_correctGuessesChart');
         if(vars.includes('correctGuesses'))
@@ -296,6 +299,16 @@ async function websocketSweetSixteenInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.SweetSixteen_Page_year'));
+        }
+
+        if(inputFreeThrowsMade) {
+          document.querySelectorAll('.SweetSixteen_Page_freeThrowsMade').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputFreeThrowsMade.getAttribute('value');
+            else
+              item.textContent = inputFreeThrowsMade.textContent;
+          });
+          addGlow(document.querySelector('.SweetSixteen_Page_freeThrowsMade'));
         }
 
         if(inputCorrectGuessesChart) {
@@ -926,6 +939,10 @@ function searchSweetSixteenFilters($formFilters) {
     var filterYear = $formFilters.querySelector('.valueYear')?.value;
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
+
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
 
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
@@ -1568,6 +1585,28 @@ function suggestSweetSixteenWestGame1Loser(filters, $list, bracketId = null, wes
   }
 }
 
+function suggestSweetSixteenObjectSuggest($formFilters, $list, target) {
+  success = function( data, textStatus, jQxhr ) {
+    if($list) {
+      $list.innerHTML = '';
+      data['list'].forEach((o, i) => {
+        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>');
+        var $span = document.createElement('span');
+        $span.setAttribute('class', '');
+        $span.innerText = o['objectTitle'];
+        var $li = document.createElement('li');
+        var $a = document.createElement('a').setAttribute('href', o['editPage']);
+        $a.append($i);
+        $a.append($span);
+        $li.append($a);
+        $list.append($li);
+      });
+    }
+  };
+  error = function( jqXhr, target2 ) {};
+  searchSweetSixteenVals($formFilters, target, success, error);
+}
+
 function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, westGame2Winner = null, relate=true, target) {
   success = function( data, textStatus, jQxhr ) {
     if($list) {
@@ -1630,28 +1669,6 @@ function suggestSweetSixteenWestGame2Winner(filters, $list, bracketId = null, we
   if (typeof searchTeamVals === 'function') {
     searchTeamVals(filters, target, success, error);
   }
-}
-
-function suggestSweetSixteenObjectSuggest($formFilters, $list, target) {
-  success = function( data, textStatus, jQxhr ) {
-    if($list) {
-      $list.innerHTML = '';
-      data['list'].forEach((o, i) => {
-        var $i = document.querySelector('<i class="{{ FONTAWESOME_STYLE }} fa-basketball"></i>');
-        var $span = document.createElement('span');
-        $span.setAttribute('class', '');
-        $span.innerText = o['objectTitle'];
-        var $li = document.createElement('li');
-        var $a = document.createElement('a').setAttribute('href', o['editPage']);
-        $a.append($i);
-        $a.append($span);
-        $li.append($a);
-        $list.append($li);
-      });
-    }
-  };
-  error = function( jqXhr, target2 ) {};
-  searchSweetSixteenVals($formFilters, target, success, error);
 }
 
 function suggestSweetSixteenWestGame2Loser(filters, $list, bracketId = null, westGame2Loser = null, relate=true, target) {
@@ -2391,6 +2408,18 @@ async function patchSweetSixteen($formFilters, $formValues, target, bracketId, s
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value === 'true';
+  var setFreeThrowsMade = removeFreeThrowsMade ? null : $formValues.querySelector('.setFreeThrowsMade')?.value;
+  var addFreeThrowsMade = $formValues.querySelector('.addFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade || setFreeThrowsMade != null && setFreeThrowsMade !== '')
+    vals['setFreeThrowsMade'] = setFreeThrowsMade;
+  if(addFreeThrowsMade != null && addFreeThrowsMade !== '')
+    vals['addFreeThrowsMade'] = addFreeThrowsMade;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade != null && removeFreeThrowsMade !== '')
+    vals['removeFreeThrowsMade'] = removeFreeThrowsMade;
+
   var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
   var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value === 'true';
   var setCorrectGuessesChart = removeCorrectGuessesChart ? null : $formValues.querySelector('.setCorrectGuessesChart')?.value;
@@ -2737,6 +2766,10 @@ function patchSweetSixteenFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
+
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
       filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
@@ -2994,6 +3027,10 @@ async function postSweetSixteen($formValues, target, success, error) {
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
+
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  if(valueFreeThrowsMade != null && valueFreeThrowsMade !== '')
+    vals['freeThrowsMade'] = valueFreeThrowsMade;
 
   var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
   if(valueCorrectGuessesChart != null && valueCorrectGuessesChart !== '')

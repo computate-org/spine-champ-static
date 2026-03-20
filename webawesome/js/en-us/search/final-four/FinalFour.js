@@ -85,6 +85,7 @@ async function websocketFinalFourInner(apiRequest) {
         var inputEliteEight = null;
         var inputGuesserId = null;
         var inputYear = null;
+        var inputFreeThrowsMade = null;
         var inputCorrectGuesses = null;
         var inputIncorrectGuesses = null;
         var inputGame1WinnerGuess = null;
@@ -108,10 +109,10 @@ async function websocketFinalFourInner(apiRequest) {
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputActualEliteEight = null;
-        var inputActualFinalFour = null;
         var inputBracketId = null;
         var inputName = null;
+        var inputActualEliteEight = null;
+        var inputActualFinalFour = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.FinalFour_Page_pk');
@@ -127,6 +128,8 @@ async function websocketFinalFourInner(apiRequest) {
           inputGuesserId = $response.querySelector('.FinalFour_Page_guesserId');
         if(vars.includes('year'))
           inputYear = $response.querySelector('.FinalFour_Page_year');
+        if(vars.includes('freeThrowsMade'))
+          inputFreeThrowsMade = $response.querySelector('.FinalFour_Page_freeThrowsMade');
         if(vars.includes('correctGuesses'))
           inputCorrectGuesses = $response.querySelector('.FinalFour_Page_correctGuesses');
         if(vars.includes('incorrectGuesses'))
@@ -173,14 +176,14 @@ async function websocketFinalFourInner(apiRequest) {
           inputUserPage = $response.querySelector('.FinalFour_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.FinalFour_Page_download');
-        if(vars.includes('actualEliteEight'))
-          inputActualEliteEight = $response.querySelector('.FinalFour_Page_actualEliteEight');
-        if(vars.includes('actualFinalFour'))
-          inputActualFinalFour = $response.querySelector('.FinalFour_Page_actualFinalFour');
         if(vars.includes('bracketId'))
           inputBracketId = $response.querySelector('.FinalFour_Page_bracketId');
         if(vars.includes('name'))
           inputName = $response.querySelector('.FinalFour_Page_name');
+        if(vars.includes('actualEliteEight'))
+          inputActualEliteEight = $response.querySelector('.FinalFour_Page_actualEliteEight');
+        if(vars.includes('actualFinalFour'))
+          inputActualFinalFour = $response.querySelector('.FinalFour_Page_actualFinalFour');
 
         jsWebsocketFinalFour(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -255,6 +258,16 @@ async function websocketFinalFourInner(apiRequest) {
               item.textContent = inputYear.textContent;
           });
           addGlow(document.querySelector('.FinalFour_Page_year'));
+        }
+
+        if(inputFreeThrowsMade) {
+          document.querySelectorAll('.FinalFour_Page_freeThrowsMade').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputFreeThrowsMade.getAttribute('value');
+            else
+              item.textContent = inputFreeThrowsMade.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_freeThrowsMade'));
         }
 
         if(inputCorrectGuesses) {
@@ -487,26 +500,6 @@ async function websocketFinalFourInner(apiRequest) {
           addGlow(document.querySelector('.FinalFour_Page_download'));
         }
 
-        if(inputActualEliteEight) {
-          document.querySelectorAll('.FinalFour_Page_actualEliteEight').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputActualEliteEight.getAttribute('value');
-            else
-              item.textContent = inputActualEliteEight.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_actualEliteEight'));
-        }
-
-        if(inputActualFinalFour) {
-          document.querySelectorAll('.FinalFour_Page_actualFinalFour').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputActualFinalFour.getAttribute('value');
-            else
-              item.textContent = inputActualFinalFour.textContent;
-          });
-          addGlow(document.querySelector('.FinalFour_Page_actualFinalFour'));
-        }
-
         if(inputBracketId) {
           document.querySelectorAll('.FinalFour_Page_bracketId').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -525,6 +518,26 @@ async function websocketFinalFourInner(apiRequest) {
               item.textContent = inputName.textContent;
           });
           addGlow(document.querySelector('.FinalFour_Page_name'));
+        }
+
+        if(inputActualEliteEight) {
+          document.querySelectorAll('.FinalFour_Page_actualEliteEight').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualEliteEight.getAttribute('value');
+            else
+              item.textContent = inputActualEliteEight.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_actualEliteEight'));
+        }
+
+        if(inputActualFinalFour) {
+          document.querySelectorAll('.FinalFour_Page_actualFinalFour').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputActualFinalFour.getAttribute('value');
+            else
+              item.textContent = inputActualFinalFour.textContent;
+          });
+          addGlow(document.querySelector('.FinalFour_Page_actualFinalFour'));
         }
 
           pageGraphFinalFour();
@@ -705,6 +718,10 @@ function searchFinalFourFilters($formFilters) {
     var filterYear = $formFilters.querySelector('.valueYear')?.value;
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
+
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
 
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
@@ -1398,6 +1415,18 @@ async function patchFinalFour($formFilters, $formValues, target, bracketId, succ
   if(removeYear != null && removeYear !== '')
     vals['removeYear'] = removeYear;
 
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value === 'true';
+  var setFreeThrowsMade = removeFreeThrowsMade ? null : $formValues.querySelector('.setFreeThrowsMade')?.value;
+  var addFreeThrowsMade = $formValues.querySelector('.addFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade || setFreeThrowsMade != null && setFreeThrowsMade !== '')
+    vals['setFreeThrowsMade'] = setFreeThrowsMade;
+  if(addFreeThrowsMade != null && addFreeThrowsMade !== '')
+    vals['addFreeThrowsMade'] = addFreeThrowsMade;
+  var removeFreeThrowsMade = $formValues.querySelector('.removeFreeThrowsMade')?.value;
+  if(removeFreeThrowsMade != null && removeFreeThrowsMade !== '')
+    vals['removeFreeThrowsMade'] = removeFreeThrowsMade;
+
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   var removeCorrectGuesses = $formValues.querySelector('.removeCorrectGuesses')?.value === 'true';
   var setCorrectGuesses = removeCorrectGuesses ? null : $formValues.querySelector('.setCorrectGuesses')?.value;
@@ -1616,6 +1645,10 @@ function patchFinalFourFilters($formFilters) {
     if(filterYear != null && filterYear !== '')
       filters.push({ name: 'fq', value: 'year:' + filterYear });
 
+    var filterFreeThrowsMade = $formFilters.querySelector('.valueFreeThrowsMade')?.value;
+    if(filterFreeThrowsMade != null && filterFreeThrowsMade !== '')
+      filters.push({ name: 'fq', value: 'freeThrowsMade:' + filterFreeThrowsMade });
+
     var filterCorrectGuesses = $formFilters.querySelector('.valueCorrectGuesses')?.value;
     if(filterCorrectGuesses != null && filterCorrectGuesses !== '')
       filters.push({ name: 'fq', value: 'correctGuesses:' + filterCorrectGuesses });
@@ -1805,6 +1838,10 @@ async function postFinalFour($formValues, target, success, error) {
   var valueYear = $formValues.querySelector('.valueYear')?.value;
   if(valueYear != null && valueYear !== '')
     vals['year'] = valueYear;
+
+  var valueFreeThrowsMade = $formValues.querySelector('.valueFreeThrowsMade')?.value;
+  if(valueFreeThrowsMade != null && valueFreeThrowsMade !== '')
+    vals['freeThrowsMade'] = valueFreeThrowsMade;
 
   var valueCorrectGuesses = $formValues.querySelector('.valueCorrectGuesses')?.value;
   if(valueCorrectGuesses != null && valueCorrectGuesses !== '')

@@ -88,6 +88,17 @@ Promise.all([
     facetStatsChange('Championship', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortChampionship_freeThrowsMade')?.addEventListener('change', (event) => {
+    sort('Championship', 'freeThrowsMade', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsChampionship_freeThrowsMade')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('Championship', 'freeThrowsMade', true);
+  });
+  document.querySelector('#pageStatsChampionship_freeThrowsMade')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('Championship', 'freeThrowsMade', false);
+  });
+
   document.querySelector('#pageSelectSortChampionship_correctGuesses')?.addEventListener('change', (event) => {
     sort('Championship', 'correctGuesses', event.currentTarget.value);
   });

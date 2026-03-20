@@ -88,6 +88,17 @@ Promise.all([
     facetStatsChange('EliteEight', 'year', false);
   });
 
+  document.querySelector('#pageSelectSortEliteEight_freeThrowsMade')?.addEventListener('change', (event) => {
+    sort('EliteEight', 'freeThrowsMade', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsEliteEight_freeThrowsMade')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('EliteEight', 'freeThrowsMade', true);
+  });
+  document.querySelector('#pageStatsEliteEight_freeThrowsMade')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('EliteEight', 'freeThrowsMade', false);
+  });
+
   document.querySelector('#pageSelectSortEliteEight_correctGuesses')?.addEventListener('change', (event) => {
     sort('EliteEight', 'correctGuesses', event.currentTarget.value);
   });
@@ -407,17 +418,6 @@ Promise.all([
     facetStatsChange('EliteEight', 'download', false);
   });
 
-  document.querySelector('#pageSelectSortEliteEight_name')?.addEventListener('change', (event) => {
-    sort('EliteEight', 'name', event.currentTarget.value);
-  });
-
-  document.querySelector('#pageStatsEliteEight_name')?.addEventListener('wa-show', (event) => {
-    facetStatsChange('EliteEight', 'name', true);
-  });
-  document.querySelector('#pageStatsEliteEight_name')?.addEventListener('wa-hide', (event) => {
-    facetStatsChange('EliteEight', 'name', false);
-  });
-
   document.querySelector('#pageSelectSortEliteEight_bracketId')?.addEventListener('change', (event) => {
     sort('EliteEight', 'bracketId', event.currentTarget.value);
   });
@@ -427,6 +427,17 @@ Promise.all([
   });
   document.querySelector('#pageStatsEliteEight_bracketId')?.addEventListener('wa-hide', (event) => {
     facetStatsChange('EliteEight', 'bracketId', false);
+  });
+
+  document.querySelector('#pageSelectSortEliteEight_name')?.addEventListener('change', (event) => {
+    sort('EliteEight', 'name', event.currentTarget.value);
+  });
+
+  document.querySelector('#pageStatsEliteEight_name')?.addEventListener('wa-show', (event) => {
+    facetStatsChange('EliteEight', 'name', true);
+  });
+  document.querySelector('#pageStatsEliteEight_name')?.addEventListener('wa-hide', (event) => {
+    facetStatsChange('EliteEight', 'name', false);
   });
           document.querySelector('#fqEliteEight_created')?.addEventListener('change', (event) => {
             fqChange('EliteEight', event.currentTarget, facetChangeEliteEightSuccess, facetChangeEliteEightError);

@@ -15,7 +15,7 @@
 
 {%- block htmStylePageLayout %}
       :root {
-        --site-results-number-of-columns: 2;
+        --site-results-number-of-columns: 3;
       }
 {{ super() }}
 {%- block htmStyleEliteEightPage %}
@@ -580,6 +580,19 @@
                         </wa-menu-item>
                       </wa-menu>
                     </wa-dropdown>
+                    <wa-dropdown id="htmDropdown-freeThrowsMade">
+                      <wa-button variant="brand" slot="trigger" caret>free throws made</wa-button>
+                      <wa-menu>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortEliteEight_freeThrowsMade'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-EliteEight').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="asc" id="htmDropdown-freeThrowsMade-asc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-a-z"></i>
+                          sort by free throws made ascending
+                        </wa-menu-item>
+                        <wa-menu-item onclick="var e = document.querySelector('#pageFacetSortEliteEight_freeThrowsMade'); e.value = this.getAttribute('data-order'); document.querySelectorAll('.pageSearchVal-pageSort-EliteEight').forEach(e => e.remove()); e.dispatchEvent(new Event('change', {})); " data-action="sort" data-order="desc" id="htmDropdown-freeThrowsMade-desc">
+                          <i slot="start" class="{{ FONTAWESOME_STYLE }} fa-arrow-down-z-a"></i>
+                          sort by free throws made descending
+                        </wa-menu-item>
+                      </wa-menu>
+                    </wa-dropdown>
                   </div>
                   {% for item in listEliteEight%}
                   <div>
@@ -590,6 +603,9 @@
                     <a href="{{ item.displayPage }}">
                       <span>{{ item.year | e }}</span>
                     </a>
+                    <a href="{{ item.displayPage }}">
+                      <span>{{ item.freeThrowsMade | e }}</span>
+                    </a>
                   </div>
                   {% endfor %}
               {% if getColumnGuesserId is defined %}
@@ -597,6 +613,10 @@
                 </div>
               {% endif %}
               {% if getColumnYear is defined %}
+                <div>
+                </div>
+              {% endif %}
+              {% if getColumnFreeThrowsMade is defined %}
                 <div>
                 </div>
               {% endif %}

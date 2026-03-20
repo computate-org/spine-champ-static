@@ -304,6 +304,43 @@
 {%- macro htmYearChampionshipPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
                             {{ inputYearChampionshipPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
 {%- endmacro %}
+{%- macro inputFreeThrowsMadeChampionshipPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_freeThrowsMade">
+  {%- endif %}
+                  <wa-input
+                      {% if authForWriteBool == true %}clearable{% else %}readonly{% endif %}
+                      placeholder="[Integer] free throws made"
+                      label="free throws made"
+                      type="number"
+                      hint="The number of free throws the guesser made. "
+                      id="Championship_{{classApiMethodMethod}}_freeThrowsMade"
+  {%- if "Page" == classApiMethodMethod %}
+                      data-bracketId={{ result.bracketId | tojson }}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_freeThrowsMade setFreeThrowsMade classChampionship inputChampionship{{ result.bracketId }}FreeThrowsMade "
+                      name="setFreeThrowsMade"
+  {%- else %}
+    {%- if "PATCH" == classApiMethodMethod %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_freeThrowsMade setFreeThrowsMade classChampionship inputChampionship{{ result.bracketId }}FreeThrowsMade "
+                      name="setFreeThrowsMade"
+    {%- else %}
+                      class="label-on-left Championship_{{classApiMethodMethod}}_freeThrowsMade valueFreeThrowsMade classChampionship inputChampionship{{ result.bracketId }}FreeThrowsMade "
+                      name="freeThrowsMade"
+    {%- endif %}
+  {%- endif %}
+  {% if "Page" == classApiMethodMethod -%}
+                      value="{{result.freeThrowsMade | e }}"
+  {% endif -%}
+                      ></wa-input>
+
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmFreeThrowsMadeChampionshipPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputFreeThrowsMadeChampionshipPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
 {%- macro inputCorrectGuessesChampionshipPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_correctGuesses">
@@ -582,6 +619,16 @@
                 {%- endif %}
 
                 {% if "PATCH" in scopes -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
                 {{ htmCorrectGuessesChampionshipPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {% if "GET" in scopes -%}
@@ -697,6 +744,16 @@
                 {{ htmYearChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 
@@ -897,6 +954,16 @@
                 {{ htmYearChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmYearChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmFreeThrowsMadeChampionshipPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
 
