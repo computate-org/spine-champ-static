@@ -83,6 +83,7 @@ async function websocketEliteEightInner(apiRequest) {
         var inputModified = null;
         var inputArchived = null;
         var inputSweetSixteen = null;
+        var inputCorrectGuessesChart = null;
         var inputGuesserId = null;
         var inputYear = null;
         var inputFreeThrowsMade = null;
@@ -130,6 +131,8 @@ async function websocketEliteEightInner(apiRequest) {
           inputArchived = $response.querySelector('.EliteEight_Page_archived');
         if(vars.includes('sweetSixteen'))
           inputSweetSixteen = $response.querySelector('.EliteEight_Page_sweetSixteen');
+        if(vars.includes('correctGuessesChart'))
+          inputCorrectGuessesChart = $response.querySelector('.EliteEight_Page_correctGuessesChart');
         if(vars.includes('guesserId'))
           inputGuesserId = $response.querySelector('.EliteEight_Page_guesserId');
         if(vars.includes('year'))
@@ -256,6 +259,20 @@ async function websocketEliteEightInner(apiRequest) {
               item.textContent = inputSweetSixteen.textContent;
           });
           addGlow(document.querySelector('.EliteEight_Page_sweetSixteen'));
+        }
+
+        if(inputCorrectGuessesChart) {
+          document.querySelectorAll('.EliteEight_Page_correctGuessesChart').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputCorrectGuessesChart.getAttribute('value');
+            else
+              item.textContent = inputCorrectGuessesChart.textContent;
+            for (let i = 0; i < item.chart.data.datasets.length; i++) {
+              item.chart.data.datasets[i].data = JSON.parse(inputCorrectGuessesChart.textContent).data.datasets[i].data;
+            }
+            item.chart.update();
+          });
+          addGlow(document.querySelector('.EliteEight_Page_correctGuessesChart'));
         }
 
         if(inputGuesserId) {
@@ -1758,6 +1775,18 @@ async function patchEliteEight($formFilters, $formValues, target, bracketId, suc
   if(valueSweetSixteen != null && valueSweetSixteen !== '')
     vals['setSweetSixteen'] = valueSweetSixteen;
 
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value === 'true';
+  var setCorrectGuessesChart = removeCorrectGuessesChart ? null : $formValues.querySelector('.setCorrectGuessesChart')?.value;
+  var addCorrectGuessesChart = $formValues.querySelector('.addCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart || setCorrectGuessesChart != null && setCorrectGuessesChart !== '')
+    vals['setCorrectGuessesChart'] = JSON.parse(setCorrectGuessesChart);
+  if(addCorrectGuessesChart != null && addCorrectGuessesChart !== '')
+    vals['addCorrectGuessesChart'] = addCorrectGuessesChart;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart != null && removeCorrectGuessesChart !== '')
+    vals['removeCorrectGuessesChart'] = removeCorrectGuessesChart;
+
   var valueGuesserId = (Array.from($formValues.querySelectorAll('.valueGuesserId')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueGuesserId != null && valueGuesserId !== '')
     vals['setGuesserId'] = valueGuesserId;
@@ -2253,6 +2282,10 @@ async function postEliteEight($formValues, target, success, error) {
   var valueSweetSixteen = (Array.from($formValues.querySelectorAll('.valueSweetSixteen')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueSweetSixteen != null && valueSweetSixteen !== '')
     vals['sweetSixteen'] = valueSweetSixteen;
+
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  if(valueCorrectGuessesChart != null && valueCorrectGuessesChart !== '')
+    vals['correctGuessesChart'] = JSON.parse(valueCorrectGuessesChart);
 
   var valueGuesserId = (Array.from($formValues.querySelectorAll('.valueGuesserId')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueGuesserId != null && valueGuesserId !== '')

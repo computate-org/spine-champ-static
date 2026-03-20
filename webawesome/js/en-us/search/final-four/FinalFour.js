@@ -83,6 +83,7 @@ async function websocketFinalFourInner(apiRequest) {
         var inputModified = null;
         var inputArchived = null;
         var inputEliteEight = null;
+        var inputCorrectGuessesChart = null;
         var inputGuesserId = null;
         var inputYear = null;
         var inputFreeThrowsMade = null;
@@ -124,6 +125,8 @@ async function websocketFinalFourInner(apiRequest) {
           inputArchived = $response.querySelector('.FinalFour_Page_archived');
         if(vars.includes('eliteEight'))
           inputEliteEight = $response.querySelector('.FinalFour_Page_eliteEight');
+        if(vars.includes('correctGuessesChart'))
+          inputCorrectGuessesChart = $response.querySelector('.FinalFour_Page_correctGuessesChart');
         if(vars.includes('guesserId'))
           inputGuesserId = $response.querySelector('.FinalFour_Page_guesserId');
         if(vars.includes('year'))
@@ -238,6 +241,20 @@ async function websocketFinalFourInner(apiRequest) {
               item.textContent = inputEliteEight.textContent;
           });
           addGlow(document.querySelector('.FinalFour_Page_eliteEight'));
+        }
+
+        if(inputCorrectGuessesChart) {
+          document.querySelectorAll('.FinalFour_Page_correctGuessesChart').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputCorrectGuessesChart.getAttribute('value');
+            else
+              item.textContent = inputCorrectGuessesChart.textContent;
+            for (let i = 0; i < item.chart.data.datasets.length; i++) {
+              item.chart.data.datasets[i].data = JSON.parse(inputCorrectGuessesChart.textContent).data.datasets[i].data;
+            }
+            item.chart.update();
+          });
+          addGlow(document.querySelector('.FinalFour_Page_correctGuessesChart'));
         }
 
         if(inputGuesserId) {
@@ -1400,6 +1417,18 @@ async function patchFinalFour($formFilters, $formValues, target, bracketId, succ
   if(valueEliteEight != null && valueEliteEight !== '')
     vals['setEliteEight'] = valueEliteEight;
 
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value === 'true';
+  var setCorrectGuessesChart = removeCorrectGuessesChart ? null : $formValues.querySelector('.setCorrectGuessesChart')?.value;
+  var addCorrectGuessesChart = $formValues.querySelector('.addCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart || setCorrectGuessesChart != null && setCorrectGuessesChart !== '')
+    vals['setCorrectGuessesChart'] = JSON.parse(setCorrectGuessesChart);
+  if(addCorrectGuessesChart != null && addCorrectGuessesChart !== '')
+    vals['addCorrectGuessesChart'] = addCorrectGuessesChart;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart != null && removeCorrectGuessesChart !== '')
+    vals['removeCorrectGuessesChart'] = removeCorrectGuessesChart;
+
   var valueGuesserId = (Array.from($formValues.querySelectorAll('.valueGuesserId')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueGuesserId != null && valueGuesserId !== '')
     vals['setGuesserId'] = valueGuesserId;
@@ -1831,6 +1860,10 @@ async function postFinalFour($formValues, target, success, error) {
   var valueEliteEight = (Array.from($formValues.querySelectorAll('.valueEliteEight')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueEliteEight != null && valueEliteEight !== '')
     vals['eliteEight'] = valueEliteEight;
+
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  if(valueCorrectGuessesChart != null && valueCorrectGuessesChart !== '')
+    vals['correctGuessesChart'] = JSON.parse(valueCorrectGuessesChart);
 
   var valueGuesserId = (Array.from($formValues.querySelectorAll('.valueGuesserId')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueGuesserId != null && valueGuesserId !== '')

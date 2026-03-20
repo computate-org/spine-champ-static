@@ -210,6 +210,37 @@
                 {%- endif %}
                 {%- endif %}
 {%- endmacro %}
+{%- macro inputCorrectGuessesChartEliteEightPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+                {% if 'Page' == classApiMethodMethod -%}
+                </div>
+                <div
+                      class="wa-stack"
+                    >
+                  {% endif -%}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_correctGuessesChart">
+  {%- endif %}
+                  {% if 'Page' == classApiMethodMethod -%}
+                  <wa-pie-chart
+                      class="EliteEight_{{classApiMethodMethod}}_correctGuessesChart inputEliteEight{{ result.bracketId }}CorrectGuessesChart "
+                      id="EliteEight_{{classApiMethodMethod}}_correctGuessesChart"
+                      style="height: 200px; "
+                      label="correct guesses"
+                      description="A chart of the number of correct guesses in this Championship bracket"
+                      >
+                    <script type="application/json">
+                      {{ toJsonObjectString(result.correctGuessesChart) }}
+                    </script>
+                  </wa-pie-chart>
+                  {% endif -%}
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmCorrectGuessesChartEliteEightPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputCorrectGuessesChartEliteEightPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
 {%- macro inputGuesserIdEliteEightPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_guesserId">
@@ -1088,6 +1119,16 @@
                 {{ htmSweetSixteenEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
               </div>
             </wa-details>
 
@@ -1343,6 +1384,16 @@
                 {{ htmSweetSixteenEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmSweetSixteenEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -1681,6 +1732,16 @@
                 {{ htmSweetSixteenEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmSweetSixteenEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartEliteEightPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>

@@ -210,6 +210,37 @@
                 {%- endif %}
                 {%- endif %}
 {%- endmacro %}
+{%- macro inputCorrectGuessesChartFinalFourPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
+                {% if 'Page' == classApiMethodMethod -%}
+                </div>
+                <div
+                      class="wa-stack"
+                    >
+                  {% endif -%}
+  {%- if 'Page' == classApiMethodMethod %}
+                <form class="subgrid-2col " id="PageForm_correctGuessesChart">
+  {%- endif %}
+                  {% if 'Page' == classApiMethodMethod -%}
+                  <wa-pie-chart
+                      class="FinalFour_{{classApiMethodMethod}}_correctGuessesChart inputFinalFour{{ result.bracketId }}CorrectGuessesChart "
+                      id="FinalFour_{{classApiMethodMethod}}_correctGuessesChart"
+                      style="height: 200px; "
+                      label="correct guesses"
+                      description="A chart of the number of correct guesses in this Championship bracket"
+                      >
+                    <script type="application/json">
+                      {{ toJsonObjectString(result.correctGuessesChart) }}
+                    </script>
+                  </wa-pie-chart>
+                  {% endif -%}
+  {%- if 'Page' == classApiMethodMethod %}
+                </form>
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro htmCorrectGuessesChartFinalFourPage(classApiMethodMethod, authForWriteBool=false, authForReadBool=false) %}
+                            {{ inputCorrectGuessesChartFinalFourPage(classApiMethodMethod=classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead) }}
+{%- endmacro %}
 {%- macro inputGuesserIdFinalFourPage(classApiMethodMethod, authForWrite=authForWrite, authForRead=authForRead, idPrefix='', idSuffix='') %}
   {%- if 'Page' == classApiMethodMethod %}
                 <form class="subgrid-2col " id="PageForm_guesserId">
@@ -794,6 +825,16 @@
                 {{ htmEliteEightFinalFourPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='PATCH', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='PATCH', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
               </div>
             </wa-details>
 
@@ -975,6 +1016,16 @@
                 {{ htmEliteEightFinalFourPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmEliteEightFinalFourPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "POST" in scopes -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='POST', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='POST', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>
@@ -1239,6 +1290,16 @@
                 {{ htmEliteEightFinalFourPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
                 {% else -%}
                 {{ htmEliteEightFinalFourPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
+                {%- endif %}
+                {%- endif %}
+
+                {% if "PATCH" in scopes -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='Page', authForWriteBool=true, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {% if "GET" in scopes -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=true, idSuffix=idSuffix) }}
+                {% else -%}
+                {{ htmCorrectGuessesChartFinalFourPage(classApiMethodMethod='Page', authForWriteBool=false, authForReadBool=false, idSuffix=idSuffix }}
                 {%- endif %}
                 {%- endif %}
               </div>

@@ -83,6 +83,7 @@ async function websocketChampionshipInner(apiRequest) {
         var inputModified = null;
         var inputArchived = null;
         var inputFinalFour = null;
+        var inputCorrectGuessesChart = null;
         var inputGuesserId = null;
         var inputYear = null;
         var inputFreeThrowsMade = null;
@@ -105,10 +106,10 @@ async function websocketChampionshipInner(apiRequest) {
         var inputEditPage = null;
         var inputUserPage = null;
         var inputDownload = null;
-        var inputBracketId = null;
-        var inputName = null;
         var inputActualFinalFour = null;
         var inputActualChampionship = null;
+        var inputBracketId = null;
+        var inputName = null;
 
         if(vars.includes('pk'))
           inputPk = $response.querySelector('.Championship_Page_pk');
@@ -120,6 +121,8 @@ async function websocketChampionshipInner(apiRequest) {
           inputArchived = $response.querySelector('.Championship_Page_archived');
         if(vars.includes('finalFour'))
           inputFinalFour = $response.querySelector('.Championship_Page_finalFour');
+        if(vars.includes('correctGuessesChart'))
+          inputCorrectGuessesChart = $response.querySelector('.Championship_Page_correctGuessesChart');
         if(vars.includes('guesserId'))
           inputGuesserId = $response.querySelector('.Championship_Page_guesserId');
         if(vars.includes('year'))
@@ -164,14 +167,14 @@ async function websocketChampionshipInner(apiRequest) {
           inputUserPage = $response.querySelector('.Championship_Page_userPage');
         if(vars.includes('download'))
           inputDownload = $response.querySelector('.Championship_Page_download');
-        if(vars.includes('bracketId'))
-          inputBracketId = $response.querySelector('.Championship_Page_bracketId');
-        if(vars.includes('name'))
-          inputName = $response.querySelector('.Championship_Page_name');
         if(vars.includes('actualFinalFour'))
           inputActualFinalFour = $response.querySelector('.Championship_Page_actualFinalFour');
         if(vars.includes('actualChampionship'))
           inputActualChampionship = $response.querySelector('.Championship_Page_actualChampionship');
+        if(vars.includes('bracketId'))
+          inputBracketId = $response.querySelector('.Championship_Page_bracketId');
+        if(vars.includes('name'))
+          inputName = $response.querySelector('.Championship_Page_name');
 
         jsWebsocketChampionship(bracketId, vars, $response);
         window.result = JSON.parse($response.querySelector('.pageForm .result')?.value);
@@ -226,6 +229,20 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputFinalFour.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_finalFour'));
+        }
+
+        if(inputCorrectGuessesChart) {
+          document.querySelectorAll('.Championship_Page_correctGuessesChart').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputCorrectGuessesChart.getAttribute('value');
+            else
+              item.textContent = inputCorrectGuessesChart.textContent;
+            for (let i = 0; i < item.chart.data.datasets.length; i++) {
+              item.chart.data.datasets[i].data = JSON.parse(inputCorrectGuessesChart.textContent).data.datasets[i].data;
+            }
+            item.chart.update();
+          });
+          addGlow(document.querySelector('.Championship_Page_correctGuessesChart'));
         }
 
         if(inputGuesserId) {
@@ -448,26 +465,6 @@ async function websocketChampionshipInner(apiRequest) {
           addGlow(document.querySelector('.Championship_Page_download'));
         }
 
-        if(inputBracketId) {
-          document.querySelectorAll('.Championship_Page_bracketId').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputBracketId.getAttribute('value');
-            else
-              item.textContent = inputBracketId.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_bracketId'));
-        }
-
-        if(inputName) {
-          document.querySelectorAll('.Championship_Page_name').forEach((item, index) => {
-            if(typeof item.value !== 'undefined')
-              item.value = inputName.getAttribute('value');
-            else
-              item.textContent = inputName.textContent;
-          });
-          addGlow(document.querySelector('.Championship_Page_name'));
-        }
-
         if(inputActualFinalFour) {
           document.querySelectorAll('.Championship_Page_actualFinalFour').forEach((item, index) => {
             if(typeof item.value !== 'undefined')
@@ -486,6 +483,26 @@ async function websocketChampionshipInner(apiRequest) {
               item.textContent = inputActualChampionship.textContent;
           });
           addGlow(document.querySelector('.Championship_Page_actualChampionship'));
+        }
+
+        if(inputBracketId) {
+          document.querySelectorAll('.Championship_Page_bracketId').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputBracketId.getAttribute('value');
+            else
+              item.textContent = inputBracketId.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_bracketId'));
+        }
+
+        if(inputName) {
+          document.querySelectorAll('.Championship_Page_name').forEach((item, index) => {
+            if(typeof item.value !== 'undefined')
+              item.value = inputName.getAttribute('value');
+            else
+              item.textContent = inputName.textContent;
+          });
+          addGlow(document.querySelector('.Championship_Page_name'));
         }
 
           pageGraphChampionship();
@@ -1140,6 +1157,18 @@ async function patchChampionship($formFilters, $formValues, target, bracketId, s
   if(valueFinalFour != null && valueFinalFour !== '')
     vals['setFinalFour'] = valueFinalFour;
 
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value === 'true';
+  var setCorrectGuessesChart = removeCorrectGuessesChart ? null : $formValues.querySelector('.setCorrectGuessesChart')?.value;
+  var addCorrectGuessesChart = $formValues.querySelector('.addCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart || setCorrectGuessesChart != null && setCorrectGuessesChart !== '')
+    vals['setCorrectGuessesChart'] = JSON.parse(setCorrectGuessesChart);
+  if(addCorrectGuessesChart != null && addCorrectGuessesChart !== '')
+    vals['addCorrectGuessesChart'] = addCorrectGuessesChart;
+  var removeCorrectGuessesChart = $formValues.querySelector('.removeCorrectGuessesChart')?.value;
+  if(removeCorrectGuessesChart != null && removeCorrectGuessesChart !== '')
+    vals['removeCorrectGuessesChart'] = removeCorrectGuessesChart;
+
   var valueGuesserId = (Array.from($formValues.querySelectorAll('.valueGuesserId')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueGuesserId != null && valueGuesserId !== '')
     vals['setGuesserId'] = valueGuesserId;
@@ -1531,6 +1560,10 @@ async function postChampionship($formValues, target, success, error) {
   var valueFinalFour = (Array.from($formValues.querySelectorAll('.valueFinalFour')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueFinalFour != null && valueFinalFour !== '')
     vals['finalFour'] = valueFinalFour;
+
+  var valueCorrectGuessesChart = $formValues.querySelector('.valueCorrectGuessesChart')?.value;
+  if(valueCorrectGuessesChart != null && valueCorrectGuessesChart !== '')
+    vals['correctGuessesChart'] = JSON.parse(valueCorrectGuessesChart);
 
   var valueGuesserId = (Array.from($formValues.querySelectorAll('.valueGuesserId')).filter(e => e.checked == true).find(() => true) ?? null)?.value;
   if(valueGuesserId != null && valueGuesserId !== '')
